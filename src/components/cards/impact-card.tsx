@@ -1,7 +1,8 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { getIcon, type IconName } from "@/lib/icons";
+import { AppIcon } from "@/components/shared/app-icon";
+import type { IconName } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -20,7 +21,6 @@ export function ImpactCard({
   className,
   variant = "default",
 }: ImpactCardProps) {
-  const Icon = getIcon(icon);
   const onPrimary = variant === "onPrimary";
 
   return (
@@ -46,11 +46,9 @@ export function ImpactCard({
                 : "h-12 w-12 rounded-lg bg-secondary/10"
             )}
           >
-            <Icon
-              className={cn(
-                "fill-none",
-                onPrimary ? "h-8 w-8 text-[#ffe600]" : "h-6 w-6 text-secondary"
-              )}
+            <AppIcon
+              name={icon}
+              className={onPrimary ? "h-8 w-8 text-[#ffe600]" : "h-6 w-6 text-secondary"}
             />
           </div>
           <h3

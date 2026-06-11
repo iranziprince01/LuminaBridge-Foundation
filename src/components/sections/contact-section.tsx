@@ -1,9 +1,12 @@
 import { FadeUp } from "@/components/motion/fade-up";
+import { pageContainerClass } from "@/components/shared/page-container";
+import { cn } from "@/lib/utils";
 import { sectionHeadingClass } from "@/components/shared/section-header";
 import { ContactForm } from "@/components/contact/contact-form";
 import { contactContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
-import { MapPin, Mail, Clock } from "lucide-react";
+import { ICON_STROKE } from "@/lib/icons";
+import { Clock, Mail, MapPin } from "lucide-react";
 
 interface ContactSectionProps {
   defaultInquiry?: string;
@@ -38,7 +41,7 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className={pageContainerClass}>
       <div className="grid gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <FadeUp>
@@ -55,7 +58,11 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
                 return (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="h-5 w-5 text-primary" />
+                      <Icon
+                        className="h-5 w-5 text-primary"
+                        strokeWidth={ICON_STROKE}
+                        absoluteStrokeWidth
+                      />
                     </div>
                     <div>
                       <p className="text-sm font-semibold">{item.title}</p>

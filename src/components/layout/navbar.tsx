@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { NavbarLogo } from "@/components/shared/logo";
+import { pageContainerClass } from "@/components/shared/page-container";
 import { navigation } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -44,7 +45,12 @@ export function Navbar() {
           : "bg-white/90 shadow-sm backdrop-blur-lg"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 pt-[max(0.5rem,env(safe-area-inset-top))] sm:px-6 lg:px-8">
+      <nav
+        className={cn(
+          pageContainerClass,
+          "flex items-center justify-between gap-3 py-2 pt-[max(0.5rem,env(safe-area-inset-top))]"
+        )}
+      >
         <NavbarLogo scrolled={!showHeroStyle} />
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -105,14 +111,14 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden border-t border-border bg-white lg:hidden"
           >
-            <div className="space-y-1 px-4 py-4">
+            <div className={cn(pageContainerClass, "space-y-1 py-4")}>
               {navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={handleNavClick}
                   className={cn(
-                    "block rounded-xl px-4 py-3 text-base font-bold transition-colors",
+                    "block rounded-xl py-3 text-base font-bold transition-colors",
                     isActive(item.href)
                       ? "bg-primary/10 text-primary"
                       : "text-foreground/70 hover:bg-muted"

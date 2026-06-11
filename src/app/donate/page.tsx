@@ -8,7 +8,7 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { donationContent } from "@/lib/data";
 import { pageTitles, siteConfig } from "@/lib/site-config";
-import { Heart, Sparkles } from "lucide-react";
+import { AppIcon } from "@/components/shared/app-icon";
 
 export const metadata: Metadata = {
   title: pageTitles.donate,
@@ -40,7 +40,10 @@ export default function DonatePage() {
               <StaggerItem key={area.title}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-secondary/10 sm:mb-5 sm:h-12 sm:w-12">
-                    <Sparkles className="h-5 w-5 text-secondary sm:h-6 sm:w-6" />
+                    <AppIcon
+                      name={area.icon}
+                      className="h-5 w-5 text-secondary sm:h-6 sm:w-6"
+                    />
                   </div>
                   <h3 className="text-lg font-bold text-foreground sm:text-xl md:text-2xl">
                     {area.title}
@@ -61,7 +64,7 @@ export default function DonatePage() {
             <div className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10">
               <div className="flex flex-col items-start gap-4 sm:flex-row">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 sm:h-12 sm:w-12">
-                  <Heart className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
+                  <AppIcon name="Gift" className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
                 </div>
                 <div>
                   <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { motionEase, motionEaseOut } from "@/components/motion/motion-presets";
+import { pageContainerClass } from "@/components/shared/page-container";
 import { cn } from "@/lib/utils";
 
 interface PageBannerProps {
@@ -50,7 +51,7 @@ export function PageBanner({
         animate={{ opacity: 0.2 }}
         transition={{ duration: 1, delay: 0.1, ease: motionEase }}
       />
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className={cn("relative", pageContainerClass)}>
         <motion.h1
           initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}

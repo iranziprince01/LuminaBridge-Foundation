@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { heroContent } from "@/lib/data";
+import { pageContainerClass } from "@/components/shared/page-container";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 export function HomeHero() {
@@ -20,14 +22,19 @@ export function HomeHero() {
       />
       <div className="gradient-hero-premium absolute inset-0" />
 
-      <div className="relative mx-auto grid min-h-[100dvh] w-full max-w-7xl grid-rows-[1fr_auto] gap-10 px-4 pb-24 pt-36 sm:gap-16 sm:px-6 sm:pb-32 sm:pt-44 md:pb-36 md:pt-48 lg:gap-20 lg:px-8 lg:pb-44">
+      <div
+        className={cn(
+          pageContainerClass,
+          "relative grid min-h-[100dvh] w-full grid-rows-[1fr_auto] gap-16 pb-24 pt-36 sm:gap-20 sm:pb-32 sm:pt-44 md:pb-36 md:pt-48 lg:gap-28 lg:pb-44"
+        )}
+      >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-end"
+          className="flex min-w-0 items-end"
         >
-          <h1 className="text-balance max-w-[18ch] text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-white sm:max-w-none sm:text-[clamp(2.75rem,8.5vw,6.25rem)] lg:text-[clamp(3rem,9vw,7rem)]">
+          <h1 className="w-full min-w-0 max-w-full text-balance break-words text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-white sm:max-w-none sm:text-[clamp(2.75rem,8.5vw,6.25rem)] lg:text-[clamp(3rem,9vw,7rem)]">
             <motion.span
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}

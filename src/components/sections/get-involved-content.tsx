@@ -9,7 +9,8 @@ import {
 import { contactContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, HandHeart, Users } from "lucide-react";
+import { AppIcon } from "@/components/shared/app-icon";
+import { ExternalLink } from "lucide-react";
 
 export function GetInvolvedContent() {
   return (
@@ -21,7 +22,7 @@ export function GetInvolvedContent() {
             className="scroll-mt-24 flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10 lg:p-12"
           >
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 sm:mb-6 sm:h-14 sm:w-14">
-              <Users className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
+              <AppIcon name="Building2" className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
             </div>
             <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
               Partnership &amp; Sponsorship Inquiries
@@ -47,7 +48,7 @@ export function GetInvolvedContent() {
             className="scroll-mt-24 flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10 lg:p-12"
           >
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 sm:mb-6 sm:h-14 sm:w-14">
-              <HandHeart className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
+              <AppIcon name="Handshake" className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
             </div>
             <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
               Volunteer With Us

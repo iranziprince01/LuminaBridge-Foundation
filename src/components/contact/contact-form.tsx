@@ -37,13 +37,13 @@ export function ContactForm({ defaultInquiry = "general" }: ContactFormProps) {
             <label htmlFor="firstName" className="mb-1.5 block text-sm font-medium">
               First Name
             </label>
-            <Input id="firstName" name="firstName" placeholder="Your first name" />
+            <Input id="firstName" name="firstName" disabled placeholder="Your first name" />
           </div>
           <div>
             <label htmlFor="lastName" className="mb-1.5 block text-sm font-medium">
               Last Name
             </label>
-            <Input id="lastName" name="lastName" placeholder="Your last name" />
+            <Input id="lastName" name="lastName" disabled placeholder="Your last name" />
           </div>
         </div>
 
@@ -55,6 +55,7 @@ export function ContactForm({ defaultInquiry = "general" }: ContactFormProps) {
             id="email"
             name="email"
             type="email"
+            disabled
             placeholder="you@example.com"
           />
         </div>
@@ -67,7 +68,8 @@ export function ContactForm({ defaultInquiry = "general" }: ContactFormProps) {
             id="inquiry"
             name="inquiry"
             defaultValue={defaultInquiry}
-            className="flex h-11 w-full rounded-xl border border-border bg-white px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            disabled
+            className="flex h-11 w-full rounded-xl border border-border bg-white px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
           >
             <option value="general">General Inquiry</option>
             <option value="donate">Donation Inquiry</option>
@@ -85,6 +87,7 @@ export function ContactForm({ defaultInquiry = "general" }: ContactFormProps) {
           <Textarea
             id="message"
             name="message"
+            disabled
             placeholder="Tell us how you'd like to get involved..."
             rows={5}
           />

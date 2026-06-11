@@ -53,6 +53,21 @@ export interface Stat {
   suffix?: string;
 }
 
+interface ValueItem {
+  title: string;
+  description: string;
+  icon: IconName;
+}
+
+interface GetInvolvedOption {
+  id: string;
+  title: string;
+  description: string;
+  cta: string;
+  href: string;
+  icon: IconName;
+}
+
 export const navigation = [
   { name: "Home", href: "/" },
   { name: "Team", href: "/team" },
@@ -112,34 +127,34 @@ export const coreValues = [
   {
     title: "Hope",
     description: "Light, creativity, and potential — we believe in what every person can become.",
-    icon: "Sparkles",
+    icon: "Sun",
   },
   {
     title: "Opportunity",
     description: "We create pathways for youth and communities to access mentorship and growth.",
-    icon: "Lightbulb",
+    icon: "GraduationCap",
   },
   {
     title: "Leadership",
     description: "We cultivate confident leaders who uplift others and strengthen communities.",
-    icon: "Award",
+    icon: "Medal",
   },
   {
     title: "Community",
     description: "We build bridges between people, cultures, organizations, and opportunities.",
-    icon: "Users",
+    icon: "UsersRound",
   },
   {
     title: "Creativity",
     description: "We celebrate arts, culture, and talent as tools for healing, expression, and growth.",
-    icon: "Palette",
+    icon: "Brush",
   },
   {
     title: "Belonging",
     description: "We foster inclusive spaces where newcomers, youth, and families feel seen and supported.",
-    icon: "Heart",
+    icon: "HeartHandshake",
   },
-];
+] satisfies ValueItem[];
 
 export const programs: Program[] = [
   {
@@ -149,7 +164,7 @@ export const programs: Program[] = [
       "Leadership workshops, mentorship, and personal development sessions that help young people build confidence, communication skills, and the ability to contribute positively to their communities.",
     benefits: ["Leadership workshops", "Mentorship opportunities", "Personal development sessions"],
     impact: "Developing confident young leaders across Alberta.",
-    icon: "Target",
+    icon: "Compass",
   },
   {
     id: "arts-talent",
@@ -158,7 +173,7 @@ export const programs: Program[] = [
       "Creative platforms for youth and emerging artists to develop skills, express identity, and showcase talent through music, theatre, visual arts, and performance.",
     benefits: ["Talent showcases", "Creative mentorship", "Performance opportunities"],
     impact: "Amplifying artistic voices and hidden talent in every community.",
-    icon: "Music",
+    icon: "Mic2",
   },
   {
     id: "mental-wellness",
@@ -167,7 +182,7 @@ export const programs: Program[] = [
       "Programming that promotes well-being, reduces stigma, and creates safe spaces for healing, conversation, and community support for youth and families.",
     benefits: ["Wellness workshops", "Community healing circles", "Support resource navigation"],
     impact: "Creating spaces where individuals and families can heal and thrive together.",
-    icon: "Heart",
+    icon: "ShieldCheck",
   },
   {
     id: "financial-entrepreneurship",
@@ -176,7 +191,7 @@ export const programs: Program[] = [
       "Practical education in budgeting, saving, business planning, and entrepreneurship — empowering participants with skills for long-term financial stability and economic opportunity.",
     benefits: ["Financial literacy workshops", "Entrepreneurship training", "Career and business mentorship"],
     impact: "Building economic confidence and pathways to self-sufficiency.",
-    icon: "Wallet",
+    icon: "Banknote",
   },
   {
     id: "cultural-inclusion",
@@ -185,7 +200,7 @@ export const programs: Program[] = [
       "Festivals, cultural showcases, and inclusion initiatives that honour diversity, celebrate heritage, and foster cross-cultural understanding across Alberta.",
     benefits: ["Cultural festivals", "Heritage celebrations", "Inclusion dialogues"],
     impact: "Celebrating Alberta's multicultural communities and shared humanity.",
-    icon: "Globe",
+    icon: "Globe2",
   },
   {
     id: "community-engagement",
@@ -194,7 +209,7 @@ export const programs: Program[] = [
       "Grassroots initiatives and volunteer pathways that connect residents, organizations, and institutions around shared goals, collective action, and meaningful service.",
     benefits: ["Community forums", "Volunteer programs", "Neighbourhood partnerships"],
     impact: "Mobilizing communities as agents of positive change.",
-    icon: "HandHeart",
+    icon: "Handshake",
   },
   {
     id: "creative-industry",
@@ -203,7 +218,7 @@ export const programs: Program[] = [
       "Support for artists and creatives entering professional industries — including branding, networking, career development, and access to platforms that recognize their work.",
     benefits: ["Industry mentorship", "Professional branding", "Career development support"],
     impact: "Helping creatives turn talent into sustainable careers.",
-    icon: "Sparkles",
+    icon: "Briefcase",
   },
   {
     id: "refugee-support",
@@ -212,7 +227,7 @@ export const programs: Program[] = [
       "Belonging programs, settlement navigation, and community support for newcomers, minorities, and refugee communities building roots in Alberta.",
     benefits: ["Settlement navigation", "Belonging programs", "Community integration support"],
     impact: "Helping newcomers feel seen, respected, and supported.",
-    icon: "Users",
+    icon: "Landmark",
   },
   {
     id: "events-festivals",
@@ -221,7 +236,7 @@ export const programs: Program[] = [
       "Signature public gatherings — from workshops and conferences to festivals — that bring communities together for learning, celebration, and lasting connection.",
     benefits: ["Public workshops", "Signature festivals", "Conferences and community gatherings"],
     impact: "Creating memorable experiences that inspire ongoing engagement.",
-    icon: "Calendar",
+    icon: "CalendarDays",
   },
 ];
 
@@ -487,34 +502,34 @@ export const impactOutcomes = [
   {
     title: "Youth Empowerment",
     description: "Young people discover confidence, leadership skills, and pathways to reach their full potential.",
-    icon: "Target",
+    icon: "Compass",
   },
   {
     title: "Community Connection",
     description: "Families and individuals build meaningful relationships and stronger support networks.",
-    icon: "Users",
+    icon: "UsersRound",
   },
   {
     title: "Artistic Recognition",
     description: "Emerging artists access platforms where their talents are celebrated and professionally developed.",
-    icon: "Palette",
+    icon: "Theater",
   },
   {
     title: "Cultural Belonging",
     description: "Newcomers and diverse communities feel welcomed, respected, and celebrated.",
-    icon: "Globe",
+    icon: "Globe2",
   },
   {
     title: "Well-Being & Healing",
     description: "Safe spaces promote mental wellness, personal growth, and community healing.",
-    icon: "Heart",
+    icon: "ShieldCheck",
   },
   {
     title: "Economic Opportunity",
     description: "Financial literacy and entrepreneurship programming builds long-term stability and confidence.",
-    icon: "TrendingUp",
+    icon: "ChartLine",
   },
-];
+] satisfies ValueItem[];
 
 export const futureReach = [
   { metric: "Province-wide", label: "Programs delivered across Alberta" },
@@ -531,7 +546,7 @@ export const getInvolvedOptions = [
       "Passionate about making a difference? We are always looking for dedicated volunteers to support our events, youth programs, community initiatives, workshops, and festivals throughout Alberta.",
     cta: "Volunteer With Us",
     href: "/get-involved#contact",
-    icon: "HandHeart",
+    icon: "Handshake",
   },
   {
     id: "sponsor",
@@ -540,7 +555,7 @@ export const getInvolvedOptions = [
       "Align your organization with meaningful community impact. Sponsorship opportunities are available for events, programs, and initiatives across Alberta.",
     cta: "Explore Sponsorship",
     href: "/get-involved#contact",
-    icon: "Award",
+    icon: "Medal",
   },
   {
     id: "partner",
@@ -549,7 +564,7 @@ export const getInvolvedOptions = [
       "We welcome collaborations with community organizations, educational institutions, businesses, government agencies, artists, cultural groups, and funders who share our vision.",
     cta: "Become a Partner",
     href: "/get-involved#contact",
-    icon: "Users",
+    icon: "Building2",
   },
   {
     id: "support",
@@ -558,7 +573,7 @@ export const getInvolvedOptions = [
       "Fund specific program areas — from youth leadership to newcomer support — with targeted philanthropic investment that creates measurable community impact.",
     cta: "Support Our Mission",
     href: "/get-involved#contact",
-    icon: "Heart",
+    icon: "Gift",
   },
   {
     id: "engage",
@@ -567,9 +582,9 @@ export const getInvolvedOptions = [
       "Host workshops, refer participants, or co-create initiatives that serve your neighbourhood and strengthen community belonging across Alberta.",
     cta: "Engage Your Community",
     href: "/get-involved#contact",
-    icon: "Megaphone",
+    icon: "MessagesSquare",
   },
-];
+] satisfies GetInvolvedOption[];
 
 export const successStories = [
   {
@@ -595,6 +610,12 @@ export const successStories = [
   },
 ];
 
+interface DonationSupportArea {
+  title: string;
+  description: string;
+  icon: IconName;
+}
+
 export const donationContent = {
   intro:
     "Your generosity helps LuminaBridge Foundation empower youth, celebrate culture, support artists, and strengthen communities across Alberta. Every contribution creates pathways of opportunity for the people and programs we serve.",
@@ -605,18 +626,21 @@ export const donationContent = {
       title: "Youth Leadership & Development",
       description:
         "Support mentorship, workshops, and talent development programs that help young people build confidence and leadership skills.",
+      icon: "GraduationCap",
     },
     {
       title: "Arts, Culture & Community Events",
       description:
         "Help fund festivals, showcases, and cultural programs that celebrate diversity and create platforms for emerging artists.",
+      icon: "Theater",
     },
     {
       title: "Community Wellness & Support",
       description:
         "Contribute to initiatives that promote mental wellness, newcomer support, and stronger community connections across Alberta.",
+      icon: "ShieldCheck",
     },
-  ],
+  ] satisfies DonationSupportArea[],
   inquiryNote:
     "For donation inquiries before online giving launches, please contact us at:",
 };

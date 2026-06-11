@@ -8,19 +8,19 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/shared/s
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { FadeUp } from "@/components/motion/fade-up";
 import { navigation } from "@/lib/data";
+import { pageContainerClass } from "@/components/shared/page-container";
 import { siteConfig } from "@/lib/site-config";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border bg-foreground text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className={cn(pageContainerClass, "py-16")}>
         <StaggerContainer className="grid items-start gap-12 md:grid-cols-2 lg:grid-cols-4">
           <StaggerItem className="flex flex-col items-start lg:col-span-1">
-            <div className="w-fit max-w-full">
-              <Logo variant="footer" tone="white" href="/" />
-            </div>
+            <Logo variant="footer" tone="white" href="/" />
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               {siteConfig.description}
             </p>
