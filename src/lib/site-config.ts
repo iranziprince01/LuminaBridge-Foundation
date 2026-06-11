@@ -4,6 +4,8 @@ export const pageTitles = {
   events: "Events",
   donate: "Donate",
   getInvolved: "Get Involved",
+  privacy: "Privacy Policy",
+  terms: "Terms of Use",
   eventNotFound: "Event Not Found",
 } as const;
 

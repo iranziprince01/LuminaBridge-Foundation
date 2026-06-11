@@ -121,10 +121,10 @@ export function Footer() {
             © {currentYear} LuminaBridge Foundation. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/50">
-            <Link href="/get-involved#contact" className="hover:text-white/80">
+            <Link href="/privacy" className="hover:text-white/80">
               Privacy Policy
             </Link>
-            <Link href="/get-involved#contact" className="hover:text-white/80">
+            <Link href="/terms" className="hover:text-white/80">
               Terms of Use
             </Link>
           </div>
