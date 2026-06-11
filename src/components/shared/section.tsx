@@ -18,7 +18,10 @@ export function Section({ id, className, children }: SectionProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: motionEase }}
-      className={cn("scroll-mt-28 py-32 md:py-44 lg:py-52", className)}
+      className={cn(
+        "scroll-mt-24 py-16 sm:py-24 md:py-32 lg:py-44",
+        className
+      )}
     >
       {children}
     </motion.section>

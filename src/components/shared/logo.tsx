@@ -6,9 +6,9 @@ type LogoVariant = "nav" | "footer" | "hero";
 type LogoTone = "color" | "white";
 
 const variantStyles: Record<LogoVariant, string> = {
-  nav: "h-[4.5rem] w-auto sm:h-20 md:h-24",
-  footer: "h-28 w-auto sm:h-32 md:h-36",
-  hero: "h-32 w-auto sm:h-36 md:h-40",
+  nav: "h-14 w-auto sm:h-16 md:h-20 lg:h-24",
+  footer: "h-20 w-auto sm:h-24 md:h-28 lg:h-32",
+  hero: "h-24 w-auto sm:h-28 md:h-32 lg:h-40",
 };
 
 interface LogoProps {

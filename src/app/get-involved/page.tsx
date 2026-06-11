@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
+import { PageContainer } from "@/components/shared/page-container";
 import { ContactSection } from "@/components/sections/contact-section";
 import { GetInvolvedContent } from "@/components/sections/get-involved-content";
 import { pageTitles } from "@/lib/site-config";
@@ -22,9 +23,9 @@ export default async function GetInvolvedPage({ searchParams }: GetInvolvedPageP
     <>
       <PageBanner title="Get Involved" image="/involved.jpg" />
       <Section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <GetInvolvedContent />
-        </div>
+        </PageContainer>
       </Section>
 
       <Section className="gradient-section">

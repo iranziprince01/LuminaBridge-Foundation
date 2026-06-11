@@ -17,7 +17,7 @@ export function Timeline({ items, className }: TimelineProps) {
         aria-hidden
       />
 
-      <div className="space-y-8 md:space-y-10">
+      <div className="space-y-6 sm:space-y-8 md:space-y-10">
         {items.map((item, index) => (
           <FadeUp key={`${item.year}-${item.title}`} delay={index * 0.06}>
             <div
@@ -50,7 +50,7 @@ export function Timeline({ items, className }: TimelineProps) {
                   <h3 className="mt-2 text-lg font-bold leading-snug text-foreground md:text-xl">
                     {item.title}
                   </h3>
-                  <p className="mt-3 line-clamp-2 text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-3 line-clamp-3 text-base leading-relaxed text-muted-foreground md:line-clamp-none">
                     {item.description}
                   </p>
                 </div>

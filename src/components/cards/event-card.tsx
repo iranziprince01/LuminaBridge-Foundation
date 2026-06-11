@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { EventRegistration } from "@/components/events/event-registration";
+import { StatStrip } from "@/components/shared/stat-strip";
 import { Event, getEventHref } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -30,14 +31,14 @@ export function EventCard({ event, className, featured = false, priority = false
       <Card
         className={cn(
           "group h-full overflow-hidden border-border/60 hover:shadow-xl",
-          featured && "lg:grid lg:grid-cols-2"
+          featured && "md:grid md:grid-cols-2"
         )}
       >
         <Link
           href={eventHref}
           className={cn(
             "relative block overflow-hidden",
-            featured ? "min-h-[280px] lg:min-h-full" : "aspect-[16/10]"
+            featured ? "min-h-[220px] sm:min-h-[260px] md:min-h-full" : "aspect-[16/10]"
           )}
         >
           <Image
@@ -54,9 +55,9 @@ export function EventCard({ event, className, featured = false, priority = false
           </Badge>
         </Link>
 
-        <CardContent className="flex flex-col p-6 md:p-8">
+        <CardContent className="flex flex-col p-5 sm:p-6 md:p-8">
           <p className="text-sm font-semibold text-secondary">{event.tagline}</p>
-          <h3 className="mt-2 text-2xl font-bold text-foreground">
+          <h3 className="mt-2 text-xl font-bold text-foreground sm:text-2xl">
             <Link href={eventHref} className="transition-colors hover:text-primary">
               {event.title}
             </Link>
@@ -77,17 +78,10 @@ export function EventCard({ event, className, featured = false, priority = false
             {event.description}
           </p>
 
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            {event.stats.map((stat) => (
-              <div key={stat.label} className="rounded-xl bg-muted p-3 text-center">
-                <div className="text-lg font-bold text-primary">{stat.value}</div>
-                <div className="text-xs text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <StatStrip stats={event.stats} className="mt-6" />
 
           <div className="mt-6 space-y-4">
-            <Button size="sm" asChild>
+            <Button size="sm" className="w-full sm:w-auto" asChild>
               <Link href={eventHref}>
                 View Event Details
                 <ArrowRight className="h-3 w-3" />

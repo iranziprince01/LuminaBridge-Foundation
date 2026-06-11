@@ -20,14 +20,14 @@ export function HomeHero() {
       />
       <div className="gradient-hero-premium absolute inset-0" />
 
-      <div className="relative mx-auto grid min-h-screen w-full max-w-7xl grid-rows-[1fr_auto] gap-16 px-4 pb-32 pt-44 sm:gap-20 sm:px-6 sm:pb-36 sm:pt-48 lg:gap-28 lg:px-8 lg:pb-44">
+      <div className="relative mx-auto grid min-h-[100dvh] w-full max-w-7xl grid-rows-[1fr_auto] gap-10 px-4 pb-24 pt-36 sm:gap-16 sm:px-6 sm:pb-32 sm:pt-44 md:pb-36 md:pt-48 lg:gap-20 lg:px-8 lg:pb-44">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex items-end"
         >
-          <h1 className="max-w-[18ch] text-[clamp(3rem,9vw,7rem)] font-extrabold leading-[1.02] tracking-tight text-white lg:max-w-none">
+          <h1 className="text-balance max-w-[18ch] text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-white sm:max-w-none sm:text-[clamp(2.75rem,8.5vw,6.25rem)] lg:text-[clamp(3rem,9vw,7rem)]">
             <motion.span
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function HomeHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex flex-col gap-4 sm:flex-row sm:items-center"
+          className="flex flex-col gap-3 sm:flex-row sm:items-center [&_a]:w-full sm:[&_a]:w-auto"
         >
           <Button variant="white" size="lg" asChild>
             <Link href={heroContent.primaryCta.href}>

@@ -29,11 +29,11 @@ export function ProgramCard({
         className={cn("h-full", className)}
       >
         <Card className="group h-full rounded-2xl border-border/70 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-secondary/30 hover:bg-white hover:shadow-md">
-          <CardContent className="flex h-full flex-col p-7 md:p-8">
+          <CardContent className="flex h-full flex-col p-5 sm:p-6 md:p-8">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-secondary/25 bg-primary/5 transition-colors group-hover:border-secondary/40 group-hover:bg-primary/10">
               <Icon className="h-6 w-6 fill-none text-secondary" />
             </div>
-            <h3 className="mt-6 text-lg font-bold leading-snug text-foreground md:text-xl">
+            <h3 className="mt-5 text-base font-bold leading-snug text-foreground sm:mt-6 sm:text-lg md:text-xl">
               {program.title}
             </h3>
             <p className="mt-3 flex-1 text-base leading-relaxed text-muted-foreground">

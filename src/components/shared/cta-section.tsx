@@ -18,7 +18,7 @@ export function CtaSection({
   secondaryCta,
 }: CtaSectionProps) {
   return (
-    <section className="gradient-cta relative overflow-hidden py-28 md:py-40 lg:py-44">
+    <section className="gradient-cta relative overflow-hidden py-16 sm:py-24 md:py-32 lg:py-40">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-white blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-accent blur-3xl" />

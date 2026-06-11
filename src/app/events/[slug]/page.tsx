@@ -8,6 +8,7 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { EventRegistration } from "@/components/events/event-registration";
+import { StatStrip } from "@/components/shared/stat-strip";
 import { Button } from "@/components/ui/button";
 import { events, eventFlyerImage, getEventById, eventPageBannerImage } from "@/lib/data";
 import { eventTabTitles, pageTitles } from "@/lib/site-config";
@@ -49,7 +50,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
     <>
       <PageBanner title={event.title} image={eventPageBannerImage} />
       <Section>
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-widest text-secondary">
               {event.tagline}
@@ -97,7 +98,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
 
           {event.categories && event.categories.length > 0 && (
             <FadeUp className="mt-10">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">
+              <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
                 Artistic Categories
               </h2>
               <StaggerContainer className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -112,8 +113,8 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
             </FadeUp>
           )}
 
-          <FadeUp className="mt-12 rounded-2xl border border-border/60 bg-muted/40 p-6 md:p-8">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
+          <FadeUp className="mt-10 rounded-2xl border border-border/60 bg-muted/40 p-5 sm:mt-12 sm:p-6 md:p-8">
+            <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
               Expected Impact
             </h2>
             <StaggerContainer className="mt-6 space-y-3" staggerDelay={0.06}>
@@ -128,16 +129,9 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
             </StaggerContainer>
           </FadeUp>
 
-          <StaggerContainer className="mt-10 grid grid-cols-3 gap-3">
-            {event.stats.map((stat) => (
-              <StaggerItem key={stat.label}>
-                <div className="rounded-xl bg-muted p-3 text-center">
-                  <div className="text-lg font-bold text-primary">{stat.value}</div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <FadeUp className="mt-10">
+            <StatStrip stats={event.stats} />
+          </FadeUp>
 
           <FadeUp className="mt-12">
             <EventRegistration event={event} />

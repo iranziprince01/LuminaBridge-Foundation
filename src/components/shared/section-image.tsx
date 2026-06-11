@@ -36,8 +36,8 @@ export function SectionImage({
         className={cn(
           "relative w-full overflow-hidden rounded-3xl",
           tall
-            ? "min-h-[22rem] sm:min-h-[28rem] lg:h-full lg:min-h-[36rem] xl:min-h-[40rem]"
-            : "min-h-[20rem] sm:min-h-[24rem] md:min-h-[28rem] lg:min-h-[32rem] xl:min-h-[36rem]"
+            ? "min-h-[16rem] sm:min-h-[20rem] md:min-h-[24rem] lg:h-full lg:min-h-[32rem] xl:min-h-[36rem]"
+            : "min-h-[14rem] sm:min-h-[18rem] md:min-h-[22rem] lg:min-h-[28rem] xl:min-h-[32rem]"
         )}
       >
         <Image

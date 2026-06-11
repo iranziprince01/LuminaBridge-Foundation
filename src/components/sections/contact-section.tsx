@@ -39,7 +39,7 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="grid gap-12 lg:grid-cols-5">
+      <div className="grid gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <FadeUp>
             <h2 className={sectionHeadingClass}>
@@ -80,9 +80,9 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
           </FadeUp>
         </div>
 
-        <div className="lg:col-span-3">
+        <div className="md:col-span-2 lg:col-span-3">
           <FadeUp delay={0.15}>
-            <div className="rounded-2xl border border-border bg-white p-8 shadow-sm md:p-10">
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10">
               <h3 className="text-xl font-bold">LBF Request Information Form</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Complete the request form below or use the direct link above. On-site messaging

@@ -37,7 +37,7 @@ export function ImpactCard({
             : "border-border/60 hover:border-secondary/20 hover:shadow-md"
         )}
       >
-        <CardContent className="p-8 md:p-9">
+        <CardContent className="p-6 sm:p-7 md:p-8 lg:p-9">
           <div
             className={cn(
               "mb-6 flex items-center justify-center",
@@ -55,7 +55,7 @@ export function ImpactCard({
           </div>
           <h3
             className={cn(
-              "text-xl font-bold md:text-2xl",
+              "text-lg font-bold sm:text-xl md:text-2xl",
               onPrimary ? "text-white" : "text-foreground"
             )}
           >

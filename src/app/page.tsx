@@ -5,6 +5,10 @@ import { HomeHero } from "@/components/sections/home-hero";
 import { Section } from "@/components/shared/section";
 import { SectionImage } from "@/components/shared/section-image";
 import {
+  PageContainer,
+  splitSectionGridClass,
+} from "@/components/shared/page-container";
+import {
   SectionHeader,
   sectionHeadingClass,
 } from "@/components/shared/section-header";
@@ -34,6 +38,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
+const missionCardClass =
+  "flex h-full min-h-[240px] flex-col items-center justify-center rounded-3xl p-6 text-center shadow-sm sm:min-h-[260px] sm:p-8 md:min-h-[280px] md:p-10 lg:min-h-[320px] lg:p-12";
+
 export default function HomePage() {
   return (
     <>
@@ -41,29 +48,29 @@ export default function HomePage() {
         <HomeHero />
       </div>
 
-      <section className="w-full bg-secondary py-20 md:py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-secondary py-12 sm:py-16 md:py-20 lg:py-24">
+        <PageContainer>
           <StatsSection stats={homeStats} dark />
-        </div>
+        </PageContainer>
       </section>
 
       <Section id="about">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-20 lg:grid-cols-2 lg:items-stretch lg:gap-28">
+        <PageContainer>
+          <div className={splitSectionGridClass}>
             <div className="flex flex-col justify-center">
-              <SectionHeader title={whoWeAre.title} align="left" className="mb-10" />
-              <div className="space-y-6">
+              <SectionHeader title={whoWeAre.title} align="left" className="mb-8" />
+              <div className="space-y-5">
                 {whoWeAre.paragraphs.map((paragraph, i) => (
                   <FadeUp key={i} delay={i * 0.08}>
-                    <p className="text-justify text-lg leading-relaxed text-muted-foreground md:text-xl">
+                    <p className="text-left text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
                       {paragraph}
                     </p>
                   </FadeUp>
                 ))}
               </div>
-              <FadeUp className="mt-12">
-                <blockquote className="border-l-4 border-accent pl-8">
-                  <p className="text-justify text-xl font-medium italic leading-relaxed text-foreground md:text-2xl">
+              <FadeUp className="mt-8 sm:mt-10">
+                <blockquote className="border-l-4 border-accent pl-5 sm:pl-8">
+                  <p className="text-left text-lg font-medium italic leading-relaxed text-foreground sm:text-xl md:text-2xl">
                     &ldquo;{beliefQuote}&rdquo;
                   </p>
                 </blockquote>
@@ -78,13 +85,13 @@ export default function HomePage() {
               />
             </FadeUp>
           </div>
-        </div>
+        </PageContainer>
       </Section>
 
       <Section className="gradient-section">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-20 lg:grid-cols-2 lg:items-stretch lg:gap-28">
-            <FadeUp className="h-full">
+        <PageContainer>
+          <div className={splitSectionGridClass}>
+            <FadeUp className="h-full md:order-none">
               <SectionImage
                 src="/mission.jpg"
                 alt="LuminaBridge Foundation mission in action"
@@ -92,36 +99,38 @@ export default function HomePage() {
                 className="h-full"
               />
             </FadeUp>
-            <div className="grid h-full gap-10">
+            <div className="grid h-full gap-6 sm:gap-8 md:gap-10">
               <FadeUp className="h-full">
-                <div className="flex h-full min-h-[300px] flex-col items-center justify-center rounded-3xl border border-border bg-white p-12 text-center shadow-sm md:min-h-[320px] md:p-14">
-                  <span className="font-display text-lg font-extrabold uppercase tracking-widest text-secondary md:text-xl">
+                <div
+                  className={`${missionCardClass} border border-border bg-white`}
+                >
+                  <span className="font-display text-base font-extrabold uppercase tracking-widest text-secondary sm:text-lg md:text-xl">
                     {missionVision.mission.title}
                   </span>
-                  <p className="mt-5 text-xl leading-relaxed text-foreground md:text-2xl">
+                  <p className="mt-4 text-lg leading-relaxed text-foreground sm:mt-5 sm:text-xl md:text-2xl">
                     {missionVision.mission.content}
                   </p>
                 </div>
               </FadeUp>
               <FadeUp delay={0.1} className="h-full">
-                <div className="flex h-full min-h-[300px] flex-col items-center justify-center rounded-3xl bg-primary p-12 text-center text-white shadow-lg md:min-h-[320px] md:p-14">
-                  <span className="font-display text-lg font-extrabold uppercase tracking-widest text-[#ffe600] md:text-xl">
+                <div className={`${missionCardClass} bg-primary text-white shadow-lg`}>
+                  <span className="font-display text-base font-extrabold uppercase tracking-widest text-[#ffe600] sm:text-lg md:text-xl">
                     {missionVision.vision.title}
                   </span>
-                  <p className="mt-5 text-xl leading-relaxed text-white/90 md:text-2xl">
+                  <p className="mt-4 text-lg leading-relaxed text-white/90 sm:mt-5 sm:text-xl md:text-2xl">
                     {missionVision.vision.content}
                   </p>
                 </div>
               </FadeUp>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </Section>
 
       <Section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <SectionHeader title="What Guides Everything We Do" light />
-          <StaggerContainer className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10">
             {coreValues.map((value) => (
               <StaggerItem key={value.title}>
                 <ImpactCard
@@ -133,22 +142,22 @@ export default function HomePage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
+        </PageContainer>
       </Section>
 
       <Section className="gradient-section">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-20 lg:grid-cols-2 lg:gap-28">
+        <PageContainer>
+          <div className={splitSectionGridClass}>
             <FadeUp>
               <div className="max-w-xl">
                 <h2 className={sectionHeadingClass}>{nameMeaning.title}</h2>
-                <div className="mt-14 space-y-7 text-lg leading-relaxed text-muted-foreground md:mt-16 md:space-y-8 lg:mt-20">
-                  <p className="flex items-start gap-3 md:gap-4">
+                <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground sm:mt-12 sm:space-y-7 sm:text-lg md:mt-14 md:text-xl lg:mt-16">
+                  <p className="flex items-start gap-3 sm:gap-4">
                     <span className="shrink-0 font-bold text-secondary">Lumina</span>
                     <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
                     <span>{nameMeaning.lumina}</span>
                   </p>
-                  <p className="flex items-start gap-3 md:gap-4">
+                  <p className="flex items-start gap-3 sm:gap-4">
                     <span className="shrink-0 font-bold text-secondary">Bridge</span>
                     <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
                     <span>{nameMeaning.bridge}</span>
@@ -163,39 +172,39 @@ export default function HomePage() {
               />
             </FadeUp>
           </div>
-        </div>
+        </PageContainer>
       </Section>
 
       <Section id="programs" className="programs-section-bg">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <SectionHeader title="What We Do" />
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <StaggerContainer className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
             {programs.map((program) => (
               <StaggerItem key={program.id}>
                 <ProgramCard program={program} minimal />
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
+        </PageContainer>
       </Section>
 
       <Section id="impact" className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-20 lg:grid-cols-2 lg:gap-28">
+        <PageContainer>
+          <div className={splitSectionGridClass}>
             <div>
               <SectionHeader
                 title="Our Impact Journey"
                 align="left"
-                className="mb-10"
+                className="mb-8"
               />
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <FadeUp>
-                  <p className="text-2xl font-semibold leading-relaxed text-foreground md:text-3xl">
+                  <p className="text-xl font-semibold leading-relaxed text-foreground sm:text-2xl md:text-3xl">
                     {impactNarrative[0]}
                   </p>
                 </FadeUp>
                 <FadeUp delay={0.08}>
-                  <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
                     {impactNarrative[4]}
                   </p>
                 </FadeUp>
@@ -212,29 +221,29 @@ export default function HomePage() {
             </FadeUp>
           </div>
 
-          <div className="mt-24 md:mt-32">
+          <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-28">
             <Timeline items={impactTimeline} />
           </div>
-        </div>
+        </PageContainer>
       </Section>
 
       <Section className="testimonials-section-bg">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <SectionHeader title="Voices from Our Community" />
-          <StaggerContainer className="grid gap-10 md:grid-cols-2 lg:gap-12">
+          <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
             {testimonials.map((t) => (
               <StaggerItem key={t.id}>
                 <TestimonialCard testimonial={t} />
               </StaggerItem>
             ))}
-            <StaggerItem>
+            <StaggerItem className="md:col-span-2 lg:col-span-1">
               <CommunityStoryCard
                 src="/story.jpg"
                 alt="Community members gathering together outdoors"
               />
             </StaggerItem>
           </StaggerContainer>
-        </div>
+        </PageContainer>
       </Section>
     </>
   );

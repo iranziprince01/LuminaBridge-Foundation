@@ -57,7 +57,7 @@ export function AnimatedCounter({
     >
       <div
         className={cn(
-          "text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl",
+          "text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl",
           inverted ? "text-white" : "text-primary"
         )}
       >

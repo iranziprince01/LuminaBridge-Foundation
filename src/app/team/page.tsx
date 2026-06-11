@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
+import { PageContainer } from "@/components/shared/page-container";
 import { LeadershipCard } from "@/components/cards/leadership-card";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
@@ -20,17 +21,17 @@ export default function TeamPage() {
         image="/team.jpg"
       />
       <Section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <FadeUp>
-            <p className="text-center text-base font-bold uppercase tracking-widest text-secondary md:text-lg">
+            <p className="text-center text-sm font-bold uppercase tracking-widest text-secondary sm:text-base md:text-lg">
               {leadershipIntro.subtitle}
             </p>
-            <p className="mx-auto mt-8 max-w-3xl text-center text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg md:text-xl">
               {leadershipIntro.description}
             </p>
           </FadeUp>
 
-          <StaggerContainer className="mt-20 grid gap-10 md:mt-28 md:grid-cols-3 lg:gap-12">
+          <StaggerContainer className="mt-12 grid gap-8 sm:mt-16 sm:grid-cols-2 sm:gap-10 lg:mt-20 lg:grid-cols-3 lg:gap-12">
             {leadership.map((leader, index) => (
               <StaggerItem key={leader.id}>
                 <LeadershipCard leader={leader} priority={index === 0} />
@@ -38,15 +39,15 @@ export default function TeamPage() {
             ))}
           </StaggerContainer>
 
-          <FadeUp className="mt-24 text-center md:mt-32">
-            <h2 className="text-3xl font-extrabold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+          <FadeUp className="mt-16 text-center sm:mt-20 md:mt-24 lg:mt-28">
+            <h2 className="text-balance text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
               {leadershipIntro.closingTitle}
             </h2>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg md:text-xl">
               {leadershipIntro.closing}
             </p>
           </FadeUp>
-        </div>
+        </PageContainer>
       </Section>
     </>
   );

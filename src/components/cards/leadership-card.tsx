@@ -39,8 +39,8 @@ export function LeadershipCard({ leader, className, priority = false }: Leadersh
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold text-foreground">{leader.name}</h3>
+        <CardContent className="p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-foreground sm:text-xl">{leader.name}</h3>
           <p className="mt-1 text-sm font-semibold text-secondary">{leader.role}</p>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {leader.bio}

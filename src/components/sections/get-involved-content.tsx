@@ -14,19 +14,19 @@ import { ExternalLink, HandHeart, Users } from "lucide-react";
 export function GetInvolvedContent() {
   return (
     <>
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
         <FadeUp>
           <article
             id="partner"
-            className="scroll-mt-28 flex h-full flex-col rounded-2xl border border-border bg-white p-9 shadow-sm md:p-12"
+            className="scroll-mt-24 flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10 lg:p-12"
           >
-            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10">
-              <Users className="h-7 w-7 text-primary" />
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 sm:mb-6 sm:h-14 sm:w-14">
+              <Users className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
             </div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+            <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
               Partnership &amp; Sponsorship Inquiries
             </h2>
-            <p className="mt-5 flex-1 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mt-4 flex-1 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg md:text-xl">
               {contactContent.partnership}
             </p>
             <p className="mt-6 text-sm font-semibold text-foreground">
@@ -44,15 +44,15 @@ export function GetInvolvedContent() {
         <FadeUp delay={0.1}>
           <article
             id="volunteer"
-            className="scroll-mt-28 flex h-full flex-col rounded-2xl border border-border bg-white p-9 shadow-sm md:p-12"
+            className="scroll-mt-24 flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10 lg:p-12"
           >
-            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10">
-              <HandHeart className="h-7 w-7 text-primary" />
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 sm:mb-6 sm:h-14 sm:w-14">
+              <HandHeart className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
             </div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+            <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
               Volunteer With Us
             </h2>
-            <p className="mt-5 flex-1 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mt-4 flex-1 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg md:text-xl">
               {contactContent.volunteer}
             </p>
             <p className="mt-6 text-sm font-semibold text-foreground">
@@ -68,12 +68,12 @@ export function GetInvolvedContent() {
         </FadeUp>
       </div>
 
-      <FadeUp className="mt-16">
-        <article className="rounded-2xl border border-border bg-white p-9 shadow-sm md:p-12">
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+      <FadeUp className="mt-12 sm:mt-16">
+        <article className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10 lg:p-12">
+          <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Stay Connected
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg md:text-xl">
             {contactContent.stayConnected}
           </p>
           <div className="mt-6 flex gap-3">
@@ -97,18 +97,18 @@ export function GetInvolvedContent() {
         </article>
       </FadeUp>
 
-      <FadeUp className="mt-16">
+      <FadeUp className="mt-12 sm:mt-16">
         <article
           id="contact"
-          className="scroll-mt-28 rounded-2xl border border-secondary/20 bg-gradient-to-br from-secondary/5 to-primary/5 p-9 md:p-12"
+          className="scroll-mt-24 rounded-2xl border border-secondary/20 bg-gradient-to-br from-secondary/5 to-primary/5 p-6 sm:p-8 md:p-10 lg:p-12"
         >
           <h2 className={sectionHeadingClass}>LBF Request Information Form</h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg md:text-xl">
             Submit your inquiry through our official request form. Whether you are interested
             in programs, partnerships, sponsorships, volunteering, or community initiatives,
             our team is ready to assist you.
           </p>
-          <Button size="lg" className="mt-6" asChild>
+          <Button size="lg" className="mt-6 w-full sm:w-auto" asChild>
             <Link
               href={siteConfig.infoRequestFormUrl}
               target="_blank"

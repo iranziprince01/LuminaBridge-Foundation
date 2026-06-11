@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { FadeUp } from "@/components/motion/fade-up";
 
 export const sectionHeadingClass =
-  "text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl";
+  "text-balance text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl";
 
 interface SectionHeaderProps {
   title: string;
@@ -20,7 +20,7 @@ export function SectionHeader({
   light = false,
 }: SectionHeaderProps) {
   return (
-    <FadeUp className={cn("mb-16 md:mb-24 lg:mb-28", className)}>
+    <FadeUp className={cn("mb-10 sm:mb-14 md:mb-20 lg:mb-24", className)}>
       <div
         className={cn(
           "max-w-3xl",

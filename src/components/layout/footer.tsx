@@ -18,7 +18,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <StaggerContainer className="grid items-start gap-12 md:grid-cols-2 lg:grid-cols-4">
           <StaggerItem className="flex flex-col items-start lg:col-span-1">
-            <div className="w-fit -translate-x-[20%]">
+            <div className="w-fit max-w-full">
               <Logo variant="footer" tone="white" href="/" />
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
@@ -26,7 +26,7 @@ export function Footer() {
             </p>
           </StaggerItem>
 
-          <StaggerItem className="pt-20 sm:pt-24 md:pt-28">
+          <StaggerItem className="md:pt-0 lg:pt-28">
             <h3 className="text-sm font-bold uppercase tracking-wider text-secondary">
               Quick Links
             </h3>

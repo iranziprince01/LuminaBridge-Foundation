@@ -44,7 +44,7 @@ export function Navbar() {
           : "bg-white/90 shadow-sm backdrop-blur-lg"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 pt-[max(0.5rem,env(safe-area-inset-top))] sm:px-6 lg:px-8">
         <NavbarLogo scrolled={!showHeroStyle} />
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -85,7 +85,7 @@ export function Navbar() {
         <button
           type="button"
           className={cn(
-            "rounded-lg p-2 lg:hidden",
+            "shrink-0 rounded-lg p-2 lg:hidden",
             showHeroStyle
               ? "text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
               : "text-foreground"

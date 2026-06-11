@@ -19,7 +19,7 @@ export function PageBanner({
   return (
     <section
       className={cn(
-        "relative flex min-h-[58vh] items-end overflow-hidden pt-40 pb-24 sm:min-h-[64vh] sm:pb-28 md:min-h-[68vh] md:pt-44 md:pb-32 lg:min-h-[74vh] lg:pb-36",
+        "relative flex min-h-[50vh] items-end overflow-hidden pt-32 pb-16 sm:min-h-[58vh] sm:pt-36 sm:pb-20 md:min-h-[64vh] md:pt-40 md:pb-24 lg:min-h-[68vh] lg:pb-32",
         className
       )}
     >
@@ -58,8 +58,8 @@ export function PageBanner({
           className={cn(
             "font-extrabold tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]",
             Array.isArray(title)
-              ? "max-w-6xl text-[clamp(1.875rem,4.25vw,4rem)] leading-[1.12]"
-              : "max-w-4xl text-[clamp(2.75rem,6.5vw,5.5rem)] leading-[1.05]"
+              ? "max-w-6xl text-[clamp(1.75rem,4.25vw,3.75rem)] leading-[1.12] sm:text-[clamp(2rem,4.5vw,4.25rem)] lg:text-[clamp(2.25rem,5vw,4.75rem)]"
+              : "text-balance max-w-3xl text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.1] sm:max-w-4xl sm:text-[clamp(2.25rem,5.5vw,4.5rem)] lg:text-[clamp(2.75rem,6.5vw,5.5rem)]"
           )}
         >
           {Array.isArray(title) ? (

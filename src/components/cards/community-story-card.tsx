@@ -19,7 +19,7 @@ export function CommunityStoryCard({ src, alt, className }: CommunityStoryCardPr
       className={cn("h-full", className)}
     >
       <Card className="h-full overflow-hidden border-border/60 bg-white">
-        <div className="relative min-h-[20rem] w-full sm:min-h-[24rem] lg:min-h-full lg:aspect-auto">
+        <div className="relative min-h-[16rem] w-full sm:min-h-[20rem] md:min-h-[24rem] lg:min-h-full lg:aspect-auto">
           <Image
             src={src}
             alt={alt}
