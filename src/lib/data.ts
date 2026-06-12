@@ -394,8 +394,8 @@ export const testimonials: Testimonial[] = [
     id: "3",
     quote:
       "Lumina Bridge Foundation is creating opportunities that many young people never had access to before. Through mentorship, workshops, and community events, youth are discovering their talents, building confidence, and developing leadership skills that will benefit them for years to come.",
-    author: "Community Participant",
-    role: "Program Participant",
+    author: "Valerie K.",
+    role: "Edmonton, Alberta",
   },
 ];
 
