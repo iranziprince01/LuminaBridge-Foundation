@@ -206,7 +206,7 @@ export const priorityPopulationsSection = {
       title: "Seniors, Families, and Healing-Centered Communities",
       summary:
         "We connect seniors through intergenerational arts and storytelling, and support families with creative wellness spaces that strengthen belonging, resilience, and emotional well-being.",
-      image: "/03.jpg",
+      image: "/03.jpeg",
       alt: "Seniors and families in healing-centered community programs",
     },
     {
