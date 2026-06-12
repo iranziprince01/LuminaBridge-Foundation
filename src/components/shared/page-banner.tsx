@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { motionEase, motionEaseOut } from "@/components/motion/motion-presets";
 import { pageContainerClass } from "@/components/shared/page-container";
@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 interface PageBannerProps {
   title: string | readonly string[];
-  image?: string;
+  image?: string | StaticImageData;
   className?: string;
 }
 
@@ -57,7 +57,7 @@ export function PageBanner({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.12, ease: motionEase }}
           className={cn(
-            "font-extrabold tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]",
+            "font-display font-bold tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]",
             Array.isArray(title)
               ? "max-w-6xl text-[clamp(1.75rem,4.25vw,3.75rem)] leading-[1.12] sm:text-[clamp(2rem,4.5vw,4.25rem)] lg:text-[clamp(2.25rem,5vw,4.75rem)]"
               : "text-balance max-w-3xl text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.1] sm:max-w-4xl sm:text-[clamp(2.25rem,5.5vw,4.5rem)] lg:text-[clamp(2.75rem,6.5vw,5.5rem)]"

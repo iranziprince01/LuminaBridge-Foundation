@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { GetInTouchCtaShell } from "@/components/layout/get-in-touch-cta-shell";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import { OrganizationSchema } from "@/components/seo/organization-schema";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -65,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${instrumentSans.variable} h-full scroll-smooth`}
+      className={`${sourceSans.variable} ${sourceSerif.variable} h-full scroll-smooth`}
     >
       <head>
         <OrganizationSchema />
@@ -73,6 +76,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
+        <GetInTouchCtaShell />
         <Footer />
         <ScrollToTop />
       </body>

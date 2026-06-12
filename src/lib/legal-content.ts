@@ -23,15 +23,15 @@ const officeAddress = siteConfig.location;
 export const privacyPolicy: LegalDocument = {
   title: "Privacy Policy",
   description:
-    "How LuminaBridge Foundation collects, uses, and protects personal information in accordance with Canadian privacy law.",
+    "How Lumina Bridge Foundation collects, uses, and protects personal information in accordance with Canadian privacy law.",
   intro:
-    "LuminaBridge Foundation is committed to protecting the privacy of the individuals, families, volunteers, partners, and communities we serve. This Privacy Policy explains how we collect, use, disclose, and safeguard personal information when you visit our website, register for programs or events, contact us, or otherwise interact with our organization.",
+    "Lumina Bridge Foundation is committed to protecting the privacy of the individuals, families, volunteers, partners, and communities we serve. This Privacy Policy explains how we collect, use, disclose, and safeguard personal information when you visit our website, register for programs or events, contact us, or otherwise interact with our organization.",
   sections: [
     {
       id: "introduction",
       title: "Introduction",
       paragraphs: [
-        "This Privacy Policy applies to personal information collected by LuminaBridge Foundation through luminabridgefoundation.org, our official communication channels, program and event registration processes, volunteer and partnership inquiries, and related nonprofit activities across Alberta.",
+        "This Privacy Policy applies to personal information collected by Lumina Bridge Foundation through luminabridgefoundation.org, our official communication channels, program and event registration processes, volunteer and partnership inquiries, and related nonprofit activities across Alberta.",
         "By using our website or providing personal information to us, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with its terms, please do not use our website or submit personal information to us.",
       ],
     },
@@ -108,7 +108,7 @@ export const privacyPolicy: LegalDocument = {
       id: "youth-privacy",
       title: "Children's and Youth Privacy",
       paragraphs: [
-        "LuminaBridge Foundation serves youth and families through educational, arts, leadership, and community programs. We take additional care when handling information relating to minors.",
+        "Lumina Bridge Foundation serves youth and families through educational, arts, leadership, and community programs. We take additional care when handling information relating to minors.",
         "Where required, we seek appropriate parental or guardian consent before collecting personal information from individuals under the age of majority in Alberta.",
         "Parents and guardians may contact us to review, update, or request deletion of a minor's personal information, subject to applicable legal and programmatic requirements.",
       ],
@@ -167,21 +167,21 @@ export const privacyPolicy: LegalDocument = {
 export const termsOfUse: LegalDocument = {
   title: "Terms of Use",
   description:
-    "Terms governing access to and use of the LuminaBridge Foundation website and digital resources.",
+    "Terms governing access to and use of the Lumina Bridge Foundation website and digital resources.",
   intro:
-    "These Terms of Use govern your access to and use of the LuminaBridge Foundation website and related online resources. By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please discontinue use of the site.",
+    "These Terms of Use govern your access to and use of the Lumina Bridge Foundation website and related online resources. By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please discontinue use of the site.",
   sections: [
     {
       id: "acceptance",
       title: "Acceptance of Terms",
       paragraphs: [
-        "These Terms of Use constitute a binding agreement between you and LuminaBridge Foundation regarding your use of luminabridgefoundation.org and any content, tools, or services made available through the site.",
+        "These Terms of Use constitute a binding agreement between you and Lumina Bridge Foundation regarding your use of luminabridgefoundation.org and any content, tools, or services made available through the site.",
         "We may update these Terms from time to time. Continued use of the website after changes are posted constitutes acceptance of the revised Terms.",
       ],
     },
     {
       id: "about-us",
-      title: "About LuminaBridge Foundation",
+      title: "About Lumina Bridge Foundation",
       paragraphs: [
         `${organizationName} is a registered nonprofit organization based in Edmonton, Alberta. We deliver youth leadership, arts and culture, mental wellness, education, and community engagement programs across Alberta.`,
         "Information on this website is provided for general informational purposes about our mission, programs, events, partnerships, and opportunities to get involved.",
@@ -197,16 +197,16 @@ export const termsOfUse: LegalDocument = {
         "Interfere with or disrupt the operation, security, or integrity of the website.",
         "Copy, scrape, reproduce, or redistribute website content except as expressly permitted.",
         "Use the website to transmit harmful code, spam, or misleading or fraudulent communications.",
-        "Misrepresent your affiliation with LuminaBridge Foundation or impersonate another person or organization.",
+        "Misrepresent your affiliation with Lumina Bridge Foundation or impersonate another person or organization.",
       ],
     },
     {
       id: "intellectual-property",
       title: "Intellectual Property",
       paragraphs: [
-        "Unless otherwise stated, all content on this website — including text, graphics, logos, photographs, videos, program materials, and design elements — is owned by or licensed to LuminaBridge Foundation and is protected by applicable intellectual property laws.",
+        "Unless otherwise stated, all content on this website — including text, graphics, logos, photographs, videos, program materials, and design elements — is owned by or licensed to Lumina Bridge Foundation and is protected by applicable intellectual property laws.",
         "You may view, download, or print limited content for personal, non-commercial use only. You may not modify, distribute, publicly display, or create derivative works from our content without prior written permission.",
-        "The LuminaBridge Foundation name, logo, and related branding may not be used without our express written consent.",
+        "The Lumina Bridge Foundation name, logo, and related branding may not be used without our express written consent.",
       ],
     },
     {
@@ -222,7 +222,7 @@ export const termsOfUse: LegalDocument = {
       id: "donations",
       title: "Donations and Financial Transactions",
       paragraphs: [
-        "From time to time, our website may provide information about philanthropic support opportunities for LuminaBridge Foundation programs and initiatives.",
+        "From time to time, our website may provide information about philanthropic support opportunities for Lumina Bridge Foundation programs and initiatives.",
         "When online donation processing becomes available, additional terms and disclosures may apply at the point of contribution. Until then, donation inquiries should be directed to our official contact channels.",
         "Unless expressly stated otherwise, contributions are made to support the Foundation's charitable mission and are not payments for goods or services.",
       ],
@@ -232,7 +232,7 @@ export const termsOfUse: LegalDocument = {
       title: "Third-Party Links",
       paragraphs: [
         "Our website may contain links to third-party websites, including social media platforms, registration forms, partner organizations, and external resources.",
-        "These links are provided for convenience only. LuminaBridge Foundation does not control and is not responsible for the content, policies, or practices of third-party sites. Accessing third-party websites is at your own risk.",
+        "These links are provided for convenience only. Lumina Bridge Foundation does not control and is not responsible for the content, policies, or practices of third-party sites. Accessing third-party websites is at your own risk.",
       ],
     },
     {
@@ -248,7 +248,7 @@ export const termsOfUse: LegalDocument = {
       id: "limitation-of-liability",
       title: "Limitation of Liability",
       paragraphs: [
-        "To the fullest extent permitted by applicable law, LuminaBridge Foundation and its directors, officers, employees, volunteers, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website.",
+        "To the fullest extent permitted by applicable law, Lumina Bridge Foundation and its directors, officers, employees, volunteers, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website.",
         "Our total liability for any claim relating to the website shall not exceed the amount, if any, that you paid to access the site, or CAD $100, whichever is greater, except where liability cannot be excluded under applicable law.",
       ],
     },
@@ -256,7 +256,7 @@ export const termsOfUse: LegalDocument = {
       id: "indemnification",
       title: "Indemnification",
       paragraphs: [
-        "You agree to indemnify and hold harmless LuminaBridge Foundation from and against any claims, liabilities, damages, losses, and expenses arising out of your misuse of the website or violation of these Terms, to the extent permitted by applicable law.",
+        "You agree to indemnify and hold harmless Lumina Bridge Foundation from and against any claims, liabilities, damages, losses, and expenses arising out of your misuse of the website or violation of these Terms, to the extent permitted by applicable law.",
       ],
     },
     {

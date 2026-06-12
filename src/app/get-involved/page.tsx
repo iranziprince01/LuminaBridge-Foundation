@@ -9,7 +9,7 @@ import { pageTitles } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: pageTitles.getInvolved,
   description:
-    "Partner, sponsor, volunteer, or request information about LuminaBridge Foundation programs across Alberta.",
+    "Partner, sponsor, volunteer, or request information about Lumina Bridge Foundation programs across Alberta.",
 };
 
 interface GetInvolvedPageProps {
@@ -22,13 +22,13 @@ export default async function GetInvolvedPage({ searchParams }: GetInvolvedPageP
   return (
     <>
       <PageBanner title="Get Involved" image="/involved.jpg" />
-      <Section>
+      <Section tone="white">
         <PageContainer>
           <GetInvolvedContent />
         </PageContainer>
       </Section>
 
-      <Section className="gradient-section">
+      <Section tone="green" backdrop="bridge">
         <ContactSection defaultInquiry={inquiry || "general"} />
       </Section>
     </>

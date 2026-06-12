@@ -20,7 +20,7 @@ export default function TeamPage() {
         title={leadershipIntro.title}
         image="/team.jpg"
       />
-      <Section>
+      <Section tone="white" backdrop="mesh">
         <PageContainer>
           <FadeUp>
             <p className="text-center text-sm font-bold uppercase tracking-widest text-secondary sm:text-base md:text-lg">

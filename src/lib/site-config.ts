@@ -1,9 +1,10 @@
 export const pageTitles = {
-  home: "LuminaBridge Foundation",
+  home: "Lumina Bridge Foundation",
   team: "Team",
   events: "Events",
   donate: "Donate",
   getInvolved: "Get Involved",
+  impact: "Impact",
   privacy: "Privacy Policy",
   terms: "Terms of Use",
   eventNotFound: "Event Not Found",
@@ -16,8 +17,8 @@ export const eventTabTitles: Record<string, string> = {
 };
 
 export const siteConfig = {
-  name: "LuminaBridge Foundation",
-  shortName: "LuminaBridge",
+  name: "Lumina Bridge Foundation",
+  shortName: "Lumina Bridge",
   description:
     "Empowering youth, strengthening communities, promoting mental wellness, and creating opportunities through arts, culture, leadership development, education, and community engagement across Alberta.",
   url: "https://luminabridgefoundation.org",
@@ -25,6 +26,7 @@ export const siteConfig = {
   logoWhite: "/logo_white.svg",
   favicon: "/favicon.png",
   email: "info@luminabridgefoundation.org",
+  phone: "+1 (780) 000-0000",
   volunteerEmail: "info@luminabridgefoundation.org",
   partnershipEmail: "info@luminabridgefoundation.org",
   address: {
@@ -47,7 +49,7 @@ export const siteConfig = {
     "refugee support",
     "financial literacy",
     "volunteer opportunities",
-    "LuminaBridge Foundation",
+    "Lumina Bridge Foundation",
     "Edmonton nonprofit",
   ],
   social: {
@@ -57,6 +59,8 @@ export const siteConfig = {
   },
   infoRequestFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSdKWU5utNS4jz41CcP4hKA9O3-XF8eh1VWCLDU6mK8YRvKZiA/viewform",
+  donateFormUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSep13rOx4CjohFylRRzTWnWJ83F6mLenfIKJg9zP4yBT3f87A/viewform",
   eventRegistration: {
     participant: "https://forms.gle/k8G3mx8WCrC2gFqp9",
     attendance: "https://forms.gle/FEdqCdqWKszDhSDV6",

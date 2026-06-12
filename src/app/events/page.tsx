@@ -11,14 +11,14 @@ import { pageTitles } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: pageTitles.events,
   description:
-    "Discover LuminaBridge Foundation's signature 2026 events: Voices of New Canada, BridgeFest, and Youth Unlocking Potential.",
+    "Discover Lumina Bridge Foundation's signature 2026 events: Voices of New Canada, BridgeFest, and Youth Unlocking Potential.",
 };
 
 export default function EventsPage() {
   return (
     <>
       <PageBanner title="Our Upcoming Signature Events" image={eventPageBannerImage} />
-      <Section>
+      <Section tone="white" backdrop="orbs">
         <PageContainer>
           <StaggerContainer className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24" staggerDelay={0.12}>
             {events.map((event, index) => (

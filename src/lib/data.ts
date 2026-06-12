@@ -47,6 +47,22 @@ export interface TimelineItem {
   description: string;
 }
 
+export interface ImpactContentCard {
+  id: string;
+  image: string;
+  alt: string;
+  text: string;
+}
+
+export interface PriorityPopulation {
+  id: string;
+  number: string;
+  title: string;
+  summary: string;
+  image: string;
+  alt: string;
+}
+
 export interface Stat {
   value: string;
   label: string;
@@ -69,7 +85,9 @@ interface GetInvolvedOption {
 }
 
 export const navigation = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "/#top" },
+  { name: "Programs", href: "/#programs" },
+  { name: "Impact", href: "/impact" },
   { name: "Team", href: "/team" },
   { name: "Events", href: "/events" },
   { name: "Get Involved", href: "/get-involved" },
@@ -91,9 +109,9 @@ export const heroContent = {
 export const whoWeAre = {
   title: "Who We Are",
   paragraphs: [
-    "LuminaBridge Foundation is an officially registered nonprofit organization based in Edmonton, Alberta, serving communities across Alberta.",
-    "The foundation was established through community-led initiatives that began in September 2024, bringing together artists, youth leaders, educators, and community advocates who shared a vision of using arts, culture, education, and community engagement to create positive social impact. In 2026, LuminaBridge Foundation became a legally registered nonprofit organization, strengthening its capacity to serve communities and expand its programs.",
-    "Today, LuminaBridge Foundation operates from its Edmonton office while delivering programs, workshops, festivals, mentorship opportunities, and community initiatives across Alberta.",
+    "Lumina Bridge Foundation is an officially registered nonprofit organization based in Edmonton, Alberta, serving communities across Alberta.",
+    "The foundation was established through community-led initiatives that began in September 2024, bringing together artists, youth leaders, educators, and community advocates who shared a vision of using arts, culture, education, and community engagement to create positive social impact. In 2026, Lumina Bridge Foundation became a legally registered nonprofit organization, strengthening its capacity to serve communities and expand its programs.",
+    "Today, Lumina Bridge Foundation operates from its Edmonton office while delivering programs, workshops, festivals, mentorship opportunities, and community initiatives across Alberta.",
   ],
 };
 
@@ -114,7 +132,7 @@ export const beliefQuote =
   "We believe that talent exists in every community and that every young person deserves access to opportunities, mentorship, and support to reach their full potential.";
 
 export const nameMeaning = {
-  title: "The name LuminaBridge reflects our purpose:",
+  title: "The name Lumina Bridge reflects our purpose:",
   lumina:
     "Lumina represents light, hope, creativity, and potential.",
   bridge:
@@ -240,6 +258,64 @@ export const programs: Program[] = [
   },
 ];
 
+export const programsSection = {
+  title: "What We Do",
+};
+
+export const priorityPopulationsSection = {
+  title: "Priority Populations We Serve",
+  intro:
+    "We serve communities facing barriers to opportunity, inclusion, and well-being. Through arts, talent development, youth empowerment, and healing-centered support, we open pathways for people to reach their full potential.",
+  lead: "Our organization primarily serves:",
+  populations: [
+    {
+      id: "youth-creative",
+      number: "01",
+      title: "Youth Talent Development and Creative Communities",
+      summary:
+        "We support emerging creatives in music, performing arts, visual arts, media, and entrepreneurship with mentorship, showcases, and festivals that help talent grow into sustainable opportunity.",
+      image: "/01.jpg",
+      alt: "Youth and emerging creatives developing talent in the arts",
+    },
+    {
+      id: "youth-leadership",
+      number: "02",
+      title: "Youth Leadership Development and Future Changemakers",
+      summary:
+        "We equip young people with leadership skills, career readiness, and mentorship so they can build confidence and become future changemakers in their communities.",
+      image: "/02.jpg",
+      alt: "Youth leadership development and mentorship",
+    },
+    {
+      id: "healing-support",
+      number: "03",
+      title: "Seniors, Families, and Healing-Centered Communities",
+      summary:
+        "We connect seniors through intergenerational arts and storytelling, and support families with creative wellness spaces that strengthen belonging, resilience, and emotional well-being.",
+      image: "/03.jpg",
+      alt: "Seniors and families in healing-centered community programs",
+    },
+    {
+      id: "underserved",
+      number: "04",
+      title: "Underserved, Underrepresented, and Visible Minority Communities",
+      summary:
+        "We serve communities facing systemic barriers — including visible minorities and low-income populations — with programs designed for inclusion, access, and long-term empowerment.",
+      image: "/04.jpg",
+      alt: "Underserved and underrepresented communities",
+    },
+    {
+      id: "newcomers",
+      number: "05",
+      title: "Newcomers, Immigrant, and Settlement Communities",
+      summary:
+        "We help newcomers and refugees build confidence, cultural connection, and successful integration through mentorship, exchange, and community-based support.",
+      image: "/05.jpg",
+      alt: "Newcomer and immigrant settlement community support",
+    },
+  ] satisfies PriorityPopulation[],
+};
+
 export const homeStats: Stat[] = [
   { value: "2024", label: "Community Movement Founded" },
   { value: "2026", label: "Officially Registered" },
@@ -289,7 +365,7 @@ export const impactTimeline: TimelineItem[] = [
     year: "2026",
     title: "Official Registration",
     description:
-      "LuminaBridge Foundation became a registered nonprofit in Alberta, strengthening capacity to serve communities.",
+      "Lumina Bridge Foundation became a registered nonprofit in Alberta, strengthening capacity to serve communities.",
   },
   {
     year: "Today",
@@ -303,7 +379,7 @@ export const aboutStory = [
   {
     title: "Born from Community",
     content:
-      "LuminaBridge Foundation began as community-led initiatives in September 2024 — uniting artists, youth leaders, educators, and advocates who believed arts, culture, and engagement could create lasting social impact.",
+      "Lumina Bridge Foundation began as community-led initiatives in September 2024 — uniting artists, youth leaders, educators, and advocates who believed arts, culture, and engagement could create lasting social impact.",
   },
   {
     title: "From Conversations to Action",
@@ -317,40 +393,100 @@ export const aboutStory = [
   },
 ];
 
-export const impactNarrative = [
-  "Great organizations are born when people choose to turn challenges into opportunities.",
-  "In 2024, community leaders, artists, educators, and volunteers began noticing a common pattern across many communities. Talented young people often lacked opportunities to develop their skills. Emerging artists struggled to access platforms where their work could be recognized. Families were searching for stronger community connections, and many individuals faced barriers to reaching their full potential.",
-  "Rather than viewing these challenges as permanent obstacles, passionate changemakers came together with a vision: to create sustainable solutions that empower individuals, strengthen communities, and unlock hidden potential.",
-  "What began as conversations and small community gatherings soon evolved into workshops, outreach activities, mentorship opportunities, and cultural events. Young people discovered new confidence. Community members built meaningful connections. Artists found opportunities to share their talents. Families developed stronger support networks.",
-  "In 2026, that vision became a reality with the official establishment of LuminaBridge Foundation as a registered nonprofit organization in Alberta. Today, we work to empower youth, support artists, strengthen communities, promote well-being, and create opportunities across the province.",
-];
+export const impactPageContent = {
+  origin: {
+    title: "Our Story",
+    lead: "Great organizations are born when people choose to turn challenges into opportunities.",
+    paragraphs: [
+      "In 2024, community leaders, artists, educators, and volunteers saw a shared pattern across Alberta: young people lacked opportunities to grow, artists struggled for platforms, families sought stronger connections, and many faced barriers to reaching their potential.",
+      "Rather than accepting these challenges as permanent, changemakers united around a vision for sustainable solutions—spaces where people could celebrate culture, build leadership, and support one another.",
+      "What began as conversations through churches and community networks grew into workshops, mentorship, outreach, and cultural events—proving the power of creativity, education, and community engagement.",
+    ],
+  },
+  impact: {
+    title: "Our Impact",
+    cards: [
+      {
+        id: "001",
+        image: "/001.jpg",
+        alt: "Lumina Bridge Foundation community empowerment and creative opportunity",
+        text: "At Lumina Bridge Foundation, we believe that creativity, opportunity, and community empowerment have the power to transform lives. Based in Alberta and built with a long-term vision to expand across Canada, we are committed to creating sustainable impact that reaches communities locally, nationally, and globally.",
+      },
+      {
+        id: "002",
+        image: "/002.jpg",
+        alt: "Youth development and transformative community programs",
+        text: "Over the next 10 years, Lumina Bridge Foundation aims to directly impact 250,000+ individuals through transformative programs focused on youth development, arts and culture, mental wellness, leadership training, entrepreneurship, and community support initiatives.",
+      },
+      {
+        id: "003",
+        image: "/003.jpg",
+        alt: "Empowering youth and emerging creative talents",
+        text: "We are committed to empowering 75,000+ youth and emerging talents by creating platforms that help artists, musicians, performers, designers, digital creators, and innovators build careers and access opportunities within the creative economy. By investing in talent development, we believe creativity can become a pathway toward financial independence and long-term success.",
+      },
+      {
+        id: "004",
+        image: "/004.jpg",
+        alt: "Entrepreneurship and employment readiness training",
+        text: "Through entrepreneurship development, employment readiness training, and economic empowerment initiatives, we plan to contribute to the creation of 12,000+ jobs, income-generating opportunities, and sustainable career pathways, helping families move toward economic stability and poverty reduction.",
+      },
+      {
+        id: "005",
+        image: "/005.jpg",
+        alt: "Mental wellness through art therapy and creative healing",
+        text: "Mental wellness remains central to our mission. Through art therapy, creative healing programs, community engagement activities, and future cultural wellness spaces, we plan to support 40,000+ seniors, newcomers, refugees, minorities, and vulnerable individuals, reducing social isolation and promoting emotional well-being through creativity and connection.",
+      },
+      {
+        id: "006",
+        image: "/006.jpg",
+        alt: "Community creative spaces, galleries, and cultural festivals",
+        text: "Our long-term vision includes establishing major community creative spaces, including large-scale art galleries, cultural festivals, talent development centers, innovation hubs, and public wellness exhibitions that will attract and engage 100,000+ annual participants, creating stronger, healthier, and more connected communities.",
+      },
+      {
+        id: "007",
+        image: "/007.jpg",
+        alt: "Supporting newcomers and underserved families",
+        text: "We are also committed to supporting 50,000+ newcomers and underserved families by providing mentorship, leadership opportunities, integration support, financial literacy education, and inclusive community-based programs designed to create belonging and opportunity for all.",
+      },
+      {
+        id: "008",
+        image: "/008.jpg",
+        alt: "Lumina Bridge Foundation vision for Canada by 2036",
+        text: "By 2036, Lumina Bridge Foundation envisions becoming one of the leading nonprofit organizations in Canada, using arts, culture, innovation, and community-driven solutions to build stronger economies, reduce poverty, unlock human potential, and create lasting change for future generations.",
+      },
+    ] satisfies ImpactContentCard[],
+  },
+  journey: {
+    title: "Our Journey",
+  },
+};
 
 export const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "I moved to Edmonton feeling disconnected and uncertain about where I belonged. After attending several LuminaBridge Foundation workshops and community events, I found more than just programs — I found a community. The leadership and personal development sessions helped me build confidence, improve my communication skills, and connect with people from different backgrounds. Today, I volunteer in community initiatives and actively participate in local events. LuminaBridge Foundation helped me believe in myself again and reminded me that my voice matters.",
+      "I moved to Edmonton feeling disconnected and uncertain about where I belonged. After attending several Lumina Bridge Foundation workshops and community events, I found more than just programs — I found a community. The leadership and personal development sessions helped me build confidence, improve my communication skills, and connect with people from different backgrounds. Today, I volunteer in community initiatives and actively participate in local events. Lumina Bridge Foundation helped me believe in myself again and reminded me that my voice matters.",
     author: "Patrimoine M.",
     role: "Edmonton, Alberta",
   },
   {
     id: "2",
     quote:
-      "As a mother of three children, balancing family responsibilities while adjusting to life in Canada was challenging. Through LuminaBridge Foundation workshops and seminars, I gained valuable knowledge about financial literacy, parenting support, community resources, and personal development. The welcoming environment allowed me to meet other women facing similar challenges and build lasting friendships. The support I received has positively impacted not only my life but also my children. LuminaBridge Foundation created a space where I felt seen, respected, and supported.",
+      "As a mother of three children, balancing family responsibilities while adjusting to life in Canada was challenging. Through Lumina Bridge Foundation workshops and seminars, I gained valuable knowledge about financial literacy, parenting support, community resources, and personal development. The welcoming environment allowed me to meet other women facing similar challenges and build lasting friendships. The support I received has positively impacted not only my life but also my children. Lumina Bridge Foundation created a space where I felt seen, respected, and supported.",
     author: "Soleil Nyinawinka",
     role: "Edmonton, Alberta",
   },
   {
     id: "3",
     quote:
-      "LuminaBridge Foundation is creating opportunities that many young people never had access to before. Through mentorship, workshops, and community events, youth are discovering their talents, building confidence, and developing leadership skills that will benefit them for years to come.",
+      "Lumina Bridge Foundation is creating opportunities that many young people never had access to before. Through mentorship, workshops, and community events, youth are discovering their talents, building confidence, and developing leadership skills that will benefit them for years to come.",
     author: "Community Participant",
     role: "Program Participant",
   },
 ];
 
 export const leadershipIntro = {
-  title: ["Meet Our LuminaBridge", "Foundation Visionaries"],
+  title: ["Meet Our Lumina Bridge", "Foundation Visionaries"],
   subtitle: "Executive Leadership Team",
   description:
     "Our leadership team is dedicated to empowering communities, supporting youth development, and creating opportunities through arts, education, leadership, and community engagement across Alberta.",
@@ -364,7 +500,7 @@ export const leadership: Leader[] = [
     id: "aristote",
     name: "Aristote Bikino",
     role: "Founder & Chief Executive Officer (CEO)",
-    bio: "Aristote Bikino is the Founder and CEO of LuminaBridge Foundation. He provides strategic leadership and oversees the organization's vision, partnerships, fundraising, and community impact initiatives. His passion for youth empowerment and community development drives the Foundation's mission to create opportunities and inspire positive change.",
+    bio: "Aristote Bikino is the Founder and CEO of Lumina Bridge Foundation. He provides strategic leadership and oversees the organization's vision, partnerships, fundraising, and community impact initiatives. His passion for youth empowerment and community development drives the Foundation's mission to create opportunities and inspire positive change.",
     image: "/Aristote.jpeg",
   },
   {
@@ -496,7 +632,7 @@ export function getEventHref(event: Pick<Event, "id">): string {
 }
 
 export const eventsClosing =
-  "Together, these signature events reflect LuminaBridge Foundation's commitment to empowering youth, celebrating diversity, supporting artists, strengthening communities, and creating opportunities for people across Alberta.";
+  "Together, these signature events reflect Lumina Bridge Foundation's commitment to empowering youth, celebrating diversity, supporting artists, strengthening communities, and creating opportunities for people across Alberta.";
 
 export const impactOutcomes = [
   {
@@ -590,7 +726,7 @@ export const successStories = [
   {
     title: "Finding Belonging in Edmonton",
     story:
-      "After attending LuminaBridge workshops and community events, a newcomer to Edmonton found confidence, built meaningful relationships, and now volunteers actively in local community initiatives.",
+      "After attending Lumina Bridge workshops and community events, a newcomer to Edmonton found confidence, built meaningful relationships, and now volunteers actively in local community initiatives.",
     program: "Community Engagement",
     author: "Patrimoine M.",
   },
@@ -618,9 +754,9 @@ interface DonationSupportArea {
 
 export const donationContent = {
   intro:
-    "Your generosity helps LuminaBridge Foundation empower youth, celebrate culture, support artists, and strengthen communities across Alberta. Every contribution creates pathways of opportunity for the people and programs we serve.",
+    "Your generosity helps Lumina Bridge Foundation empower youth, celebrate culture, support artists, and strengthen communities across Alberta. Every contribution creates pathways of opportunity for the people and programs we serve.",
   whyDonate:
-    "As a registered nonprofit organization, LuminaBridge Foundation relies on the support of donors, funders, and community partners to deliver workshops, festivals, mentorship programs, and community initiatives that create lasting impact.",
+    "As a registered nonprofit organization, Lumina Bridge Foundation relies on the support of donors, funders, and community partners to deliver workshops, festivals, mentorship programs, and community initiatives that create lasting impact.",
   supportAreas: [
     {
       title: "Youth Leadership & Development",
@@ -642,16 +778,16 @@ export const donationContent = {
     },
   ] satisfies DonationSupportArea[],
   inquiryNote:
-    "For donation inquiries before online giving launches, please contact us at:",
+    "For additional donation questions, please contact us at:",
 };
 
 export const contactContent = {
   intro:
     "We would love to hear from you. Whether you are interested in our programs, partnership opportunities, sponsorships, volunteering, community initiatives, workshops, festivals, or youth development programs, our team is ready to assist you.",
   partnership:
-    "LuminaBridge Foundation welcomes collaborations with community organizations, educational institutions, businesses, government agencies, artists, cultural groups, and funders who share our vision of building stronger and more inclusive communities.",
+    "Lumina Bridge Foundation welcomes collaborations with community organizations, educational institutions, businesses, government agencies, artists, cultural groups, and funders who share our vision of building stronger and more inclusive communities.",
   volunteer:
     "Passionate about making a difference? We are always looking for dedicated volunteers to support our events, youth programs, community initiatives, workshops, and festivals throughout Alberta.",
   stayConnected:
-    "Follow LuminaBridge Foundation as we continue to empower youth, celebrate culture, support creativity, and strengthen communities across Alberta. Together, we are building bridges of opportunity, leadership, and belonging.",
+    "Follow Lumina Bridge Foundation as we continue to empower youth, celebrate culture, support creativity, and strengthen communities across Alberta. Together, we are building bridges of opportunity, leadership, and belonging.",
 };

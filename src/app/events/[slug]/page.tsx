@@ -49,7 +49,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
   return (
     <>
       <PageBanner title={event.title} image={eventPageBannerImage} />
-      <Section>
+      <Section tone="white" backdrop="dots">
         <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-widest text-secondary">

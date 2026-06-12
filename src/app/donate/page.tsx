@@ -13,14 +13,14 @@ import { AppIcon } from "@/components/shared/app-icon";
 export const metadata: Metadata = {
   title: pageTitles.donate,
   description:
-    "Support LuminaBridge Foundation's youth, arts, and community programs across Alberta. Online giving coming soon.",
+    "Support Lumina Bridge Foundation's youth, arts, and community programs across Alberta through our official donation form.",
 };
 
 export default function DonatePage() {
   return (
     <>
-      <PageBanner title="Donate" image="/hope.jpg" />
-      <Section>
+      <PageBanner title="Donate" image="/support.jpg" />
+      <Section tone="white">
         <PageContainer>
           <FadeUp>
             <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
@@ -58,7 +58,7 @@ export default function DonatePage() {
         </PageContainer>
       </Section>
 
-      <Section className="gradient-section">
+      <Section tone="green" backdrop="mesh">
         <PageContainer narrow>
           <FadeUp>
             <div className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10">
@@ -71,8 +71,9 @@ export default function DonatePage() {
                     Make a Donation
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    Online donation processing is coming soon. Preview the form below — we will
-                    activate secure giving shortly.
+                    Use our official donation form today while we prepare a complete and secure
+                    in-house giving experience for youth leadership, arts and culture, and community
+                    wellness programs across Alberta.
                   </p>
                 </div>
               </div>

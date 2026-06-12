@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
-import { Card } from "@/components/ui/card";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 interface CommunityStoryCardProps {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   className?: string;
 }
@@ -16,19 +15,22 @@ export function CommunityStoryCard({ src, alt, className }: CommunityStoryCardPr
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
-      className={cn("h-full", className)}
+      className={cn("h-full w-full", className)}
     >
-      <Card className="h-full overflow-hidden border-border/60 bg-white">
-        <div className="relative min-h-[16rem] w-full sm:min-h-[20rem] md:min-h-[24rem] lg:min-h-full lg:aspect-auto">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
-      </Card>
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm",
+          "aspect-[4/3] md:aspect-auto md:h-full md:min-h-[12rem]"
+        )}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
     </motion.div>
   );
 }

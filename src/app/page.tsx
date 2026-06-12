@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import impactImage from "../../public/impact.jpg";
+import communityImage from "../../public/community.jpg";
+import hopeImage from "../../public/hope.jpg";
+import missionImage from "../../public/mission.jpg";
+import storyImage from "../../public/story.jpg";
 import { siteConfig } from "@/lib/site-config";
 import { HomeHero } from "@/components/sections/home-hero";
 import { Section } from "@/components/shared/section";
@@ -12,9 +15,10 @@ import {
   SectionHeader,
   sectionHeadingClass,
 } from "@/components/shared/section-header";
+import { SectionBackdrop } from "@/components/shared/section-backdrop";
 import { StatsSection } from "@/components/shared/stats-section";
-import { Timeline } from "@/components/shared/timeline";
-import { ProgramCard } from "@/components/cards/program-card";
+import { PriorityPopulationsSection } from "@/components/sections/priority-populations-section";
+import { ProgramsShowcase } from "@/components/sections/programs-showcase";
 import { CommunityStoryCard } from "@/components/cards/community-story-card";
 import { TestimonialCard } from "@/components/cards/testimonial-card";
 import { ImpactCard } from "@/components/cards/impact-card";
@@ -27,9 +31,9 @@ import {
   nameMeaning,
   coreValues,
   programs,
+  programsSection,
+  priorityPopulationsSection,
   homeStats,
-  impactNarrative,
-  impactTimeline,
   testimonials,
 } from "@/lib/data";
 
@@ -48,21 +52,22 @@ export default function HomePage() {
         <HomeHero />
       </div>
 
-      <section className="w-full bg-secondary py-12 sm:py-16 md:py-20 lg:py-24">
-        <PageContainer>
+      <section className="relative w-full overflow-hidden bg-secondary py-12 sm:py-16 md:py-20 lg:py-24">
+        <SectionBackdrop tone="dark" variant="orbs" seed="home-stats" />
+        <PageContainer className="relative z-10">
           <StatsSection stats={homeStats} dark />
         </PageContainer>
       </section>
 
-      <Section id="about">
+      <Section id="about" tone="white">
         <PageContainer>
           <div className={splitSectionGridClass}>
-            <div className="flex flex-col justify-center">
+            <div className="md:self-center">
               <SectionHeader title={whoWeAre.title} align="left" className="mb-8" />
               <div className="space-y-5">
                 {whoWeAre.paragraphs.map((paragraph, i) => (
                   <FadeUp key={i} delay={i * 0.08}>
-                    <p className="text-left text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+                    <p className="text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
                       {paragraph}
                     </p>
                   </FadeUp>
@@ -70,36 +75,34 @@ export default function HomePage() {
               </div>
               <FadeUp className="mt-8 sm:mt-10">
                 <blockquote className="border-l-4 border-accent pl-5 sm:pl-8">
-                  <p className="text-left text-lg font-medium italic leading-relaxed text-foreground sm:text-xl md:text-2xl">
+                  <p className="text-justify text-lg font-medium italic leading-relaxed text-foreground sm:text-xl md:text-2xl">
                     &ldquo;{beliefQuote}&rdquo;
                   </p>
                 </blockquote>
               </FadeUp>
             </div>
-            <FadeUp delay={0.12} className="h-full">
+            <FadeUp delay={0.12}>
               <SectionImage
-                src="/community.jpg"
-                alt="LuminaBridge Foundation community"
-                tall
-                className="h-full"
+                src={communityImage}
+                alt="Lumina Bridge Foundation community"
+                natural
               />
             </FadeUp>
           </div>
         </PageContainer>
       </Section>
 
-      <Section className="gradient-section">
+      <Section id="mission" tone="green" backdrop="mesh">
         <PageContainer>
           <div className={splitSectionGridClass}>
-            <FadeUp className="h-full md:order-none">
+            <FadeUp className="md:order-none">
               <SectionImage
-                src="/mission.jpg"
-                alt="LuminaBridge Foundation mission in action"
-                tall
-                className="h-full"
+                src={missionImage}
+                alt="Lumina Bridge Foundation mission in action"
+                natural
               />
             </FadeUp>
-            <div className="grid h-full gap-6 sm:gap-8 md:gap-10">
+            <div className="grid gap-6 sm:gap-8 md:gap-10 md:self-center">
               <FadeUp className="h-full">
                 <div
                   className={`${missionCardClass} border border-border bg-white`}
@@ -127,9 +130,9 @@ export default function HomePage() {
         </PageContainer>
       </Section>
 
-      <Section className="bg-primary text-primary-foreground">
+      <Section id="values" tone="white" backdrop="dots">
         <PageContainer>
-          <SectionHeader title="What Guides Everything We Do" light />
+          <SectionHeader title="What Guides Everything We Do" />
           <StaggerContainer className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10">
             {coreValues.map((value) => (
               <StaggerItem key={value.title}>
@@ -137,7 +140,6 @@ export default function HomePage() {
                   title={value.title}
                   description={value.description}
                   icon={value.icon}
-                  variant="onPrimary"
                 />
               </StaggerItem>
             ))}
@@ -145,10 +147,10 @@ export default function HomePage() {
         </PageContainer>
       </Section>
 
-      <Section className="gradient-section">
+      <Section id="meaning" tone="green" backdrop="bridge" className="!py-20 sm:!py-28 md:!py-36 lg:!py-44">
         <PageContainer>
           <div className={splitSectionGridClass}>
-            <FadeUp>
+            <FadeUp className="md:self-center">
               <div className="max-w-xl">
                 <h2 className={sectionHeadingClass}>{nameMeaning.title}</h2>
                 <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground sm:mt-12 sm:space-y-7 sm:text-lg md:mt-14 md:text-xl lg:mt-16">
@@ -167,78 +169,43 @@ export default function HomePage() {
             </FadeUp>
             <FadeUp delay={0.12}>
               <SectionImage
-                src="/hope.jpg"
+                src={hopeImage}
                 alt="Light, hope, and community connection"
+                natural
               />
             </FadeUp>
           </div>
         </PageContainer>
       </Section>
 
-      <Section id="programs" className="programs-section-bg">
+      <Section id="programs" tone="white" backdrop="orbs">
         <PageContainer>
-          <SectionHeader title="What We Do" />
-          <StaggerContainer className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
-            {programs.map((program) => (
-              <StaggerItem key={program.id}>
-                <ProgramCard program={program} minimal />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <SectionHeader title={programsSection.title} />
+          <ProgramsShowcase programs={programs} />
         </PageContainer>
       </Section>
 
-      <Section id="impact" className="bg-white">
-        <PageContainer>
-          <div className={splitSectionGridClass}>
-            <div>
-              <SectionHeader
-                title="Our Impact Journey"
-                align="left"
-                className="mb-8"
-              />
-              <div className="space-y-5">
-                <FadeUp>
-                  <p className="text-xl font-semibold leading-relaxed text-foreground sm:text-2xl md:text-3xl">
-                    {impactNarrative[0]}
-                  </p>
-                </FadeUp>
-                <FadeUp delay={0.08}>
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-                    {impactNarrative[4]}
-                  </p>
-                </FadeUp>
-              </div>
-            </div>
-            <FadeUp delay={0.12}>
-              <SectionImage
-                src={impactImage}
-                alt="LuminaBridge Foundation team collaborating on community impact"
-                tall
-                priority
-                objectPosition="center 25%"
-              />
-            </FadeUp>
-          </div>
-
-          <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-28">
-            <Timeline items={impactTimeline} />
-          </div>
-        </PageContainer>
+      <Section id="populations" tone="green" backdrop="mesh">
+        <PriorityPopulationsSection
+          title={priorityPopulationsSection.title}
+          intro={priorityPopulationsSection.intro}
+          lead={priorityPopulationsSection.lead}
+          populations={priorityPopulationsSection.populations}
+        />
       </Section>
 
-      <Section className="testimonials-section-bg">
+      <Section id="stories" tone="white" backdrop="mesh">
         <PageContainer>
-          <SectionHeader title="Voices from Our Community" />
-          <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
+          <SectionHeader title="Impact Stories from Our Community" />
+          <StaggerContainer className="grid items-stretch gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
             {testimonials.map((t) => (
-              <StaggerItem key={t.id}>
+              <StaggerItem key={t.id} className="h-full">
                 <TestimonialCard testimonial={t} />
               </StaggerItem>
             ))}
-            <StaggerItem className="md:col-span-2 lg:col-span-1">
+            <StaggerItem className="h-full">
               <CommunityStoryCard
-                src="/story.jpg"
+                src={storyImage}
                 alt="Community members gathering together outdoors"
               />
             </StaggerItem>

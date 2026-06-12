@@ -30,7 +30,7 @@ export function Logo({
   href = "/",
 }: LogoProps) {
   const src = tone === "white" ? siteConfig.logoWhite : siteConfig.logoColor;
-  const alt = "LuminaBridge Foundation";
+  const alt = siteConfig.name;
 
   const image = (
     // eslint-disable-next-line @next/next/no-img-element
@@ -58,7 +58,7 @@ interface NavbarLogoProps {
 
 /** Crossfades between white and color logos on scroll. */
 export function NavbarLogo({ scrolled }: NavbarLogoProps) {
-  const alt = "LuminaBridge Foundation";
+  const alt = siteConfig.name;
 
   return (
     <Link

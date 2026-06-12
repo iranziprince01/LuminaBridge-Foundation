@@ -34,12 +34,12 @@ export function HomeHero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex min-w-0 items-end"
         >
-          <h1 className="w-full min-w-0 max-w-full text-balance break-words text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-white sm:max-w-none sm:text-[clamp(2.75rem,8.5vw,6.25rem)] lg:text-[clamp(3rem,9vw,7rem)]">
+          <h1 className="font-display w-full min-w-0 max-w-full text-balance break-words text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:max-w-none sm:text-[clamp(2.75rem,8.5vw,6.25rem)] lg:text-[clamp(3rem,9vw,7rem)]">
             <motion.span
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="block"
+              className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]"
             >
               {heroContent.headline.primary}
             </motion.span>
@@ -47,7 +47,7 @@ export function HomeHero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.6 }}
-              className="mt-1 block text-[#ffe600] drop-shadow-[0_2px_14px_rgba(0,0,0,0.45)] lg:mt-2"
+              className="mt-1 block text-[#ffe600] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] lg:mt-2"
             >
               {heroContent.headline.secondary}
             </motion.span>

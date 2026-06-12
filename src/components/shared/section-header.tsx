@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { FadeUp } from "@/components/motion/fade-up";
 
 export const sectionHeadingClass =
-  "text-balance text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl";
+  "font-display text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl";
 
 interface SectionHeaderProps {
   title: string;
@@ -38,7 +38,7 @@ export function SectionHeader({
         {description && (
           <p
             className={cn(
-              "mt-5 text-lg leading-relaxed md:text-xl md:leading-relaxed",
+              "mt-5 font-sans text-lg leading-relaxed md:text-xl md:leading-relaxed",
               light ? "text-white/80" : "text-muted-foreground"
             )}
           >

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/shared/logo";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/shared/social-icons";
@@ -27,11 +27,13 @@ export function Footer() {
           </StaggerItem>
 
           <StaggerItem className="md:pt-0 lg:pt-28">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-secondary">
+            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-secondary">
               Quick Links
             </h3>
             <ul className="mt-4 space-y-2.5">
-              {navigation.map((item) => (
+              {navigation
+                .filter((item) => item.name !== "Home" && item.name !== "Team")
+                .map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -40,12 +42,12 @@ export function Footer() {
                     {item.name}
                   </Link>
                 </li>
-              ))}
+                ))}
             </ul>
           </StaggerItem>
 
           <StaggerItem className="lg:pt-28">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-secondary">
+            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-secondary">
               Get Involved
             </h3>
             <ul className="mt-4 space-y-2.5">
@@ -73,7 +75,7 @@ export function Footer() {
           </StaggerItem>
 
           <StaggerItem className="lg:pt-28">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-secondary">
+            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-secondary">
               Contact
             </h3>
             <ul className="mt-4 space-y-3">
@@ -89,6 +91,15 @@ export function Footer() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-secondary">
                   {siteConfig.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5 text-sm text-white/70">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                <a
+                  href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+                  className="hover:text-secondary"
+                >
+                  {siteConfig.phone}
                 </a>
               </li>
             </ul>
@@ -118,7 +129,7 @@ export function Footer() {
 
         <FadeUp className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-sm text-white/50">
-            © {currentYear} LuminaBridge Foundation. All rights reserved.
+            © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/50">
             <Link href="/privacy" className="hover:text-white/80">

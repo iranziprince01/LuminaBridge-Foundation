@@ -11,6 +11,7 @@ interface SectionImageProps {
   className?: string;
   priority?: boolean;
   tall?: boolean;
+  natural?: boolean;
   objectPosition?: string;
 }
 
@@ -20,8 +21,32 @@ export function SectionImage({
   className,
   priority = false,
   tall = false,
+  natural = false,
   objectPosition = "center",
 }: SectionImageProps) {
+  if (natural) {
+    return (
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        variants={scaleInVariants}
+        transition={{ duration: 0.7, ease: motionEase }}
+        whileHover={{ scale: 1.01 }}
+        className={cn("relative w-full rounded-3xl shadow-sm", className)}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          priority={priority}
+          className="h-auto w-full rounded-3xl object-cover transition-transform duration-700"
+          style={{ objectPosition }}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial="hidden"

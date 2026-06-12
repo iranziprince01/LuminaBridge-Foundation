@@ -11,10 +11,52 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
+type HomeSection = "home" | "programs" | null;
+
+const NAV_OFFSET = 120;
+
+function getHomeSectionFromScroll(): HomeSection {
+  const programs = document.getElementById("programs");
+  const top = document.getElementById("top");
+
+  if (programs) {
+    const programsTop = programs.getBoundingClientRect().top;
+    if (programsTop <= NAV_OFFSET + 80) {
+      return "programs";
+    }
+  }
+
+  if (top) {
+    const heroBottom = top.getBoundingClientRect().bottom;
+    if (heroBottom > NAV_OFFSET + 40) {
+      return "home";
+    }
+  }
+
+  return null;
+}
+
+function scrollToSection(id: string) {
+  if (id === "top") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.pushState(null, "", "/#top");
+    return;
+  }
+
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+  window.scrollTo({ top, behavior: "smooth" });
+  window.history.pushState(null, "", `/#${id}`);
+}
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [homeSection, setHomeSection] = useState<HomeSection>("home");
   const pathname = usePathname();
+  const onHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -24,14 +66,60 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!onHomePage) {
+      setHomeSection("home");
+      return;
+    }
+
+    const syncHomeSection = () => {
+      setHomeSection(getHomeSectionFromScroll());
+    };
+
+    syncHomeSection();
+
+    window.addEventListener("hashchange", syncHomeSection);
+    window.addEventListener("scroll", syncHomeSection, { passive: true });
+    return () => {
+      window.removeEventListener("hashchange", syncHomeSection);
+      window.removeEventListener("scroll", syncHomeSection);
+    };
+  }, [onHomePage, pathname]);
+
+  useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
   const handleNavClick = () => setIsOpen(false);
 
+  const handleNavItemClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    handleNavClick();
+
+    if (!href.startsWith("/#") || pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    const id = href.slice(2);
+    scrollToSection(id);
+
+    if (id === "top") {
+      setHomeSection("home");
+    } else if (id === "programs") {
+      setHomeSection("programs");
+    }
+  };
+
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    if (href === "/" || href === "/#top") {
+      return onHomePage && homeSection === "home";
+    }
+    if (href === "/#programs") {
+      return onHomePage && homeSection === "programs";
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   const showHeroStyle = !scrolled;
@@ -58,11 +146,12 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={(event) => handleNavItemClick(event, item.href)}
               className={cn(
                 "rounded-full px-3.5 py-2.5 text-base transition-colors",
                 showHeroStyle
                   ? cn(
-                      "font-bold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55),0_2px_10px_rgba(0,0,0,0.35)]",
+                      "font-sans font-semibold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55),0_2px_10px_rgba(0,0,0,0.35)]",
                       isActive(item.href)
                         ? "bg-white/20"
                         : "hover:bg-white/10"
@@ -116,7 +205,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={handleNavClick}
+                  onClick={(event) => handleNavItemClick(event, item.href)}
                   className={cn(
                     "block rounded-xl py-3 text-base font-bold transition-colors",
                     isActive(item.href)
