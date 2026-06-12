@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/shared/logo";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/shared/social-icons";
+import { FacebookIcon, InstagramIcon } from "@/components/shared/social-icons";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { FadeUp } from "@/components/motion/fade-up";
 import { navigation } from "@/lib/data";
@@ -96,7 +96,7 @@ export function Footer() {
               <li className="flex items-start gap-2.5 text-sm text-white/70">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
                 <a
-                  href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+                  href={siteConfig.phoneHref}
                   className="hover:text-secondary"
                 >
                   {siteConfig.phone}
@@ -107,7 +107,6 @@ export function Footer() {
               {[
                 { icon: FacebookIcon, href: siteConfig.social.facebook, label: "Facebook" },
                 { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
-                { icon: LinkedinIcon, href: siteConfig.social.linkedin, label: "LinkedIn" },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { GetInTouchCtaShell } from "@/components/layout/get-in-touch-cta-shell";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { OrganizationSchema } from "@/components/seo/organization-schema";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -74,11 +75,13 @@ export default function RootLayout({
         <OrganizationSchema />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <GetInTouchCtaShell />
-        <Footer />
-        <ScrollToTop />
+        <MotionProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <GetInTouchCtaShell />
+          <Footer />
+          <ScrollToTop />
+        </MotionProvider>
       </body>
     </html>
   );

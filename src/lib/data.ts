@@ -1,20 +1,22 @@
+import type { StaticImageData } from "next/image";
+import estherImage from "../../public/Esther.jpeg";
 import type { IconName } from "@/lib/icons";
 
-export interface Program {
-  id: string;
-  title: string;
-  description: string;
-  benefits: string[];
-  impact: string;
-  icon: IconName;
-}
+export type { Program } from "@/lib/programs-content";
+export {
+  programs,
+  programsSection,
+  getProgramById,
+} from "@/lib/programs-content";
 
 export interface Leader {
   id: string;
   name: string;
   role: string;
   bio: string;
-  image?: string;
+  image?: string | StaticImageData;
+  imagePosition?: string;
+  imageClassName?: string;
 }
 
 export interface Event {
@@ -86,7 +88,7 @@ interface GetInvolvedOption {
 
 export const navigation = [
   { name: "Home", href: "/#top" },
-  { name: "Programs", href: "/#programs" },
+  { name: "Programs", href: "/programs" },
   { name: "Impact", href: "/impact" },
   { name: "Team", href: "/team" },
   { name: "Events", href: "/events" },
@@ -101,7 +103,7 @@ export const heroContent = {
   subheadline:
     "Empowering youth, strengthening communities, and creating opportunities through arts, culture, leadership, education, and community engagement across Alberta.",
   primaryCta: { label: "Partner With Us", href: "/get-involved" },
-  secondaryCta: { label: "Our Programs", href: "/#programs" },
+  secondaryCta: { label: "Our Programs", href: "/programs" },
   image:
     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80",
 };
@@ -173,94 +175,6 @@ export const coreValues = [
     icon: "HeartHandshake",
   },
 ] satisfies ValueItem[];
-
-export const programs: Program[] = [
-  {
-    id: "youth-leadership",
-    title: "Youth Leadership Development",
-    description:
-      "Leadership workshops, mentorship, and personal development sessions that help young people build confidence, communication skills, and the ability to contribute positively to their communities.",
-    benefits: ["Leadership workshops", "Mentorship opportunities", "Personal development sessions"],
-    impact: "Developing confident young leaders across Alberta.",
-    icon: "Compass",
-  },
-  {
-    id: "arts-talent",
-    title: "Arts and Talent Development",
-    description:
-      "Creative platforms for youth and emerging artists to develop skills, express identity, and showcase talent through music, theatre, visual arts, and performance.",
-    benefits: ["Talent showcases", "Creative mentorship", "Performance opportunities"],
-    impact: "Amplifying artistic voices and hidden talent in every community.",
-    icon: "Mic2",
-  },
-  {
-    id: "mental-wellness",
-    title: "Mental Wellness and Community Healing",
-    description:
-      "Programming that promotes well-being, reduces stigma, and creates safe spaces for healing, conversation, and community support for youth and families.",
-    benefits: ["Wellness workshops", "Community healing circles", "Support resource navigation"],
-    impact: "Creating spaces where individuals and families can heal and thrive together.",
-    icon: "ShieldCheck",
-  },
-  {
-    id: "financial-entrepreneurship",
-    title: "Financial Literacy and Entrepreneurship",
-    description:
-      "Practical education in budgeting, saving, business planning, and entrepreneurship — empowering participants with skills for long-term financial stability and economic opportunity.",
-    benefits: ["Financial literacy workshops", "Entrepreneurship training", "Career and business mentorship"],
-    impact: "Building economic confidence and pathways to self-sufficiency.",
-    icon: "Banknote",
-  },
-  {
-    id: "cultural-inclusion",
-    title: "Cultural Celebration and Inclusion",
-    description:
-      "Festivals, cultural showcases, and inclusion initiatives that honour diversity, celebrate heritage, and foster cross-cultural understanding across Alberta.",
-    benefits: ["Cultural festivals", "Heritage celebrations", "Inclusion dialogues"],
-    impact: "Celebrating Alberta's multicultural communities and shared humanity.",
-    icon: "Globe2",
-  },
-  {
-    id: "community-engagement",
-    title: "Community Engagement and Volunteerism",
-    description:
-      "Grassroots initiatives and volunteer pathways that connect residents, organizations, and institutions around shared goals, collective action, and meaningful service.",
-    benefits: ["Community forums", "Volunteer programs", "Neighbourhood partnerships"],
-    impact: "Mobilizing communities as agents of positive change.",
-    icon: "Handshake",
-  },
-  {
-    id: "creative-industry",
-    title: "Creative Industry Development",
-    description:
-      "Support for artists and creatives entering professional industries — including branding, networking, career development, and access to platforms that recognize their work.",
-    benefits: ["Industry mentorship", "Professional branding", "Career development support"],
-    impact: "Helping creatives turn talent into sustainable careers.",
-    icon: "Briefcase",
-  },
-  {
-    id: "refugee-support",
-    title: "Newcomer, Minorities, and Refugee Support",
-    description:
-      "Belonging programs, settlement navigation, and community support for newcomers, minorities, and refugee communities building roots in Alberta.",
-    benefits: ["Settlement navigation", "Belonging programs", "Community integration support"],
-    impact: "Helping newcomers feel seen, respected, and supported.",
-    icon: "Landmark",
-  },
-  {
-    id: "events-festivals",
-    title: "Workshops, Festivals, Conferences, and Public Events",
-    description:
-      "Signature public gatherings — from workshops and conferences to festivals — that bring communities together for learning, celebration, and lasting connection.",
-    benefits: ["Public workshops", "Signature festivals", "Conferences and community gatherings"],
-    impact: "Creating memorable experiences that inspire ongoing engagement.",
-    icon: "CalendarDays",
-  },
-];
-
-export const programsSection = {
-  title: "What We Do",
-};
 
 export const priorityPopulationsSection = {
   title: "Priority Populations We Serve",
@@ -519,6 +433,65 @@ export const leadership: Leader[] = [
   },
 ];
 
+export const operationsTeamIntro = {
+  subtitle: "Operations Team",
+  description:
+    "Our operations team supports the day-to-day delivery of programs, communications, finance, community outreach, and volunteer engagement — ensuring the Foundation serves communities effectively across Alberta.",
+};
+
+export const operationsTeam: Leader[] = [
+  {
+    id: "prince",
+    name: "Prince Iranzi",
+    role: "IT and Communications Officer",
+    bio: "Prince manages the Foundation's digital platforms, technology systems, and communications — keeping our message clear and our programs accessible to communities across Alberta.",
+    image: "/Prince.jpg",
+  },
+  {
+    id: "christophe",
+    name: "Christophe Iradukunda",
+    role: "Finance and Administration Officer",
+    bio: "Christophe oversees budgeting, financial reporting, and administrative processes that support accountable, well-run operations behind every program and initiative.",
+    image: "/Christophe.jpeg",
+    imageClassName:
+      "origin-top object-top scale-[1.12] -translate-y-1 group-hover:scale-[1.16] group-hover:-translate-y-0.5",
+  },
+  {
+    id: "francine",
+    name: "Mukobwajana Francine",
+    role: "Program Coordinator",
+    bio: "Francine coordinates program delivery and works with partners and participants to ensure initiatives run smoothly and reach the communities we serve.",
+    image: "/Francine.jpeg",
+  },
+  {
+    id: "aline",
+    name: "Aline Mutimukeye",
+    role: "Community Engagement Coordinator",
+    bio: "Aline builds relationships with community members and partners, strengthening outreach, participation, and connection across programs and public events.",
+    image: "/Aline.jpeg",
+    imageClassName:
+      "origin-top object-top scale-[1.06] -translate-y-0.5 group-hover:scale-[1.1] group-hover:-translate-y-0",
+  },
+  {
+    id: "esther",
+    name: "Esther Muhawenimana",
+    role: "Volunteer Coordinator",
+    bio: "Esther recruits, supports, and coordinates volunteers who help power workshops, festivals, and community initiatives throughout the Foundation's work.",
+    image: estherImage,
+    imageClassName:
+      "origin-top object-[center_15%] scale-[1.04] group-hover:scale-[1.08]",
+  },
+  {
+    id: "grants-partnerships",
+    name: "Patrone Uwase",
+    role: "Grants and Partnerships Coordinator",
+    bio: "Patrone supports grant development, funder relationships, and partnership coordination that help expand resources and collaborative impact for the Foundation.",
+    image: "/Patrone.jpeg",
+    imageClassName:
+      "origin-top object-top scale-[1.12] -translate-y-1 group-hover:scale-[1.16] group-hover:-translate-y-0.5",
+  },
+];
+
 export const eventPageBannerImage =
   "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80";
 
@@ -589,7 +562,7 @@ export const events: Event[] = [
     id: "youth-unlocking-potential",
     title: "Youth Unlocking Potential 2026",
     year: 2026,
-    date: "2026",
+    date: "Date to be announced (Coming Soon)",
     location: "Edmonton, Alberta",
     tagline: "Edmonton Youth Music, Comedy, Theatre & Arts Festival",
     theme: "Unlocking Talent. Inspiring Creativity. Building Future Leaders.",

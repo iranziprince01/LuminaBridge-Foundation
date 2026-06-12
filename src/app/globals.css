@@ -187,8 +187,22 @@ h6 {
   animation-delay: -13s;
 }
 
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.hero-ken-burns {
+  animation: hero-ken-burns 28s ease-in-out infinite alternate;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .section-orb {
+  .section-orb,
+  .hero-ken-burns {
     animation: none;
   }
 }

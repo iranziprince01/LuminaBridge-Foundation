@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { FadeUp } from "@/components/motion/fade-up";
+import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
+import { springGentle } from "@/components/motion/motion-presets";
 import { PageContainer } from "@/components/shared/page-container";
 import { SectionBackdrop } from "@/components/shared/section-backdrop";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/shared/social-icons";
+import { FacebookIcon, InstagramIcon } from "@/components/shared/social-icons";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 import { ICON_STROKE } from "@/lib/icons";
@@ -13,7 +19,6 @@ type GetInTouchCtaTone = "white" | "green";
 const socialLinks = [
   { icon: FacebookIcon, href: siteConfig.social.facebook, label: "Facebook" },
   { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
-  { icon: LinkedinIcon, href: siteConfig.social.linkedin, label: "LinkedIn" },
 ] as const;
 
 const contactItems = [
@@ -36,9 +41,9 @@ const contactItems = [
   },
   {
     icon: Phone,
-    label: "Phone",
+    label: siteConfig.phoneLabel,
     content: siteConfig.phone,
-    href: `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`,
+    href: siteConfig.phoneHref,
   },
   {
     icon: Clock,
@@ -68,28 +73,30 @@ export function GetInTouchCta({ tone = "green" }: GetInTouchCtaProps) {
         seed="get-in-touch"
       />
       <PageContainer className="relative z-10">
-        <div className="overflow-hidden rounded-2xl border border-border/70 bg-white shadow-sm sm:rounded-3xl">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
-            <div className="border-b border-border/60 p-6 sm:p-8 md:p-10 lg:border-b-0 lg:border-r">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary sm:text-sm">
-                Connect with us
-              </p>
-              <h2
-                id="get-in-touch-heading"
-                className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl"
-              >
-                Get in Touch
-              </h2>
-              <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Reach our Edmonton team for programs, partnerships, volunteering, or general
-                inquiries. We&apos;d love to hear from you.
-              </p>
+        <FadeUp>
+          <div className="overflow-hidden rounded-2xl border border-border/70 bg-white shadow-sm sm:rounded-3xl">
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+              <div className="border-b border-border/60 p-6 sm:p-8 md:p-10 lg:border-b-0 lg:border-r">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary sm:text-sm">
+                  Connect with us
+                </p>
+                <h2
+                  id="get-in-touch-heading"
+                  className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl"
+                >
+                  Get in Touch
+                </h2>
+                <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Reach our Edmonton team for programs, partnerships, volunteering, or general
+                  inquiries. We&apos;d love to hear from you.
+                </p>
 
-              <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6">
-                {contactItems.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.label} className="flex items-start gap-3.5">
+                <StaggerContainer className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6" staggerDelay={0.08}>
+                  {contactItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <StaggerItem key={item.label}>
+                        <div className="flex items-start gap-3.5">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary/10">
                         <Icon
                           className="h-5 w-5 text-secondary"
@@ -113,54 +120,68 @@ export function GetInTouchCta({ tone = "green" }: GetInTouchCtaProps) {
                             {item.content}
                           </p>
                         )}
+                        </div>
                       </div>
-                    </div>
+                    </StaggerItem>
                   );
                 })}
+                </StaggerContainer>
               </div>
-            </div>
 
-            <div className="flex flex-col items-start gap-6 bg-gradient-to-br from-primary/[0.04] via-white to-secondary/[0.06] p-6 sm:p-8 md:p-10 lg:min-w-[280px] lg:items-center lg:text-center xl:min-w-[320px]">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  Follow us
-                </p>
-                <div className="mt-4 flex gap-3 lg:justify-center">
-                  {socialLinks.map(({ icon: Icon, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-border/70 bg-white text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:border-secondary/40 hover:text-secondary hover:shadow-md"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  ))}
+              <FadeUp delay={0.15} className="flex flex-col items-start gap-6 bg-gradient-to-br from-primary/[0.04] via-white to-secondary/[0.06] p-6 sm:p-8 md:p-10 lg:min-w-[280px] lg:items-center lg:text-center xl:min-w-[320px]">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                    Follow us
+                  </p>
+                  <div className="mt-4 flex gap-3 lg:justify-center">
+                    {socialLinks.map(({ icon: Icon, href, label }) => (
+                      <motion.a
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        whileHover={{ y: -3, scale: 1.05 }}
+                        whileTap={{ scale: 0.96 }}
+                        transition={springGentle}
+                        className="flex h-11 w-11 items-center justify-center rounded-xl border border-border/70 bg-white text-primary shadow-sm hover:border-secondary/40 hover:text-secondary hover:shadow-md"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </motion.a>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="w-full border-t border-border/60 pt-6 lg:border-t-0 lg:pt-0">
-                <Button variant="default" size="lg" className="w-full sm:w-auto" asChild>
-                  <Link href="/get-involved">
-                    Send a message
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-                <p className="mt-3 text-xs leading-relaxed text-muted-foreground lg:text-center">
-                  Or email us directly at{" "}
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="font-medium text-secondary hover:underline"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </p>
-              </div>
+                <div className="w-full border-t border-border/60 pt-6 lg:border-t-0 lg:pt-0">
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={springGentle}>
+                    <Button variant="default" size="lg" className="w-full sm:w-auto" asChild>
+                      <Link href="/get-involved">
+                        Send a message
+                        <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </motion.div>
+                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground lg:text-center">
+                    Or reach us at{" "}
+                    <a
+                      href={`mailto:${siteConfig.email}`}
+                      className="font-medium text-secondary hover:underline"
+                    >
+                      {siteConfig.email}
+                    </a>{" "}
+                    or{" "}
+                    <a
+                      href={siteConfig.phoneHref}
+                      className="font-medium text-secondary hover:underline"
+                    >
+                      {siteConfig.phone}
+                    </a>
+                  </p>
+                </div>
+              </FadeUp>
             </div>
           </div>
-        </div>
+        </FadeUp>
       </PageContainer>
     </section>
   );

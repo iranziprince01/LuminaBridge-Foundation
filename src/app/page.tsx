@@ -55,7 +55,9 @@ export default function HomePage() {
       <section className="relative w-full overflow-hidden bg-secondary py-12 sm:py-16 md:py-20 lg:py-24">
         <SectionBackdrop tone="dark" variant="orbs" seed="home-stats" />
         <PageContainer className="relative z-10">
-          <StatsSection stats={homeStats} dark />
+          <FadeUp>
+            <StatsSection stats={homeStats} dark />
+          </FadeUp>
         </PageContainer>
       </section>
 
@@ -103,7 +105,7 @@ export default function HomePage() {
               />
             </FadeUp>
             <div className="grid gap-6 sm:gap-8 md:gap-10 md:self-center">
-              <FadeUp className="h-full">
+              <FadeUp spring className="h-full">
                 <div
                   className={`${missionCardClass} border border-border bg-white`}
                 >
@@ -115,7 +117,7 @@ export default function HomePage() {
                   </p>
                 </div>
               </FadeUp>
-              <FadeUp delay={0.1} className="h-full">
+              <FadeUp spring delay={0.12} className="h-full">
                 <div className={`${missionCardClass} bg-primary text-white shadow-lg`}>
                   <span className="font-display text-base font-extrabold uppercase tracking-widest text-[#ffe600] sm:text-lg md:text-xl">
                     {missionVision.vision.title}
@@ -133,9 +135,9 @@ export default function HomePage() {
       <Section id="values" tone="white" backdrop="dots">
         <PageContainer>
           <SectionHeader title="What Guides Everything We Do" />
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10">
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10" staggerDelay={0.08}>
             {coreValues.map((value) => (
-              <StaggerItem key={value.title}>
+              <StaggerItem key={value.title} variant="playful">
                 <ImpactCard
                   title={value.title}
                   description={value.description}
@@ -153,18 +155,22 @@ export default function HomePage() {
             <FadeUp className="md:self-center">
               <div className="max-w-xl">
                 <h2 className={sectionHeadingClass}>{nameMeaning.title}</h2>
-                <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground sm:mt-12 sm:space-y-7 sm:text-lg md:mt-14 md:text-xl lg:mt-16">
-                  <p className="flex items-start gap-3 sm:gap-4">
-                    <span className="shrink-0 font-bold text-secondary">Lumina</span>
-                    <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
-                    <span>{nameMeaning.lumina}</span>
-                  </p>
-                  <p className="flex items-start gap-3 sm:gap-4">
-                    <span className="shrink-0 font-bold text-secondary">Bridge</span>
-                    <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
-                    <span>{nameMeaning.bridge}</span>
-                  </p>
-                </div>
+                <StaggerContainer className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground sm:mt-12 sm:space-y-7 sm:text-lg md:mt-14 md:text-xl lg:mt-16" staggerDelay={0.12}>
+                  <StaggerItem>
+                    <p className="flex items-start gap-3 sm:gap-4">
+                      <span className="shrink-0 font-bold text-secondary">Lumina</span>
+                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
+                      <span>{nameMeaning.lumina}</span>
+                    </p>
+                  </StaggerItem>
+                  <StaggerItem>
+                    <p className="flex items-start gap-3 sm:gap-4">
+                      <span className="shrink-0 font-bold text-secondary">Bridge</span>
+                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
+                      <span>{nameMeaning.bridge}</span>
+                    </p>
+                  </StaggerItem>
+                </StaggerContainer>
               </div>
             </FadeUp>
             <FadeUp delay={0.12}>
@@ -180,8 +186,19 @@ export default function HomePage() {
 
       <Section id="programs" tone="white" backdrop="orbs">
         <PageContainer>
-          <SectionHeader title={programsSection.title} />
-          <ProgramsShowcase programs={programs} />
+          <SectionHeader title={programsSection.title} align="left" className="mb-8 sm:mb-10" />
+          <div className="max-w-3xl space-y-5">
+            {programsSection.paragraphs.map((paragraph) => (
+              <FadeUp key={paragraph.slice(0, 32)}>
+                <p className="text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+                  {paragraph}
+                </p>
+              </FadeUp>
+            ))}
+          </div>
+          <div className="mt-12 sm:mt-16">
+            <ProgramsShowcase programs={programs} />
+          </div>
         </PageContainer>
       </Section>
 
@@ -197,13 +214,13 @@ export default function HomePage() {
       <Section id="stories" tone="white" backdrop="mesh">
         <PageContainer>
           <SectionHeader title="Impact Stories from Our Community" />
-          <StaggerContainer className="grid items-stretch gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
+          <StaggerContainer className="grid items-stretch gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10" staggerDelay={0.1}>
             {testimonials.map((t) => (
-              <StaggerItem key={t.id} className="h-full">
+              <StaggerItem key={t.id} variant="playful" className="h-full">
                 <TestimonialCard testimonial={t} />
               </StaggerItem>
             ))}
-            <StaggerItem className="h-full">
+            <StaggerItem variant="playful" className="h-full">
               <CommunityStoryCard
                 src={storyImage}
                 alt="Community members gathering together outdoors"

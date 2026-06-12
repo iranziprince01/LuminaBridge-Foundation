@@ -35,7 +35,7 @@ export function ProgramCard({
               {program.title}
             </h3>
             <p className="mt-3 flex-1 text-base leading-relaxed text-muted-foreground">
-              {program.impact}
+              {program.closingStatement}
             </p>
           </CardContent>
         </Card>
@@ -64,7 +64,7 @@ export function ProgramCard({
           </p>
           {!compact && (
             <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-secondary">
-              {program.impact}
+              {program.closingStatement}
             </p>
           )}
         </CardContent>

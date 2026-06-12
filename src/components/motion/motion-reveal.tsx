@@ -6,6 +6,7 @@ import {
   scaleInVariants,
   slideLeftVariants,
   slideRightVariants,
+  viewportDefault,
 } from "@/components/motion/motion-presets";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +36,7 @@ export function MotionReveal({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={viewportDefault}
       variants={variantMap[direction]}
       transition={{ delay }}
       className={cn(className)}

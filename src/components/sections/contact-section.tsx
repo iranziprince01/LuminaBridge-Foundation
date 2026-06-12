@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { contactContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { ICON_STROKE } from "@/lib/icons";
-import { Clock, Mail, MapPin } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 interface ContactSectionProps {
   defaultInquiry?: string;
@@ -32,6 +32,12 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
       title: "Email",
       content: siteConfig.email,
       href: `mailto:${siteConfig.email}`,
+    },
+    {
+      icon: Phone,
+      title: siteConfig.phoneLabel,
+      content: siteConfig.phone,
+      href: siteConfig.phoneHref,
     },
     {
       icon: Clock,
@@ -90,7 +96,7 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
         <div className="md:col-span-2 lg:col-span-3">
           <FadeUp delay={0.15}>
             <div className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10">
-              <h3 className="text-xl font-bold">LBF Request Information Form</h3>
+              <h3 className="text-xl font-bold">Request Information Form</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Complete the request form below or use the direct link above. On-site messaging
                 is coming soon.

@@ -87,6 +87,13 @@ export default function DonatePage() {
                   className="font-semibold text-secondary hover:underline"
                 >
                   {siteConfig.email}
+                </a>{" "}
+                or{" "}
+                <a
+                  href={siteConfig.phoneHref}
+                  className="font-semibold text-secondary hover:underline"
+                >
+                  {siteConfig.phone}
                 </a>
               </p>
             </div>

@@ -5,6 +5,7 @@ import { AppIcon } from "@/components/shared/app-icon";
 import type { IconName } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { springGentle } from "@/components/motion/motion-presets";
 
 interface ImpactCardProps {
   title: string;
@@ -25,32 +26,34 @@ export function ImpactCard({
 
   return (
     <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3 }}
-      className={cn("h-full", className)}
+      whileHover={{ y: -5 }}
+      transition={springGentle}
+      className={cn("group h-full", className)}
     >
       <Card
         className={cn(
-          "h-full",
+          "h-full transition-shadow duration-300",
           onPrimary
             ? "border-4 border-[color-mix(in_srgb,#ffe600_50%,#0c4a6e_50%)] bg-transparent shadow-none hover:bg-white/5"
             : "border-border/60 hover:border-secondary/20 hover:shadow-md"
         )}
       >
         <CardContent className="p-6 sm:p-7 md:p-8 lg:p-9">
-          <div
+          <motion.div
             className={cn(
               "mb-6 flex items-center justify-center",
               onPrimary
                 ? "h-16 w-16 rounded-2xl border-4 border-[color-mix(in_srgb,#ffe600_50%,#0c4a6e_50%)] bg-transparent"
                 : "h-12 w-12 rounded-lg bg-secondary/10"
             )}
+            whileHover={{ scale: 1.08, rotate: 4 }}
+            transition={springGentle}
           >
             <AppIcon
               name={icon}
               className={onPrimary ? "h-8 w-8 text-[#ffe600]" : "h-6 w-6 text-secondary"}
             />
-          </div>
+          </motion.div>
           <h3
             className={cn(
               "text-lg font-bold sm:text-xl md:text-2xl",

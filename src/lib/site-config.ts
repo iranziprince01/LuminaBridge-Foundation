@@ -5,9 +5,11 @@ export const pageTitles = {
   donate: "Donate",
   getInvolved: "Get Involved",
   impact: "Impact",
+  programs: "Programs",
   privacy: "Privacy Policy",
   terms: "Terms of Use",
   eventNotFound: "Event Not Found",
+  programNotFound: "Program Not Found",
 } as const;
 
 export const eventTabTitles: Record<string, string> = {
@@ -26,7 +28,9 @@ export const siteConfig = {
   logoWhite: "/logo_white.svg",
   favicon: "/favicon.png",
   email: "info@luminabridgefoundation.org",
-  phone: "+1 (780) 000-0000",
+  phone: "+1 (780) 292-5470",
+  phoneLabel: "Office phone",
+  phoneHref: "tel:+17802925470",
   volunteerEmail: "info@luminabridgefoundation.org",
   partnershipEmail: "info@luminabridgefoundation.org",
   address: {
@@ -55,7 +59,6 @@ export const siteConfig = {
   social: {
     facebook: "https://web.facebook.com/profile.php?id=61590717957417",
     instagram: "https://instagram.com/luminabridgefoundation",
-    linkedin: "https://linkedin.com/company/luminabridgefoundation",
   },
   infoRequestFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSdKWU5utNS4jz41CcP4hKA9O3-XF8eh1VWCLDU6mK8YRvKZiA/viewform",

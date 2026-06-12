@@ -1,9 +1,12 @@
 "use client";
 
-import type { Program } from "@/lib/data";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import type { Program } from "@/lib/programs-content";
 import { getProgramCardTheme } from "@/lib/program-card-themes";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { springGentle } from "@/components/motion/motion-presets";
 
 interface ProgramShowcaseCardProps {
   program: Program;
@@ -11,24 +14,19 @@ interface ProgramShowcaseCardProps {
   className?: string;
 }
 
-function formatIndex(index: number) {
-  return String(index + 1).padStart(2, "0");
-}
-
 export function ProgramShowcaseCard({
   program,
   index,
   className,
 }: ProgramShowcaseCardProps) {
-  const number = formatIndex(index);
   const theme = getProgramCardTheme(index);
 
   return (
     <motion.article
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6, scale: 1.01 }}
+      transition={springGentle}
       className={cn(
-        "group relative overflow-hidden rounded-3xl border shadow-sm transition-shadow",
+        "group relative flex h-full flex-col overflow-hidden rounded-3xl border shadow-sm transition-shadow",
         theme.border,
         theme.shadow,
         className
@@ -36,7 +34,7 @@ export function ProgramShowcaseCard({
     >
       <div
         className={cn(
-          "relative flex min-h-[200px] items-center gap-4 overflow-hidden px-5 py-8 sm:min-h-[240px] sm:gap-5 sm:px-6 sm:py-10 md:min-h-[260px] md:px-7 md:py-12",
+          "relative flex flex-1 flex-col overflow-hidden px-5 py-7 sm:px-6 sm:py-8 md:px-7 md:py-9",
           theme.surface
         )}
       >
@@ -55,23 +53,40 @@ export function ProgramShowcaseCard({
           aria-hidden
         />
 
-        <span
-          className={cn(
-            "relative shrink-0 font-display text-5xl font-bold leading-none tracking-tight transition-colors sm:text-6xl md:text-7xl",
-            theme.number
-          )}
-        >
-          {number}
-        </span>
+        <div className="relative flex flex-1 items-center gap-4 sm:gap-5">
+          <motion.span
+            className={cn(
+              "shrink-0 font-display text-5xl font-bold leading-none tracking-tight transition-colors sm:text-6xl md:text-7xl",
+              theme.number
+            )}
+            whileHover={{ scale: 1.08, rotate: -2 }}
+            transition={springGentle}
+          >
+            {program.number}
+          </motion.span>
 
-        <h3
+          <h3
+            className={cn(
+              "min-w-0 flex-1 text-balance font-sans text-lg font-semibold leading-snug sm:text-xl md:text-2xl",
+              theme.title
+            )}
+          >
+            {program.title}
+          </h3>
+        </div>
+
+        <Link
+          href={`/programs/${program.id}`}
           className={cn(
-            "relative min-w-0 flex-1 text-balance font-sans text-lg font-semibold leading-snug sm:text-xl md:text-2xl",
-            theme.title
+            "relative mt-6 inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-colors",
+            theme.border,
+            theme.title,
+            "hover:bg-white/20"
           )}
         >
-          {program.title}
-        </h3>
+          Learn More
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
       </div>
     </motion.article>
   );

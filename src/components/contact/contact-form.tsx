@@ -25,7 +25,7 @@ export function ContactForm({ defaultInquiry = "general" }: ContactFormProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LBF Request Information Form
+            Request Information Form
             <ExternalLink className="h-4 w-4" />
           </Link>
         </Button>

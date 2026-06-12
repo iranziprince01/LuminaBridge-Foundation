@@ -22,6 +22,7 @@ export function OrganizationSchema() {
         "@type": "ContactPoint",
         contactType: "customer service",
         email: siteConfig.email,
+        telephone: siteConfig.phone,
         availableLanguage: ["English", "French"],
       },
       {

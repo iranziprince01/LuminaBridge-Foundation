@@ -41,7 +41,11 @@ export function DonationForm() {
         >
           {siteConfig.email}
         </a>{" "}
-        and our team will be happy to assist you.
+        or call our {siteConfig.phoneLabel.toLowerCase()} at{" "}
+        <a href={siteConfig.phoneHref} className="font-semibold text-secondary hover:underline">
+          {siteConfig.phone}
+        </a>
+        . Our team will be happy to assist you.
       </p>
     </div>
   );

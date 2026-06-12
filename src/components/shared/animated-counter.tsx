@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, motion } from "framer-motion";
+import { springPlayful } from "@/components/motion/motion-presets";
 import { cn } from "@/lib/utils";
 
 interface AnimatedCounterProps {
@@ -50,19 +51,21 @@ export function AnimatedCounter({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 20, scale: 0.92 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={springPlayful}
       className={cn("text-center", className)}
     >
-      <div
+      <motion.div
         className={cn(
           "text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl",
           inverted ? "text-white" : "text-primary"
         )}
+        animate={isInView && isNumeric && count === target ? { scale: [1, 1.06, 1] } : {}}
+        transition={{ duration: 0.35, delay: 1.45 }}
       >
         {displayValue}
-      </div>
+      </motion.div>
       <p
         className={cn(
           "mt-3 text-base font-semibold md:text-lg",
