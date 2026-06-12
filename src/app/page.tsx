@@ -21,7 +21,7 @@ import { PriorityPopulationsSection } from "@/components/sections/priority-popul
 import { ProgramsShowcase } from "@/components/sections/programs-showcase";
 import { CommunityStoryCard } from "@/components/cards/community-story-card";
 import { TestimonialCard } from "@/components/cards/testimonial-card";
-import { ImpactCard } from "@/components/cards/impact-card";
+import { ValuesShowcase } from "@/components/sections/values-showcase";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import {
@@ -135,17 +135,7 @@ export default function HomePage() {
       <Section id="values" tone="white" backdrop="dots">
         <PageContainer>
           <SectionHeader title="What Guides Everything We Do" />
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10" staggerDelay={0.08}>
-            {coreValues.map((value) => (
-              <StaggerItem key={value.title} variant="playful">
-                <ImpactCard
-                  title={value.title}
-                  description={value.description}
-                  icon={value.icon}
-                />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <ValuesShowcase values={coreValues} />
         </PageContainer>
       </Section>
 
