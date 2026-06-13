@@ -9,12 +9,23 @@ import { cn } from "@/lib/utils";
 interface PageBannerProps {
   title: string | readonly string[];
   image?: string | StaticImageData;
+  imageAlt?: string;
   className?: string;
+}
+
+function getBannerAlt(title: string | readonly string[], imageAlt?: string): string {
+  if (imageAlt) {
+    return imageAlt;
+  }
+
+  const text = Array.isArray(title) ? title.join(" ") : title;
+  return `${text} — Lumina Bridge Foundation banner`;
 }
 
 export function PageBanner({
   title,
   image = "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80",
+  imageAlt,
   className,
 }: PageBannerProps) {
   return (
@@ -32,7 +43,7 @@ export function PageBanner({
       >
         <Image
           src={image}
-          alt=""
+          alt={getBannerAlt(title, imageAlt)}
           fill
           className="object-cover object-center"
           priority

@@ -10,8 +10,10 @@ import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-conta
 import { EventRegistration } from "@/components/events/event-registration";
 import { StatStrip } from "@/components/shared/stat-strip";
 import { Button } from "@/components/ui/button";
+import { EventSchema } from "@/components/seo/event-schema";
 import { events, eventFlyerImage, getEventById, eventPageBannerImage } from "@/lib/data";
 import { eventTabTitles, pageTitles } from "@/lib/site-config";
+import { createPageMetadata, getEventPageMetadata } from "@/lib/seo";
 import { Calendar, MapPin } from "lucide-react";
 
 interface EventDetailPageProps {
@@ -29,13 +31,19 @@ export async function generateMetadata({
   const event = getEventById(slug);
 
   if (!event) {
-    return { title: pageTitles.eventNotFound };
+    return createPageMetadata({
+      title: pageTitles.eventNotFound,
+      description: "This event page could not be found on Lumina Bridge Foundation.",
+      path: `/events/${slug}`,
+      noIndex: true,
+    });
   }
 
-  return {
-    title: eventTabTitles[slug] ?? event.title.replace(/ 2026$/, ""),
-    description: event.description,
-  };
+  return getEventPageMetadata(
+    slug,
+    eventTabTitles[slug] ?? event.title.replace(/ 2026$/, ""),
+    event.description
+  );
 }
 
 export default async function EventDetailPage({ params }: EventDetailPageProps) {
@@ -48,6 +56,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
 
   return (
     <>
+      <EventSchema event={event} slug={slug} />
       <PageBanner title={event.title} image={eventPageBannerImage} />
       <Section tone="white" backdrop="dots">
         <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">

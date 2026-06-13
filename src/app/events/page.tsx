@@ -2,17 +2,14 @@ import type { Metadata } from "next";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
 import { PageContainer } from "@/components/shared/page-container";
+import { SectionHeader } from "@/components/shared/section-header";
 import { EventCard } from "@/components/cards/event-card";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { events, eventsClosing, eventPageBannerImage } from "@/lib/data";
-import { pageTitles } from "@/lib/site-config";
+import { eventsMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: pageTitles.events,
-  description:
-    "Discover Lumina Bridge Foundation's signature 2026 events: Voices of New Canada, BridgeFest, and Youth Unlocking Potential.",
-};
+export const metadata: Metadata = eventsMetadata;
 
 export default function EventsPage() {
   return (
@@ -20,6 +17,7 @@ export default function EventsPage() {
       <PageBanner title="Our Upcoming Signature Events" image={eventPageBannerImage} />
       <Section tone="white" backdrop="orbs">
         <PageContainer>
+          <SectionHeader title="2026 Signature Events" align="left" className="mb-8 sm:mb-10" />
           <StaggerContainer className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24" staggerDelay={0.12}>
             {events.map((event, index) => (
               <StaggerItem key={event.id}>

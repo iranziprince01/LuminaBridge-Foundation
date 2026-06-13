@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
 import communityImage from "../../public/community.jpg";
 import hopeImage from "../../public/hope.jpg";
 import missionImage from "../../public/mission.jpg";
 import storyImage from "../../public/story.jpg";
-import { siteConfig } from "@/lib/site-config";
+import { homeMetadata } from "@/lib/seo";
 import { HomeHero } from "@/components/sections/home-hero";
 import { Section } from "@/components/shared/section";
 import { SectionImage } from "@/components/shared/section-image";
@@ -37,10 +36,7 @@ import {
   testimonials,
 } from "@/lib/data";
 
-export const metadata: Metadata = {
-  title: { absolute: siteConfig.name },
-  description: siteConfig.description,
-};
+export const metadata = homeMetadata;
 
 const missionCardClass =
   "flex h-full min-h-[240px] flex-col items-center justify-center rounded-3xl p-6 text-center shadow-sm sm:min-h-[260px] sm:p-8 md:min-h-[280px] md:p-10 lg:min-h-[320px] lg:p-12";

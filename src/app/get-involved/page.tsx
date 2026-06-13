@@ -4,13 +4,9 @@ import { Section } from "@/components/shared/section";
 import { PageContainer } from "@/components/shared/page-container";
 import { ContactSection } from "@/components/sections/contact-section";
 import { GetInvolvedContent } from "@/components/sections/get-involved-content";
-import { pageTitles } from "@/lib/site-config";
+import { getInvolvedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: pageTitles.getInvolved,
-  description:
-    "Partner, sponsor, volunteer, or request information about Lumina Bridge Foundation programs across Alberta.",
-};
+export const metadata: Metadata = getInvolvedMetadata;
 
 interface GetInvolvedPageProps {
   searchParams: Promise<{ inquiry?: string }>;

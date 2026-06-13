@@ -8,14 +8,10 @@ import { SectionHeader } from "@/components/shared/section-header";
 import { ProgramsShowcase } from "@/components/sections/programs-showcase";
 import { FadeUp } from "@/components/motion/fade-up";
 import { programs, programsSection } from "@/lib/programs-content";
-import { pageTitles } from "@/lib/site-config";
+import { programsMetadata } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 
-export const metadata: Metadata = {
-  title: pageTitles.programs,
-  description:
-    "Explore Lumina Bridge Foundation's community-centered programs across arts, wellness, youth leadership, entrepreneurship, inclusion, and more across Alberta.",
-};
+export const metadata: Metadata = programsMetadata;
 
 export default function ProgramsPage() {
   return (

@@ -2,16 +2,14 @@ import type { Metadata } from "next";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
 import { PageContainer } from "@/components/shared/page-container";
+import { SectionHeader } from "@/components/shared/section-header";
 import { LeadershipCard } from "@/components/cards/leadership-card";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { leadership, leadershipIntro, operationsTeam, operationsTeamIntro } from "@/lib/data";
-import { pageTitles } from "@/lib/site-config";
+import { teamMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: pageTitles.team,
-  description: leadershipIntro.description,
-};
+export const metadata: Metadata = teamMetadata;
 
 export default function TeamPage() {
   return (
@@ -31,7 +29,13 @@ export default function TeamPage() {
             </p>
           </FadeUp>
 
-          <StaggerContainer className="mt-12 grid gap-8 sm:mt-16 sm:grid-cols-2 sm:gap-10 lg:mt-20 lg:grid-cols-3 lg:gap-12">
+          <SectionHeader
+            title="Executive Leadership"
+            align="center"
+            className="mt-12 sm:mt-16 lg:mt-20"
+          />
+
+          <StaggerContainer className="mt-8 grid gap-8 sm:mt-10 sm:grid-cols-2 sm:gap-10 lg:mt-12 lg:grid-cols-3 lg:gap-12">
             {leadership.map((leader, index) => (
               <StaggerItem key={leader.id}>
                 <LeadershipCard leader={leader} priority={index === 0} />
@@ -40,15 +44,15 @@ export default function TeamPage() {
           </StaggerContainer>
 
           <FadeUp className="mt-20 border-t border-border/60 pt-16 sm:mt-24 sm:pt-20 lg:mt-28 lg:pt-24">
-            <p className="text-center text-sm font-bold uppercase tracking-widest text-secondary sm:text-base md:text-lg">
-              {operationsTeamIntro.subtitle}
-            </p>
-            <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg md:text-xl">
-              {operationsTeamIntro.description}
-            </p>
+            <SectionHeader
+              title={operationsTeamIntro.subtitle}
+              description={operationsTeamIntro.description}
+              align="center"
+              className="mb-0"
+            />
           </FadeUp>
 
-          <StaggerContainer className="mt-12 grid gap-6 sm:mt-16 sm:grid-cols-2 sm:gap-8 lg:mt-20 lg:grid-cols-3 lg:gap-10">
+          <StaggerContainer className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8 lg:mt-12 lg:grid-cols-3 lg:gap-10">
             {operationsTeam.map((member) => (
               <StaggerItem key={member.id}>
                 <LeadershipCard leader={member} variant="compact" />

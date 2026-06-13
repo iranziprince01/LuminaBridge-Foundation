@@ -12,6 +12,7 @@ import { AppIcon } from "@/components/shared/app-icon";
 import { Button } from "@/components/ui/button";
 import { getProgramById, programs } from "@/lib/programs-content";
 import { pageTitles } from "@/lib/site-config";
+import { createPageMetadata, getProgramPageMetadata } from "@/lib/seo";
 
 interface ProgramDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -28,13 +29,15 @@ export async function generateMetadata({
   const program = getProgramById(slug);
 
   if (!program) {
-    return { title: pageTitles.programNotFound };
+    return createPageMetadata({
+      title: pageTitles.programNotFound,
+      description: "This program page could not be found on Lumina Bridge Foundation.",
+      path: `/programs/${slug}`,
+      noIndex: true,
+    });
   }
 
-  return {
-    title: program.title,
-    description: program.description,
-  };
+  return getProgramPageMetadata(slug, program.title, program.description, program.image);
 }
 
 export default async function ProgramDetailPage({ params }: ProgramDetailPageProps) {
@@ -54,11 +57,6 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
             <div className="flex items-start gap-4">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-secondary/10">
                 <AppIcon name={program.icon} className="h-7 w-7 text-secondary" />
-              </div>
-              <div>
-                <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
-                  {program.title}
-                </h2>
               </div>
             </div>
             <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
@@ -80,9 +78,9 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
           </MotionReveal>
 
           <FadeUp delay={0.1} className="mt-12">
-            <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">
+            <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">
               {program.initiativesHeading}
-            </h3>
+            </h2>
             <ul className="mt-6 space-y-4">
               {program.initiatives.map((item) => (
                 <li key={item} className="flex items-start gap-3">

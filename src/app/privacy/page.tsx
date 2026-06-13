@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal/legal-page";
 import { privacyPolicy } from "@/lib/legal-content";
-import { pageTitles, siteConfig } from "@/lib/site-config";
+import { privacyMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: pageTitles.privacy,
-  description: privacyPolicy.description,
-  alternates: {
-    canonical: `${siteConfig.url}/privacy`,
-  },
-};
+export const metadata: Metadata = privacyMetadata;
 
 export default function PrivacyPolicyPage() {
   return (

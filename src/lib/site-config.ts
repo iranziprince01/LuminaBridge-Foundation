@@ -27,6 +27,10 @@ export const siteConfig = {
   logoColor: "/logo_color.svg",
   logoWhite: "/logo_white.svg",
   favicon: "/favicon.png",
+  /** Default Open Graph / Twitter Card image for social sharing */
+  ogImage: "/community.jpg",
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
   email: "info@luminabridgefoundation.org",
   phone: "+1 (780) 292-5470",
   phoneLabel: "Office phone",

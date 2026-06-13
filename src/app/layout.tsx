@@ -5,8 +5,9 @@ import { Footer } from "@/components/layout/footer";
 import { GetInTouchCtaShell } from "@/components/layout/get-in-touch-cta-shell";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import { MotionProvider } from "@/components/motion/motion-provider";
+import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import { OrganizationSchema } from "@/components/seo/organization-schema";
-import { siteConfig } from "@/lib/site-config";
+import { getRootMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -23,43 +24,7 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.shortName}`,
-  },
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.name,
-  openGraph: {
-    type: "website",
-    locale: "en_CA",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.favicon,
-        width: 512,
-        height: 512,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.favicon],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata = getRootMetadata();
 
 export default function RootLayout({
   children,
@@ -75,6 +40,7 @@ export default function RootLayout({
         <OrganizationSchema />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
+        <GoogleAnalytics />
         <MotionProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

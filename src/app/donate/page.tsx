@@ -7,14 +7,11 @@ import { DonationForm } from "@/components/donate/donation-form";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { donationContent } from "@/lib/data";
-import { pageTitles, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
+import { donateMetadata } from "@/lib/seo";
 import { AppIcon } from "@/components/shared/app-icon";
 
-export const metadata: Metadata = {
-  title: pageTitles.donate,
-  description:
-    "Support Lumina Bridge Foundation's youth, arts, and community programs across Alberta through our official donation form.",
-};
+export const metadata: Metadata = donateMetadata;
 
 export default function DonatePage() {
   return (

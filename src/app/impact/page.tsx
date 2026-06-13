@@ -10,13 +10,9 @@ import { SectionImage } from "@/components/shared/section-image";
 import { Timeline } from "@/components/shared/timeline";
 import { FadeUp } from "@/components/motion/fade-up";
 import { impactPageContent, impactTimeline } from "@/lib/data";
-import { pageTitles } from "@/lib/site-config";
+import { impactMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: pageTitles.impact,
-  description:
-    "Discover how Lumina Bridge Foundation is building lasting impact across Alberta and our vision for empowering communities across Canada.",
-};
+export const metadata: Metadata = impactMetadata;
 
 export default function ImpactPage() {
   const { origin, impact, journey } = impactPageContent;
