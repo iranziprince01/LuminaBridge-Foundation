@@ -53,7 +53,9 @@ export default function TeamPage() {
           </FadeUp>
 
           <StaggerContainer className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8 lg:mt-12 lg:grid-cols-3 lg:gap-10">
-            {operationsTeam.map((member) => (
+            {operationsTeam
+              .filter((member) => !member.hidden)
+              .map((member) => (
               <StaggerItem key={member.id}>
                 <LeadershipCard leader={member} variant="compact" />
               </StaggerItem>

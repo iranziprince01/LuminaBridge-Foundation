@@ -1,6 +1,5 @@
-import type { StaticImageData } from "next/image";
-import estherImage from "../../public/Esther.jpeg";
 import type { IconName } from "@/lib/icons";
+import { teamPhoto } from "@/lib/team-photos";
 
 export type { Program } from "@/lib/programs-content";
 export {
@@ -14,15 +13,17 @@ export interface Leader {
   name: string;
   role: string;
   bio: string;
-  image?: string | StaticImageData;
+  image?: string;
   imagePosition?: string;
   imageClassName?: string;
+  hidden?: boolean;
 }
 
 export interface Event {
   id: string;
   title: string;
   year: number;
+  yearBadge?: string;
   date: string;
   location: string;
   description: string;
@@ -146,7 +147,7 @@ export const nameMeaning = {
 export const coreValues = [
   {
     title: "Hope",
-    description: "Light, creativity, and potential — we believe in what every person can become.",
+    description: "Light, creativity, and potential. We believe in what every person can become.",
     icon: "Sun",
   },
   {
@@ -214,7 +215,7 @@ export const priorityPopulationsSection = {
       number: "04",
       title: "Underserved, Underrepresented, and Visible Minority Communities",
       summary:
-        "We serve communities facing systemic barriers — including visible minorities and low-income populations — with programs designed for inclusion, access, and long-term empowerment.",
+        "We serve communities facing systemic barriers, including visible minorities and low-income populations, with programs designed for inclusion, access, and long-term empowerment.",
       image: "/04.jpg",
       alt: "Underserved and underrepresented communities",
     },
@@ -293,12 +294,12 @@ export const aboutStory = [
   {
     title: "Born from Community",
     content:
-      "Lumina Bridge Foundation began as community-led initiatives in September 2024 — uniting artists, youth leaders, educators, and advocates who believed arts, culture, and engagement could create lasting social impact.",
+      "Lumina Bridge Foundation began as community-led initiatives in September 2024, uniting artists, youth leaders, educators, and advocates who believed arts, culture, and engagement could create lasting social impact.",
   },
   {
     title: "From Conversations to Action",
     content:
-      "What began as conversations and small gatherings through local churches and community networks evolved into workshops, mentorship, outreach, and cultural events — proving the power of people coming together.",
+      "What began as conversations and small gatherings through local churches and community networks evolved into workshops, mentorship, outreach, and cultural events that proved the power of people coming together.",
   },
   {
     title: "Registered & Growing",
@@ -313,8 +314,8 @@ export const impactPageContent = {
     lead: "Great organizations are born when people choose to turn challenges into opportunities.",
     paragraphs: [
       "In 2024, community leaders, artists, educators, and volunteers saw a shared pattern across Alberta: young people lacked opportunities to grow, artists struggled for platforms, families sought stronger connections, and many faced barriers to reaching their potential.",
-      "Rather than accepting these challenges as permanent, changemakers united around a vision for sustainable solutions—spaces where people could celebrate culture, build leadership, and support one another.",
-      "What began as conversations through churches and community networks grew into workshops, mentorship, outreach, and cultural events—proving the power of creativity, education, and community engagement.",
+      "Rather than accepting these challenges as permanent, changemakers united around a vision for sustainable solutions: spaces where people could celebrate culture, build leadership, and support one another.",
+      "What began as conversations through churches and community networks grew into workshops, mentorship, outreach, and cultural events that proved the power of creativity, education, and community engagement.",
     ],
   },
   impact: {
@@ -379,7 +380,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "I moved to Edmonton feeling disconnected and uncertain about where I belonged. After attending several Lumina Bridge Foundation workshops and community events, I found more than just programs — I found a community. The leadership and personal development sessions helped me build confidence, improve my communication skills, and connect with people from different backgrounds. Today, I volunteer in community initiatives and actively participate in local events. Lumina Bridge Foundation helped me believe in myself again and reminded me that my voice matters.",
+      "I moved to Edmonton feeling disconnected and uncertain about where I belonged. After attending several Lumina Bridge Foundation workshops and community events, I found more than just programs. I found a community. The leadership and personal development sessions helped me build confidence, improve my communication skills, and connect with people from different backgrounds. Today, I volunteer in community initiatives and actively participate in local events. Lumina Bridge Foundation helped me believe in myself again and reminded me that my voice matters.",
     author: "Patrimoine M.",
     role: "Edmonton, Alberta",
   },
@@ -415,28 +416,28 @@ export const leadership: Leader[] = [
     name: "Aristote Bikino",
     role: "Founder & Chief Executive Officer (CEO)",
     bio: "Aristote Bikino is the Founder and CEO of Lumina Bridge Foundation. He provides strategic leadership and oversees the organization's vision, partnerships, fundraising, and community impact initiatives. His passion for youth empowerment and community development drives the Foundation's mission to create opportunities and inspire positive change.",
-    image: "/Aristote.jpeg",
+    image: teamPhoto("/Aristote.jpeg"),
   },
   {
     id: "bienvenue",
     name: "Bienvenue Ntaganzwa",
     role: "Chief Operating Officer (COO)",
     bio: "Bienvenue Ntaganzwa oversees the Foundation's operations, program implementation, and organizational systems. He ensures projects are delivered effectively while supporting sustainable growth and operational excellence.",
-    image: "/Bienvenue.jpeg",
+    image: teamPhoto("/Bienvenue.jpeg"),
   },
   {
     id: "fred",
     name: "Fred Shikiro",
     role: "Director of Program Development (DPD)",
     bio: "Fred Shikiro leads the development and coordination of programs and initiatives. He works with community partners and stakeholders to create impactful opportunities that support youth, families, and diverse communities.",
-    image: "/Fred.jpeg",
+    image: teamPhoto("/1.jpg"),
   },
 ];
 
 export const operationsTeamIntro = {
   subtitle: "Operations Team",
   description:
-    "Our operations team supports the day-to-day delivery of programs, communications, finance, community outreach, and volunteer engagement — ensuring the Foundation serves communities effectively across Alberta.",
+    "Our operations team supports the day-to-day delivery of programs, communications, finance, community outreach, and volunteer engagement, ensuring the Foundation serves communities effectively across Alberta.",
 };
 
 export const operationsTeam: Leader[] = [
@@ -444,126 +445,136 @@ export const operationsTeam: Leader[] = [
     id: "prince",
     name: "Prince Iranzi",
     role: "IT and Communications Officer",
-    bio: "Prince manages the Foundation's digital platforms, technology systems, and communications — keeping our message clear and our programs accessible to communities across Alberta.",
-    image: "/Prince.jpg",
-  },
-  {
-    id: "christophe",
-    name: "Christophe Iradukunda",
-    role: "Finance and Administration Officer",
-    bio: "Christophe oversees budgeting, financial reporting, and administrative processes that support accountable, well-run operations behind every program and initiative.",
-    image: "/Christophe.jpeg",
-    imageClassName:
-      "origin-top object-top scale-[1.12] -translate-y-1 group-hover:scale-[1.16] group-hover:-translate-y-0.5",
-  },
-  {
-    id: "francine",
-    name: "Mukobwajana Francine",
-    role: "Program Coordinator",
-    bio: "Francine coordinates program delivery and works with partners and participants to ensure initiatives run smoothly and reach the communities we serve.",
-    image: "/Francine.jpeg",
+    bio: "Prince manages the Foundation's digital platforms, technology systems, and communications, keeping our message clear and our programs accessible to communities across Alberta.",
+    image: teamPhoto("/2.jpg"),
   },
   {
     id: "aline",
     name: "Aline Mutimukeye",
-    role: "Community Engagement Coordinator",
-    bio: "Aline builds relationships with community members and partners, strengthening outreach, participation, and connection across programs and public events.",
-    image: "/Aline.jpeg",
+    role: "Finance and Administration Officer",
+    bio: "Aline oversees budgeting, financial reporting, and administrative processes that support accountable, well-run operations behind every program and initiative.",
+    image: teamPhoto("/Aline.png"),
     imageClassName:
       "origin-top object-top scale-[1.06] -translate-y-0.5 group-hover:scale-[1.1] group-hover:-translate-y-0",
+  },
+  {
+    id: "christophe",
+    name: "Christophe Iradukunda",
+    role: "Program Coordinator",
+    bio: "Christophe coordinates program delivery and works with partners and participants to ensure initiatives run smoothly and reach the communities we serve.",
+    image: teamPhoto("/Christophe.jpeg"),
+    imageClassName:
+      "object-center scale-100 group-hover:scale-[1.03]",
+  },
+  {
+    id: "francine",
+    name: "Mukobwajana Francine",
+    role: "Community Engagement Coordinator",
+    bio: "Francine builds relationships with community members and partners, strengthening outreach, participation, and connection across programs and public events.",
+    image: teamPhoto("/3.jpg"),
   },
   {
     id: "esther",
     name: "Esther Muhawenimana",
     role: "Volunteer Coordinator",
     bio: "Esther recruits, supports, and coordinates volunteers who help power workshops, festivals, and community initiatives throughout the Foundation's work.",
-    image: estherImage,
+    image: teamPhoto("/Esther.jpeg"),
     imageClassName:
-      "origin-top object-[center_15%] scale-[1.04] group-hover:scale-[1.08]",
+      "object-[center_20%] scale-100 group-hover:scale-[1.03]",
   },
   {
     id: "grants-partnerships",
     name: "Patrone Uwase",
     role: "Grants and Partnerships Coordinator",
     bio: "Patrone supports grant development, funder relationships, and partnership coordination that help expand resources and collaborative impact for the Foundation.",
-    image: "/Patrone.jpeg",
+    image: teamPhoto("/Patrone.jpeg"),
     imageClassName:
       "origin-top object-top scale-[1.12] -translate-y-1 group-hover:scale-[1.16] group-hover:-translate-y-0.5",
+    hidden: true,
   },
 ];
 
 export const eventPageBannerImage =
   "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80";
 
+export const eventBanners = {
+  "newroots-canada-summit": "/newroots-summit.png",
+  bridgefest: "/bridgefest2026.png",
+  "youth-unlocking-potential": "/youth-unlocking-potential.png",
+} as const;
+
 export const eventBannerImage = "/events.PNG";
-export const eventFlyerImage = "/events.PNG";
+
+export function getEventBannerImage(eventId: string): string {
+  return eventBanners[eventId as keyof typeof eventBanners] ?? eventBannerImage;
+}
 
 export const events: Event[] = [
   {
-    id: "voices-new-canada",
-    title: "Voices of New Canada 2026",
+    id: "newroots-canada-summit",
+    title: "NewRoots Canada Summit 2026",
     year: 2026,
     date: "August 1, 2026",
-    location: "Edmonton, Alberta",
-    tagline: "Youth & Community Arts Showcase",
+    location: "Edmonton, Alberta, Canada",
+    tagline: "Language, Culture & Belonging Festival",
     description:
-      "Voices of New Canada is a public arts showcase celebrating youth voices, newcomer stories, cultural identity, and community belonging through music, spoken word, storytelling, theatre, dance, and cultural performances.",
+      "An annual signature gathering where newcomers strengthen language confidence, celebrate cultural identity, and build community belonging through the BridgeConnect Program.",
     expectedImpact:
-      "Inspiring connection and understanding through high-quality artistic presentations that celebrate diversity and belonging.",
+      "500+ newcomer participants building language skills, social connection, and pathways to integration across Canada.",
     stats: [
-      { label: "Expected Attendees", value: "250+" },
-      { label: "Youth Performers", value: "10" },
-      { label: "Professional Artists", value: "5" },
+      { label: "Newcomer Participants", value: "500+" },
+      { label: "Core Components", value: "6" },
+      { label: "Community Partners", value: "Multiple" },
     ],
-    image: eventBannerImage,
+    image: eventBanners["newroots-canada-summit"],
     paragraphs: [
-      "Voices of New Canada is a public arts showcase celebrating youth voices, newcomer stories, cultural identity, and community belonging through music, spoken word, storytelling, theatre, dance, and cultural performances.",
-      "The event brings together professional artists, emerging youth performers, families, educators, community leaders, and local residents to experience high-quality artistic presentations that inspire connection and understanding.",
+      "NewRoots Canada Summit is an annual community gathering celebrating language inclusion, cultural exchange, and community belonging for newcomers, immigrants, refugees, and multicultural communities across Canada.",
+      "The event extends the BridgeConnect Program through language development, arts, storytelling, professional networking, and cultural participation in one human-centered integration experience.",
     ],
     impactItems: [
-      "250+ attendees",
-      "10 youth performers",
-      "5 professional artists and artistic groups",
-      "15 volunteers",
-      "Multiple community partners",
+      "500+ newcomer participants annually",
+      "Increased English and French communication confidence",
+      "Stronger social belonging and reduced isolation",
+      "Greater cross-cultural understanding",
+      "Access to employment, mentorship, and leadership opportunities",
     ],
   },
   {
     id: "bridgefest",
-    title: "BridgeFest 2026",
+    title: "BridgeFest Canada 2026",
     year: 2026,
-    date: "September 19, 2026",
-    location: "Edmonton, Alberta",
-    tagline: "Multicultural Performing Arts Festival",
+    date: "September 18–20, 2026",
+    location: "Edmonton, Alberta, Canada",
+    tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
     description:
-      "BridgeFest 2026 is a three-day multicultural arts festival showcasing professional artists from diverse cultural backgrounds while creating opportunities for cultural exchange, audience development, and community connection.",
+      "A premier three-day multidisciplinary arts festival celebrating professional creative expression, cultural exchange, and community connection across Canada.",
     expectedImpact:
-      "Creating opportunities for cultural exchange, audience development, youth engagement, and community connection across Alberta.",
+      "Generating artistic excellence, social inclusion, and sustainable economic development within Canada's creative sector.",
     stats: [
+      { label: "Festival Days", value: "3" },
+      { label: "Professional Artists", value: "14+" },
       { label: "Expected Attendees", value: "800+" },
-      { label: "Professional Artists", value: "25+" },
-      { label: "Community Partners", value: "Multiple" },
     ],
-    image: eventBannerImage,
+    image: eventBanners.bridgefest,
     paragraphs: [
-      "BridgeFest 2026 is a three-day multicultural arts festival showcasing professional artists from diverse cultural backgrounds while creating opportunities for cultural exchange, audience development, and community connection.",
-      "The festival will feature live music, dance, theatre, storytelling, spoken word, visual arts exhibitions, cultural showcases, artist talks, youth performances, networking activities, and community engagement opportunities.",
-      "The event celebrates Indigenous, African, Caribbean, Asian, Middle Eastern, European, newcomer, and multicultural communities through professional artistic presentations.",
+      "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival designed to celebrate artistic excellence while strengthening community connection through professional creative expression.",
+      "Over three days in Edmonton, the festival brings together professional artists, performers, cultural leaders, and diverse communities for music, theatre, dance, film, fashion, and creative industry development.",
     ],
     impactItems: [
-      "800+ attendees",
-      "25+ professional artists and facilitators",
-      "Youth engagement opportunities",
-      "Cultural exchange and community-building activities",
-      "Regional audience development",
+      "Youth Creative Labs and Senior Art Healing sessions",
+      "Newcomer integration through creative expression",
+      "14+ professional artists from five provinces",
+      "Industry-standard artist contracts and fair remuneration",
+      "Long-term platform for Western Canada's multicultural arts",
     ],
   },
   {
     id: "youth-unlocking-potential",
     title: "Youth Unlocking Potential 2026",
     year: 2026,
+    yearBadge: "TBD",
     date: "Date to be announced (Coming Soon)",
-    location: "Edmonton, Alberta",
+    location: "Edmonton, Alberta, Canada",
     tagline: "Edmonton Youth Music, Comedy, Theatre & Arts Festival",
     theme: "Unlocking Talent. Inspiring Creativity. Building Future Leaders.",
     description:
@@ -575,7 +586,7 @@ export const events: Event[] = [
       { label: "Selected Participants", value: "50" },
       { label: "In-Person Attendees", value: "600+" },
     ],
-    image: eventBannerImage,
+    image: eventBanners["youth-unlocking-potential"],
     categories: ["Music", "Comedy", "Theatre", "Arts & Crafts"],
     paragraphs: [
       "Youth Unlocking Potential 2026 is a city-wide talent development festival designed to identify, mentor, develop, and showcase talented young people from newcomer, Black, immigrant, refugee, Indigenous, and underserved communities.",
@@ -679,7 +690,7 @@ export const getInvolvedOptions = [
     id: "support",
     title: "Support Our Programs",
     description:
-      "Fund specific program areas — from youth leadership to newcomer support — with targeted philanthropic investment that creates measurable community impact.",
+      "Fund specific program areas, from youth leadership to newcomer support, with targeted philanthropic investment that creates measurable community impact.",
     cta: "Support Our Mission",
     href: "/get-involved#contact",
     icon: "Gift",

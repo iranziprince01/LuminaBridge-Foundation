@@ -11,6 +11,7 @@ interface PageBannerProps {
   image?: string | StaticImageData;
   imageAlt?: string;
   className?: string;
+  variant?: "default" | "event";
 }
 
 function getBannerAlt(title: string | readonly string[], imageAlt?: string): string {
@@ -19,7 +20,7 @@ function getBannerAlt(title: string | readonly string[], imageAlt?: string): str
   }
 
   const text = Array.isArray(title) ? title.join(" ") : title;
-  return `${text} — Lumina Bridge Foundation banner`;
+  return `${text}, Lumina Bridge Foundation banner`;
 }
 
 export function PageBanner({
@@ -27,7 +28,10 @@ export function PageBanner({
   image = "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80",
   imageAlt,
   className,
+  variant = "default",
 }: PageBannerProps) {
+  const isEvent = variant === "event";
+
   return (
     <section
       className={cn(
@@ -51,15 +55,18 @@ export function PageBanner({
         />
       </motion.div>
       <motion.div
-        className="gradient-hero-premium absolute inset-0"
+        className={cn(
+          "absolute inset-0",
+          isEvent ? "gradient-hero-event" : "gradient-hero-premium"
+        )}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: motionEase }}
       />
       <motion.div
-        className="absolute inset-0 mesh-bg opacity-20"
+        className={cn("absolute inset-0 mesh-bg", isEvent ? "opacity-35" : "opacity-20")}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
+        animate={{ opacity: isEvent ? 0.35 : 0.2 }}
         transition={{ duration: 1, delay: 0.1, ease: motionEase }}
       />
       <div className={cn("relative", pageContainerClass)}>
@@ -68,7 +75,10 @@ export function PageBanner({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.12, ease: motionEase }}
           className={cn(
-            "font-display font-bold tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]",
+            "font-display font-bold tracking-tight text-white",
+            isEvent
+              ? "drop-shadow-[0_4px_28px_rgba(0,0,0,0.75)]"
+              : "drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]",
             Array.isArray(title)
               ? "max-w-6xl text-[clamp(1.75rem,4.25vw,3.75rem)] leading-[1.12] sm:text-[clamp(2rem,4.5vw,4.25rem)] lg:text-[clamp(2.25rem,5vw,4.75rem)]"
               : "text-balance max-w-3xl text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.1] sm:max-w-4xl sm:text-[clamp(2.25rem,5.5vw,4.5rem)] lg:text-[clamp(2.75rem,6.5vw,5.5rem)]"

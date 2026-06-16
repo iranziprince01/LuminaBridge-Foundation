@@ -43,7 +43,7 @@ export const programs: Program[] = [
     closingStatement:
       "We aim to transform creative potential into meaningful long-term opportunity.",
     icon: "Brush",
-    image: "/001.jpg",
+    image: "/003.jpg",
   },
   {
     id: "mental-wellness-healing",
@@ -64,7 +64,7 @@ export const programs: Program[] = [
     ],
     closingStatement: "We believe stronger communities begin with healthier individuals.",
     icon: "ShieldCheck",
-    image: "/002.jpg",
+    image: "/005.jpg",
   },
   {
     id: "youth-leadership",
@@ -86,7 +86,7 @@ export const programs: Program[] = [
     closingStatement:
       "Our goal is to prepare the next generation of responsible and empowered leaders.",
     icon: "Compass",
-    image: "/003.jpg",
+    image: "/002.jpg",
   },
   {
     id: "financial-literacy-entrepreneurship",
@@ -130,7 +130,7 @@ export const programs: Program[] = [
     closingStatement:
       "We believe diversity strengthens communities when inclusion is intentionally built.",
     icon: "Globe2",
-    image: "/005.jpg",
+    image: "/006.jpg",
   },
   {
     id: "community-engagement-volunteer",
@@ -152,29 +152,28 @@ export const programs: Program[] = [
     closingStatement:
       "We believe community development is strongest when communities actively participate in shaping their future.",
     icon: "Handshake",
-    image: "/006.jpg",
+    image: "/001.jpg",
   },
   {
-    id: "creative-industry-development",
+    id: "language-culture-belonging-initiative",
     number: "07",
-    title: "Creative Industry Development",
+    title: "Language, Culture & Belonging Initiative",
     description:
-      "Professional development for creatives pursuing sustainable careers in music, media, design, and entertainment.",
+      "BridgeConnect helps newcomers build confidence, connection, and belonging through language, arts, culture, and community engagement.",
     overview:
-      "The creative sector represents an important and rapidly growing contributor to economic development. Beyond talent development, we support individuals seeking to build professional careers within creative industries by strengthening business knowledge, technical capacity, and long-term sustainability.",
-    initiativesHeading: "Our work focuses on:",
+      "BridgeConnect is an innovative community integration program designed to help newcomers, immigrants, refugees, and culturally diverse communities build confidence, connection, and belonging in Canada by using language, arts, culture, and human-centered community engagement as pathways toward successful integration.",
+    initiativesHeading: "Program pillars include:",
     initiatives: [
-      "Supporting emerging creatives pursuing careers in music, media, production, design, performing arts, and entertainment industries",
-      "Providing training in branding, audience development, content production, and digital marketing",
-      "Educating creatives on monetization strategies and sustainable business development models",
-      "Facilitating mentorship and professional networking opportunities within creative industries",
-      "Supporting project development and access to professional production resources",
-      "Preparing participants to compete successfully in local, national, and international creative markets",
+      "Language through real community experience and everyday communication practice",
+      "Storytelling across cultures to strengthen identity and oral communication",
+      "Creative expression for communication confidence through arts-based learning",
+      "Bridge into Canadian community life through civic participation and volunteer engagement",
+      "Bilingual inclusion and cultural accessibility across English and French communities",
+      "Belonging circles that build friendships, mentorship, and long-term social connection",
     ],
-    closingStatement:
-      "We help transform creativity into sustainable economic opportunity.",
-    icon: "Briefcase",
-    image: "/007.jpg",
+    closingStatement: "We do not simply teach language. We build belonging.",
+    icon: "MessagesSquare",
+    image: "/002.jpg",
   },
   {
     id: "newcomer-refugee-support",
@@ -197,7 +196,7 @@ export const programs: Program[] = [
     closingStatement:
       "We work to ensure opportunity remains accessible to communities often excluded from traditional support systems.",
     icon: "Landmark",
-    image: "/008.jpg",
+    image: "/007.jpg",
   },
   {
     id: "workshops-conferences-events",
@@ -220,7 +219,7 @@ export const programs: Program[] = [
     closingStatement:
       "Through public engagement, we create spaces where communities connect, learn, and grow together.",
     icon: "CalendarDays",
-    image: "/01.jpg",
+    image: "/006.jpg",
   },
 ];
 

@@ -43,7 +43,7 @@ export function Logo({
 
   if (href) {
     return (
-      <Link href={href} className={logoLinkClass} aria-label={`${alt} — Home`}>
+      <Link href={href} className={logoLinkClass} aria-label={`${alt}, Home`}>
         {image}
       </Link>
     );
@@ -64,7 +64,7 @@ export function NavbarLogo({ scrolled }: NavbarLogoProps) {
     <Link
       href="/"
       className={cn(logoLinkClass, "relative", variantStyles.nav)}
-      aria-label={`${alt} — Home`}
+      aria-label={`${alt}, Home`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

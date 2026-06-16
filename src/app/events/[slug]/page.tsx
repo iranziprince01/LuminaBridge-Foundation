@@ -7,11 +7,13 @@ import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
+import { BridgeFestDetail } from "@/components/events/bridgefest-detail";
+import { NewRootsDetail } from "@/components/events/newroots-detail";
 import { EventRegistration } from "@/components/events/event-registration";
 import { StatStrip } from "@/components/shared/stat-strip";
 import { Button } from "@/components/ui/button";
 import { EventSchema } from "@/components/seo/event-schema";
-import { events, eventFlyerImage, getEventById, eventPageBannerImage } from "@/lib/data";
+import { events, getEventById, eventPageBannerImage } from "@/lib/data";
 import { eventTabTitles, pageTitles } from "@/lib/site-config";
 import { createPageMetadata, getEventPageMetadata } from "@/lib/seo";
 import { Calendar, MapPin } from "lucide-react";
@@ -42,7 +44,8 @@ export async function generateMetadata({
   return getEventPageMetadata(
     slug,
     eventTabTitles[slug] ?? event.title.replace(/ 2026$/, ""),
-    event.description
+    event.description,
+    event.image
   );
 }
 
@@ -54,10 +57,28 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
     notFound();
   }
 
+  if (slug === "newroots-canada-summit") {
+    return (
+      <>
+        <EventSchema event={event} slug={slug} />
+        <NewRootsDetail event={event} />
+      </>
+    );
+  }
+
+  if (slug === "bridgefest") {
+    return (
+      <>
+        <EventSchema event={event} slug={slug} />
+        <BridgeFestDetail event={event} />
+      </>
+    );
+  }
+
   return (
     <>
       <EventSchema event={event} slug={slug} />
-      <PageBanner title={event.title} image={eventPageBannerImage} />
+      <PageBanner title={event.title} image={event.image} variant="event" />
       <Section tone="white" backdrop="dots">
         <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
@@ -84,8 +105,8 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
           <MotionReveal direction="scale" className="mt-10">
             <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-lg">
               <Image
-                src={eventFlyerImage}
-                alt={`${event.title} event flyer`}
+                src={event.image}
+                alt={`${event.title} event banner`}
                 width={1200}
                 height={1600}
                 className="h-auto w-full object-contain"

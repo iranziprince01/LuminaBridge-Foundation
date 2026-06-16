@@ -13,19 +13,19 @@ interface EventRegistrationProps {
 }
 
 const participantCopy: Record<Event["id"], string> = {
-  "voices-new-canada":
-    "Apply to perform as a youth artist, spoken word poet, dancer, or cultural performer.",
+  "newroots-canada-summit":
+    "Apply to perform, facilitate a workshop, or present at the language, culture, and belonging festival.",
   bridgefest:
-    "Register as a performing artist, facilitator, or cultural presenter at the festival.",
+    "Register as a performing artist, facilitator, or cultural presenter at BridgeFest Canada.",
   "youth-unlocking-potential":
     "Apply to compete in music, comedy, theatre, or arts & crafts and join the talent development program.",
 };
 
 const attendanceCopy: Record<Event["id"], string> = {
-  "voices-new-canada":
-    "Reserve your spot to attend the showcase and celebrate youth and community voices.",
+  "newroots-canada-summit":
+    "Register to attend NewRoots Canada Summit and join language, culture, and belonging activities.",
   bridgefest:
-    "Register to attend festival performances, exhibitions, and community activities.",
+    "Register to attend three days of professional performances, exhibitions, and community activities.",
   "youth-unlocking-potential":
     "Register to attend the festival showcase and support Alberta's emerging young talent.",
 };

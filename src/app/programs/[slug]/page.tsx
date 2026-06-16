@@ -10,6 +10,7 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { AppIcon } from "@/components/shared/app-icon";
 import { Button } from "@/components/ui/button";
+import { BridgeConnectDetail } from "@/components/programs/bridgeconnect-detail";
 import { getProgramById, programs } from "@/lib/programs-content";
 import { pageTitles } from "@/lib/site-config";
 import { createPageMetadata, getProgramPageMetadata } from "@/lib/seo";
@@ -46,6 +47,10 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
 
   if (!program) {
     notFound();
+  }
+
+  if (slug === "language-culture-belonging-initiative") {
+    return <BridgeConnectDetail program={program} />;
   }
 
   return (

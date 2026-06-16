@@ -51,7 +51,7 @@ export function EventCard({ event, className, featured = false, priority = false
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
           <Badge className="absolute left-4 top-4 bg-white/90 text-primary">
-            {event.year}
+            {event.yearBadge ?? event.year}
           </Badge>
         </Link>
 

@@ -114,6 +114,29 @@ h6 {
     );
 }
 
+.gradient-hero-event {
+  background:
+    linear-gradient(
+      to top,
+      rgba(12, 74, 110, 0.98) 0%,
+      rgba(12, 74, 110, 0.94) 22%,
+      rgba(12, 74, 110, 0.82) 48%,
+      rgba(12, 74, 110, 0.62) 72%,
+      rgba(12, 74, 110, 0.38) 88%,
+      rgba(12, 74, 110, 0.18) 96%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(12, 74, 110, 0.94) 0%,
+      rgba(12, 74, 110, 0.82) 32%,
+      rgba(13, 148, 136, 0.68) 55%,
+      rgba(12, 74, 110, 0.45) 78%,
+      rgba(12, 74, 110, 0.22) 92%,
+      transparent 100%
+    );
+}
+
 .section-bg-white {
   background-color: #ffffff;
 }

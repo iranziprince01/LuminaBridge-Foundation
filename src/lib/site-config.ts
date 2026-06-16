@@ -13,8 +13,8 @@ export const pageTitles = {
 } as const;
 
 export const eventTabTitles: Record<string, string> = {
-  "voices-new-canada": "Voices of New Canada",
-  bridgefest: "BridgeFest",
+  "newroots-canada-summit": "NewRoots Canada Summit",
+  bridgefest: "BridgeFest Canada",
   "youth-unlocking-potential": "Youth Unlocking Potential",
 };
 

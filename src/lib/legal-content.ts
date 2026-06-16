@@ -204,7 +204,7 @@ export const termsOfUse: LegalDocument = {
       id: "intellectual-property",
       title: "Intellectual Property",
       paragraphs: [
-        "Unless otherwise stated, all content on this website — including text, graphics, logos, photographs, videos, program materials, and design elements — is owned by or licensed to Lumina Bridge Foundation and is protected by applicable intellectual property laws.",
+        "Unless otherwise stated, all content on this website, including text, graphics, logos, photographs, videos, program materials, and design elements, is owned by or licensed to Lumina Bridge Foundation and is protected by applicable intellectual property laws.",
         "You may view, download, or print limited content for personal, non-commercial use only. You may not modify, distribute, publicly display, or create derivative works from our content without prior written permission.",
         "The Lumina Bridge Foundation name, logo, and related branding may not be used without our express written consent.",
       ],
