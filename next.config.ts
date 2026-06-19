@@ -34,22 +34,21 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    const securityHeaders = [
-      { key: "X-Content-Type-Options", value: "nosniff" },
-      { key: "X-Frame-Options", value: "SAMEORIGIN" },
-      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-      { key: "X-DNS-Prefetch-Control", value: "on" },
-      {
-        key: "Permissions-Policy",
-        value: "camera=(), microphone=(), geolocation=(), payment=()",
-      },
-      {
-        key: "Strict-Transport-Security",
-        value: "max-age=63072000; includeSubDomains; preload",
-      },
-      {
-        key: "Content-Security-Policy",
-        value: [
+    const isDev = process.env.NODE_ENV === "development";
+
+    const contentSecurityPolicy = isDev
+      ? [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "font-src 'self' https://fonts.gstatic.com data:",
+          "img-src 'self' data: blob: https:",
+          "connect-src 'self' ws: wss: http://localhost:* https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com",
+          "frame-src https://docs.google.com https://forms.gle",
+          "object-src 'none'",
+          "base-uri 'self'",
+        ].join("; ")
+      : [
           "default-src 'self'",
           "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -62,8 +61,26 @@ const nextConfig: NextConfig = {
           "form-action 'self' https://docs.google.com https://forms.gle",
           "frame-ancestors 'self'",
           "upgrade-insecure-requests",
-        ].join("; "),
+        ].join("; ");
+
+    const securityHeaders = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "X-Frame-Options", value: "SAMEORIGIN" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "X-DNS-Prefetch-Control", value: "on" },
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), geolocation=(), payment=()",
       },
+      ...(isDev
+        ? []
+        : [
+            {
+              key: "Strict-Transport-Security",
+              value: "max-age=63072000; includeSubDomains; preload",
+            },
+          ]),
+      { key: "Content-Security-Policy", value: contentSecurityPolicy },
     ];
 
     return [

@@ -12,7 +12,11 @@ import { cn } from "@/lib/utils";
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section
+      id="hero"
+      aria-label="Home hero"
+      className="hero-viewport relative box-border overflow-hidden"
+    >
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={heroContent.image}
@@ -25,60 +29,75 @@ export function HomeHero() {
       </div>
       <div className="gradient-hero-premium absolute inset-0" />
 
-      <div
-        className={cn(
-          pageContainerClass,
-          "relative grid min-h-[100dvh] w-full grid-rows-[1fr_auto] gap-16 pb-24 pt-36 sm:gap-20 sm:pb-32 sm:pt-44 md:pb-36 md:pt-48 lg:gap-28 lg:pb-44"
-        )}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: motionEase }}
-          className="flex min-w-0 items-end"
-        >
-          <h1 className="font-display w-full min-w-0 max-w-4xl text-balance break-words text-[clamp(2rem,6vw,3.75rem)] font-extrabold leading-[1.05] tracking-tight sm:max-w-3xl sm:text-[clamp(2.25rem,5.5vw,4.25rem)] md:max-w-4xl lg:text-[clamp(2.5rem,4.5vw,4.75rem)] xl:max-w-5xl xl:text-[clamp(2.75rem,4vw,5.5rem)] 2xl:max-w-6xl 2xl:text-[clamp(3rem,3.5vw,6.5rem)]">
-            <motion.span
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6, ease: motionEase }}
-              className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]"
-            >
-              {heroContent.headline.primary}
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.6, ease: motionEase }}
-              className="mt-1 block text-[#ffe600] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] lg:mt-2"
-            >
-              {heroContent.headline.secondary}
-            </motion.span>
-          </h1>
-        </motion.div>
+      <div className={cn(pageContainerClass, "hero-shell relative z-10")}>
+        <div className="hero-headline-wrap">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: motionEase }}
+            className="min-w-0"
+          >
+            <h1 className="hero-headline font-display w-full min-w-0 max-w-full text-balance break-words font-extrabold leading-[1.05] tracking-tight">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6, ease: motionEase }}
+                className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]"
+              >
+                {heroContent.headline.primary}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6, ease: motionEase }}
+                className="hero-headline-line block text-[#ffe600] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+              >
+                {heroContent.headline.accent}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: motionEase }}
+                className="hero-headline-line block text-[#ffe600] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+              >
+                {heroContent.headline.secondary}
+              </motion.span>
+            </h1>
+          </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6, ease: motionEase }}
-          className="flex flex-col gap-3 sm:flex-row sm:items-center [&_a]:w-full sm:[&_a]:w-auto"
-        >
-          <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }} transition={springGentle}>
-            <Button variant="white" size="lg" asChild>
-              <Link href={heroContent.primaryCta.href}>
-                {heroContent.primaryCta.label}
-                <ArrowRight />
-              </Link>
-            </Button>
+        <div className="hero-cta-zone">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6, ease: motionEase }}
+            className="hero-cta flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center [&_a]:w-full sm:[&_a]:w-auto"
+          >
+            <motion.div
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={springGentle}
+            >
+              <Button variant="white" size="lg" className="hero-cta-btn" asChild>
+                <Link href={heroContent.primaryCta.href}>
+                  {heroContent.primaryCta.label}
+                  <ArrowRight />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={springGentle}
+            >
+              <Button variant="white-outline" size="lg" className="hero-cta-btn" asChild>
+                <Link href={heroContent.secondaryCta.href}>
+                  {heroContent.secondaryCta.label}
+                </Link>
+              </Button>
+            </motion.div>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }} transition={springGentle}>
-            <Button variant="white-outline" size="lg" asChild>
-              <Link href={heroContent.secondaryCta.href}>
-                {heroContent.secondaryCta.label}
-              </Link>
-            </Button>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

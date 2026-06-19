@@ -5,8 +5,11 @@ import { siteConfig } from "@/lib/site-config";
 type LogoVariant = "nav" | "footer" | "hero";
 type LogoTone = "color" | "white";
 
+/** Fluid nav logo — scales down on phones, medium on laptops, full on large screens. */
+export const navLogoSizeClass = "nav-logo-size";
+
 const variantStyles: Record<LogoVariant, string> = {
-  nav: "h-14 w-auto sm:h-16 md:h-20 lg:h-24",
+  nav: navLogoSizeClass,
   footer: "h-20 w-auto sm:h-24 md:h-28 lg:h-32",
   hero: "h-24 w-auto sm:h-28 md:h-32 lg:h-40",
 };

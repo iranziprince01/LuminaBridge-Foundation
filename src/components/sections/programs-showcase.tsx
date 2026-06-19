@@ -11,7 +11,7 @@ interface ProgramsShowcaseProps {
 export function ProgramsShowcase({ programs }: ProgramsShowcaseProps) {
   return (
     <StaggerContainer
-      className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:gap-7 xl:grid-cols-3 xl:gap-8"
+      className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3 xl:gap-8"
       staggerDelay={0.06}
     >
       {programs.map((program, index) => (

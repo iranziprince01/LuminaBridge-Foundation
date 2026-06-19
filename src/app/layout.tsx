@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-CA"
+      data-scroll-behavior="smooth"
       className={`${sourceSans.variable} ${sourceSerif.variable} h-full scroll-smooth`}
     >
       <head>

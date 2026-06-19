@@ -17,7 +17,7 @@ interface ValuesShowcaseProps {
 export function ValuesShowcase({ values }: ValuesShowcaseProps) {
   return (
     <StaggerContainer
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-9 xl:grid-cols-3 xl:gap-10"
+      className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:gap-10"
       staggerDelay={0.07}
     >
       {values.map((value, index) => (

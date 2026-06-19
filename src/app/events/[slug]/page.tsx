@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageBanner } from "@/components/shared/page-banner";
-import { PageContainer } from "@/components/shared/page-container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
@@ -81,7 +80,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
       <EventSchema event={event} slug={slug} />
       <PageBanner title={event.title} image={event.image} variant="event" />
       <Section tone="white" backdrop="dots">
-        <PageContainer detail>
+        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-widest text-secondary">
               {event.tagline}
@@ -179,7 +178,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
               <Link href="/get-involved#partner">Partner With Us</Link>
             </Button>
           </FadeUp>
-        </PageContainer>
+        </div>
       </Section>
     </>
   );

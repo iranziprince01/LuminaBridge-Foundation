@@ -98,8 +98,9 @@ export const navigation = [
 
 export const heroContent = {
   headline: {
-    primary: "Building Bridges.",
-    secondary: "Transforming Communities.",
+    primary: "Building Bridges,",
+    accent: "Transforming",
+    secondary: "Communities.",
   },
   subheadline:
     "Empowering youth, strengthening communities, and creating opportunities through arts, culture, leadership, education, and community engagement across Alberta.",

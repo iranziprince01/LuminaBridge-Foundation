@@ -6,7 +6,7 @@ import { motionEase, viewportDefault } from "@/components/motion/motion-presets"
 import { cn } from "@/lib/utils";
 
 export const sectionHeadingClass =
-  "font-display text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl";
+  "font-display text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl";
 
 interface SectionHeaderProps {
   title: string;
