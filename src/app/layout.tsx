@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-CA"
       className={`${sourceSans.variable} ${sourceSerif.variable} h-full scroll-smooth`}
     >
       <head>

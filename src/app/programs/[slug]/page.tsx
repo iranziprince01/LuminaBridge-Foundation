@@ -11,6 +11,7 @@ import { MotionReveal } from "@/components/motion/motion-reveal";
 import { AppIcon } from "@/components/shared/app-icon";
 import { Button } from "@/components/ui/button";
 import { BridgeConnectDetail } from "@/components/programs/bridgeconnect-detail";
+import { ProgramSchema } from "@/components/seo/program-schema";
 import { getProgramById, programs } from "@/lib/programs-content";
 import { pageTitles } from "@/lib/site-config";
 import { createPageMetadata, getProgramPageMetadata } from "@/lib/seo";
@@ -50,11 +51,17 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
   }
 
   if (slug === "language-culture-belonging-initiative") {
-    return <BridgeConnectDetail program={program} />;
+    return (
+      <>
+        <ProgramSchema program={program} />
+        <BridgeConnectDetail program={program} />
+      </>
+    );
   }
 
   return (
     <>
+      <ProgramSchema program={program} />
       <PageBanner title={program.title} image={program.image} />
       <Section tone="white" backdrop="dots">
         <PageContainer className="max-w-4xl">

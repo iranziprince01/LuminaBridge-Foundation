@@ -23,7 +23,8 @@ export const siteConfig = {
   shortName: "Lumina Bridge",
   description:
     "Empowering youth, strengthening communities, promoting mental wellness, and creating opportunities through arts, culture, leadership development, education, and community engagement across Alberta.",
-  url: "https://luminabridgefoundation.org",
+  /** Primary canonical origin — must match live DNS (www redirects from apex). */
+  url: "https://www.luminabridgefoundation.org",
   logoColor: "/logo_color.svg",
   logoWhite: "/logo_white.svg",
   favicon: "/favicon.png",
@@ -40,11 +41,13 @@ export const siteConfig = {
   address: {
     suite: "Suite 3400, 10180 – 101 Street NW",
     city: "Edmonton, Alberta T5J 3S4",
+    postalCode: "T5J 3S4",
     country: "Canada",
   },
   location: "Suite 3400, 10180 – 101 Street NW, Edmonton, Alberta T5J 3S4, Canada",
   officeHours: "Monday – Friday, 9:00 AM – 5:00 PM (Mountain Time)",
   founded: 2024,
+  foundingDate: "2024-09-01",
   foundedLabel: "September 2024",
   registered: 2026,
   tagline: "Building Bridges. Unlocking Potential. Transforming Communities.",
@@ -60,6 +63,8 @@ export const siteConfig = {
     "Lumina Bridge Foundation",
     "Edmonton nonprofit",
   ],
+  /** Optional @handle for Twitter/X cards — set when account is active. */
+  twitterHandle: undefined as string | undefined,
   social: {
     facebook: "https://web.facebook.com/profile.php?id=61590717957417",
     instagram: "https://instagram.com/luminabridgefoundation",

@@ -74,6 +74,7 @@ export function createPageMetadata({
       siteName: siteConfig.name,
       title,
       description,
+      countryName: "Canada",
       images: buildSocialImages(ogImage, ogImageAlt),
     },
     twitter: {
@@ -81,6 +82,9 @@ export function createPageMetadata({
       title,
       description,
       images: [ogImage],
+      ...(siteConfig.twitterHandle
+        ? { creator: siteConfig.twitterHandle, site: siteConfig.twitterHandle }
+        : {}),
     },
     ...(noIndex
       ? {
@@ -99,6 +103,13 @@ export function getRootMetadata(): Metadata {
 
   if (process.env.GOOGLE_SITE_VERIFICATION) {
     verification.google = process.env.GOOGLE_SITE_VERIFICATION;
+  }
+
+  if (process.env.BING_SITE_VERIFICATION) {
+    verification.other = {
+      ...(verification.other ?? {}),
+      "msvalidate.01": process.env.BING_SITE_VERIFICATION,
+    };
   }
 
   return {
@@ -125,6 +136,9 @@ export function getRootMetadata(): Metadata {
         "max-video-preview": -1,
       },
     },
+    other: {
+      "content-language": "en-CA",
+    },
     alternates: {
       canonical: siteConfig.url,
     },
@@ -142,6 +156,18 @@ export function getRootMetadata(): Metadata {
       title: siteConfig.name,
       description: siteConfig.description,
       images: [siteConfig.ogImage],
+      ...(siteConfig.twitterHandle
+        ? { creator: siteConfig.twitterHandle, site: siteConfig.twitterHandle }
+        : {}),
+    },
+    icons: {
+      icon: siteConfig.favicon,
+      apple: "/apple-icon.png",
+    },
+    formatDetection: {
+      telephone: true,
+      email: true,
+      address: true,
     },
   };
 }
