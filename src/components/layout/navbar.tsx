@@ -14,12 +14,22 @@ import { motion, AnimatePresence } from "framer-motion";
 type HomeSection = "home" | "programs" | null;
 
 const NAV_OFFSET = 120;
-const HERO_NAV_THRESHOLD = 72;
+const BANNER_NAV_THRESHOLD = 72;
 
-function isInHeroViewport(): boolean {
+function isInHomeHero(): boolean {
   const top = document.getElementById("top");
   if (!top) return false;
-  return top.getBoundingClientRect().bottom > HERO_NAV_THRESHOLD;
+  return top.getBoundingClientRect().bottom > BANNER_NAV_THRESHOLD;
+}
+
+function isInPageBanner(): boolean {
+  const banner = document.getElementById("page-banner");
+  if (!banner) return false;
+  return banner.getBoundingClientRect().bottom > BANNER_NAV_THRESHOLD;
+}
+
+function isInTopBannerSection(onHomePage: boolean): boolean {
+  return onHomePage ? isInHomeHero() : isInPageBanner();
 }
 
 function getHomeSectionFromScroll(): HomeSection {
@@ -60,21 +70,20 @@ function scrollToSection(id: string) {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [inHeroViewport, setInHeroViewport] = useState(true);
+  const [inTopBanner, setInTopBanner] = useState(true);
   const [homeSection, setHomeSection] = useState<HomeSection>("home");
   const pathname = usePathname();
   const onHomePage = pathname === "/";
 
   useEffect(() => {
     const syncNavState = () => {
-      if (!onHomePage) {
-        setInHeroViewport(false);
-        setHomeSection("home");
-        return;
-      }
+      setInTopBanner(isInTopBannerSection(onHomePage));
 
-      setInHeroViewport(isInHeroViewport());
-      setHomeSection(getHomeSectionFromScroll());
+      if (onHomePage) {
+        setHomeSection(getHomeSectionFromScroll());
+      } else {
+        setHomeSection("home");
+      }
     };
 
     syncNavState();
@@ -126,13 +135,14 @@ export function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const showHeroWhiteNav = onHomePage && inHeroViewport;
+  /** White header + colored logo while over the page hero/banner. */
+  const showWhiteNav = inTopBanner;
 
   return (
     <header
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
-        showHeroWhiteNav
+        showWhiteNav
           ? "bg-white/95 shadow-sm backdrop-blur-sm"
           : "bg-primary shadow-sm"
       )}
@@ -143,7 +153,7 @@ export function Navbar() {
           "flex min-h-[3.5rem] items-center justify-between gap-2 py-2 pt-[max(0.5rem,env(safe-area-inset-top))] sm:min-h-[4rem] sm:gap-3 sm:py-2.5 sm:pt-[max(0.5rem,env(safe-area-inset-top))]"
         )}
       >
-        <NavbarLogo scrolled={showHeroWhiteNav} />
+        <NavbarLogo scrolled={showWhiteNav} />
 
         <div className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {navigation.map((item) => (
@@ -153,7 +163,7 @@ export function Navbar() {
               onClick={(event) => handleNavItemClick(event, item.href)}
               className={cn(
                 "rounded-full px-2.5 py-2 text-sm transition-colors xl:px-3.5 xl:py-2.5 xl:text-base",
-                showHeroWhiteNav
+                showWhiteNav
                   ? cn(
                       "font-bold",
                       isActive(item.href)
@@ -172,7 +182,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button
-            variant={showHeroWhiteNav ? "default" : "white"}
+            variant={showWhiteNav ? "default" : "white"}
             size="default"
             className="ml-2 text-sm xl:ml-3 xl:text-base"
             asChild
@@ -185,7 +195,7 @@ export function Navbar() {
           type="button"
           className={cn(
             "shrink-0 rounded-lg p-1.5 sm:p-2 lg:hidden",
-            showHeroWhiteNav ? "text-foreground" : "text-white"
+            showWhiteNav ? "text-foreground" : "text-white"
           )}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"

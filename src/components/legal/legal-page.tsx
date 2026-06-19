@@ -13,7 +13,10 @@ interface LegalPageProps {
 export function LegalPage({ document, relatedHref, relatedLabel }: LegalPageProps) {
   return (
     <>
-      <section className="border-b border-border bg-primary pt-32 pb-14 text-primary-foreground sm:pt-36 sm:pb-16 md:pb-20">
+      <section
+        id="page-banner"
+        className="border-b border-border bg-primary pt-32 pb-14 text-primary-foreground sm:pt-36 sm:pb-16 md:pb-20"
+      >
         <PageContainer>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary sm:text-sm">
             Legal
