@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FadeUp } from "@/components/motion/fade-up";
+import { pageContainerClass } from "@/components/shared/page-container";
 import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
@@ -46,10 +47,10 @@ export function PageHero({
       <div className="gradient-hero-premium absolute inset-0" />
       <div className="absolute inset-0 mesh-bg opacity-20" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className={cn("relative py-16", pageContainerClass)}>
         {statement ? (
           <FadeUp>
-            <h1 className="max-w-[14ch] text-[clamp(2.5rem,7vw,5rem)] font-extrabold leading-[1.04] tracking-tight text-white sm:max-w-none">
+            <h1 className="max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-extrabold leading-[1.04] tracking-tight text-white sm:max-w-4xl lg:max-w-5xl lg:text-[clamp(2.25rem,4vw,4rem)]">
               {lines.map((line, i) => (
                 <span
                   key={line}
@@ -66,7 +67,7 @@ export function PageHero({
           </FadeUp>
         ) : (
           <FadeUp>
-            <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:max-w-4xl lg:text-5xl">
               {title}
             </h1>
             {description && (

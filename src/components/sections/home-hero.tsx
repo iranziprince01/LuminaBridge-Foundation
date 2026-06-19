@@ -37,7 +37,7 @@ export function HomeHero() {
           transition={{ duration: 0.8, ease: motionEase }}
           className="flex min-w-0 items-end"
         >
-          <h1 className="font-display w-full min-w-0 max-w-full text-balance break-words text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:max-w-none sm:text-[clamp(2.75rem,8.5vw,6.25rem)] lg:text-[clamp(3rem,9vw,7rem)]">
+          <h1 className="font-display w-full min-w-0 max-w-4xl text-balance break-words text-[clamp(2rem,6vw,3.75rem)] font-extrabold leading-[1.05] tracking-tight sm:max-w-3xl sm:text-[clamp(2.25rem,5.5vw,4.25rem)] md:max-w-4xl lg:text-[clamp(2.5rem,4.5vw,4.75rem)] xl:max-w-5xl xl:text-[clamp(2.75rem,4vw,5.5rem)] 2xl:max-w-6xl 2xl:text-[clamp(3rem,3.5vw,6.5rem)]">
             <motion.span
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}

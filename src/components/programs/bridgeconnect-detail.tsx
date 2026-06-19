@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Globe2, HeartHandshake, Languages, Sparkles, Target } from "lucide-react";
 import { PageBanner } from "@/components/shared/page-banner";
+import { pageContainerDetailClass } from "@/components/shared/page-container";
 import { Section } from "@/components/shared/section";
 import { StatStrip } from "@/components/shared/stat-strip";
 import { FadeUp } from "@/components/motion/fade-up";
@@ -29,7 +30,7 @@ export function BridgeConnectDetail({ program }: BridgeConnectDetailProps) {
       />
 
       <Section tone="white" backdrop="mesh">
-        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className={pageContainerDetailClass}>
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {content.programName}

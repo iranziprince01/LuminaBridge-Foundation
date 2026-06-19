@@ -56,7 +56,7 @@ export function ProgramShowcaseCard({
         <div className="relative flex flex-1 items-center gap-4 sm:gap-5">
           <motion.span
             className={cn(
-              "shrink-0 font-display text-5xl font-bold leading-none tracking-tight transition-colors sm:text-6xl md:text-7xl",
+              "shrink-0 font-display text-4xl font-bold leading-none tracking-tight transition-colors sm:text-5xl md:text-6xl xl:text-7xl",
               theme.number
             )}
             whileHover={{ scale: 1.08, rotate: -2 }}
@@ -67,7 +67,7 @@ export function ProgramShowcaseCard({
 
           <h3
             className={cn(
-              "min-w-0 flex-1 text-balance font-sans text-lg font-semibold leading-snug sm:text-xl md:text-2xl",
+              "min-w-0 flex-1 text-balance font-sans text-base font-semibold leading-snug sm:text-lg md:text-xl xl:text-2xl",
               theme.title
             )}
           >

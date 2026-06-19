@@ -80,8 +80,8 @@ export function PageBanner({
               ? "drop-shadow-[0_4px_28px_rgba(0,0,0,0.75)]"
               : "drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]",
             Array.isArray(title)
-              ? "max-w-6xl text-[clamp(1.75rem,4.25vw,3.75rem)] leading-[1.12] sm:text-[clamp(2rem,4.5vw,4.25rem)] lg:text-[clamp(2.25rem,5vw,4.75rem)]"
-              : "text-balance max-w-3xl text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.1] sm:max-w-4xl sm:text-[clamp(2.25rem,5.5vw,4.5rem)] lg:text-[clamp(2.75rem,6.5vw,5.5rem)]"
+              ? "max-w-3xl text-[clamp(1.5rem,3.5vw,2.75rem)] leading-[1.12] sm:max-w-4xl sm:text-[clamp(1.75rem,3.25vw,3.25rem)] lg:text-[clamp(2rem,2.75vw,3.5rem)] xl:max-w-5xl xl:text-[clamp(2.25rem,2.5vw,3.75rem)]"
+              : "text-balance max-w-2xl text-[clamp(1.5rem,4vw,2.75rem)] leading-[1.1] sm:max-w-3xl sm:text-[clamp(1.875rem,3.75vw,3.25rem)] lg:max-w-4xl lg:text-[clamp(2.25rem,3vw,3.75rem)] xl:text-[clamp(2.5rem,2.75vw,4.25rem)]"
           )}
         >
           {Array.isArray(title) ? (

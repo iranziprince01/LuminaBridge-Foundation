@@ -38,7 +38,7 @@ export function Section({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: motionEase }}
       className={cn(
-        "relative overflow-hidden scroll-mt-24 py-16 sm:py-24 md:py-32 lg:py-44",
+        "relative overflow-hidden scroll-mt-24 py-14 sm:py-20 md:py-24 lg:py-28 xl:py-32 2xl:py-44",
         sectionToneClass[tone],
         className
       )}

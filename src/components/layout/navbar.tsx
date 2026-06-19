@@ -141,14 +141,14 @@ export function Navbar() {
       >
         <NavbarLogo scrolled={!showHeroStyle} />
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-0.5 xl:flex xl:gap-1">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={(event) => handleNavItemClick(event, item.href)}
               className={cn(
-                "rounded-full px-3.5 py-2.5 text-base transition-colors",
+                "rounded-full px-3 py-2 text-sm transition-colors xl:px-3.5 xl:py-2.5 xl:text-base",
                 showHeroStyle
                   ? cn(
                       "font-sans font-semibold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55),0_2px_10px_rgba(0,0,0,0.35)]",
@@ -170,7 +170,7 @@ export function Navbar() {
           <Button
             variant={showHeroStyle ? "white" : "default"}
             size="default"
-            className="ml-3 text-base"
+            className="ml-2 text-sm xl:ml-3 xl:text-base"
             asChild
           >
             <Link href="/donate">Donate</Link>
@@ -180,7 +180,7 @@ export function Navbar() {
         <button
           type="button"
           className={cn(
-            "shrink-0 rounded-lg p-2 lg:hidden",
+            "shrink-0 rounded-lg p-2 xl:hidden",
             showHeroStyle
               ? "text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
               : "text-foreground"
@@ -198,7 +198,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-border bg-white lg:hidden"
+            className="overflow-hidden border-t border-border bg-white xl:hidden"
           >
             <div className={cn(pageContainerClass, "space-y-1 py-4")}>
               {navigation.map((item) => (

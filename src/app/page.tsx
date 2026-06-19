@@ -39,7 +39,7 @@ import {
 export const metadata = homeMetadata;
 
 const missionCardClass =
-  "flex h-full min-h-[240px] flex-col items-center justify-center rounded-3xl p-6 text-center shadow-sm sm:min-h-[260px] sm:p-8 md:min-h-[280px] md:p-10 lg:min-h-[320px] lg:p-12";
+  "flex h-full min-h-[220px] flex-col items-center justify-center rounded-3xl p-6 text-center shadow-sm sm:min-h-[240px] sm:p-8 md:min-h-[260px] md:p-9 lg:min-h-[280px] lg:p-10 xl:min-h-[320px] xl:p-12";
 
 export default function HomePage() {
   return (
@@ -108,7 +108,7 @@ export default function HomePage() {
                   <span className="font-display text-base font-extrabold uppercase tracking-widest text-secondary sm:text-lg md:text-xl">
                     {missionVision.mission.title}
                   </span>
-                  <p className="mt-4 text-lg leading-relaxed text-foreground sm:mt-5 sm:text-xl md:text-2xl">
+                  <p className="mt-4 text-base leading-relaxed text-foreground sm:mt-5 sm:text-lg lg:text-xl xl:text-2xl">
                     {missionVision.mission.content}
                   </p>
                 </div>
@@ -118,7 +118,7 @@ export default function HomePage() {
                   <span className="font-display text-base font-extrabold uppercase tracking-widest text-[#ffe600] sm:text-lg md:text-xl">
                     {missionVision.vision.title}
                   </span>
-                  <p className="mt-4 text-lg leading-relaxed text-white/90 sm:mt-5 sm:text-xl md:text-2xl">
+                  <p className="mt-4 text-base leading-relaxed text-white/90 sm:mt-5 sm:text-lg lg:text-xl xl:text-2xl">
                     {missionVision.vision.content}
                   </p>
                 </div>

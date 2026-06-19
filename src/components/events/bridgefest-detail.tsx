@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { EventRegistration } from "@/components/events/event-registration";
 import { PageBanner } from "@/components/shared/page-banner";
+import { pageContainerDetailClass } from "@/components/shared/page-container";
 import { Section } from "@/components/shared/section";
 import { StatStrip } from "@/components/shared/stat-strip";
 import { FadeUp } from "@/components/motion/fade-up";
@@ -41,7 +42,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
       />
 
       <Section tone="white" backdrop="dots">
-        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className={pageContainerDetailClass}>
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {content.tagline}
