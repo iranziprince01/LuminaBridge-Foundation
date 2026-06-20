@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { eventPageBannerImage } from "@/lib/data";
 import { metaDescription } from "@/lib/seo-keywords";
 import { pageTitles, siteConfig } from "@/lib/site-config";
 
@@ -212,7 +213,7 @@ export function getEventPageMetadata(
     title,
     description: metaDescription(`${description} — Edmonton, Alberta.`),
     path: `/events/${slug}`,
-    image: image ?? "/events.PNG",
+    image: image ?? eventPageBannerImage,
     imageAlt: `${title}, Lumina Bridge Foundation event in Edmonton Alberta`,
   });
 }
@@ -258,7 +259,7 @@ export const eventsMetadata = createPageMetadata({
   title: pageTitles.events,
   description: pageDescriptions.events,
   path: "/events",
-  image: "/events.PNG",
+  image: eventPageBannerImage,
 });
 
 export const programsMetadata = createPageMetadata({

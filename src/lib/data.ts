@@ -640,7 +640,7 @@ export const eventBanners = {
   "youth-unlocking-potential": "/youth-unlocking-potential.png",
 } as const;
 
-export const eventBannerImage = "/events.PNG";
+export const eventBannerImage = eventPageBannerImage;
 
 export function getEventBannerImage(eventId: string): string {
   return eventBanners[eventId as keyof typeof eventBanners] ?? eventBannerImage;
