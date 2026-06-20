@@ -18,9 +18,10 @@ Arts and culture, youth leadership, community development, mental wellness, newc
 
 ## Key pages
 - Home: https://www.luminabridgefoundation.org/
+- About: https://www.luminabridgefoundation.org/about
 - Programs: https://www.luminabridgefoundation.org/programs
 - Events: https://www.luminabridgefoundation.org/events
-- Team: https://www.luminabridgefoundation.org/team
+- Team: https://www.luminabridgefoundation.org/about
 - Impact: https://www.luminabridgefoundation.org/impact
 - Donate: https://www.luminabridgefoundation.org/donate
 - Get Involved: https://www.luminabridgefoundation.org/get-involved

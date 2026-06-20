@@ -111,7 +111,7 @@ export function GetInTouchCta({ tone = "green" }: GetInTouchCtaProps) {
                         {"href" in item && item.href ? (
                           <a
                             href={item.href}
-                            className="mt-1 block text-sm leading-relaxed text-foreground transition-colors hover:text-secondary sm:text-base"
+                            className="mt-1 block break-words text-sm leading-relaxed text-foreground transition-colors hover:text-secondary sm:text-base"
                           >
                             {item.content}
                           </a>

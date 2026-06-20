@@ -2,7 +2,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/section-header";
+import { pageContainerClass } from "@/components/shared/page-container";
 import { FadeUp } from "@/components/motion/fade-up";
+import { cn } from "@/lib/utils";
 
 interface CtaSectionProps {
   title: string;
@@ -24,7 +26,7 @@ export function CtaSection({
         <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className={cn("relative", pageContainerClass)}>
         <SectionHeader
           title={title}
           description={description}

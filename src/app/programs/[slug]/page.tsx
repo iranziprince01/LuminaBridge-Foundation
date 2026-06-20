@@ -79,7 +79,7 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
       />
       <PageBanner title={program.title} image={program.image} />
       <Section tone="white" backdrop="dots">
-        <PageContainer className="max-w-4xl">
+        <PageContainer detail className="max-w-4xl">
           <FadeUp>
             <div className="flex items-start gap-4">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-secondary/10">

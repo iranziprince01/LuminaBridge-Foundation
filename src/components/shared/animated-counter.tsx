@@ -68,7 +68,7 @@ export function AnimatedCounter({
       </motion.div>
       <p
         className={cn(
-          "mt-3 text-base font-semibold md:text-lg",
+          "mt-3 text-balance text-sm font-semibold sm:text-base md:text-lg",
           inverted ? "text-white/75" : "text-muted-foreground"
         )}
       >

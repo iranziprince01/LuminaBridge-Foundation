@@ -13,7 +13,7 @@ export function ImpactCardsGrid({ cards }: ImpactCardsGridProps) {
     <StaggerContainer className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 xl:grid-cols-4 xl:gap-8">
       {cards.map((card, index) => (
         <StaggerItem key={card.id}>
-          <ImpactImageCard card={card} priority={index < 4} />
+          <ImpactImageCard card={card} priority={index < 2} />
         </StaggerItem>
       ))}
     </StaggerContainer>

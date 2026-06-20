@@ -7,6 +7,7 @@ import { PageContainer } from "@/components/shared/page-container";
 import { SectionHeader } from "@/components/shared/section-header";
 import { ProgramsShowcase } from "@/components/sections/programs-showcase";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ItemListSchema } from "@/components/seo/item-list-schema";
 import { FadeUp } from "@/components/motion/fade-up";
 import { programs, programsSection } from "@/lib/programs-content";
 import { programsMetadata } from "@/lib/seo";
@@ -23,6 +24,12 @@ export default function ProgramsPage() {
           { name: "Programs", path: "/programs" },
         ]}
       />
+      <ItemListSchema
+        items={programs.map((program) => ({
+          name: program.title,
+          path: `/programs/${program.id}`,
+        }))}
+      />
       <PageBanner title="Our Programs" image="/mission.jpg" />
       <Section tone="white" backdrop="orbs">
         <PageContainer>
@@ -30,7 +37,7 @@ export default function ProgramsPage() {
           <div className="max-w-3xl space-y-5">
             {programsSection.paragraphs.map((paragraph) => (
               <FadeUp key={paragraph.slice(0, 32)}>
-                <p className="text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+                <p className="text-pretty md:text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
                   {paragraph}
                 </p>
               </FadeUp>

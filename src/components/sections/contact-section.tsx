@@ -48,8 +48,8 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
 
   return (
     <div className={pageContainerClass}>
-      <div className="grid gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-5">
-        <div className="lg:col-span-2">
+      <div className="grid min-w-0 gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-5">
+        <div className="min-w-0 lg:col-span-2">
           <FadeUp>
             <h2 className={sectionHeadingClass}>
               Get in Touch
@@ -70,12 +70,12 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
                         absoluteStrokeWidth
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-sm font-semibold">{item.title}</p>
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-sm text-secondary hover:underline"
+                          className="break-words text-sm text-secondary hover:underline"
                         >
                           {item.content}
                         </a>
@@ -93,7 +93,7 @@ export function ContactSection({ defaultInquiry = "general" }: ContactSectionPro
           </FadeUp>
         </div>
 
-        <div className="md:col-span-2 lg:col-span-3">
+        <div className="min-w-0 md:col-span-2 lg:col-span-3">
           <FadeUp delay={0.15}>
             <div className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8 md:p-10">
               <h3 className="text-xl font-bold">Request Information Form</h3>

@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import { EventRegistration } from "@/components/events/event-registration";
+import { PageContainer } from "@/components/shared/page-container";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
 import { StatStrip } from "@/components/shared/stat-strip";
@@ -41,12 +42,12 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
       />
 
       <Section tone="white" backdrop="dots">
-        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <PageContainer detail>
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {content.tagline}
             </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
               {[
                 { icon: Calendar, label: "Event Dates", value: content.dates },
                 { icon: MapPin, label: "Location", value: content.location },
@@ -286,7 +287,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
               <Link href="/get-involved#partner">Partner With Us</Link>
             </Button>
           </FadeUp>
-        </div>
+        </PageContainer>
       </Section>
     </>
   );

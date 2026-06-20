@@ -148,6 +148,7 @@ export function Navbar() {
       )}
     >
       <nav
+        aria-label="Primary"
         className={cn(
           pageContainerClass,
           "flex min-h-[3.5rem] items-center justify-between gap-2 py-2 pt-[max(0.5rem,env(safe-area-inset-top))] sm:min-h-[4rem] sm:gap-3 sm:py-2.5 sm:pt-[max(0.5rem,env(safe-area-inset-top))]"
@@ -193,17 +194,20 @@ export function Navbar() {
 
         <button
           type="button"
+          id="mobile-nav-toggle"
           className={cn(
             "shrink-0 rounded-lg p-1.5 sm:p-2 lg:hidden",
             showWhiteNav ? "text-foreground" : "text-white"
           )}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav-menu"
         >
           {isOpen ? (
-            <X className="h-5 w-5 sm:h-6 sm:w-6" />
+            <X className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden />
           ) : (
-            <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+            <Menu className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden />
           )}
         </button>
       </nav>
@@ -211,6 +215,9 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-nav-menu"
+            role="region"
+            aria-labelledby="mobile-nav-toggle"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

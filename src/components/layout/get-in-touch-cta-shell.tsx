@@ -12,7 +12,7 @@ export function GetInTouchCtaShell() {
     return null;
   }
 
-  const tone = "green";
+  const tone = pathname === "/" ? "white" : "green";
 
   return <GetInTouchCta tone={tone} />;
 }

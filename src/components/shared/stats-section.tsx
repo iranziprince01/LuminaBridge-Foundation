@@ -13,7 +13,7 @@ export function StatsSection({ stats, className, dark = false }: StatsSectionPro
   return (
     <StaggerContainer
       className={cn(
-        "grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-3 md:gap-10 lg:grid-cols-5 [&>*:last-child]:col-span-2 lg:[&>*:last-child]:col-span-1",
+        "grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 md:gap-10 lg:grid-cols-5",
         className
       )}
     >

@@ -56,12 +56,12 @@ export const organizationAlternateNames = [
   "Lumina Bridge Foundation Canada",
 ] as const;
 
-/** Google SERP snippet target: ~150–160 characters, stable length. */
-export function metaDescription(text: string, maxLength = 158): string {
+/** Google SERP snippet target: 110–130 characters. */
+export function metaDescription(text: string, maxLength = 130): string {
   const normalized = text.replace(/\s+/g, " ").trim();
   if (normalized.length <= maxLength) return normalized;
   const trimmed = normalized.slice(0, maxLength - 1);
   const lastSpace = trimmed.lastIndexOf(" ");
-  const cut = lastSpace > 120 ? trimmed.slice(0, lastSpace) : trimmed;
+  const cut = lastSpace > 100 ? trimmed.slice(0, lastSpace) : trimmed;
   return `${cut.trim()}…`;
 }

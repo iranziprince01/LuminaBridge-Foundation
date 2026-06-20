@@ -14,9 +14,8 @@ export function StatStrip({ stats, className }: StatStripProps) {
   return (
     <div
       className={cn(
-        "grid grid-cols-2 gap-3 sm:grid-cols-3",
-        stats.length === 3 && "sm:grid-cols-3",
-        stats.length === 5 && "[&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1",
+        "grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3",
+        stats.length === 5 && "sm:[&>*:last-child]:col-span-2 md:[&>*:last-child]:col-span-1",
         className
       )}
     >

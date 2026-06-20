@@ -28,8 +28,8 @@ const nextConfig: NextConfig = {
         destination: "/programs/language-culture-belonging-initiative",
         permanent: true,
       },
-      { source: "/about", destination: "/", permanent: false },
-      { source: "/leadership", destination: "/team", permanent: false },
+      { source: "/team", destination: "/about", permanent: true },
+      { source: "/leadership", destination: "/about", permanent: true },
       { source: "/contact", destination: "/get-involved#contact", permanent: false },
     ];
   },
@@ -84,6 +84,15 @@ const nextConfig: NextConfig = {
     ];
 
     return [
+      {
+        source: "/(.*\\.(?:jpg|jpeg|png|webp|svg|ico|woff2|woff|ttf))",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
       {
         source: "/(.*)",
         headers: securityHeaders,

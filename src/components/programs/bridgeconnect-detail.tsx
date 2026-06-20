@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Globe2, HeartHandshake, Languages, Sparkles, Target } from "lucide-react";
+import { PageContainer } from "@/components/shared/page-container";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
 import { StatStrip } from "@/components/shared/stat-strip";
@@ -29,7 +30,7 @@ export function BridgeConnectDetail({ program }: BridgeConnectDetailProps) {
       />
 
       <Section tone="white" backdrop="mesh">
-        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <PageContainer detail>
           <FadeUp>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {content.programName}
@@ -208,7 +209,7 @@ export function BridgeConnectDetail({ program }: BridgeConnectDetailProps) {
             </a>
           </FadeUp>
 
-          <FadeUp className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <FadeUp className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <Button size="lg" asChild>
               <Link href="/get-involved">
                 Get Involved
@@ -222,7 +223,7 @@ export function BridgeConnectDetail({ program }: BridgeConnectDetailProps) {
               <Link href="/programs">View All Programs</Link>
             </Button>
           </FadeUp>
-        </div>
+        </PageContainer>
       </Section>
     </>
   );

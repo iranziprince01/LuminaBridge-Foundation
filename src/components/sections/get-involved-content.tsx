@@ -83,7 +83,7 @@ export function GetInvolvedContent() {
         </FadeUp>
       </div>
 
-      <div className="mt-12 grid grid-cols-2 gap-4 sm:mt-16 sm:gap-6 md:gap-10 lg:gap-12">
+      <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 md:gap-10 lg:gap-12">
         <FadeUp className="h-full min-w-0">
           <article className="flex h-full flex-col rounded-2xl border border-border bg-white p-4 shadow-sm sm:p-8 md:p-10 lg:p-12">
             <h2 className="text-lg font-extrabold tracking-tight text-foreground sm:text-2xl md:text-3xl">

@@ -17,7 +17,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-foreground text-white">
-      <div className={cn(pageContainerClass, "py-16")}>
+      <div className={cn(pageContainerClass, "py-16 pb-[max(4rem,env(safe-area-inset-bottom))]")}>
         <StaggerContainer className="grid items-start gap-12 md:grid-cols-2 lg:grid-cols-4">
           <StaggerItem className="flex flex-col items-start lg:col-span-1">
             <Logo variant="footer" tone="white" href="/" />
@@ -32,7 +32,7 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {navigation
-                .filter((item) => item.name !== "Home" && item.name !== "Team")
+                .filter((item) => item.name !== "Home")
                 .map((item) => (
                 <li key={item.href}>
                   <Link
@@ -80,7 +80,7 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-3">
               <li className="flex items-start gap-2.5 text-sm text-white/70">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden />
                 <span>
                   {siteConfig.address.suite}
                   <br />
@@ -88,13 +88,13 @@ export function Footer() {
                 </span>
               </li>
               <li className="flex items-start gap-2.5 text-sm text-white/70">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden />
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-secondary">
                   {siteConfig.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-sm text-white/70">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden />
                 <a
                   href={siteConfig.phoneHref}
                   className="hover:text-secondary"
@@ -119,7 +119,7 @@ export function Footer() {
                   transition={{ duration: 0.2 }}
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors hover:bg-secondary"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-4 w-4" aria-hidden />
                 </motion.a>
               ))}
             </div>
@@ -127,10 +127,10 @@ export function Footer() {
         </StaggerContainer>
 
         <FadeUp className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-white/50">
+          <p className="text-sm text-white/70">
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-white/50">
+          <div className="flex gap-6 text-sm text-white/70">
             <Link href="/privacy" className="hover:text-white/80">
               Privacy Policy
             </Link>

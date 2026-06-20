@@ -24,8 +24,11 @@ export function ScrollToTop() {
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Scroll to top"
+      tabIndex={visible ? 0 : -1}
+      aria-hidden={!visible}
       className={cn(
-        "fixed right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg shadow-primary/30 ring-2 ring-[#ffe600]/55 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:ring-[#ffe600]/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:right-6 sm:h-12 sm:w-12",
+        "fixed z-40 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg shadow-primary/30 ring-2 ring-[#ffe600]/55 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:ring-[#ffe600]/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:h-12 sm:w-12",
+        "right-[max(1rem,env(safe-area-inset-right))] sm:right-[max(1.5rem,env(safe-area-inset-right))]",
         "bottom-[max(1.5rem,env(safe-area-inset-bottom))] sm:bottom-[max(2rem,env(safe-area-inset-bottom))]",
         visible
           ? "pointer-events-auto translate-y-0 opacity-100"

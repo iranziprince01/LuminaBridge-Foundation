@@ -1,5 +1,4 @@
 import communityImage from "../../public/community.jpg";
-import hopeImage from "../../public/hope.jpg";
 import missionImage from "../../public/mission.jpg";
 import storyImage from "../../public/story.jpg";
 import { homeMetadata } from "@/lib/seo";
@@ -11,36 +10,34 @@ import {
   PageContainer,
   splitSectionGridClass,
 } from "@/components/shared/page-container";
-import {
-  SectionHeader,
-  sectionHeadingClass,
-} from "@/components/shared/section-header";
+import { SectionHeader } from "@/components/shared/section-header";
 import { SectionBackdrop } from "@/components/shared/section-backdrop";
+import { SectionLinkCta } from "@/components/shared/section-link-cta";
 import { StatsSection } from "@/components/shared/stats-section";
 import { PriorityPopulationsSection } from "@/components/sections/priority-populations-section";
 import { ProgramsShowcase } from "@/components/sections/programs-showcase";
-import { CommunityStoryCard } from "@/components/cards/community-story-card";
 import { TestimonialCard } from "@/components/cards/testimonial-card";
+import { CommunityStoryCard } from "@/components/cards/community-story-card";
 import { ValuesShowcase } from "@/components/sections/values-showcase";
 import { FadeUp } from "@/components/motion/fade-up";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import {
-  whoWeAre,
+  homeCoreValues,
+  homeMissionVision,
+  homePriorityPopulationsSection,
+  homeProgramsIntro,
+  homeStats,
+  homeWhoWeAre,
   missionVision,
-  beliefQuote,
-  nameMeaning,
-  coreValues,
   programs,
   programsSection,
-  priorityPopulationsSection,
-  homeStats,
   testimonials,
 } from "@/lib/data";
 
 export const metadata = homeMetadata;
 
 const missionCardClass =
-  "flex h-full min-h-[240px] flex-col items-center justify-center rounded-3xl p-6 text-center shadow-sm sm:min-h-[260px] sm:p-8 md:min-h-[280px] md:p-10 lg:min-h-[320px] lg:p-12";
+  "flex h-full min-h-[200px] flex-col items-center justify-center rounded-3xl p-6 text-center shadow-sm sm:min-h-[220px] sm:p-8 md:min-h-[240px]";
 
 export default function HomePage() {
   return (
@@ -62,27 +59,21 @@ export default function HomePage() {
         </PageContainer>
       </section>
 
-      <Section id="about" tone="white">
+      <Section id="about" tone="white" backdrop="none">
         <PageContainer>
           <div className={splitSectionGridClass}>
             <div className="md:self-center">
-              <SectionHeader title={whoWeAre.title} align="left" className="mb-8" />
+              <SectionHeader title={homeWhoWeAre.title} align="left" className="mb-8" />
               <div className="space-y-5">
-                {whoWeAre.paragraphs.map((paragraph, i) => (
-                  <FadeUp key={i} delay={i * 0.08}>
-                    <p className="text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+                {homeWhoWeAre.paragraphs.map((paragraph) => (
+                  <FadeUp key={paragraph.slice(0, 32)}>
+                    <p className="text-pretty md:text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
                       {paragraph}
                     </p>
                   </FadeUp>
                 ))}
               </div>
-              <FadeUp className="mt-8 sm:mt-10">
-                <blockquote className="border-l-4 border-accent pl-5 sm:pl-8">
-                  <p className="text-justify text-lg font-medium italic leading-relaxed text-foreground sm:text-xl md:text-2xl">
-                    &ldquo;{beliefQuote}&rdquo;
-                  </p>
-                </blockquote>
-              </FadeUp>
+              <SectionLinkCta href="/about" label="Learn More About Us" />
             </div>
             <FadeUp delay={0.12}>
               <SectionImage
@@ -98,117 +89,82 @@ export default function HomePage() {
       <Section id="mission" tone="green" backdrop="mesh">
         <PageContainer>
           <div className={splitSectionGridClass}>
-            <FadeUp className="md:order-none">
+            <FadeUp>
               <SectionImage
                 src={missionImage}
                 alt="Lumina Bridge Foundation mission in action"
                 natural
               />
             </FadeUp>
-            <div className="grid gap-6 sm:gap-8 md:gap-10 md:self-center">
+            <div className="grid gap-6 sm:gap-8 md:self-center">
               <FadeUp spring className="h-full">
-                <div
-                  className={`${missionCardClass} border border-border bg-white`}
-                >
-                  <span className="font-display text-base font-extrabold uppercase tracking-widest text-secondary sm:text-lg md:text-xl">
+                <div className={`${missionCardClass} border border-border bg-white`}>
+                  <span className="font-display text-sm font-extrabold uppercase tracking-widest text-secondary sm:text-base">
                     {missionVision.mission.title}
                   </span>
-                  <p className="mt-4 text-lg leading-relaxed text-foreground sm:mt-5 sm:text-xl md:text-2xl">
-                    {missionVision.mission.content}
+                  <p className="mt-4 text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
+                    {homeMissionVision.mission}
                   </p>
                 </div>
               </FadeUp>
               <FadeUp spring delay={0.12} className="h-full">
                 <div className={`${missionCardClass} bg-primary text-white shadow-lg`}>
-                  <span className="font-display text-base font-extrabold uppercase tracking-widest text-[#ffe600] sm:text-lg md:text-xl">
+                  <span className="font-display text-sm font-extrabold uppercase tracking-widest text-[#ffe600] sm:text-base">
                     {missionVision.vision.title}
                   </span>
-                  <p className="mt-4 text-lg leading-relaxed text-white/90 sm:mt-5 sm:text-xl md:text-2xl">
-                    {missionVision.vision.content}
+                  <p className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
+                    {homeMissionVision.vision}
                   </p>
                 </div>
               </FadeUp>
+              <SectionLinkCta href="/about" label="View Our Story" />
             </div>
           </div>
         </PageContainer>
       </Section>
 
-      <Section id="values" tone="white" backdrop="dots">
+      <Section id="values" tone="white" backdrop="none">
         <PageContainer>
           <SectionHeader title="What Guides Everything We Do" />
-          <ValuesShowcase values={coreValues} />
+          <ValuesShowcase values={homeCoreValues} />
+          <SectionLinkCta href="/about" label="Explore Our Values" align="center" />
         </PageContainer>
       </Section>
 
-      <Section id="meaning" tone="green" backdrop="bridge" className="!py-20 sm:!py-28 md:!py-36 lg:!py-44">
-        <PageContainer>
-          <div className={splitSectionGridClass}>
-            <FadeUp className="md:self-center">
-              <div className="max-w-xl">
-                <h2 className={sectionHeadingClass}>{nameMeaning.title}</h2>
-                <StaggerContainer className="mt-10 space-y-6 text-base leading-relaxed text-muted-foreground sm:mt-12 sm:space-y-7 sm:text-lg md:mt-14 md:text-xl lg:mt-16" staggerDelay={0.12}>
-                  <StaggerItem>
-                    <p className="flex items-start gap-3 sm:gap-4">
-                      <span className="shrink-0 font-bold text-secondary">Lumina</span>
-                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
-                      <span>{nameMeaning.lumina}</span>
-                    </p>
-                  </StaggerItem>
-                  <StaggerItem>
-                    <p className="flex items-start gap-3 sm:gap-4">
-                      <span className="shrink-0 font-bold text-secondary">Bridge</span>
-                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-secondary/45" aria-hidden />
-                      <span>{nameMeaning.bridge}</span>
-                    </p>
-                  </StaggerItem>
-                </StaggerContainer>
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.12}>
-              <SectionImage
-                src={hopeImage}
-                alt="Light, hope, and community connection"
-                natural
-              />
-            </FadeUp>
-          </div>
-        </PageContainer>
-      </Section>
-
-      <Section id="programs" tone="white" backdrop="orbs">
+      <Section id="programs" tone="green" backdrop="mesh">
         <PageContainer>
           <SectionHeader title={programsSection.title} align="left" className="mb-8 sm:mb-10" />
-          <div className="max-w-3xl space-y-5">
-            {programsSection.paragraphs.map((paragraph) => (
-              <FadeUp key={paragraph.slice(0, 32)}>
-                <p className="text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-                  {paragraph}
-                </p>
-              </FadeUp>
-            ))}
-          </div>
+          <FadeUp>
+            <p className="max-w-3xl text-pretty md:text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+              {homeProgramsIntro}
+            </p>
+          </FadeUp>
           <div className="mt-12 sm:mt-16">
             <ProgramsShowcase programs={programs} />
           </div>
+          <SectionLinkCta href="/programs" label="View All Programs" align="center" />
         </PageContainer>
       </Section>
 
-      <Section id="populations" tone="green" backdrop="mesh">
+      <Section id="populations" tone="white" backdrop="none">
         <PriorityPopulationsSection
-          title={priorityPopulationsSection.title}
-          intro={priorityPopulationsSection.intro}
-          lead={priorityPopulationsSection.lead}
-          populations={priorityPopulationsSection.populations}
+          title={homePriorityPopulationsSection.title}
+          intro={homePriorityPopulationsSection.intro}
+          lead={homePriorityPopulationsSection.lead}
+          populations={homePriorityPopulationsSection.populations}
         />
       </Section>
 
-      <Section id="stories" tone="white" backdrop="mesh">
+      <Section id="stories" tone="green" backdrop="mesh">
         <PageContainer>
           <SectionHeader title="Impact Stories from Our Community" />
-          <StaggerContainer className="grid items-stretch gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10" staggerDelay={0.1}>
-            {testimonials.map((t) => (
-              <StaggerItem key={t.id} variant="playful" className="h-full">
-                <TestimonialCard testimonial={t} />
+          <StaggerContainer
+            className="grid items-stretch gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10"
+            staggerDelay={0.1}
+          >
+            {testimonials.map((testimonial) => (
+              <StaggerItem key={testimonial.id} variant="playful" className="h-full">
+                <TestimonialCard testimonial={testimonial} />
               </StaggerItem>
             ))}
             <StaggerItem variant="playful" className="h-full">

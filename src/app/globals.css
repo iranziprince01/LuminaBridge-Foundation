@@ -5,7 +5,7 @@
   --foreground: #0f172a;
   --primary: #0c4a6e;
   --primary-foreground: #f8fafc;
-  --secondary: #0d9488;
+  --secondary: #0f766e;
   --secondary-foreground: #f0fdfa;
   --accent: #d4a853;
   --accent-foreground: #1c1917;
@@ -17,7 +17,7 @@
   --muted-foreground: #64748b;
   --border: #e2e8f0;
   --card: #ffffff;
-  --ring: #0d9488;
+  --ring: #0f766e;
 }
 
 @theme inline {
@@ -63,6 +63,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1;
+}
+
+main {
+  min-width: 0;
+  width: 100%;
+}
+
+a[href^="mailto:"],
+a[href^="tel:"] {
+  overflow-wrap: anywhere;
 }
 
 @supports (text-wrap: balance) {
@@ -258,12 +268,26 @@ h6 {
 }
 
 .hero-headline {
-  font-size: clamp(
-    2.5rem,
-    min(10.25vw, calc((100dvh - 12rem) / 2.75)),
-    9rem
-  );
-  line-height: 1.05;
+  /*
+   * Fluid hero display scale (professional / international landing-page range):
+   * mobile 40–80px · laptop 46–92px · desktop 52–104px
+   * Tuned for exactly 3 lines on lg+ without mid-word breaks.
+   */
+  --hero-fs-min: 2.5rem;
+  --hero-fs-fluid: min(10.25vw, calc((100dvh - 12rem) / 2.75));
+  --hero-fs-max: 9rem;
+  font-size: clamp(var(--hero-fs-min), var(--hero-fs-fluid), var(--hero-fs-max));
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* Laptop / desktop — 3 clear lines (Building Bridges, / Transforming / Communities.) */
+@media (min-width: 1024px) {
+  .hero-headline {
+    --hero-fs-min: 2.875rem; /* 46px — common hero floor */
+    --hero-fs-fluid: min(5vw, calc((100dvh - 12rem) / 3.12));
+    --hero-fs-max: 5.75rem; /* 92px — strong display without overflow */
+  }
 }
 
 .hero-headline-line {
@@ -305,13 +329,11 @@ h6 {
 }
 
 /* Short laptop viewports (13" MacBook, etc.) */
-@media (max-height: 860px) {
+@media (max-height: 860px) and (min-width: 1024px) {
   .hero-headline {
-    font-size: clamp(
-      2.125rem,
-      min(9vw, calc((100dvh - 11rem) / 2.85)),
-      6rem
-    );
+    --hero-fs-min: 2.625rem;
+    --hero-fs-fluid: min(4.65vw, calc((100dvh - 11rem) / 3.22));
+    --hero-fs-max: 5.125rem;
   }
 
   .hero-cta-btn {
@@ -320,14 +342,25 @@ h6 {
   }
 }
 
-/* Large monitors — bigger type */
+@media (max-height: 860px) and (max-width: 1023px) {
+  .hero-headline {
+    --hero-fs-min: 2.125rem;
+    --hero-fs-fluid: min(9vw, calc((100dvh - 11rem) / 2.85));
+    --hero-fs-max: 6rem;
+  }
+
+  .hero-cta-btn {
+    min-height: 2.5rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Large monitors — display headline tier, still 3 lines */
 @media (min-width: 1536px) {
   .hero-headline {
-    font-size: clamp(
-      3.25rem,
-      min(10.5vw, calc((100dvh - 14.5rem) / 2.75)),
-      9.25rem
-    );
+    --hero-fs-min: 3.25rem; /* 52px */
+    --hero-fs-fluid: min(5.25vw, calc((100dvh - 14rem) / 3.02));
+    --hero-fs-max: 6.5rem; /* 104px — upper bound for multi-line heroes */
   }
 }
 
@@ -342,11 +375,9 @@ h6 {
   }
 
   .hero-headline {
-    font-size: clamp(
-      2.375rem,
-      min(9.5vw, calc((100dvh - 10.5rem) / 3.65)),
-      4.75rem
-    );
+    --hero-fs-min: 2.5rem;
+    --hero-fs-fluid: min(9.75vw, calc((100dvh - 10.5rem) / 3.55));
+    --hero-fs-max: 5rem;
   }
 
   .hero-headline-line {

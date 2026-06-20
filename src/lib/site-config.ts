@@ -1,13 +1,15 @@
 export const pageTitles = {
-  home: "Lumina Bridge Foundation",
-  team: "Team",
-  events: "Events",
-  donate: "Donate",
-  getInvolved: "Get Involved",
-  impact: "Impact",
-  programs: "Programs",
+  home: "Lumina Bridge Foundation | Empowering Youth & Communities in Alberta",
+  about: "About Our Mission & Story in Alberta",
+  team: "Meet Our Team in Edmonton Alberta",
+  events: "Signature Events & Summits Alberta",
+  programs: "Youth & Community Programs Edmonton",
+  impact: "Community Impact Across Alberta",
+  donate: "Support Our Mission in Alberta",
+  getInvolved: "Volunteer, Partner & Sponsor Alberta",
   privacy: "Privacy Policy",
   terms: "Terms of Use",
+  pageNotFound: "Page Not Found",
   eventNotFound: "Event Not Found",
   programNotFound: "Program Not Found",
 } as const;
@@ -21,9 +23,9 @@ export const eventTabTitles: Record<string, string> = {
 export const siteConfig = {
   name: "Lumina Bridge Foundation",
   shortName: "Lumina Bridge",
-  /** Stable Google meta description (~150 chars). */
+  /** Primary meta description (~110–130 characters for SERP snippets). */
   metaDescription:
-    "Lumina Bridge Foundation is a registered nonprofit in Edmonton, Alberta, Canada. Arts, culture, youth leadership, and community programs across Alberta.",
+    "Registered nonprofit in Edmonton, Alberta empowering youth through arts, culture, leadership, mental wellness, and community programs.",
   /** Visible site summary (footer, schema). */
   description:
     "Lumina Bridge Foundation is a registered nonprofit in Edmonton, Alberta, Canada. We empower youth and communities through arts, culture, leadership, mental wellness, and community engagement.",
@@ -32,8 +34,8 @@ export const siteConfig = {
   logoColor: "/logo_color.svg",
   logoWhite: "/logo_white.svg",
   favicon: "/favicon.png",
-  /** Default Open Graph / Twitter Card image for social sharing */
-  ogImage: "/community.jpg",
+  /** Generated Open Graph / Twitter Card image (1200×630, under 500KB). */
+  ogImage: "/opengraph-image",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   email: "info@luminabridgefoundation.org",

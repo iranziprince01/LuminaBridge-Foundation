@@ -11,7 +11,7 @@ interface ProgramSchemaProps {
 export function ProgramSchema({ program }: ProgramSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Program",
+    "@type": "EducationalOccupationalProgram",
     name: program.title,
     description: program.description,
     url: absoluteUrl(`/programs/${program.id}`),

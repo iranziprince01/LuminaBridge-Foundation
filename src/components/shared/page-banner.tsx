@@ -36,7 +36,7 @@ export function PageBanner({
     <section
       id="page-banner"
       className={cn(
-        "relative flex min-h-[50vh] items-end overflow-hidden pt-32 pb-16 sm:min-h-[58vh] sm:pt-36 sm:pb-20 md:min-h-[64vh] md:pt-40 md:pb-24 lg:min-h-[68vh] lg:pb-32",
+        "relative flex min-h-[44vh] items-end overflow-hidden pt-28 pb-14 sm:min-h-[50vh] sm:pt-32 sm:pb-16 md:min-h-[58vh] md:pt-36 md:pb-20 lg:min-h-[64vh] lg:pt-40 lg:pb-24 xl:min-h-[68vh] xl:pb-32",
         className
       )}
     >

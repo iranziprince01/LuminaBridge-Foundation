@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import heroImage from "../../../public/hero.jpg";
 import { heroContent } from "@/lib/data";
 import { pageContainerClass } from "@/components/shared/page-container";
 import { Button } from "@/components/ui/button";
@@ -19,11 +20,13 @@ export function HomeHero() {
     >
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src={heroContent.image}
-          alt="Community gathering"
+          src={heroImage}
+          alt="Diverse youth and community members united — Lumina Bridge Foundation, Edmonton, Alberta"
           fill
-          className="hero-ken-burns object-cover"
+          className="hero-ken-burns object-cover object-center"
           priority
+          fetchPriority="high"
+          quality={85}
           sizes="100vw"
         />
       </div>
@@ -37,23 +40,25 @@ export function HomeHero() {
             transition={{ duration: 0.8, ease: motionEase }}
             className="min-w-0 w-full max-w-xl lg:max-w-none"
           >
-            <h1 className="hero-headline font-display w-full min-w-0 max-w-full text-balance break-words font-extrabold leading-[1.05] tracking-tight">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6, ease: motionEase }}
-                className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] lg:inline"
-              >
-                {heroContent.headline.primary}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.18, duration: 0.6, ease: motionEase }}
-                className="hero-headline-line block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] lg:mt-0 lg:inline lg:ml-[0.3ch]"
-              >
-                {heroContent.headline.primaryContinued}
-              </motion.span>
+            <h1 className="hero-headline font-display w-full min-w-0 max-w-full text-balance font-extrabold leading-[1.05] tracking-tight">
+              <span className="block xl:whitespace-nowrap">
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.6, ease: motionEase }}
+                  className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] xl:inline"
+                >
+                  {heroContent.headline.primary}
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.18, duration: 0.6, ease: motionEase }}
+                  className="hero-headline-line block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] xl:mt-0 xl:inline xl:ml-[0.3ch]"
+                >
+                  {heroContent.headline.primaryContinued}
+                </motion.span>
+              </span>
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

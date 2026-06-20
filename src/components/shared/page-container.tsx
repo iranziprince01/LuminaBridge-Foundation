@@ -28,6 +28,9 @@ export const pageContainerDetailClass = cn(
 export const splitSectionGridClass =
   "grid gap-8 sm:gap-10 md:grid-cols-2 md:items-center md:gap-10 lg:gap-12 xl:gap-16 2xl:gap-20";
 
+/** Body copy that reads cleanly on phones and can justify on wider screens. */
+export const responsiveProseClass = "text-pretty md:text-justify";
+
 export function PageContainer({
   children,
   className,
