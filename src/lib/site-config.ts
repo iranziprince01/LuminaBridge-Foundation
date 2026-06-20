@@ -1,5 +1,5 @@
 export const pageTitles = {
-  home: "Lumina Bridge Foundation | Empowering Youth & Communities in Alberta",
+  home: "Lumina Bridge Foundation | Youth Leadership & Community Impact",
   about: "About Our Mission & Story in Alberta",
   team: "Meet Our Team in Edmonton Alberta",
   events: "Signature Events & Summits Alberta",
