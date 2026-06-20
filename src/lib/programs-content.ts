@@ -16,7 +16,7 @@ export interface Program {
 export const programsSection = {
   title: "What We Do",
   paragraphs: [
-    "At Lumina Bridge Foundation, we develop and deliver community-centered programs designed to empower individuals, strengthen social inclusion, foster creativity, and create sustainable pathways for personal, professional, and community development.",
+    "At Lumina Bridge Foundation in Edmonton, Alberta, Canada, we develop community-centered programs in arts, culture, youth leadership, and community development across Alberta.",
     "Our work is rooted in the belief that when people are provided with access to opportunity, support systems, and platforms to develop their potential, communities become stronger, healthier, and more resilient.",
     "Through strategic programming, partnerships, and community engagement initiatives, we focus on the following core areas:",
   ],

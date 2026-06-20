@@ -13,6 +13,7 @@ import { EventRegistration } from "@/components/events/event-registration";
 import { StatStrip } from "@/components/shared/stat-strip";
 import { Button } from "@/components/ui/button";
 import { EventSchema } from "@/components/seo/event-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { events, getEventById, eventPageBannerImage } from "@/lib/data";
 import { eventTabTitles, pageTitles } from "@/lib/site-config";
 import { createPageMetadata, getEventPageMetadata } from "@/lib/seo";
@@ -61,6 +62,13 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
     return (
       <>
         <EventSchema event={event} slug={slug} />
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Events", path: "/events" },
+            { name: event.title, path: `/events/${slug}` },
+          ]}
+        />
         <NewRootsDetail event={event} />
       </>
     );
@@ -70,6 +78,13 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
     return (
       <>
         <EventSchema event={event} slug={slug} />
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Events", path: "/events" },
+            { name: event.title, path: `/events/${slug}` },
+          ]}
+        />
         <BridgeFestDetail event={event} />
       </>
     );
@@ -78,6 +93,13 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
   return (
     <>
       <EventSchema event={event} slug={slug} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Events", path: "/events" },
+          { name: event.title, path: `/events/${slug}` },
+        ]}
+      />
       <PageBanner title={event.title} image={event.image} variant="event" />
       <Section tone="white" backdrop="dots">
         <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">

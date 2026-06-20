@@ -21,8 +21,12 @@ export const eventTabTitles: Record<string, string> = {
 export const siteConfig = {
   name: "Lumina Bridge Foundation",
   shortName: "Lumina Bridge",
+  /** Stable Google meta description (~150 chars). */
+  metaDescription:
+    "Lumina Bridge Foundation is a registered nonprofit in Edmonton, Alberta, Canada. Arts, culture, youth leadership, and community programs across Alberta.",
+  /** Visible site summary (footer, schema). */
   description:
-    "Empowering youth, strengthening communities, promoting mental wellness, and creating opportunities through arts, culture, leadership development, education, and community engagement across Alberta.",
+    "Lumina Bridge Foundation is a registered nonprofit in Edmonton, Alberta, Canada. We empower youth and communities through arts, culture, leadership, mental wellness, and community engagement.",
   /** Primary canonical origin — must match live DNS (www redirects from apex). */
   url: "https://www.luminabridgefoundation.org",
   logoColor: "/logo_color.svg",
@@ -52,16 +56,25 @@ export const siteConfig = {
   registered: 2026,
   tagline: "Building Bridges. Unlocking Potential. Transforming Communities.",
   keywords: [
-    "nonprofit Alberta",
-    "youth leadership",
-    "community development",
-    "mental wellness",
-    "arts and culture",
-    "refugee support",
-    "financial literacy",
-    "volunteer opportunities",
     "Lumina Bridge Foundation",
-    "Edmonton nonprofit",
+    "Lumina Bridge",
+    "Lumina",
+    "Bridge Foundation",
+    "nonprofit Edmonton",
+    "nonprofit Alberta",
+    "nonprofit Canada",
+    "arts and culture Canada",
+    "arts and culture Alberta",
+    "arts and culture Edmonton",
+    "youth leadership Alberta",
+    "community foundation Alberta",
+    "mental wellness Alberta",
+    "newcomer support Edmonton",
+    "BridgeConnect",
+    "BridgeFest Canada",
+    "NewRoots Canada Summit",
+    "volunteer Edmonton",
+    "donate nonprofit Alberta",
   ],
   /** Optional @handle for Twitter/X cards — set when account is active. */
   twitterHandle: undefined as string | undefined,

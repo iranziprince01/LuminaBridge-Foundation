@@ -1,24 +1,34 @@
 import type { Metadata } from "next";
+import { metaDescription } from "@/lib/seo-keywords";
 import { pageTitles, siteConfig } from "@/lib/site-config";
 
-/** Unique meta descriptions for every indexable route. */
+/** Unique meta descriptions for every indexable route (~150–158 characters). */
 export const pageDescriptions = {
-  home: siteConfig.description,
-  team: "Meet the executive leadership and operations team behind Lumina Bridge Foundation, nonprofit leaders driving youth empowerment and community impact across Alberta.",
-  events:
-    "Discover Lumina Bridge Foundation's 2026 signature events in Alberta: NewRoots Canada Summit, BridgeFest, and Youth Unlocking Potential. Register and get involved.",
-  programs:
-    "Explore community-centered programs from Lumina Bridge Foundation in arts, mental wellness, youth leadership, entrepreneurship, newcomer support, and more across Alberta.",
-  impact:
-    "See how Lumina Bridge Foundation is building lasting community impact across Alberta and our vision for empowering youth, families, and newcomers nationwide.",
-  donate:
-    "Donate to Lumina Bridge Foundation and support youth leadership, arts, mental wellness, and community programs that strengthen Alberta communities.",
-  getInvolved:
-    "Partner, sponsor, volunteer, or request information about Lumina Bridge Foundation programs, events, and community initiatives across Alberta.",
-  privacy:
-    "Read the Lumina Bridge Foundation Privacy Policy to learn how we collect, use, and protect your personal information when you engage with our nonprofit.",
-  terms:
-    "Review the Lumina Bridge Foundation Terms of Use governing access to our website, programs, events, and digital services.",
+  home: siteConfig.metaDescription,
+  team: metaDescription(
+    "Meet the Lumina Bridge Foundation team in Edmonton, Alberta — leaders in arts, culture, youth empowerment, and community impact across Canada."
+  ),
+  events: metaDescription(
+    "Lumina Bridge Foundation events in Alberta, Canada — NewRoots Summit, BridgeFest, and youth programs. Arts, culture, and community gatherings in Edmonton."
+  ),
+  programs: metaDescription(
+    "Explore Lumina Bridge Foundation programs in Edmonton and Alberta: arts, culture, youth leadership, mental wellness, entrepreneurship, and newcomer support."
+  ),
+  impact: metaDescription(
+    "See Lumina Bridge Foundation impact in Edmonton, Alberta, and across Canada — youth, arts, culture, mental wellness, and community development outcomes."
+  ),
+  donate: metaDescription(
+    "Donate to Lumina Bridge Foundation in Edmonton, Alberta. Support arts, culture, youth leadership, mental wellness, and community programs across Alberta."
+  ),
+  getInvolved: metaDescription(
+    "Partner, volunteer, or sponsor Lumina Bridge Foundation in Edmonton, Alberta. Join our arts, culture, and community programs across Alberta and Canada."
+  ),
+  privacy: metaDescription(
+    "Lumina Bridge Foundation Privacy Policy — how we collect, use, and protect personal information when you use our Edmonton, Alberta nonprofit website and services."
+  ),
+  terms: metaDescription(
+    "Lumina Bridge Foundation Terms of Use for our website, programs, and events. Registered nonprofit based in Edmonton, Alberta, Canada."
+  ),
 } as const;
 
 export function absoluteUrl(path: string): string {
@@ -60,10 +70,11 @@ export function createPageMetadata({
   const canonical = absoluteUrl(path);
   const ogImage = image ?? siteConfig.ogImage;
   const ogImageAlt = imageAlt ?? `${title}, ${siteConfig.shortName}`;
+  const snippetDescription = metaDescription(description);
 
   return {
     title: titleAbsolute ? { absolute: title } : title,
-    description,
+    description: snippetDescription,
     alternates: {
       canonical,
     },
@@ -73,14 +84,14 @@ export function createPageMetadata({
       url: canonical,
       siteName: siteConfig.name,
       title,
-      description,
+      description: snippetDescription,
       countryName: "Canada",
       images: buildSocialImages(ogImage, ogImageAlt),
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description,
+      description: snippetDescription,
       images: [ogImage],
       ...(siteConfig.twitterHandle
         ? { creator: siteConfig.twitterHandle, site: siteConfig.twitterHandle }
@@ -114,13 +125,14 @@ export function getRootMetadata(): Metadata {
 
   return {
     metadataBase: new URL(siteConfig.url),
+    applicationName: siteConfig.name,
     title: {
       default: siteConfig.name,
       template: `%s | ${siteConfig.shortName}`,
     },
-    description: siteConfig.description,
+    description: siteConfig.metaDescription,
     keywords: siteConfig.keywords,
-    authors: [{ name: siteConfig.name }],
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
     category: "Nonprofit",
@@ -141,6 +153,9 @@ export function getRootMetadata(): Metadata {
     },
     alternates: {
       canonical: siteConfig.url,
+      languages: {
+        "en-CA": siteConfig.url,
+      },
     },
     openGraph: {
       type: "website",
@@ -148,13 +163,13 @@ export function getRootMetadata(): Metadata {
       url: siteConfig.url,
       siteName: siteConfig.name,
       title: siteConfig.name,
-      description: siteConfig.description,
+      description: siteConfig.metaDescription,
       images: buildSocialImages(siteConfig.ogImage, siteConfig.name),
     },
     twitter: {
       card: "summary_large_image",
       title: siteConfig.name,
-      description: siteConfig.description,
+      description: siteConfig.metaDescription,
       images: [siteConfig.ogImage],
       ...(siteConfig.twitterHandle
         ? { creator: siteConfig.twitterHandle, site: siteConfig.twitterHandle }
@@ -192,10 +207,12 @@ export function getEventPageMetadata(
 ): Metadata {
   return createPageMetadata({
     title,
-    description,
+    description: metaDescription(
+      `${description} — Lumina Bridge Foundation event in Alberta, Canada.`
+    ),
     path: `/events/${slug}`,
     image: image ?? "/events.PNG",
-    imageAlt: `${title}, Lumina Bridge Foundation event`,
+    imageAlt: `${title}, Lumina Bridge Foundation event in Edmonton Alberta`,
   });
 }
 
@@ -207,10 +224,12 @@ export function getProgramPageMetadata(
 ): Metadata {
   return createPageMetadata({
     title,
-    description,
+    description: metaDescription(
+      `${description} — Lumina Bridge Foundation program in Edmonton, Alberta, Canada.`
+    ),
     path: `/programs/${slug}`,
     image,
-    imageAlt: `${title}, Lumina Bridge Foundation program`,
+    imageAlt: `${title}, Lumina Bridge Foundation program in Alberta`,
   });
 }
 

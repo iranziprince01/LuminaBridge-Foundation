@@ -1,4 +1,5 @@
 import type { Program } from "@/lib/programs-content";
+import { geoKeywords, topicKeywords } from "@/lib/seo-keywords";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteAsset, organizationId } from "@/lib/structured-data";
 import { absoluteUrl } from "@/lib/seo";
@@ -15,6 +16,7 @@ export function ProgramSchema({ program }: ProgramSchemaProps) {
     description: program.description,
     url: absoluteUrl(`/programs/${program.id}`),
     image: absoluteAsset(program.image),
+    keywords: [...geoKeywords, ...topicKeywords].join(", "),
     provider: {
       "@type": "NGO",
       "@id": organizationId,

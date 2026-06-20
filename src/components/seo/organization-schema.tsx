@@ -1,3 +1,4 @@
+import { organizationAlternateNames, siteKeywords } from "@/lib/seo-keywords";
 import { siteConfig } from "@/lib/site-config";
 import {
   absoluteAsset,
@@ -8,7 +9,7 @@ import {
 
 /**
  * Global NGO + Organization + WebSite structured data (JSON-LD @graph).
- * Values are sourced from src/lib/site-config.ts.
+ * Strengthens entity signals for brand queries (e.g. "Lumina Bridge Foundation").
  */
 export function OrganizationSchema() {
   const schema = {
@@ -19,17 +20,18 @@ export function OrganizationSchema() {
         "@id": websiteId,
         url: siteOrigin,
         name: siteConfig.name,
-        alternateName: siteConfig.shortName,
-        description: siteConfig.description,
+        alternateName: [...organizationAlternateNames],
+        description: siteConfig.metaDescription,
         inLanguage: "en-CA",
         publisher: { "@id": organizationId },
+        about: { "@id": organizationId },
       },
       {
         "@type": ["Organization", "NGO", "NonprofitOrganization"],
         "@id": organizationId,
         name: siteConfig.name,
         legalName: siteConfig.name,
-        alternateName: siteConfig.shortName,
+        alternateName: [...organizationAlternateNames],
         url: siteOrigin,
         logo: {
           "@type": "ImageObject",
@@ -41,6 +43,7 @@ export function OrganizationSchema() {
         telephone: siteConfig.phone,
         foundingDate: siteConfig.foundingDate,
         slogan: siteConfig.tagline,
+        keywords: siteConfig.keywords.join(", "),
         nonprofitStatus: "Registered Nonprofit Organization (Alberta, Canada)",
         address: {
           "@type": "PostalAddress",
@@ -51,10 +54,11 @@ export function OrganizationSchema() {
           addressCountry: "CA",
         },
         areaServed: [
+          { "@type": "City", name: "Edmonton, Alberta, Canada" },
           { "@type": "AdministrativeArea", name: "Alberta, Canada" },
           { "@type": "Country", name: "Canada" },
         ],
-        knowsAbout: siteConfig.keywords,
+        knowsAbout: [...siteKeywords],
         sameAs: Object.values(siteConfig.social),
         contactPoint: [
           {
@@ -62,7 +66,7 @@ export function OrganizationSchema() {
             contactType: "customer service",
             email: siteConfig.email,
             telephone: siteConfig.phone,
-            areaServed: "CA",
+            areaServed: ["CA", "North America"],
             availableLanguage: ["English", "French"],
           },
           {

@@ -11,6 +11,7 @@ import { MotionReveal } from "@/components/motion/motion-reveal";
 import { AppIcon } from "@/components/shared/app-icon";
 import { Button } from "@/components/ui/button";
 import { BridgeConnectDetail } from "@/components/programs/bridgeconnect-detail";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ProgramSchema } from "@/components/seo/program-schema";
 import { getProgramById, programs } from "@/lib/programs-content";
 import { pageTitles } from "@/lib/site-config";
@@ -54,6 +55,13 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
     return (
       <>
         <ProgramSchema program={program} />
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Programs", path: "/programs" },
+            { name: program.title, path: `/programs/${slug}` },
+          ]}
+        />
         <BridgeConnectDetail program={program} />
       </>
     );
@@ -62,6 +70,13 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
   return (
     <>
       <ProgramSchema program={program} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Programs", path: "/programs" },
+          { name: program.title, path: `/programs/${slug}` },
+        ]}
+      />
       <PageBanner title={program.title} image={program.image} />
       <Section tone="white" backdrop="dots">
         <PageContainer className="max-w-4xl">

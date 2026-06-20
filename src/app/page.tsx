@@ -3,6 +3,7 @@ import hopeImage from "../../public/hope.jpg";
 import missionImage from "../../public/mission.jpg";
 import storyImage from "../../public/story.jpg";
 import { homeMetadata } from "@/lib/seo";
+import { HomeWebPageSchema } from "@/components/seo/home-web-page-schema";
 import { HomeHero } from "@/components/sections/home-hero";
 import { Section } from "@/components/shared/section";
 import { SectionImage } from "@/components/shared/section-image";
@@ -44,7 +45,8 @@ const missionCardClass =
 export default function HomePage() {
   return (
     <>
-      <div id="top" className="scroll-mt-0">
+      <HomeWebPageSchema />
+      <div id="top" className="scroll-mt-0 w-full max-w-[100vw] overflow-hidden">
         <HomeHero />
       </div>
 

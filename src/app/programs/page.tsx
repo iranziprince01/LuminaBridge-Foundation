@@ -6,6 +6,7 @@ import { Section } from "@/components/shared/section";
 import { PageContainer } from "@/components/shared/page-container";
 import { SectionHeader } from "@/components/shared/section-header";
 import { ProgramsShowcase } from "@/components/sections/programs-showcase";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { FadeUp } from "@/components/motion/fade-up";
 import { programs, programsSection } from "@/lib/programs-content";
 import { programsMetadata } from "@/lib/seo";
@@ -16,6 +17,12 @@ export const metadata: Metadata = programsMetadata;
 export default function ProgramsPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Programs", path: "/programs" },
+        ]}
+      />
       <PageBanner title="Our Programs" image="/mission.jpg" />
       <Section tone="white" backdrop="orbs">
         <PageContainer>
