@@ -36,11 +36,15 @@ export default function RootLayout({
       lang="en-CA"
       data-scroll-behavior="smooth"
       className={`${sourceSans.variable} ${sourceSerif.variable} h-full scroll-smooth`}
+      suppressHydrationWarning
     >
       <head>
         <OrganizationSchema />
       </head>
-      <body className="min-h-full flex flex-col font-sans antialiased">
+      <body
+        className="min-h-full flex flex-col font-sans antialiased"
+        suppressHydrationWarning
+      >
         <GoogleAnalytics />
         <MotionProvider>
           <Navbar />

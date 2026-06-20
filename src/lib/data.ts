@@ -98,7 +98,8 @@ export const navigation = [
 
 export const heroContent = {
   headline: {
-    primary: "Building Bridges,",
+    primary: "Building",
+    primaryContinued: "Bridges,",
     accent: "Transforming",
     secondary: "Communities.",
   },

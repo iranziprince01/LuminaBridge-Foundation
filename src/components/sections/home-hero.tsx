@@ -30,26 +30,34 @@ export function HomeHero() {
       <div className="gradient-hero-premium absolute inset-0" />
 
       <div className={cn(pageContainerClass, "hero-shell relative z-10")}>
-        <div className="hero-headline-wrap">
+        <div className="hero-headline-wrap items-center text-center lg:items-stretch lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: motionEase }}
-            className="min-w-0"
+            className="min-w-0 w-full max-w-xl lg:max-w-none"
           >
             <h1 className="hero-headline font-display w-full min-w-0 max-w-full text-balance break-words font-extrabold leading-[1.05] tracking-tight">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6, ease: motionEase }}
-                className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]"
+                className="block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] lg:inline"
               >
                 {heroContent.headline.primary}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6, ease: motionEase }}
+                transition={{ delay: 0.18, duration: 0.6, ease: motionEase }}
+                className="hero-headline-line block text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] lg:mt-0 lg:inline lg:ml-[0.3ch]"
+              >
+                {heroContent.headline.primaryContinued}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.26, duration: 0.6, ease: motionEase }}
                 className="hero-headline-line block text-[#ffe600] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
               >
                 {heroContent.headline.accent}
@@ -57,7 +65,7 @@ export function HomeHero() {
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6, ease: motionEase }}
+                transition={{ delay: 0.34, duration: 0.6, ease: motionEase }}
                 className="hero-headline-line block text-[#ffe600] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
               >
                 {heroContent.headline.secondary}
@@ -66,14 +74,15 @@ export function HomeHero() {
           </motion.div>
         </div>
 
-        <div className="hero-cta-zone">
+        <div className="hero-cta-zone justify-center lg:justify-start">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6, ease: motionEase }}
-            className="hero-cta flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center [&_a]:w-full sm:[&_a]:w-auto"
+            className="hero-cta mx-auto flex w-full max-w-xs shrink-0 flex-col items-center gap-3 sm:max-w-sm sm:flex-row sm:justify-center lg:mx-0 lg:max-w-none lg:items-start lg:justify-start [&_a]:w-full sm:[&_a]:w-auto"
           >
             <motion.div
+              className="w-full sm:w-auto"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={springGentle}
@@ -86,6 +95,7 @@ export function HomeHero() {
               </Button>
             </motion.div>
             <motion.div
+              className="w-full sm:w-auto"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={springGentle}

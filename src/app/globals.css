@@ -235,7 +235,7 @@ h6 {
   display: grid;
   height: 100%;
   max-height: 100%;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: 0.88fr auto 1.12fr;
   align-items: stretch;
 }
 
@@ -259,9 +259,9 @@ h6 {
 
 .hero-headline {
   font-size: clamp(
-    1.875rem,
-    min(8.5vw, calc((100dvh - 14rem) / 3.15)),
-    7.5rem
+    2.5rem,
+    min(10.25vw, calc((100dvh - 12rem) / 2.75)),
+    9rem
   );
   line-height: 1.05;
 }
@@ -308,9 +308,9 @@ h6 {
 @media (max-height: 860px) {
   .hero-headline {
     font-size: clamp(
-      1.625rem,
-      min(7.75vw, calc((100dvh - 12rem) / 3.15)),
-      5rem
+      2.125rem,
+      min(9vw, calc((100dvh - 11rem) / 2.85)),
+      6rem
     );
   }
 
@@ -324,10 +324,38 @@ h6 {
 @media (min-width: 1536px) {
   .hero-headline {
     font-size: clamp(
-      2.75rem,
-      min(9vw, calc((100dvh - 16rem) / 3.1)),
-      7.5rem
+      3.25rem,
+      min(10.5vw, calc((100dvh - 14.5rem) / 2.75)),
+      9.25rem
     );
+  }
+}
+
+/* Phones & small tablets (burger menu) — centered hero content */
+@media (max-width: 1023px) {
+  .hero-shell {
+    grid-template-rows: 0.68fr auto 1.32fr;
+  }
+
+  .hero-headline-wrap {
+    transform: translateY(-1.5dvh);
+  }
+
+  .hero-headline {
+    font-size: clamp(
+      2.375rem,
+      min(9.5vw, calc((100dvh - 10.5rem) / 3.65)),
+      4.75rem
+    );
+  }
+
+  .hero-headline-line {
+    margin-top: clamp(0.08rem, 0.28dvh, 0.3rem);
+  }
+
+  .hero-cta-btn {
+    min-height: 2.625rem;
+    width: 100%;
   }
 }
 
