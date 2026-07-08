@@ -21,12 +21,17 @@ export function Footer() {
         <StaggerContainer className="grid items-start gap-12 md:grid-cols-2 lg:grid-cols-4">
           <StaggerItem className="flex flex-col items-start lg:col-span-1">
             <Logo variant="footer" tone="white" href="/" />
-            <p className="mt-4 text-sm leading-relaxed text-white/70">
-              {siteConfig.description}
-            </p>
+            <div className="mt-4 space-y-4">
+              <p className="text-sm leading-relaxed text-white/70">
+                {siteConfig.description}
+              </p>
+              <p className="text-sm leading-relaxed text-white/70">
+                {siteConfig.landAcknowledgement.footerStatement}
+              </p>
+            </div>
           </StaggerItem>
 
-          <StaggerItem className="md:pt-0 lg:pt-28">
+          <StaggerItem className="md:pl-6 md:pt-0 lg:pl-12 lg:pt-28 xl:pl-16">
             <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-secondary">
               Quick Links
             </h3>

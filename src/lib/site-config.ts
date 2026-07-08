@@ -84,6 +84,13 @@ export const siteConfig = {
     facebook: "https://web.facebook.com/profile.php?id=61590717957417",
     instagram: "https://instagram.com/luminabridgefoundation",
   },
+  landAcknowledgement: {
+    title: "Land Acknowledgement",
+    statement:
+      "Lumina Bridge Foundation respectfully acknowledges that we live, work, and serve on Treaty 6 Territory, the traditional and ancestral lands of the First Nations and Métis peoples, including the Cree, Dene, Saulteaux, Nakota Sioux, and Métis Nation of Alberta Region 4.",
+    footerStatement:
+      "We respectfully acknowledge that we live, work, and serve on Treaty 6 Territory, the traditional and ancestral lands of the First Nations and Métis peoples, including the Cree, Dene, Saulteaux, Nakota Sioux, and Métis Nation of Alberta Region 4.",
+  },
   infoRequestFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSdKWU5utNS4jz41CcP4hKA9O3-XF8eh1VWCLDU6mK8YRvKZiA/viewform",
   donateFormUrl:

@@ -28,6 +28,7 @@ import {
   whyWeExist,
 } from "@/lib/data";
 import { aboutMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = aboutMetadata;
 
@@ -213,6 +214,11 @@ export default function AboutPage() {
                 </p>
               </FadeUp>
             ))}
+            <FadeUp>
+              <p className="text-pretty md:text-justify text-base font-bold italic leading-relaxed text-secondary sm:text-lg md:text-xl">
+                &ldquo;{siteConfig.landAcknowledgement.statement}&rdquo;
+              </p>
+            </FadeUp>
           </div>
           <FadeUp className="mt-10">
             <Link
