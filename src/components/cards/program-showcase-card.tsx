@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Program } from "@/lib/programs-content";
 import { getProgramCardTheme } from "@/lib/program-card-themes";
+import { ProgramCardDecor } from "@/components/shared/program-card-decor";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { springGentle } from "@/components/motion/motion-presets";
@@ -38,20 +39,7 @@ export function ProgramShowcaseCard({
           theme.surface
         )}
       >
-        <div
-          className={cn(
-            "pointer-events-none absolute -left-10 -top-10 h-32 w-32 rounded-full sm:h-36 sm:w-36 md:h-40 md:w-40",
-            theme.decorA
-          )}
-          aria-hidden
-        />
-        <div
-          className={cn(
-            "pointer-events-none absolute -bottom-10 -right-10 h-36 w-36 rounded-full sm:h-40 sm:w-40 md:h-44 md:w-44",
-            theme.decorB
-          )}
-          aria-hidden
-        />
+        <ProgramCardDecor theme={theme} />
 
         <div className="program-showcase-body relative flex min-h-0 flex-1 flex-col">
           <div className="program-showcase-header">

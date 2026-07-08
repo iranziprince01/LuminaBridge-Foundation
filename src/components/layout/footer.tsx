@@ -22,9 +22,9 @@ export function Footer() {
           <StaggerItem className="flex flex-col items-start lg:col-span-1">
             <Logo variant="footer" tone="white" href="/" />
             <div className="mt-4 space-y-4">
-              <p className="text-sm leading-relaxed text-white/70">
-                {siteConfig.description}
-              </p>
+              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-secondary">
+                {siteConfig.landAcknowledgement.title}
+              </h3>
               <p className="text-sm leading-relaxed text-white/70">
                 {siteConfig.landAcknowledgement.footerStatement}
               </p>

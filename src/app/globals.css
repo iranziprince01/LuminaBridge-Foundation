@@ -245,26 +245,95 @@ h6 {
   display: grid;
   height: 100%;
   max-height: 100%;
-  grid-template-rows: 0.88fr auto 1.12fr;
+  grid-template-rows: minmax(0, 0.88fr) auto auto minmax(0, 1.12fr);
   align-items: stretch;
 }
 
-/* Headline row — vertically centered in the viewport (equal 1fr rows above & below) */
+.hero-layout {
+  display: contents;
+}
+
+.hero-copy {
+  display: contents;
+}
+
 .hero-headline-wrap {
   grid-row: 2;
   display: flex;
   min-width: 0;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  align-self: end;
+  justify-self: center;
+  width: 100%;
 }
 
-/* CTA row — centered in the lower half (midpoint between headline and viewport bottom) */
 .hero-cta-zone {
   grid-row: 3;
   display: flex;
   min-height: 0;
   min-width: 0;
   align-items: center;
+  justify-content: center;
+  align-self: start;
+  justify-self: center;
+  width: 100%;
+  margin-top: clamp(2rem, 5dvh, 4rem);
+}
+
+.hero-graphic {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-shell {
+    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 32%);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .hero-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: clamp(2.5rem, 5.5dvh, 4.5rem);
+  }
+
+  .hero-headline-wrap {
+    grid-row: unset;
+    grid-column: unset;
+    align-self: auto;
+    justify-self: stretch;
+    justify-content: center;
+    transform: none;
+  }
+
+  .hero-cta-zone {
+    grid-row: unset;
+    grid-column: unset;
+    margin-top: 0;
+    align-self: auto;
+    justify-self: stretch;
+    justify-content: flex-start;
+  }
+
+  .hero-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+  }
 }
 
 .hero-headline {
@@ -336,6 +405,10 @@ h6 {
     --hero-fs-max: 5.125rem;
   }
 
+  .hero-copy {
+    gap: clamp(1.75rem, 4dvh, 3rem);
+  }
+
   .hero-cta-btn {
     min-height: 2.5rem;
     font-size: 0.9375rem;
@@ -347,6 +420,10 @@ h6 {
     --hero-fs-min: 2.125rem;
     --hero-fs-fluid: min(9vw, calc((100dvh - 11rem) / 2.85));
     --hero-fs-max: 6rem;
+  }
+
+  .hero-cta-zone {
+    margin-top: clamp(1.5rem, 3.5dvh, 2.75rem);
   }
 
   .hero-cta-btn {
@@ -367,7 +444,7 @@ h6 {
 /* Phones & small tablets (burger menu) — centered hero content */
 @media (max-width: 1023px) {
   .hero-shell {
-    grid-template-rows: 0.68fr auto 1.32fr;
+    grid-template-rows: minmax(0, 0.68fr) auto auto minmax(0, 1.32fr);
   }
 
   .hero-headline-wrap {

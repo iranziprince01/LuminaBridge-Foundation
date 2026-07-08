@@ -204,30 +204,32 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="white" backdrop="none">
-        <PageContainer narrow>
-          <SectionHeader title={whyWeExist.title} align="left" />
-          <div className="mt-8 space-y-5">
-            {whyWeExist.paragraphs.map((paragraph) => (
-              <FadeUp key={paragraph.slice(0, 40)}>
-                <p className="text-pretty md:text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-                  {paragraph}
+        <PageContainer>
+          <div className="max-w-3xl">
+            <SectionHeader title={whyWeExist.title} align="left" className="mb-8" />
+            <div className="mt-8 space-y-5">
+              {whyWeExist.paragraphs.map((paragraph) => (
+                <FadeUp key={paragraph.slice(0, 40)}>
+                  <p className="text-pretty text-left text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+                    {paragraph}
+                  </p>
+                </FadeUp>
+              ))}
+              <FadeUp>
+                <p className="text-pretty text-left text-base italic leading-relaxed text-secondary sm:text-lg md:text-xl">
+                  &ldquo;{siteConfig.landAcknowledgement.statement}&rdquo;
                 </p>
               </FadeUp>
-            ))}
-            <FadeUp>
-              <p className="text-pretty md:text-justify text-base font-bold italic leading-relaxed text-secondary sm:text-lg md:text-xl">
-                &ldquo;{siteConfig.landAcknowledgement.statement}&rdquo;
-              </p>
+            </div>
+            <FadeUp className="mt-10">
+              <Link
+                href="/impact"
+                className="text-base font-semibold text-secondary hover:underline sm:text-lg"
+              >
+                Explore our community impact →
+              </Link>
             </FadeUp>
           </div>
-          <FadeUp className="mt-10">
-            <Link
-              href="/impact"
-              className="text-base font-semibold text-secondary hover:underline sm:text-lg"
-            >
-              Explore our community impact →
-            </Link>
-          </FadeUp>
         </PageContainer>
       </Section>
 
