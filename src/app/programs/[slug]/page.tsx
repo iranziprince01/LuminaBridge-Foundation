@@ -77,7 +77,12 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
           { name: program.title, path: `/programs/${slug}` },
         ]}
       />
-      <PageBanner title={program.title} image={program.image} />
+      <PageBanner
+        title={
+          program.subtitle ? [program.title, program.subtitle] : program.title
+        }
+        image={program.image}
+      />
       <Section tone="white" backdrop="dots">
         <PageContainer detail className="max-w-4xl">
           <FadeUp>
@@ -86,23 +91,33 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
                 <AppIcon name={program.icon} className="h-7 w-7 text-secondary" />
               </div>
             </div>
+
             <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
               {program.overview}
             </p>
-          </FadeUp>
 
-          <MotionReveal direction="scale" className="mt-10">
-            <div className="overflow-hidden rounded-2xl border border-border/60 shadow-sm">
-              <Image
-                src={program.image}
-                alt={program.title}
-                width={1200}
-                height={675}
-                className="h-auto w-full object-cover"
-                sizes="(max-width: 768px) 100vw, 896px"
-              />
-            </div>
-          </MotionReveal>
+            <MotionReveal direction="scale" className="mt-8">
+              <div className="overflow-hidden rounded-2xl border border-border/60 shadow-sm">
+                <Image
+                  src={program.image}
+                  alt={program.title}
+                  width={1200}
+                  height={675}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                />
+              </div>
+            </MotionReveal>
+
+            {program.bodyParagraphs?.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 48)}
+                className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </FadeUp>
 
           <FadeUp delay={0.1} className="mt-12">
             <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">

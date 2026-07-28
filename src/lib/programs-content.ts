@@ -4,8 +4,10 @@ export interface Program {
   id: string;
   number: string;
   title: string;
+  subtitle?: string;
   description: string;
   overview: string;
+  bodyParagraphs?: string[];
   initiativesHeading: string;
   initiatives: string[];
   closingStatement: string;
@@ -133,25 +135,37 @@ export const programs: Program[] = [
     image: "/006.jpg",
   },
   {
-    id: "community-engagement-volunteer",
+    id: "community-soccer-development",
     number: "06",
-    title: "Community Engagement & Volunteer Development",
+    title: "Community Soccer Development Program",
+    subtitle: "Powered by LBF Soccer Club",
     description:
-      "Volunteer pathways and civic engagement that mobilize communities around shared goals and collective impact.",
+      "Powered by LBF Soccer Club — a flagship initiative unlocking the potential of children and youth through soccer, leadership, inclusion, and opportunity.",
     overview:
-      "Strong communities are built through active participation and collective responsibility. We create opportunities for individuals to contribute meaningfully to community development while strengthening civic engagement and volunteer leadership.",
-    initiativesHeading: "Our initiatives include:",
+      "The Community Soccer Development Program, delivered through LBF Soccer Club, is one of Lumina Bridge Foundation's flagship initiatives dedicated to unlocking the potential of children and youth through soccer. More than a community sports program, LBF Soccer Club is a platform for youth development, leadership, inclusion, and opportunity.",
+    bodyParagraphs: [
+      "The Community Soccer Development Program was established in response to a growing challenge facing many young people in our communities. Across newcomer, refugee, Black, visible minority, and low-income communities, countless youth possess exceptional talent and a deep passion for soccer, yet many are unable to participate in organized sport due to financial barriers, limited access to quality coaching, inadequate equipment, transportation challenges, and a lack of connections to competitive development pathways. As a result, many talented players never receive the opportunity to develop their abilities or pursue higher levels of competition.",
+      "Through LBF Soccer Club, Lumina Bridge Foundation is changing that reality.",
+      "Our Community Soccer Development Program provides a safe, inclusive, and affordable environment where young people can develop their athletic potential while building the confidence, leadership, discipline, resilience, and life skills needed to succeed both on and off the field. Every participant is welcomed into a supportive team culture that values respect, diversity, belonging, and personal growth.",
+      "LBF Soccer Club delivers year-round player development through structured technical training, qualified coaching, mentorship, leadership workshops, and quarterly community tournaments that give participants meaningful opportunities to compete, grow, and showcase their abilities. Our coaches and mentors are committed not only to developing skilled players but also to nurturing responsible leaders who will positively contribute to their schools, families, and communities.",
+      "What makes LBF Soccer Club unique is our commitment to creating a genuine pathway to opportunity. We actively identify talented players and connect them with competitive clubs, academies, provincial development programs, elite training opportunities, and other advanced soccer pathways. We believe that no young athlete should be overlooked because of financial hardship or limited access to opportunity.",
+      "Beyond developing soccer players, LBF Soccer Club strengthens communities. By bringing together youth, families, volunteers, schools, local organizations, and community leaders, the program creates meaningful relationships, promotes healthy lifestyles, celebrates diversity, and fosters a stronger sense of belonging for every participant.",
+    ],
+    initiativesHeading: "Through LBF Soccer Club, participants benefit from:",
     initiatives: [
-      "Developing volunteer programs that encourage active community participation",
-      "Creating service opportunities that allow individuals to contribute to local community initiatives",
-      "Supporting community outreach programs designed to address local social challenges",
-      "Building volunteer leadership pathways that strengthen responsibility and long-term engagement",
-      "Encouraging collaborative partnerships between residents, organizations, institutions, and community stakeholders",
-      "Promoting a culture of civic responsibility and collective impact",
+      "Professional coaching and year-round player development.",
+      "Weekly technical, tactical, and physical training sessions.",
+      "Leadership, mentorship, and life-skills development.",
+      "Quarterly community tournaments and showcase events.",
+      "Individual player assessments and development plans.",
+      "Talent identification and referrals to competitive clubs and academies.",
+      "Connections to advanced soccer development opportunities.",
+      "Family engagement and community-building activities.",
+      "Financial support and equipment assistance for youth facing barriers to participation.",
     ],
     closingStatement:
-      "We believe community development is strongest when communities actively participate in shaping their future.",
-    icon: "Handshake",
+      "At Lumina Bridge Foundation, we believe every child deserves the opportunity to play, every talented young person deserves the opportunity to be discovered, and every community deserves access to programs that inspire hope, excellence, and belonging. LBF Soccer Club is where talent is discovered, leaders are developed, and futures are built.",
+    icon: "Medal",
     image: "/001.jpg",
   },
   {
