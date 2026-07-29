@@ -107,7 +107,7 @@ export const heroContent = {
     "Empowering youth, strengthening communities, and creating opportunities through arts, culture, leadership, education, and community engagement across Alberta.",
   primaryCta: { label: "Partner With Us", href: "/get-involved" },
   secondaryCta: { label: "Our Programs", href: "/programs" },
-  image: "/hero.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/hero.jpg",
 };
 
 export const whoWeAre = {
@@ -271,7 +271,7 @@ export const priorityPopulationsSection = {
       title: "Youth Talent Development and Creative Communities",
       summary:
         "We support emerging creatives in music, performing arts, visual arts, media, and entrepreneurship with mentorship, showcases, and festivals that help talent grow into sustainable opportunity.",
-      image: "/01.jpg",
+      image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/01.jpg",
       alt: "Youth and emerging creatives developing talent in the arts",
     },
     {
@@ -280,7 +280,7 @@ export const priorityPopulationsSection = {
       title: "Youth Leadership Development and Future Changemakers",
       summary:
         "We equip young people with leadership skills, career readiness, and mentorship so they can build confidence and become future changemakers in their communities.",
-      image: "/02.jpg",
+      image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/02.jpg",
       alt: "Youth leadership development and mentorship",
     },
     {
@@ -289,7 +289,7 @@ export const priorityPopulationsSection = {
       title: "Seniors, Families, and Healing-Centered Communities",
       summary:
         "We connect seniors through intergenerational arts and storytelling, and support families with creative wellness spaces that strengthen belonging, resilience, and emotional well-being.",
-      image: "/03.jpeg",
+      image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/03.jpeg",
       alt: "Seniors and families in healing-centered community programs",
     },
     {
@@ -298,7 +298,7 @@ export const priorityPopulationsSection = {
       title: "Underserved, Underrepresented, and Visible Minority Communities",
       summary:
         "We serve communities facing systemic barriers, including visible minorities and low-income populations, with programs designed for inclusion, access, and long-term empowerment.",
-      image: "/04.jpg",
+      image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/04.jpg",
       alt: "Underserved and underrepresented communities",
     },
     {
@@ -307,7 +307,7 @@ export const priorityPopulationsSection = {
       title: "Newcomers, Immigrant, and Settlement Communities",
       summary:
         "We help newcomers and refugees build confidence, cultural connection, and successful integration through mentorship, exchange, and community-based support.",
-      image: "/05.jpg",
+      image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/05.jpg",
       alt: "Newcomer and immigrant settlement community support",
     },
   ] satisfies PriorityPopulation[],
@@ -460,49 +460,49 @@ export const impactPageContent = {
     cards: [
       {
         id: "001",
-        image: "/001.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/001.jpg",
         alt: "Lumina Bridge Foundation community empowerment and creative opportunity",
         text: "At Lumina Bridge Foundation, we believe that creativity, opportunity, and community empowerment have the power to transform lives. Based in Alberta and built with a long-term vision to expand across Canada, we are committed to creating sustainable impact that reaches communities locally, nationally, and globally.",
       },
       {
         id: "002",
-        image: "/002.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/002.jpg",
         alt: "Youth development and transformative community programs",
         text: "Over the next 10 years, Lumina Bridge Foundation aims to directly impact 250,000+ individuals through transformative programs focused on youth development, arts and culture, mental wellness, leadership training, entrepreneurship, and community support initiatives.",
       },
       {
         id: "003",
-        image: "/003.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/003.jpg",
         alt: "Empowering youth and emerging creative talents",
         text: "We are committed to empowering 75,000+ youth and emerging talents by creating platforms that help artists, musicians, performers, designers, digital creators, and innovators build careers and access opportunities within the creative economy. By investing in talent development, we believe creativity can become a pathway toward financial independence and long-term success.",
       },
       {
         id: "004",
-        image: "/004.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/004.jpg",
         alt: "Entrepreneurship and employment readiness training",
         text: "Through entrepreneurship development, employment readiness training, and economic empowerment initiatives, we plan to contribute to the creation of 12,000+ jobs, income-generating opportunities, and sustainable career pathways, helping families move toward economic stability and poverty reduction.",
       },
       {
         id: "005",
-        image: "/005.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/005.jpg",
         alt: "Mental wellness through art therapy and creative healing",
         text: "Mental wellness remains central to our mission. Through art therapy, creative healing programs, community engagement activities, and future cultural wellness spaces, we plan to support 40,000+ seniors, newcomers, refugees, minorities, and vulnerable individuals, reducing social isolation and promoting emotional well-being through creativity and connection.",
       },
       {
         id: "006",
-        image: "/006.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/006.jpg",
         alt: "Community creative spaces, galleries, and cultural festivals",
         text: "Our long-term vision includes establishing major community creative spaces, including large-scale art galleries, cultural festivals, talent development centers, innovation hubs, and public wellness exhibitions that will attract and engage 100,000+ annual participants, creating stronger, healthier, and more connected communities.",
       },
       {
         id: "007",
-        image: "/007.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/007.jpg",
         alt: "Supporting newcomers and underserved families",
         text: "We are also committed to supporting 50,000+ newcomers and underserved families by providing mentorship, leadership opportunities, integration support, financial literacy education, and inclusive community-based programs designed to create belonging and opportunity for all.",
       },
       {
         id: "008",
-        image: "/008.jpg",
+        image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/008.jpg",
         alt: "Lumina Bridge Foundation vision for Canada by 2036",
         text: "By 2036, Lumina Bridge Foundation envisions becoming one of the leading nonprofit organizations in Canada, using arts, culture, innovation, and community-driven solutions to build stronger economies, reduce poverty, unlock human potential, and create lasting change for future generations.",
       },
@@ -553,21 +553,21 @@ export const leadership: Leader[] = [
     name: "Aristote Bikino",
     role: "Founder & Chief Executive Officer (CEO)",
     bio: "Aristote Bikino is the Founder and CEO of Lumina Bridge Foundation. He provides strategic leadership and oversees the organization's vision, partnerships, fundraising, and community impact initiatives. His passion for youth empowerment and community development drives the Foundation's mission to create opportunities and inspire positive change.",
-    image: teamPhoto("/Aristote.jpeg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Aristote.jpeg"),
   },
   {
     id: "bienvenue",
     name: "Bienvenue Ntaganzwa",
     role: "Chief Operating Officer (COO)",
     bio: "Bienvenue Ntaganzwa oversees the Foundation's operations, program implementation, and organizational systems. He ensures projects are delivered effectively while supporting sustainable growth and operational excellence.",
-    image: teamPhoto("/Bienvenue.jpeg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Bienvenue.jpeg"),
   },
   {
     id: "fred",
     name: "Fred Shikiro",
     role: "Director of Program Development (DPD)",
     bio: "Fred Shikiro leads the development and coordination of programs and initiatives. He works with community partners and stakeholders to create impactful opportunities that support youth, families, and diverse communities.",
-    image: teamPhoto("/1.jpg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/1.jpg"),
   },
 ];
 
@@ -583,14 +583,14 @@ export const operationsTeam: Leader[] = [
     name: "Prince Iranzi",
     role: "IT and Communications Officer",
     bio: "Prince manages the Foundation's digital platforms, technology systems, and communications, keeping our message clear and our programs accessible to communities across Alberta.",
-    image: teamPhoto("/2.jpg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/2.jpg"),
   },
   {
     id: "aline",
     name: "Aline Mutimukeye",
     role: "Finance and Administration Officer",
     bio: "Aline oversees budgeting, financial reporting, and administrative processes that support accountable, well-run operations behind every program and initiative.",
-    image: teamPhoto("/Aline.png"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Aline.png"),
     imageClassName:
       "origin-top object-top scale-[1.06] -translate-y-0.5 group-hover:scale-[1.1] group-hover:-translate-y-0",
   },
@@ -599,7 +599,7 @@ export const operationsTeam: Leader[] = [
     name: "Christophe Iradukunda",
     role: "Program Coordinator",
     bio: "Christophe coordinates program delivery and works with partners and participants to ensure initiatives run smoothly and reach the communities we serve.",
-    image: teamPhoto("/Christophe.jpeg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Christophe.jpeg"),
     imageClassName:
       "object-center scale-100 group-hover:scale-[1.03]",
   },
@@ -608,14 +608,14 @@ export const operationsTeam: Leader[] = [
     name: "Mukobwajana Francine",
     role: "Community Engagement Coordinator",
     bio: "Francine builds relationships with community members and partners, strengthening outreach, participation, and connection across programs and public events.",
-    image: teamPhoto("/3.jpg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/3.jpg"),
   },
   {
     id: "esther",
     name: "Esther Muhawenimana",
     role: "Volunteer Coordinator",
     bio: "Esther recruits, supports, and coordinates volunteers who help power workshops, festivals, and community initiatives throughout the Foundation's work.",
-    image: teamPhoto("/Esther.jpeg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Esther.jpeg"),
     imageClassName:
       "object-[center_20%] scale-100 group-hover:scale-[1.03]",
   },
@@ -624,7 +624,7 @@ export const operationsTeam: Leader[] = [
     name: "Patrone Uwase",
     role: "Grants and Partnerships Coordinator",
     bio: "Patrone supports grant development, funder relationships, and partnership coordination that help expand resources and collaborative impact for the Foundation.",
-    image: teamPhoto("/Patrone.jpeg"),
+    image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Patrone.jpeg"),
     imageClassName:
       "origin-top object-top scale-[1.12] -translate-y-1 group-hover:scale-[1.16] group-hover:-translate-y-0.5",
     hidden: true,
@@ -635,9 +635,9 @@ export const eventPageBannerImage =
   "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80";
 
 export const eventBanners = {
-  "newroots-canada-summit": "/newroots-summit.png",
-  bridgefest: "/bridgefest2026.png",
-  "youth-unlocking-potential": "/youth-unlocking-potential.png",
+  "newroots-canada-summit": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/newroots-summit.png",
+  bridgefest: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/bridgefest2026.png",
+  "youth-unlocking-potential": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/youth-unlocking-potential.png",
 } as const;
 
 export const eventBannerImage = eventPageBannerImage;

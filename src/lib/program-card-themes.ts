@@ -6,6 +6,7 @@ export interface ProgramCardTheme {
   decorB: string;
   border: string;
   shadow: string;
+  cta: string;
 }
 
 /** Premium palette — navy, teal, #fab500 gold, cream, and mint — one theme per card. */
@@ -18,6 +19,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-secondary/20",
     border: "border-border/60",
     shadow: "hover:shadow-xl hover:shadow-primary/10",
+    cta: "bg-white/15 text-white border-white/30 hover:bg-white/25",
   },
   {
     surface: "bg-white",
@@ -27,6 +29,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-secondary/8",
     border: "border-border/80",
     shadow: "hover:shadow-lg hover:shadow-gold-bright/15",
+    cta: "bg-primary text-white border-primary hover:bg-primary/85",
   },
   {
     surface: "bg-gold-bright",
@@ -36,6 +39,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-primary/10",
     border: "border-gold-bright/80",
     shadow: "hover:shadow-xl hover:shadow-gold-bright/25",
+    cta: "bg-primary text-white border-primary hover:bg-primary/85",
   },
   // Row 2
   {
@@ -46,6 +50,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-primary/6",
     border: "border-border/80",
     shadow: "hover:shadow-lg hover:shadow-primary/8",
+    cta: "bg-secondary text-white border-secondary hover:bg-secondary/85",
   },
   {
     surface: "bg-primary",
@@ -55,6 +60,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-secondary/20",
     border: "border-primary/80",
     shadow: "hover:shadow-xl hover:shadow-primary/15",
+    cta: "bg-white/15 text-white border-white/30 hover:bg-white/25",
   },
   {
     surface: "bg-gold-cream",
@@ -64,6 +70,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-secondary/8",
     border: "border-accent/25",
     shadow: "hover:shadow-lg hover:shadow-accent/15",
+    cta: "bg-primary text-white border-primary hover:bg-primary/85",
   },
   // Row 3
   {
@@ -74,6 +81,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-primary/15",
     border: "border-teal-deep/60",
     shadow: "hover:shadow-xl hover:shadow-teal-deep/20",
+    cta: "bg-white/15 text-white border-white/30 hover:bg-white/25",
   },
   {
     surface: "bg-mint-soft",
@@ -83,6 +91,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-primary/6",
     border: "border-secondary/20",
     shadow: "hover:shadow-lg hover:shadow-secondary/10",
+    cta: "bg-secondary text-white border-secondary hover:bg-secondary/85",
   },
   {
     surface: "bg-gradient-to-br from-teal-deep via-secondary to-gold-bright",
@@ -92,6 +101,7 @@ export const programCardThemes: ProgramCardTheme[] = [
     decorB: "bg-primary/15",
     border: "border-secondary/40",
     shadow: "hover:shadow-xl hover:shadow-gold-bright/20",
+    cta: "bg-white/15 text-white border-white/30 hover:bg-white/25",
   },
 ];
 

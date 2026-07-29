@@ -32,7 +32,7 @@ export default async function GetInvolvedPage({ searchParams }: GetInvolvedPageP
         ]}
       />
       <FaqSchema items={getInvolvedFaq} />
-      <PageBanner title="Get Involved" image="/involved.jpg" />
+      <PageBanner title="Get Involved" image="https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/involved.jpg" />
       <Section tone="white">
         <PageContainer>
           <SectionHeader

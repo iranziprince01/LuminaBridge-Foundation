@@ -26,7 +26,7 @@ export default function DonatePage() {
         ]}
       />
       <FaqSchema items={donateFaq} />
-      <PageBanner title="Donate" image="/support.jpg" />
+      <PageBanner title="Donate" image="https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/support.jpg" />
 
       <Section tone="white" backdrop="none">
         <PageContainer narrow>

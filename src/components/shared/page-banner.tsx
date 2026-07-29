@@ -52,6 +52,7 @@ export function PageBanner({
           fill
           className="object-cover object-center"
           priority
+          loading="eager"
           sizes="100vw"
         />
       </motion.div>

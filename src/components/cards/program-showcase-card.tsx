@@ -41,7 +41,7 @@ export function ProgramShowcaseCard({
       >
         <ProgramCardDecor theme={theme} />
 
-        <div className="program-showcase-body relative flex min-h-0 flex-1 flex-col">
+        <div className="program-showcase-body relative flex min-h-0 flex-1 flex-col items-center justify-between text-center">
           <div className="program-showcase-header">
             <motion.span
               className={cn(
@@ -67,14 +67,14 @@ export function ProgramShowcaseCard({
           <Link
             href={`/programs/${program.id}`}
             className={cn(
-              "program-showcase-cta relative mt-auto inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-colors",
-              theme.border,
-              theme.title,
-              "hover:bg-white/20"
+              "program-showcase-cta relative inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold leading-none shadow-sm transition-all duration-200",
+              theme.cta
             )}
           >
-            Learn More
-            <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
+            <span className="flex items-center justify-center gap-2 leading-none">
+              Learn More
+              <ArrowRight className="h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:translate-x-0.5" />
+            </span>
           </Link>
         </div>
       </div>

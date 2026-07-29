@@ -26,6 +26,7 @@ export function HomeHero() {
           fill
           className="hero-ken-burns object-cover object-center"
           priority
+          loading="eager"
           fetchPriority="high"
           quality={85}
           sizes="100vw"

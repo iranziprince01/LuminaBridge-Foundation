@@ -8,6 +8,8 @@ export interface Program {
   description: string;
   overview: string;
   bodyParagraphs?: string[];
+  highlightPhrases?: string[];
+  secondaryImage?: string;
   initiativesHeading: string;
   initiatives: string[];
   closingStatement: string;
@@ -45,7 +47,7 @@ export const programs: Program[] = [
     closingStatement:
       "We aim to transform creative potential into meaningful long-term opportunity.",
     icon: "Brush",
-    image: "/003.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/003.jpg",
   },
   {
     id: "mental-wellness-healing",
@@ -66,7 +68,7 @@ export const programs: Program[] = [
     ],
     closingStatement: "We believe stronger communities begin with healthier individuals.",
     icon: "ShieldCheck",
-    image: "/005.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/005.jpg",
   },
   {
     id: "youth-leadership",
@@ -88,7 +90,7 @@ export const programs: Program[] = [
     closingStatement:
       "Our goal is to prepare the next generation of responsible and empowered leaders.",
     icon: "Compass",
-    image: "/002.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/002.jpg",
   },
   {
     id: "financial-literacy-entrepreneurship",
@@ -110,7 +112,7 @@ export const programs: Program[] = [
     closingStatement:
       "We support individuals in building long-term economic resilience and financial independence.",
     icon: "Banknote",
-    image: "/004.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/004.jpg",
   },
   {
     id: "cultural-celebration-inclusion",
@@ -132,24 +134,27 @@ export const programs: Program[] = [
     closingStatement:
       "We believe diversity strengthens communities when inclusion is intentionally built.",
     icon: "Globe2",
-    image: "/006.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/006.jpg",
   },
   {
     id: "community-soccer-development",
     number: "06",
-    title: "Community Soccer Development Program",
-    subtitle: "Powered by LBF Soccer Club",
+    title: "Community Soccer Development",
     description:
-      "Powered by LBF Soccer Club — a flagship initiative unlocking the potential of children and youth through soccer, leadership, inclusion, and opportunity.",
+      "A flagship initiative unlocking the potential of children and youth through soccer, leadership, inclusion, and opportunity.",
     overview:
-      "The Community Soccer Development Program, delivered through LBF Soccer Club, is one of Lumina Bridge Foundation's flagship initiatives dedicated to unlocking the potential of children and youth through soccer. More than a community sports program, LBF Soccer Club is a platform for youth development, leadership, inclusion, and opportunity.",
+      "Community Soccer Development, delivered through LBF Soccer Club, is one of Lumina Bridge Foundation's flagship initiatives dedicated to unlocking the potential of children and youth through soccer. More than a community sports initiative, LBF Soccer Club is a platform for youth development, leadership, inclusion, and opportunity.",
     bodyParagraphs: [
-      "The Community Soccer Development Program was established in response to a growing challenge facing many young people in our communities. Across newcomer, refugee, Black, visible minority, and low-income communities, countless youth possess exceptional talent and a deep passion for soccer, yet many are unable to participate in organized sport due to financial barriers, limited access to quality coaching, inadequate equipment, transportation challenges, and a lack of connections to competitive development pathways. As a result, many talented players never receive the opportunity to develop their abilities or pursue higher levels of competition.",
+      "Community Soccer Development was established in response to a growing challenge facing many young people in our communities. Across newcomer, refugee, Black, visible minority, and low-income communities, countless youth possess exceptional talent and a deep passion for soccer, yet many are unable to participate in organized sport due to financial barriers, limited access to quality coaching, inadequate equipment, transportation challenges, and a lack of connections to competitive development pathways. As a result, many talented players never receive the opportunity to develop their abilities or pursue higher levels of competition.",
       "Through LBF Soccer Club, Lumina Bridge Foundation is changing that reality.",
-      "Our Community Soccer Development Program provides a safe, inclusive, and affordable environment where young people can develop their athletic potential while building the confidence, leadership, discipline, resilience, and life skills needed to succeed both on and off the field. Every participant is welcomed into a supportive team culture that values respect, diversity, belonging, and personal growth.",
+      "Our Community Soccer Development initiative provides a safe, inclusive, and affordable environment where young people can develop their athletic potential while building the confidence, leadership, discipline, resilience, and life skills needed to succeed both on and off the field. Every participant is welcomed into a supportive team culture that values respect, diversity, belonging, and personal growth.",
       "LBF Soccer Club delivers year-round player development through structured technical training, qualified coaching, mentorship, leadership workshops, and quarterly community tournaments that give participants meaningful opportunities to compete, grow, and showcase their abilities. Our coaches and mentors are committed not only to developing skilled players but also to nurturing responsible leaders who will positively contribute to their schools, families, and communities.",
-      "What makes LBF Soccer Club unique is our commitment to creating a genuine pathway to opportunity. We actively identify talented players and connect them with competitive clubs, academies, provincial development programs, elite training opportunities, and other advanced soccer pathways. We believe that no young athlete should be overlooked because of financial hardship or limited access to opportunity.",
-      "Beyond developing soccer players, LBF Soccer Club strengthens communities. By bringing together youth, families, volunteers, schools, local organizations, and community leaders, the program creates meaningful relationships, promotes healthy lifestyles, celebrates diversity, and fosters a stronger sense of belonging for every participant.",
+      "What makes LBF Soccer Club unique is our commitment to creating a genuine pathway to opportunity. We actively identify talented players and connect them with competitive clubs, academies, provincial development pathways, elite training opportunities, and other advanced soccer pathways. We believe that no young athlete should be overlooked because of financial hardship or limited access to opportunity.",
+      "Beyond developing soccer players, LBF Soccer Club strengthens communities. By bringing together youth, families, volunteers, schools, local organizations, and community leaders, LBF Soccer Club creates meaningful relationships, promotes healthy lifestyles, celebrates diversity, and fosters a stronger sense of belonging for every participant.",
+    ],
+    highlightPhrases: [
+      "Community Soccer Development",
+      "LBF Soccer Club",
     ],
     initiativesHeading: "Through LBF Soccer Club, participants benefit from:",
     initiatives: [
@@ -166,7 +171,8 @@ export const programs: Program[] = [
     closingStatement:
       "At Lumina Bridge Foundation, we believe every child deserves the opportunity to play, every talented young person deserves the opportunity to be discovered, and every community deserves access to programs that inspire hope, excellence, and belonging. LBF Soccer Club is where talent is discovered, leaders are developed, and futures are built.",
     icon: "Medal",
-    image: "/001.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer01.jpg",
+    secondaryImage: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer2.png",
   },
   {
     id: "language-culture-belonging-initiative",
@@ -187,7 +193,7 @@ export const programs: Program[] = [
     ],
     closingStatement: "We do not simply teach language. We build belonging.",
     icon: "MessagesSquare",
-    image: "/002.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/002.jpg",
   },
   {
     id: "newcomer-refugee-support",
@@ -210,7 +216,7 @@ export const programs: Program[] = [
     closingStatement:
       "We work to ensure opportunity remains accessible to communities often excluded from traditional support systems.",
     icon: "Landmark",
-    image: "/007.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/007.jpg",
   },
   {
     id: "workshops-conferences-events",
@@ -233,7 +239,7 @@ export const programs: Program[] = [
     closingStatement:
       "Through public engagement, we create spaces where communities connect, learn, and grow together.",
     icon: "CalendarDays",
-    image: "/006.jpg",
+    image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/006.jpg",
   },
 ];
 

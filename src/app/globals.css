@@ -278,7 +278,7 @@ h6 {
   align-self: start;
   justify-self: center;
   width: 100%;
-  margin-top: clamp(2rem, 5dvh, 4rem);
+  margin-top: clamp(2.75rem, 7dvh, 5.5rem);
 }
 
 .hero-graphic {
@@ -307,7 +307,7 @@ h6 {
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    gap: clamp(2.5rem, 5.5dvh, 4.5rem);
+    gap: clamp(3rem, 7dvh, 5.5rem);
   }
 
   .hero-headline-wrap {
@@ -406,7 +406,7 @@ h6 {
   }
 
   .hero-copy {
-    gap: clamp(1.75rem, 4dvh, 3rem);
+    gap: clamp(2rem, 5dvh, 3.5rem);
   }
 
   .hero-cta-btn {
@@ -423,7 +423,7 @@ h6 {
   }
 
   .hero-cta-zone {
-    margin-top: clamp(1.5rem, 3.5dvh, 2.75rem);
+    margin-top: clamp(2rem, 5dvh, 4rem);
   }
 
   .hero-cta-btn {

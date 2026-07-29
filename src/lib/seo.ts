@@ -244,7 +244,7 @@ export const teamMetadata = createPageMetadata({
   title: pageTitles.team,
   description: pageDescriptions.team,
   path: "/team",
-  image: "/team.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/team.jpg",
   noIndex: true,
 });
 
@@ -252,7 +252,7 @@ export const aboutMetadata = createPageMetadata({
   title: pageTitles.about,
   description: pageDescriptions.about,
   path: "/about",
-  image: "/community.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/community.jpg",
 });
 
 export const eventsMetadata = createPageMetadata({
@@ -266,28 +266,28 @@ export const programsMetadata = createPageMetadata({
   title: pageTitles.programs,
   description: pageDescriptions.programs,
   path: "/programs",
-  image: "/mission.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/mission.jpg",
 });
 
 export const impactMetadata = createPageMetadata({
   title: pageTitles.impact,
   description: pageDescriptions.impact,
   path: "/impact",
-  image: "/impact.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/impact.jpg",
 });
 
 export const donateMetadata = createPageMetadata({
   title: pageTitles.donate,
   description: pageDescriptions.donate,
   path: "/donate",
-  image: "/support.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/support.jpg",
 });
 
 export const getInvolvedMetadata = createPageMetadata({
   title: pageTitles.getInvolved,
   description: pageDescriptions.getInvolved,
   path: "/get-involved",
-  image: "/involved.jpg",
+  image: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/involved.jpg",
 });
 
 export const privacyMetadata = createPageMetadata({

@@ -30,7 +30,7 @@ export default function ProgramsPage() {
           path: `/programs/${program.id}`,
         }))}
       />
-      <PageBanner title="Our Programs" image="/mission.jpg" />
+      <PageBanner title="Our Programs" image="https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/mission.jpg" />
       <Section tone="white" backdrop="orbs">
         <PageContainer>
           <SectionHeader title={programsSection.title} align="left" className="mb-8 sm:mb-10" />
