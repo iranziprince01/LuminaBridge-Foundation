@@ -584,6 +584,8 @@ export const operationsTeam: Leader[] = [
     role: "IT and Communications Officer",
     bio: "Prince manages the Foundation's digital platforms, technology systems, and communications, keeping our message clear and our programs accessible to communities across Alberta.",
     image: teamPhoto("https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/2.jpg"),
+    imageClassName:
+      "origin-top object-[center_12%] scale-[1.08] group-hover:scale-[1.12]",
   },
   {
     id: "aline",
