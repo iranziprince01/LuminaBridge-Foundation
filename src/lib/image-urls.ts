@@ -25,7 +25,7 @@ export const imageUrls: Record<string, string> = {
   "/006.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/006.jpg",
   "/007.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/007.jpg",
   "/soccer01.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer01.jpg",
-  "/soccer2.png": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer2.png",
+  "/soccer02.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer02.jpg",
   "/001.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/001.jpg",
   "/008.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/008.jpg",
   "/01.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/01.jpg",

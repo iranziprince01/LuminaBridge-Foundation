@@ -35,7 +35,7 @@ const IMAGES = [
   "006.jpg",
   "007.jpg",
   "soccer01.jpg",
-  "soccer2.png",
+  "soccer02.jpg",
   // Gallery
   "001.jpg",
   "008.jpg",

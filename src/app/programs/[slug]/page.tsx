@@ -108,6 +108,11 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/10 mb-6">
                 <AppIcon name={program.icon} className="h-7 w-7 text-secondary" />
               </div>
+              {program.subtitle && (
+                <h2 className="mb-4 font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
+                  {program.subtitle}
+                </h2>
+              )}
               <p className="text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
                 {highlightText(program.overview, program.highlightPhrases ?? [])}
               </p>
@@ -120,6 +125,8 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
                   width={800}
                   height={600}
                   className="h-auto w-full object-cover"
+                  priority
+                  loading="eager"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
