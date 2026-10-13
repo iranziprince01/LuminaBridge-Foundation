@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const { headline, primaryCta, secondaryCta } = heroContent;
 
-export const alt = `${siteConfig.name} — ${headline.primary} ${headline.primaryContinued} ${headline.accent} ${headline.secondary}`;
+export const alt = `${siteConfig.name}: ${headline.primary} ${headline.primaryContinued} ${headline.accent} ${headline.secondary}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

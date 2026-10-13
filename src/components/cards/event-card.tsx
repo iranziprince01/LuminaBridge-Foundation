@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { EventRegistration } from "@/components/events/event-registration";
 import { StatStrip } from "@/components/shared/stat-strip";
 import { Event, getEventHref } from "@/lib/data";
+import { siteConfig } from "@/lib/site-config";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ArrowRight, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -21,6 +21,8 @@ interface EventCardProps {
 
 export function EventCard({ event, className, featured = false, priority = false }: EventCardProps) {
   const eventHref = getEventHref(event);
+  const isPast = event.status === "past";
+  const { participant, attendance } = siteConfig.eventRegistration;
 
   return (
     <motion.div
@@ -53,6 +55,14 @@ export function EventCard({ event, className, featured = false, priority = false
           <Badge className="absolute left-4 top-4 bg-white/90 text-primary">
             {event.yearBadge ?? event.year}
           </Badge>
+          <Badge
+            className={cn(
+              "absolute right-4 top-4 text-white",
+              isPast ? "bg-foreground/80" : "bg-secondary"
+            )}
+          >
+            {isPast ? "Past Event" : "Upcoming"}
+          </Badge>
         </Link>
 
         <CardContent className="flex flex-col p-5 sm:p-6 md:p-8">
@@ -80,14 +90,29 @@ export function EventCard({ event, className, featured = false, priority = false
 
           <StatStrip stats={event.stats} className="mt-6" />
 
-          <div className="mt-6 space-y-4">
-            <Button size="sm" className="w-full sm:w-auto" asChild>
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            <Button size="sm" asChild>
               <Link href={eventHref}>
-                View Event Details
+                Explore Event
                 <ArrowRight className="h-3 w-3" />
               </Link>
             </Button>
-            <EventRegistration event={event} variant="card" />
+            {!isPast && (
+              <>
+                <Button size="sm" variant="outline" asChild>
+                  <Link href={participant} target="_blank" rel="noopener noreferrer">
+                    Participate
+                    <ExternalLink className="h-3 w-3 opacity-70" />
+                  </Link>
+                </Button>
+                <Button size="sm" variant="outline" asChild>
+                  <Link href={attendance} target="_blank" rel="noopener noreferrer">
+                    Register to Attend
+                    <ExternalLink className="h-3 w-3 opacity-70" />
+                  </Link>
+                </Button>
+              </>
+            )}
           </div>
         </CardContent>
       </Card>

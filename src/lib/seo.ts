@@ -7,19 +7,19 @@ import { pageTitles, siteConfig } from "@/lib/site-config";
 export const pageDescriptions = {
   home: siteConfig.metaDescription,
   team: metaDescription(
-    "Meet Lumina Bridge Foundation leaders in Edmonton, Alberta — guiding arts, culture, youth empowerment, and community impact across Canada."
+    "Meet Lumina Bridge Foundation leaders in Edmonton, Alberta, guiding arts, culture, youth empowerment, and community impact across Canada."
   ),
   about: metaDescription(
-    "Learn about Lumina Bridge Foundation — our story, mission, values, and leadership team serving Edmonton and communities across Alberta, Canada."
+    "Learn about Lumina Bridge Foundation: our story, mission, values, and leadership team serving Edmonton and communities across Alberta, Canada."
   ),
   events: metaDescription(
-    "Explore Lumina Bridge Foundation events in Alberta — NewRoots Summit, BridgeFest, and youth programs in Edmonton and across Canada."
+    "Explore Lumina Bridge Foundation events in Alberta, including NewRoots Summit, BridgeFest, and youth programs in Edmonton and across Canada."
   ),
   programs: metaDescription(
     "Explore Lumina Bridge Foundation programs in Edmonton and Alberta: arts, culture, youth leadership, mental wellness, and newcomer support."
   ),
   impact: metaDescription(
-    "See Lumina Bridge Foundation impact in Edmonton, Alberta — youth, arts, culture, mental wellness, and community development outcomes."
+    "See Lumina Bridge Foundation impact in Edmonton, Alberta: youth, arts, culture, mental wellness, and community development outcomes."
   ),
   donate: metaDescription(
     "Donate to Lumina Bridge Foundation in Edmonton, Alberta. Support arts, culture, youth leadership, mental wellness, and community programs."
@@ -28,7 +28,7 @@ export const pageDescriptions = {
     "Partner, volunteer, or sponsor Lumina Bridge Foundation in Edmonton, Alberta. Join arts, culture, and community programs across Alberta."
   ),
   privacy: metaDescription(
-    "Privacy Policy for Lumina Bridge Foundation — how we collect, use, and protect personal information on our Edmonton, Alberta nonprofit website."
+    "Privacy Policy for Lumina Bridge Foundation explaining how we collect, use, and protect personal information on our Edmonton, Alberta nonprofit website."
   ),
   terms: metaDescription(
     "Terms of Use for Lumina Bridge Foundation website, programs, and events. Registered nonprofit based in Edmonton, Alberta, Canada."
@@ -73,7 +73,7 @@ export function createPageMetadata({
 }: PageMetadataOptions): Metadata {
   const canonical = absoluteUrl(path);
   const ogImage = image ?? siteConfig.ogImage;
-  const ogImageAlt = imageAlt ?? `${siteConfig.name} — ${siteConfig.tagline}`;
+  const ogImageAlt = imageAlt ?? `${siteConfig.name}: ${siteConfig.tagline}`;
   const snippetDescription = metaDescription(description);
 
   return {
@@ -203,6 +203,11 @@ export const staticSitemapPaths = [
   "/terms",
 ] as const;
 
+function withLocation(description: string): string {
+  const sentence = /[.!?]$/.test(description.trim()) ? description.trim() : `${description.trim()}.`;
+  return `${sentence} Based in Edmonton, Alberta.`;
+}
+
 export function getEventPageMetadata(
   slug: string,
   title: string,
@@ -211,7 +216,7 @@ export function getEventPageMetadata(
 ): Metadata {
   return createPageMetadata({
     title,
-    description: metaDescription(`${description} — Edmonton, Alberta.`),
+    description: metaDescription(withLocation(description)),
     path: `/events/${slug}`,
     image: image ?? eventPageBannerImage,
     imageAlt: `${title}, Lumina Bridge Foundation event in Edmonton Alberta`,
@@ -226,7 +231,7 @@ export function getProgramPageMetadata(
 ): Metadata {
   return createPageMetadata({
     title,
-    description: metaDescription(`${description} — Edmonton, Alberta.`),
+    description: metaDescription(withLocation(description)),
     path: `/programs/${slug}`,
     image,
     imageAlt: `${title}, Lumina Bridge Foundation program in Alberta`,

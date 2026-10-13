@@ -155,7 +155,7 @@ export default async function ProgramDetailPage({ params }: ProgramDetailPagePro
                         <div className="w-full overflow-hidden rounded-3xl shadow-xl">
                           <Image
                             src={program.secondaryImage!}
-                            alt={`${program.title} — community in action`}
+                            alt={`${program.title} community in action`}
                             width={1200}
                             height={800}
                             className="h-auto w-full object-contain"

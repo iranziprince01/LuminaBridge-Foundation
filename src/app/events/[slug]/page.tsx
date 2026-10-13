@@ -9,6 +9,7 @@ import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { BridgeFestDetail } from "@/components/events/bridgefest-detail";
+import { LeadWhereYouLandDetail } from "@/components/events/lead-where-you-land-detail";
 import { NewRootsDetail } from "@/components/events/newroots-detail";
 import { EventRegistration } from "@/components/events/event-registration";
 import { StatStrip } from "@/components/shared/stat-strip";
@@ -87,6 +88,22 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
           ]}
         />
         <BridgeFestDetail event={event} />
+      </>
+    );
+  }
+
+  if (slug === "youth-unlocking-potential-2026") {
+    return (
+      <>
+        <EventSchema event={event} slug={slug} />
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Events", path: "/events" },
+            { name: event.title, path: `/events/${slug}` },
+          ]}
+        />
+        <LeadWhereYouLandDetail />
       </>
     );
   }

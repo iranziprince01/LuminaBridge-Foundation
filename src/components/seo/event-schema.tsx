@@ -10,12 +10,13 @@ interface EventSchemaProps {
 
 const eventStartDates: Record<string, string | undefined> = {
   "newroots-canada-summit": "2026-08-01",
-  bridgefest: "2026-09-18",
+  bridgefest: "2026-11-06",
+  "youth-unlocking-potential-2026": "2026-10-07",
   "youth-unlocking-potential": undefined,
 };
 
 const eventEndDates: Record<string, string | undefined> = {
-  bridgefest: "2026-09-20",
+  bridgefest: "2026-11-08",
 };
 
 export function EventSchema({ event, slug }: EventSchemaProps) {

@@ -18,6 +18,7 @@ export const eventTabTitles: Record<string, string> = {
   "newroots-canada-summit": "NewRoots Canada Summit",
   bridgefest: "BridgeFest Canada",
   "youth-unlocking-potential": "Youth Unlocking Potential",
+  "youth-unlocking-potential-2026": "Lead Where You Land Fellowship",
 };
 
 export const siteConfig = {

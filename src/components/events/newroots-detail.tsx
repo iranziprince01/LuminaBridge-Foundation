@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   Building2,
   Calendar,
-  Globe2,
   HeartHandshake,
+  History,
   Languages,
   MapPin,
   Sparkles,
@@ -18,8 +17,7 @@ import { StatStrip } from "@/components/shared/stat-strip";
 import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
-import { Button } from "@/components/ui/button";
-import type { Event } from "@/lib/data";
+import { newrootsFlyerImage, type Event } from "@/lib/data";
 import { newrootsContent } from "@/lib/newroots-content";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -36,14 +34,18 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
       <PageBanner
         title={["NewRoots Canada", "Summit 2026"]}
         image={event.image}
-        imageAlt="NewRoots Canada Summit language culture and belonging festival banner"
+        imageAlt="Newcomers and community members gathered around the table at NewRoots Canada Summit 2026"
         variant="event"
       />
 
       <Section tone="white" backdrop="mesh">
         <PageContainer detail>
           <FadeUp>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-foreground/80 px-3 py-1 text-xs font-semibold text-white">
+              <History className="h-3.5 w-3.5" aria-hidden />
+              Past Event
+            </span>
+            <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {content.subtitle}
             </p>
             <p className="mt-3 text-base font-medium text-muted-foreground sm:text-lg">
@@ -52,7 +54,7 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {[
-                { icon: Calendar, label: "Event Date", value: event.date },
+                { icon: Calendar, label: "Held On", value: event.date },
                 { icon: MapPin, label: "Location", value: event.location },
                 { icon: Building2, label: "Organized by", value: siteConfig.name },
               ].map(({ icon: Icon, label, value }) => (
@@ -75,8 +77,8 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
           <MotionReveal direction="scale" className="mt-12">
             <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-lg">
               <Image
-                src={event.image}
-                alt="NewRoots Canada Summit event banner"
+                src={newrootsFlyerImage}
+                alt="NewRoots Canada Summit 2026 event flyer"
                 width={1200}
                 height={1600}
                 className="h-auto w-full object-contain"
@@ -130,7 +132,7 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
                 Six Integrated Experiences
               </p>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Core Event Components
+                What the Summit Featured
               </h2>
             </div>
             <StaggerContainer className="mt-10 grid gap-6 lg:grid-cols-2" staggerDelay={0.08}>
@@ -179,10 +181,10 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
             <div className="flex items-center gap-3">
               <HeartHandshake className="h-5 w-5 text-secondary" />
               <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                Expected Impact
+                Impact Goals
               </h2>
             </div>
-            <p className="mt-4 text-base text-muted-foreground">The event aims to achieve:</p>
+            <p className="mt-4 text-base text-muted-foreground">The summit set out to achieve:</p>
             <StaggerContainer className="mt-6 grid gap-3 sm:grid-cols-2" staggerDelay={0.06}>
               {content.expectedImpact.map((item) => (
                 <StaggerItem key={item}>
@@ -222,37 +224,6 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
 
           <FadeUp className="mt-12">
             <EventRegistration event={event} />
-          </FadeUp>
-
-          <FadeUp className="mt-16 rounded-2xl border border-border/60 bg-primary p-6 text-white sm:p-8 md:p-10">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/70">
-              {siteConfig.name}
-            </p>
-            <p className="mt-2 text-lg font-semibold text-white/90">Edmonton, Alberta, Canada</p>
-            <blockquote className="mt-6 border-l-4 border-secondary pl-5 text-lg font-medium italic leading-relaxed text-white/95 sm:text-xl">
-              &ldquo;{content.identityStatement}&rdquo;
-            </blockquote>
-            <a
-              href={siteConfig.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-white/90 transition-colors hover:text-white"
-            >
-              <Globe2 className="h-4 w-4" />
-              {siteConfig.url.replace("https://", "")}
-            </a>
-          </FadeUp>
-
-          <FadeUp className="mt-10 flex flex-wrap gap-3 border-t border-border/60 pt-8">
-            <p className="w-full text-sm text-muted-foreground">
-              Interested in supporting NewRoots as a volunteer, partner, or community organization?
-            </p>
-            <Button size="sm" variant="outline" asChild>
-              <Link href="/get-involved#volunteer">Volunteer</Link>
-            </Button>
-            <Button size="sm" variant="ghost" asChild>
-              <Link href="/get-involved#partner">Partner With Us</Link>
-            </Button>
           </FadeUp>
         </PageContainer>
       </Section>

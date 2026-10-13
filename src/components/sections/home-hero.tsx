@@ -22,7 +22,7 @@ export function HomeHero() {
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={heroImage}
-          alt="Diverse youth and community members united — Lumina Bridge Foundation, Edmonton, Alberta"
+          alt="Diverse youth and community members united with Lumina Bridge Foundation in Edmonton, Alberta"
           fill
           className="hero-ken-burns object-cover object-center"
           priority

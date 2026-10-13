@@ -56,8 +56,26 @@ const IMAGES = [
   "Patrone.jpeg",
   // Events
   "bridgefest2026.png",
+  "bridgefest-canada-2026-november.png",
+  "BR1.jpeg",
+  "BR2.jpeg",
+  "BR3.jpeg",
   "newroots-summit.png",
+  "newroots-summit-2026.jpg",
   "youth-unlocking-potential.png",
+  "youth-unlocking-potential-2027.png",
+  "youth-unlocking-potential-2026.png",
+  // Lead Where You Land Fellowship
+  "E1.jpg",
+  "E2.jpg",
+  "E3.jpg",
+  "E4.jpg",
+  "E5.jpg",
+  "E6.jpg",
+  "E7.jpg",
+  "E8.jpg",
+  "E9.jpg",
+  "E10.jpg",
 ];
 
 const mimeMap = {

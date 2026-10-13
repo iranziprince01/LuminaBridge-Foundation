@@ -1,12 +1,12 @@
 export const newrootsContent = {
   title: "NewRoots Canada Summit",
   subtitle: "Language, Culture & Belonging Festival",
-  badge: "An Annual Signature Event by Lumina Bridge Foundation",
+  badge: "A past signature event by Lumina Bridge Foundation, held August 1, 2026",
   identityStatement: "New Country. New Connections. New Confidence. New Roots.",
   overview: [
-    "NewRoots Canada Summit is an annual community gathering designed to bring together newcomers, immigrants, refugees, multicultural communities, community organizations, educators, artists, and local leaders in a powerful celebration of language inclusion, cultural exchange, and community belonging.",
-    "The event serves as a practical extension of the BridgeConnect Program, creating an immersive environment where newcomers actively strengthen communication skills, build relationships, engage with diverse communities, and gain confidence navigating life in Canada.",
-    "Unlike traditional settlement-focused gatherings, NewRoots combines language development, arts, storytelling, professional networking, and cultural participation into one dynamic experience designed to make integration practical, human-centered, and community driven.",
+    "NewRoots Canada Summit 2026 brought together newcomers, immigrants, refugees, multicultural communities, community organizations, educators, artists, and local leaders in Edmonton for a powerful celebration of language inclusion, cultural exchange, and community belonging.",
+    "The summit served as a practical extension of the BridgeConnect Program, creating an immersive environment where newcomers strengthened communication skills, built relationships, engaged with diverse communities, and gained confidence navigating life in Canada.",
+    "Unlike traditional settlement-focused gatherings, NewRoots combined language development, arts, storytelling, professional networking, and cultural participation into one dynamic experience that made integration practical, human-centered, and community driven.",
   ],
   purpose:
     "To create an inclusive national platform where newcomers strengthen language confidence, celebrate cultural identity, build meaningful community connections, and accelerate their integration journey through interactive community participation.",
@@ -91,7 +91,7 @@ export const newrootsContent = {
     },
   ],
   expectedImpact: [
-    "500+ newcomer participants annually",
+    "An annual goal of 500+ newcomer participants",
     "Increased confidence in English and French communication",
     "Stronger social belonging and reduced isolation",
     "Greater newcomer participation in community life",
@@ -103,9 +103,9 @@ export const newrootsContent = {
     "The event will position Lumina Bridge Foundation as a national leader in innovative newcomer integration models across Canada.",
   ],
   stats: [
-    { label: "Newcomer Participants", value: "500+" },
+    { label: "Annual Participant Goal", value: "500+" },
     { label: "Core Components", value: "6" },
     { label: "Languages Featured", value: "EN & FR" },
-    { label: "Annual Event", value: "2026" },
+    { label: "Edition Held", value: "2026" },
   ],
 } as const;

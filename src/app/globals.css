@@ -42,8 +42,10 @@
   --font-display: var(--font-source-serif);
 }
 
-* {
-  border-color: var(--border);
+@layer base {
+  * {
+    border-color: var(--border);
+  }
 }
 
 html {

@@ -8,7 +8,6 @@ import { ExternalLink } from "lucide-react";
 
 interface EventRegistrationProps {
   event: Event;
-  variant?: "card" | "detail";
   className?: string;
 }
 
@@ -32,41 +31,18 @@ const attendanceCopy: Record<Event["id"], string> = {
 
 export function EventRegistration({
   event,
-  variant = "detail",
   className,
 }: EventRegistrationProps) {
   const { participant, attendance } = siteConfig.eventRegistration;
 
-  if (variant === "card") {
-    return (
-      <div className={cn("space-y-3", className)}>
-        <p className="text-xs font-semibold uppercase tracking-wider text-secondary">
-          Register for this event
-        </p>
-        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-          <Button size="sm" className="w-full sm:w-auto" asChild>
-            <Link href={participant} target="_blank" rel="noopener noreferrer">
-              <AppIcon name="Mic2" className="h-3.5 w-3.5" />
-              Participant
-              <ExternalLink className="h-3 w-3 opacity-70" />
-            </Link>
-          </Button>
-          <Button size="sm" variant="outline" className="w-full sm:w-auto" asChild>
-            <Link href={attendance} target="_blank" rel="noopener noreferrer">
-              <AppIcon name="CalendarDays" className="h-3.5 w-3.5" />
-              Attendance
-              <ExternalLink className="h-3 w-3 opacity-70" />
-            </Link>
-          </Button>
-        </div>
-      </div>
-    );
+  if (event.status === "past") {
+    return null;
   }
 
   return (
     <div
       className={cn(
-        "rounded-2xl border border-secondary/20 bg-gradient-to-br from-secondary/5 to-primary/5 p-5 sm:p-6 md:p-8",
+        "rounded-2xl border border-secondary/20 bg-secondary/5 p-5 sm:p-6 md:p-8",
         className
       )}
     >

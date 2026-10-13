@@ -1,39 +1,67 @@
+import { img } from "@/lib/image-urls";
+
 export const bridgefestContent = {
   title: "BridgeFest Canada 2026",
   tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
-  dates: "September 18–20, 2026",
+  dates: "November 6–8, 2026",
   location: "Edmonton, Alberta, Canada",
   organizer: "Lumina Bridge Foundation",
-  quote: "Connecting Communities Through Arts, Culture, and Creative Expression.",
   overview: [
-    "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival designed to celebrate artistic excellence while strengthening community connection through professional creative expression. Organized by Lumina Bridge Foundation, the festival brings together professional artists, performers, cultural leaders, and diverse communities from across Canada for a three-day transformative experience centered on music, theatre, dance, film, fashion, and creative industry development.",
-    "The festival is designed to serve as a national platform where arts and culture become tools for inclusion, innovation, healing, and economic empowerment. By creating meaningful spaces where artists and communities engage directly, BridgeFest contributes to the growth of Canada's professional creative sector while ensuring equitable access for underserved communities, newcomers, youth, seniors, and culturally diverse populations.",
+    "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival that celebrates artistic excellence and strengthens community connection through professional creative expression. Organized by Lumina Bridge Foundation, the festival will take place from Friday, November 6 to Sunday, November 8, 2026. It brings together professional artists, performers, cultural leaders, and diverse communities from across Canada for a three-day experience centred on music, theatre, dance, film, fashion, and creative industry development.",
+    "The festival serves as a national platform where arts and culture become tools for inclusion, innovation, healing, and economic empowerment. By creating spaces where artists and communities engage directly, BridgeFest contributes to the growth of Canada's professional creative sector. It also ensures equitable access for underserved communities, newcomers, youth, seniors, and culturally diverse populations.",
   ],
   vision:
-    "To establish BridgeFest as one of Canada's leading multicultural professional arts festivals that promotes artistic excellence, cultural exchange, and long-term creative sector development while uniting communities through the power of arts and culture.",
+    "To establish BridgeFest as one of Canada's leading multicultural professional arts festivals, one that promotes artistic excellence, cultural exchange, and long-term creative sector development while uniting communities through the power of arts and culture.",
   mission:
     "BridgeFest exists to strengthen Canada's arts ecosystem by providing a professional platform that supports artists, promotes diverse cultural expression, creates opportunities for emerging talent, and uses the arts as a bridge for community development, inclusion, and social transformation.",
   programming: [
     {
       day: "Day One",
+      date: "November 6",
       title: "Cultural Opening and National Music Showcase",
       description:
         "The opening day will launch with an official ceremony featuring community leaders, partner recognition, cultural acknowledgments, and public celebration. The afternoon and evening programming will feature professional performances by artists from across Canada representing multiple genres including gospel music, Afro-fusion, Indigenous artistic expression, Francophone performances, jazz ensembles, and a headline evening concert designed to attract national audiences and media visibility.",
-      accent: "from-primary/90 to-primary",
+      highlights: [
+        "Opening Ceremony",
+        "Gospel",
+        "Afro-fusion",
+        "Indigenous Expression",
+        "Francophone",
+        "Jazz",
+        "Headline Concert",
+      ],
+      accent: "bg-primary",
     },
     {
       day: "Day Two",
+      date: "November 7",
       title: "Theatre, Dance, and Performing Arts",
       description:
         "The second day focuses on live performing arts through professional theatre productions, comedy showcases, contemporary dance performances, cultural dance presentations, spoken word performances, and public engagement sessions. Artists and audiences will participate in interactive dialogue sessions that allow deeper understanding of creative processes while strengthening direct community engagement between performers and attendees.",
-      accent: "from-secondary to-[#c9a000]",
+      highlights: [
+        "Theatre",
+        "Comedy",
+        "Contemporary Dance",
+        "Cultural Dance",
+        "Spoken Word",
+        "Artist Dialogues",
+      ],
+      accent: "bg-secondary",
     },
     {
       day: "Day Three",
+      date: "November 8",
       title: "Creative Industries and International Talent Development",
       description:
         "The final day highlights the broader creative economy by presenting independent film screenings, cultural fashion showcases, professional industry panels, networking opportunities for artists and industry leaders, discussions around music distribution, copyright protection, branding strategies, and a high-profile closing gala concert celebrating artistic excellence and community contribution.",
-      accent: "from-[#0d9488] to-primary",
+      highlights: [
+        "Film Screenings",
+        "Fashion Showcase",
+        "Industry Panels",
+        "Networking",
+        "Closing Gala",
+      ],
+      accent: "bg-primary",
     },
   ],
   communityImpactIntro:
@@ -62,6 +90,7 @@ export const bridgefestContent = {
   ],
   nationalReach: {
     title: "National Reach and Professional Standards",
+    provinces: ["Alberta", "Ontario", "British Columbia", "Quebec", "Saskatchewan"],
     description:
       "BridgeFest 2026 will host over fourteen professional artists representing Alberta, Ontario, British Columbia, Quebec, and Saskatchewan. Participating artists will be engaged under professional contracts with fair industry-standard remuneration, reinforcing the festival's commitment to sustainable economic development within Canada's arts sector.",
   },
@@ -77,6 +106,40 @@ export const bridgefestContent = {
     paragraphs: [
       "BridgeFest is designed as a long-term cultural institution that will continue expanding annually. The 2026 edition represents a strategic milestone toward building one of Western Canada's most recognized multicultural arts festivals while establishing a sustainable platform that bridges communities through creativity, innovation, and cultural celebration.",
       "Through this initiative, Lumina Bridge Foundation seeks to create a lasting cultural legacy where arts become a powerful force for connection, opportunity, healing, and transformation across communities in Canada.",
+    ],
+  },
+  mainFlyer: {
+    src: img("/BR1.jpeg"),
+    alt: "BridgeFest Canada 2026 flyer: live music, comedy and dance, Friday to Sunday, November 6 to 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Free entry with optional support tickets.",
+    width: 1236,
+    height: 1600,
+  },
+  lineup: {
+    eyebrow: "The Lineup",
+    title: "Who's Taking the Stage",
+    intro:
+      "The first artist is confirmed and more names are on the way. Follow the lineup as BridgeFest Canada 2026 comes together.",
+    flyers: [
+      {
+        badge: "Now Announced",
+        title: "Amani, Live on Stage",
+        caption:
+          "A soulful, high-energy set to sing along, dance and celebrate to. You will be talking about it long after the lights go down.",
+        src: img("/BR2.jpeg"),
+        alt: "BridgeFest Canada 2026 artist announcement: singer Amani will be performing live, November 6 to 8, 2026 in Edmonton.",
+        width: 2040,
+        height: 2640,
+      },
+      {
+        badge: "Coming Soon",
+        title: "More Artists, Comedians and Bands",
+        caption:
+          "The lineup is growing. New artists, comedians and bands will be revealed here as they are confirmed.",
+        src: img("/BR3.jpeg"),
+        alt: "BridgeFest Canada 2026 lineup teaser: more artists, comedians and bands are coming soon, November 6 to 8, 2026 in Edmonton.",
+        width: 1236,
+        height: 1600,
+      },
     ],
   },
   stats: [

@@ -1,5 +1,6 @@
 import type { IconName } from "@/lib/icons";
 import { teamPhoto } from "@/lib/team-photos";
+import { img } from "@/lib/image-urls";
 
 export type { Program } from "@/lib/programs-content";
 export {
@@ -19,9 +20,12 @@ export interface Leader {
   hidden?: boolean;
 }
 
+export type EventStatus = "upcoming" | "past";
+
 export interface Event {
   id: string;
   title: string;
+  status: EventStatus;
   year: number;
   yearBadge?: string;
   date: string;
@@ -257,7 +261,7 @@ export const homeCoreValues = [
 ] satisfies ValueItem[];
 
 export const homeProgramsIntro =
-  "Lumina Bridge Foundation delivers community-centered programs across Alberta — from youth leadership and arts development to newcomer support, mental wellness, and cultural celebration.";
+  "Lumina Bridge Foundation delivers community-centered programs across Alberta, from youth leadership and arts development to newcomer support, mental wellness, and cultural celebration.";
 
 export const priorityPopulationsSection = {
   title: "Priority Populations We Serve",
@@ -335,7 +339,7 @@ export const aboutPageContent = {
   journeySection: {
     title: "Our Journey",
     intro:
-      "From community conversations in Edmonton to a registered Alberta nonprofit — explore the story, history, and grassroots origins of Lumina Bridge Foundation.",
+      "From community conversations in Edmonton to a registered Alberta nonprofit. Explore the story, history, and grassroots origins of Lumina Bridge Foundation.",
   },
 };
 
@@ -633,14 +637,16 @@ export const operationsTeam: Leader[] = [
   },
 ];
 
-export const eventPageBannerImage =
-  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80";
+export const eventPageBannerImage = img("/Events.jpg");
 
 export const eventBanners = {
-  "newroots-canada-summit": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/newroots-summit.png",
-  bridgefest: "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/bridgefest2026.png",
-  "youth-unlocking-potential": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/youth-unlocking-potential.png",
+  "newroots-canada-summit": img("/newroots-summit-2026.jpg"),
+  bridgefest: img("/bridgefest-canada-2026-november.png"),
+  "youth-unlocking-potential": img("/youth-unlocking-potential-2027.png"),
+  "youth-unlocking-potential-2026": img("/youth-unlocking-potential-2026.png"),
 } as const;
+
+export const newrootsFlyerImage = img("/newroots-summit.png");
 
 export const eventBannerImage = eventPageBannerImage;
 
@@ -650,29 +656,58 @@ export function getEventBannerImage(eventId: string): string {
 
 export const events: Event[] = [
   {
+    id: "youth-unlocking-potential-2026",
+    title: "Youth Unlocking Potential 2026",
+    status: "past",
+    year: 2026,
+    date: "October 7, 2026",
+    location: "Edmonton, Alberta, Canada",
+    tagline: "Phase I: Lead Where You Land Fellowship",
+    description:
+      "Phase I of Youth Unlocking Potential: the Lead Where You Land Fellowship equipped Black Canadian and African-Canadian youth in Edmonton with leadership skills, mentors, networks, and real-world opportunities.",
+    expectedImpact:
+      "12 fellows graduated with a Certificate in Youth Leadership Development and presented their own community projects at Gala Night.",
+    stats: [
+      { label: "Young People Applied", value: "50+" },
+      { label: "Fellows Graduated", value: "12" },
+      { label: "Community Projects", value: "4+" },
+    ],
+    image: eventBanners["youth-unlocking-potential-2026"],
+    paragraphs: [
+      "The Lead Where You Land Fellowship, the African-Canadian Youth Connect Lab, is a leadership program of the Lumina Bridge Foundation in Edmonton, Alberta. It brings Black Canadian and African-Canadian youth together to discover their purpose, build practical leadership skills, and learn how Canadian systems really work.",
+    ],
+    impactItems: [
+      "50+ young people applied for 13 places",
+      "12 fellows graduated with a Certificate in Youth Leadership Development",
+      "4+ community projects designed and presented by fellows",
+      "4 awards for leadership, dedication, community-building, and curiosity",
+    ],
+  },
+  {
     id: "newroots-canada-summit",
     title: "NewRoots Canada Summit 2026",
+    status: "past",
     year: 2026,
     date: "August 1, 2026",
     location: "Edmonton, Alberta, Canada",
     tagline: "Language, Culture & Belonging Festival",
     description:
-      "An annual signature gathering where newcomers strengthen language confidence, celebrate cultural identity, and build community belonging through the BridgeConnect Program.",
+      "Held on August 1, 2026, our signature summit brought newcomers together to strengthen language confidence, celebrate cultural identity, and build community belonging through the BridgeConnect Program.",
     expectedImpact:
-      "500+ newcomer participants building language skills, social connection, and pathways to integration across Canada.",
+      "The summit set out to reach 500+ newcomer participants a year, building language skills, social connection, and pathways to integration across Canada.",
     stats: [
-      { label: "Newcomer Participants", value: "500+" },
+      { label: "Annual Participant Goal", value: "500+" },
       { label: "Core Components", value: "6" },
       { label: "Community Partners", value: "Multiple" },
     ],
     image: eventBanners["newroots-canada-summit"],
     paragraphs: [
-      "NewRoots Canada Summit is an annual community gathering celebrating language inclusion, cultural exchange, and community belonging for newcomers, immigrants, refugees, and multicultural communities across Canada.",
-      "The event extends the BridgeConnect Program through language development, arts, storytelling, professional networking, and cultural participation in one human-centered integration experience.",
+      "NewRoots Canada Summit 2026 took place on August 1, 2026 in Edmonton, celebrating language inclusion, cultural exchange, and community belonging for newcomers, immigrants, refugees, and multicultural communities.",
+      "The summit extended the BridgeConnect Program through language development, arts, storytelling, professional networking, and cultural participation in one human-centered integration experience.",
     ],
     impactItems: [
-      "500+ newcomer participants annually",
-      "Increased English and French communication confidence",
+      "An annual goal of 500+ newcomer participants",
+      "Greater English and French communication confidence",
       "Stronger social belonging and reduced isolation",
       "Greater cross-cultural understanding",
       "Access to employment, mentorship, and leadership opportunities",
@@ -681,12 +716,13 @@ export const events: Event[] = [
   {
     id: "bridgefest",
     title: "BridgeFest Canada 2026",
+    status: "upcoming",
     year: 2026,
-    date: "September 18–20, 2026",
+    date: "November 6–8, 2026",
     location: "Edmonton, Alberta, Canada",
     tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
     description:
-      "A premier three-day multidisciplinary arts festival celebrating professional creative expression, cultural exchange, and community connection across Canada.",
+      "Three electrifying days of music, dance, theatre, film, and fashion. Canada's vibrant multicultural arts festival, where world-class artists, bold creativity, and diverse communities come alive together.",
     expectedImpact:
       "Generating artistic excellence, social inclusion, and sustainable economic development within Canada's creative sector.",
     stats: [
@@ -696,8 +732,8 @@ export const events: Event[] = [
     ],
     image: eventBanners.bridgefest,
     paragraphs: [
-      "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival designed to celebrate artistic excellence while strengthening community connection through professional creative expression.",
-      "Over three days in Edmonton, the festival brings together professional artists, performers, cultural leaders, and diverse communities for music, theatre, dance, film, fashion, and creative industry development.",
+      "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival that celebrates artistic excellence and strengthens community connection through professional creative expression.",
+      "From Friday, November 6 to Sunday, November 8, 2026, the festival brings together professional artists, performers, cultural leaders, and diverse communities from across Canada for a three-day experience centred on music, theatre, dance, film, fashion, and creative industry development.",
     ],
     impactItems: [
       "Youth Creative Labs and Senior Art Healing sessions",
@@ -709,15 +745,15 @@ export const events: Event[] = [
   },
   {
     id: "youth-unlocking-potential",
-    title: "Youth Unlocking Potential 2026",
-    year: 2026,
-    yearBadge: "TBD",
+    title: "Youth Unlocking Potential 2027",
+    status: "upcoming",
+    year: 2027,
     date: "Date to be announced (Coming Soon)",
     location: "Edmonton, Alberta, Canada",
     tagline: "Edmonton Youth Music, Comedy, Theatre & Arts Festival",
     theme: "Unlocking Talent. Inspiring Creativity. Building Future Leaders.",
     description:
-      "Youth Unlocking Potential 2026 is a city-wide talent development festival designed to identify, mentor, develop, and showcase talented young people from newcomer, Black, immigrant, refugee, Indigenous, and underserved communities.",
+      "Youth Unlocking Potential 2027 is a city-wide talent development festival designed to identify, mentor, develop, and showcase talented young people from newcomer, Black, immigrant, refugee, Indigenous, and underserved communities.",
     expectedImpact:
       "Long-term talent development through mentorship, awards, studio support, professional branding, and career advancement resources for Alberta's next generation of creatives.",
     stats: [
@@ -728,7 +764,7 @@ export const events: Event[] = [
     image: eventBanners["youth-unlocking-potential"],
     categories: ["Music", "Comedy", "Theatre", "Arts & Crafts"],
     paragraphs: [
-      "Youth Unlocking Potential 2026 is a city-wide talent development festival designed to identify, mentor, develop, and showcase talented young people from newcomer, Black, immigrant, refugee, Indigenous, and underserved communities.",
+      "Youth Unlocking Potential 2027 is a city-wide talent development festival designed to identify, mentor, develop, and showcase talented young people from newcomer, Black, immigrant, refugee, Indigenous, and underserved communities.",
       "The festival focuses on four artistic categories: Music, Comedy, Theatre, and Arts & Crafts.",
       "Selected participants will complete a four-week talent development program covering leadership, entrepreneurship, public speaking, branding, financial literacy, networking, and career development before showcasing their talents before industry professionals, community leaders, sponsors, educators, and the public.",
       "Participants will compete for talent development awards, mentorship opportunities, studio support, professional branding packages, travel opportunities, and career advancement resources.",
@@ -746,6 +782,9 @@ export const events: Event[] = [
   },
 ];
 
+export const upcomingEvents = events.filter((event) => event.status === "upcoming");
+export const pastEvents = events.filter((event) => event.status === "past");
+
 export function getEventById(id: string): Event | undefined {
   return events.find((event) => event.id === id);
 }
@@ -753,9 +792,6 @@ export function getEventById(id: string): Event | undefined {
 export function getEventHref(event: Pick<Event, "id">): string {
   return `/events/${event.id}`;
 }
-
-export const eventsClosing =
-  "Together, these signature events reflect Lumina Bridge Foundation's commitment to empowering youth, celebrating diversity, supporting artists, strengthening communities, and creating opportunities for people across Alberta.";
 
 export const impactOutcomes = [
   {
