@@ -55,14 +55,13 @@ const IMAGES = [
   "Esther.jpeg",
   "Patrone.jpeg",
   // Events
-  "bridgefest2026.png",
+  "Events.jpg",
   "bridgefest-canada-2026-november.png",
   "BR1.jpeg",
   "BR2.jpeg",
   "BR3.jpeg",
   "newroots-summit.png",
   "newroots-summit-2026.jpg",
-  "youth-unlocking-potential.png",
   "youth-unlocking-potential-2027.png",
   "youth-unlocking-potential-2026.png",
   // Lead Where You Land Fellowship
@@ -106,6 +105,7 @@ for (const filename of IMAGES) {
       access: "public",
       contentType,
       addRandomSuffix: false,
+      allowOverwrite: true,
     });
     results[`/${filename}`] = blob.url;
     console.log(`  ✓ ${filename}`);
