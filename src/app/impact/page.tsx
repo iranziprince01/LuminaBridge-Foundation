@@ -95,7 +95,7 @@ export default function ImpactPage() {
         </PageContainer>
       </Section>
 
-      <section className="relative w-full overflow-hidden bg-secondary py-12 sm:py-16 md:py-20">
+      <section className="relative w-full overflow-hidden bg-secondary py-10 sm:py-14 md:py-16">
         <PageContainer className="relative z-10">
           <SectionHeader title="Communities Served & Future Goals" align="center" light />
           <FadeUp className="mt-10">

@@ -16,13 +16,12 @@ export const leadWhereYouLandLinks = {
 
 export const leadWhereYouLandContent = {
   hero: {
-    eyebrow: "A Lumina Bridge Foundation Program · Edmonton",
     phase: "Youth Unlocking Potential 2026 · Phase I",
-    headline: "Wherever You Land, You Can Lead.",
+    headlineLines: ["Lead Where", "You Land"],
+    headlineHighlights: ["Lead", "Land"],
   },
 
   about: {
-    eyebrow: "About the Fellowship",
     title: "Talent is everywhere. Access is not.",
     paragraphs: [
       "The Lead Where You Land Fellowship, also known as the African-Canadian Youth Connect Lab, is a leadership program of the Lumina Bridge Foundation in Edmonton, Alberta. It brings Black Canadian and African-Canadian youth together to discover their purpose, build practical leadership skills, and learn how Canadian systems really work.",
@@ -56,8 +55,6 @@ export const leadWhereYouLandContent = {
   experience: {
     eyebrow: "What Fellows Experience",
     title: "Less lecture. More leadership.",
-    intro:
-      "The Fellowship is built on two pillars. Every session is hands-on: fellows talk, plan, stand up, pair off and practise. They do more than listen. They take part.",
     pillars: [
       {
         title: "Teach What You Know",
@@ -105,8 +102,6 @@ export const leadWhereYouLandContent = {
   pathways: {
     eyebrow: "Pathways into Canadian Life and Work",
     title: "From potential to opportunity.",
-    intro:
-      "Leadership grows fastest when it has somewhere to go. The Fellowship connects young people with the systems, people and opportunities that shape a future in Canada.",
     cards: [
       {
         title: "Navigating Canadian systems",
@@ -133,7 +128,6 @@ export const leadWhereYouLandContent = {
   },
 
   cohort: {
-    eyebrow: "Cohort 1 at a Glance (2026)",
     title: "Our first cohort, in numbers.",
     figures: [
       {
@@ -154,7 +148,7 @@ export const leadWhereYouLandContent = {
       "Cohort 1 ran in Edmonton in fall 2026. Fellows met regularly, worked through the leadership curriculum and developed their own ideas for positive change in the community, from wellbeing and family support to sustainable small business.",
     gala: {
       title: "Gala Night",
-      date: "October 2, 2026",
+      date: "October 7, 2026",
       venue: "Edmonton Intercultural Centre",
       description:
         "The cohort concluded with a Gala Night celebrating our graduates. Fellows presented their projects to family, partners and community leaders, received their certificates, and were recognized for their outstanding contributions. It was proof of what happens when young people are given the space to lead.",
@@ -174,13 +168,32 @@ export const leadWhereYouLandContent = {
     intro:
       "Lead Where You Land is a program of the Lumina Bridge Foundation, made possible by partners who believe in young leaders.",
     list: [
-      { name: "Lumina Bridge Foundation", role: "Host organization" },
-      { name: "Sprout Ideas" },
-      { name: "Canada Service Corps" },
-      { name: "Africa Centre" },
-      { name: "Edmonton Intercultural Centre", role: "Venue" },
+      {
+        name: "Lumina Bridge Foundation",
+        role: "Host organization",
+        logo: { src: "/logo_color.svg", width: 1500, height: 600 },
+        tall: true,
+      },
+      {
+        name: "Sprout Ideas",
+        logo: { src: img("/partners/sprout-ideas.png"), width: 1175, height: 323 },
+      },
+      {
+        name: "Canada Service Corps",
+        logo: { src: img("/partners/canada-service-corps.png"), width: 549, height: 337 },
+        tall: true,
+      },
+      {
+        name: "Africa Centre",
+        logo: { src: img("/partners/africa-centre.png"), width: 210, height: 92 },
+      },
+      {
+        name: "Edmonton Intercultural Centre",
+        role: "Venue",
+        logo: { src: img("/partners/edmonton-intercultural-centre.png"), width: 264, height: 100 },
+        tall: true,
+      },
     ],
-    cta: "Interested in partnering with us?",
   },
 
   support: {
@@ -203,6 +216,7 @@ export const leadWhereYouLandContent = {
           "Makes you a Cohort Sponsor, with recognition at Gala Night and on our materials",
       },
     ],
+    otherWaysEyebrow: "Beyond Giving",
     otherWaysTitle: "Other ways to help",
     otherWays: [
       {
@@ -225,7 +239,7 @@ export const leadWhereYouLandContent = {
   },
 
   join: {
-    eyebrow: "Join the Next Cohort",
+    eyebrow: "Join Our Next Cohort",
     title: "Your leadership story starts here.",
     intro:
       "Are you a Black Canadian or African-Canadian young person in Edmonton who wants to grow, connect and make a difference? The Fellowship is free to join. No experience is needed, just the decision to show up.",

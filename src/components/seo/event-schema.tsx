@@ -37,9 +37,12 @@ export function EventSchema({ event, slug }: EventSchemaProps) {
       : "https://schema.org/EventScheduled",
     location: {
       "@type": "Place",
-      name: event.location,
+      name: event.venue?.name ?? event.location,
       address: {
         "@type": "PostalAddress",
+        ...(event.venue
+          ? { streetAddress: event.venue.streetAddress, postalCode: event.venue.postalCode }
+          : {}),
         addressLocality: "Edmonton",
         addressRegion: "AB",
         addressCountry: "CA",

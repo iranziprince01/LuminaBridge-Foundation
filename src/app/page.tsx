@@ -15,6 +15,7 @@ import { SectionBackdrop } from "@/components/shared/section-backdrop";
 import { SectionLinkCta } from "@/components/shared/section-link-cta";
 import { StatsSection } from "@/components/shared/stats-section";
 import { PriorityPopulationsSection } from "@/components/sections/priority-populations-section";
+import { PartnersSection } from "@/components/sections/partners-section";
 import { ProgramsShowcase } from "@/components/sections/programs-showcase";
 import { TestimonialCard } from "@/components/cards/testimonial-card";
 import { CommunityStoryCard } from "@/components/cards/community-story-card";
@@ -175,6 +176,10 @@ export default function HomePage() {
             </StaggerItem>
           </StaggerContainer>
         </PageContainer>
+      </Section>
+
+      <Section id="partners" tone="white" backdrop="none">
+        <PartnersSection />
       </Section>
     </>
   );

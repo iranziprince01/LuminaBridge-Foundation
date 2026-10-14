@@ -30,6 +30,7 @@ export interface Event {
   yearBadge?: string;
   date: string;
   location: string;
+  venue?: { name: string; streetAddress: string; postalCode: string };
   description: string;
   expectedImpact: string;
   stats: { label: string; value: string }[];
@@ -640,13 +641,57 @@ export const operationsTeam: Leader[] = [
 export const eventPageBannerImage = img("/Events.jpg");
 
 export const eventBanners = {
-  "newroots-canada-summit": img("/newroots-summit-2026.jpg"),
-  bridgefest: img("/bridgefest-canada-2026-november.png"),
+  "newroots-canada-summit": img("/newroots-summit.png"),
+  bridgefest: img("/bridgefest-canada-2026-venue.png"),
   "youth-unlocking-potential": img("/youth-unlocking-potential-2027.png"),
   "youth-unlocking-potential-2026": img("/youth-unlocking-potential-2026.png"),
 } as const;
 
+export const partnersSection = {
+  title: "Our Partners",
+  description:
+    "We are proud to work alongside organizations that share our commitment to arts, culture, and community across Alberta.",
+};
+
+export interface Partner {
+  name: string;
+  logo: string;
+  width: number;
+  height: number;
+  /** Compact, near-square logos need more height to match the visual weight of wide wordmarks. */
+  compact?: boolean;
+}
+
+export const partners: Partner[] = [
+  {
+    name: "Canada Arts Presentation Fund (CAPF), Canadian Heritage",
+    logo: img("/partners/capf.png"),
+    width: 1001,
+    height: 365,
+  },
+  {
+    name: "Edmonton Intercultural Centre",
+    logo: img("/partners/edmonton-intercultural-centre.png"),
+    width: 264,
+    height: 100,
+    compact: true,
+  },
+  {
+    name: "Soaring",
+    logo: img("/partners/soaring.png"),
+    width: 723,
+    height: 130,
+  },
+  {
+    name: "Sprout Ideas",
+    logo: img("/partners/sprout-ideas.png"),
+    width: 1175,
+    height: 323,
+  },
+];
+
 export const newrootsFlyerImage = img("/newroots-summit.png");
+export const newrootsSummitPhoto = img("/newroots-summit-2026.jpg");
 
 export const eventBannerImage = eventPageBannerImage;
 
@@ -719,7 +764,12 @@ export const events: Event[] = [
     status: "upcoming",
     year: 2026,
     date: "November 6–8, 2026",
-    location: "Edmonton, Alberta, Canada",
+    location: "Old Strathcona Performing Arts Centre, Edmonton",
+    venue: {
+      name: "Old Strathcona Performing Arts Centre",
+      streetAddress: "8426 Gateway Blvd NW",
+      postalCode: "T6E 4B4",
+    },
     tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
     description:
       "Three electrifying days of music, dance, theatre, film, and fashion. Canada's vibrant multicultural arts festival, where world-class artists, bold creativity, and diverse communities come alive together.",

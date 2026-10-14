@@ -42,7 +42,7 @@ export function EventRegistration({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-secondary/20 bg-secondary/5 p-5 sm:p-6 md:p-8",
+        "rounded-2xl border border-secondary/20 bg-secondary/5 p-5 sm:p-6 md:p-8 lg:p-10",
         className
       )}
     >
@@ -54,7 +54,7 @@ export function EventRegistration({
         open in a new tab and only take a few minutes to complete.
       </p>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:gap-6">
         <div className="flex flex-col rounded-xl border border-border/60 bg-white p-5 shadow-sm">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10">
             <AppIcon name="Mic2" className="h-5 w-5 text-secondary" />

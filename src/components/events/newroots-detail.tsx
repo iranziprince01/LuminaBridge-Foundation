@@ -2,12 +2,12 @@ import Image from "next/image";
 import {
   Building2,
   Calendar,
-  HeartHandshake,
+  FileText,
+  Goal,
   History,
-  Languages,
   MapPin,
-  Sparkles,
   Target,
+  Telescope,
 } from "lucide-react";
 import { EventRegistration } from "@/components/events/event-registration";
 import { PageContainer } from "@/components/shared/page-container";
@@ -17,7 +17,7 @@ import { StatStrip } from "@/components/shared/stat-strip";
 import { FadeUp } from "@/components/motion/fade-up";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
-import { newrootsFlyerImage, type Event } from "@/lib/data";
+import { newrootsFlyerImage, newrootsSummitPhoto, type Event } from "@/lib/data";
 import { newrootsContent } from "@/lib/newroots-content";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,7 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
     <>
       <PageBanner
         title={["NewRoots Canada", "Summit 2026"]}
-        image={event.image}
+        image={newrootsSummitPhoto}
         imageAlt="Newcomers and community members gathered around the table at NewRoots Canada Summit 2026"
         variant="event"
       />
@@ -97,7 +97,7 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
           <FadeUp className="mt-16">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary/10">
-                <Sparkles className="h-5 w-5 text-secondary" />
+                <FileText className="h-5 w-5 text-secondary" />
               </div>
               <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 Event Overview
@@ -179,7 +179,7 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
 
           <FadeUp className="mt-20 rounded-2xl border border-border/60 bg-muted/40 p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-3">
-              <HeartHandshake className="h-5 w-5 text-secondary" />
+              <Goal className="h-5 w-5 text-secondary" />
               <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 Impact Goals
               </h2>
@@ -199,7 +199,7 @@ export function NewRootsDetail({ event }: NewRootsDetailProps) {
 
           <FadeUp className="mt-16 rounded-2xl border border-secondary/20 bg-secondary/5 p-6 sm:p-8 md:p-10">
             <div className="flex items-start gap-4">
-              <Languages className="mt-1 h-5 w-5 shrink-0 text-secondary" />
+              <Telescope className="mt-1 h-5 w-5 shrink-0 text-secondary" />
               <div>
                 <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                   Long-Term Vision

@@ -24,7 +24,7 @@ export function SectionHeader({
   light = false,
 }: SectionHeaderProps) {
   return (
-    <FadeUp className={cn("mb-10 sm:mb-14 md:mb-20 lg:mb-24", className)}>
+    <FadeUp className={cn("mb-8 sm:mb-10 md:mb-12 lg:mb-16", className)}>
       <div
         className={cn(
           "max-w-3xl",

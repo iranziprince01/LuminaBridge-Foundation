@@ -4,7 +4,9 @@ export const bridgefestContent = {
   title: "BridgeFest Canada 2026",
   tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
   dates: "November 6–8, 2026",
-  location: "Edmonton, Alberta, Canada",
+  location: "Old Strathcona Performing Arts Centre, 8426 Gateway Blvd NW, Edmonton, AB T6E 4B4",
+  directionsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Old+Strathcona+Performing+Arts+Centre+8426+Gateway+Blvd+NW+Edmonton+AB+T6E+4B4",
   organizer: "Lumina Bridge Foundation",
   overview: [
     "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival that celebrates artistic excellence and strengthens community connection through professional creative expression. Organized by Lumina Bridge Foundation, the festival will take place from Friday, November 6 to Sunday, November 8, 2026. It brings together professional artists, performers, cultural leaders, and diverse communities from across Canada for a three-day experience centred on music, theatre, dance, film, fashion, and creative industry development.",
@@ -109,29 +111,25 @@ export const bridgefestContent = {
     ],
   },
   mainFlyer: {
-    src: img("/BR1.jpeg"),
-    alt: "BridgeFest Canada 2026 flyer: live music, comedy and dance, Friday to Sunday, November 6 to 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Free entry with optional support tickets.",
-    width: 1236,
-    height: 1600,
+    src: img("/BR1-v2.jpeg"),
+    alt: "BridgeFest Canada 2026 flyer: live music, comedy and dance, Friday to Sunday, November 6 to 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Free entry, with support tickets that fund arts development.",
+    width: 2040,
+    height: 2640,
   },
   lineup: {
     eyebrow: "The Lineup",
     title: "Who's Taking the Stage",
-    intro:
-      "The first artist is confirmed and more names are on the way. Follow the lineup as BridgeFest Canada 2026 comes together.",
     flyers: [
       {
-        badge: "Now Announced",
         title: "Amani, Live on Stage",
         caption:
           "A soulful, high-energy set to sing along, dance and celebrate to. You will be talking about it long after the lights go down.",
-        src: img("/BR2.jpeg"),
+        src: img("/BR2-v2.jpeg"),
         alt: "BridgeFest Canada 2026 artist announcement: singer Amani will be performing live, November 6 to 8, 2026 in Edmonton.",
         width: 2040,
         height: 2640,
       },
       {
-        badge: "Coming Soon",
         title: "More Artists, Comedians and Bands",
         caption:
           "The lineup is growing. New artists, comedians and bands will be revealed here as they are confirmed.",

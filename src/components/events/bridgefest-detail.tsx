@@ -1,29 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowDown,
   Briefcase,
   Building2,
   Calendar,
-  Clapperboard,
-  Drama,
   ExternalLink,
-  Footprints,
+  Eye,
   Globe2,
+  Headphones,
   HeartHandshake,
-  Laugh,
+  Map,
   MapPin,
-  Mic,
-  Music2,
-  Quote,
-  Shirt,
-  Sparkles,
-  Sprout,
   Target,
   TrendingUp,
-  Users,
 } from "lucide-react";
 import { EventRegistration } from "@/components/events/event-registration";
-import { ZoomableImage } from "@/components/events/zoomable-image";
 import { PageContainer } from "@/components/shared/page-container";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
@@ -40,18 +31,11 @@ interface BridgeFestDetailProps {
   event: Event;
 }
 
-const disciplines = [
-  { label: "Music", icon: Music2 },
-  { label: "Theatre", icon: Drama },
-  { label: "Dance", icon: Footprints },
-  { label: "Film", icon: Clapperboard },
-  { label: "Fashion", icon: Shirt },
-  { label: "Comedy", icon: Laugh },
-  { label: "Spoken Word", icon: Mic },
-];
+const disciplines = ["Music", "Theatre", "Dance", "Film", "Fashion", "Comedy", "Spoken Word"];
 
+/** Ordered to match `bridgefestContent.communityImpact`. */
 const impactStyles = [
-  { icon: Sprout, className: "bg-secondary/10 text-secondary" },
+  { icon: Headphones, className: "bg-secondary/10 text-secondary" },
   { icon: HeartHandshake, className: "bg-primary/10 text-primary" },
   { icon: Globe2, className: "bg-accent/15 text-[#a16207]" },
   { icon: Briefcase, className: "bg-secondary/10 text-secondary" },
@@ -69,7 +53,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
 
   const quickFacts = [
     { icon: Calendar, label: "Event Dates", value: content.dates, accent: "border-t-primary", iconClass: "bg-primary/10 text-primary" },
-    { icon: MapPin, label: "Location", value: content.location, accent: "border-t-secondary", iconClass: "bg-secondary/10 text-secondary" },
+    { icon: MapPin, label: "Location", value: content.location, href: content.directionsUrl, accent: "border-t-secondary", iconClass: "bg-secondary/10 text-secondary" },
     { icon: Building2, label: "Organized by", value: content.organizer, accent: "border-t-accent", iconClass: "bg-accent/15 text-[#a16207]" },
   ];
 
@@ -83,72 +67,59 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
       />
 
       <Section tone="white" backdrop="dots">
-        <PageContainer detail>
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+        <PageContainer>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16 xl:gap-20">
             <FadeUp>
-              <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-secondary">
-                <Sparkles className="h-3.5 w-3.5" aria-hidden />
-                {content.dates} · Edmonton
-              </span>
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
+              <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
                 Three days. Five provinces.{" "}
                 <span className="text-secondary">One stage for Canada&apos;s creative voices.</span>
               </h2>
               <p className={cn("mt-5", bodyClass)}>{content.tagline}</p>
 
               <ul className="mt-6 flex flex-wrap gap-2" aria-label="Art forms featured">
-                {disciplines.map(({ label, icon: Icon }) => (
+                {disciplines.map((label) => (
                   <li
                     key={label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-white px-3 py-1.5 text-xs font-semibold text-primary shadow-sm"
+                    className="rounded-full border border-primary/15 bg-white px-3 py-1.5 text-xs font-semibold text-primary shadow-sm"
                   >
-                    <Icon className="h-3.5 w-3.5 text-secondary" aria-hidden />
                     {label}
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                {!isPast && (
-                  <>
-                    <Button asChild>
-                      <Link href={attendance} target="_blank" rel="noopener noreferrer">
-                        Register to Attend
-                        <ExternalLink className="h-4 w-4 opacity-80" />
-                      </Link>
-                    </Button>
-                    <Button variant="outline" asChild>
-                      <Link href={participant} target="_blank" rel="noopener noreferrer">
-                        Participate
-                        <ExternalLink className="h-4 w-4 opacity-70" />
-                      </Link>
-                    </Button>
-                  </>
-                )}
-                <Button variant="ghost" asChild>
-                  <Link href="#programme">
-                    See the Programme
-                    <ArrowDown className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              {!isPast && (
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <Button asChild>
+                    <Link href={attendance} target="_blank" rel="noopener noreferrer">
+                      Register to Attend
+                      <ExternalLink className="h-4 w-4 opacity-80" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href={participant} target="_blank" rel="noopener noreferrer">
+                      Participate
+                      <ExternalLink className="h-4 w-4 opacity-70" />
+                    </Link>
+                  </Button>
+                </div>
+              )}
             </FadeUp>
 
-            <MotionReveal direction="scale" className="mx-auto w-full max-w-md">
-              <ZoomableImage
+            <MotionReveal direction="scale" className="mx-auto w-full max-w-lg">
+              <Image
                 src={content.mainFlyer.src}
                 alt={content.mainFlyer.alt}
                 width={content.mainFlyer.width}
                 height={content.mainFlyer.height}
                 priority
-                sizes="(max-width: 1024px) 90vw, 448px"
-                className="rounded-3xl shadow-2xl ring-1 ring-primary/10"
+                sizes="(max-width: 1024px) 90vw, 512px"
+                className="h-auto w-full rounded-3xl shadow-2xl ring-1 ring-primary/10"
               />
             </MotionReveal>
           </div>
 
-          <StaggerContainer className="mt-16 grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
-            {quickFacts.map(({ icon: Icon, label, value, accent, iconClass }) => (
+          <StaggerContainer className="mt-16 grid gap-5 md:grid-cols-3 lg:gap-8" staggerDelay={0.08}>
+            {quickFacts.map(({ icon: Icon, label, value, href, accent, iconClass }) => (
               <StaggerItem key={label}>
                 <div
                   className={cn(
@@ -166,6 +137,17 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                     <p className="mt-0.5 text-sm font-semibold leading-snug text-foreground sm:text-base">
                       {value}
                     </p>
+                    {href && (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
+                      >
+                        Get directions
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                      </a>
+                    )}
                   </div>
                 </div>
               </StaggerItem>
@@ -174,8 +156,8 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
         </PageContainer>
       </Section>
 
-      <section className="bg-primary py-14 sm:py-16 md:py-20">
-        <PageContainer detail>
+      <section className="bg-primary py-12 sm:py-14 md:py-16">
+        <PageContainer>
           <StaggerContainer className="grid grid-cols-2 gap-y-10 md:grid-cols-4" staggerDelay={0.1}>
             {content.stats.map((stat) => (
               <StaggerItem key={stat.label} className="text-center">
@@ -192,36 +174,26 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
       </section>
 
       <Section id="lineup" tone="white" backdrop="none">
-        <PageContainer detail>
+        <PageContainer>
           <FadeUp className="mx-auto max-w-2xl text-center">
             <p className={eyebrowClass}>{content.lineup.eyebrow}</p>
             <h2 className={cn("mt-4", sectionTitleClass)}>{content.lineup.title}</h2>
-            <p className={cn("mt-5", bodyClass)}>{content.lineup.intro}</p>
           </FadeUp>
 
           <StaggerContainer
-            className="mx-auto mt-12 grid max-w-4xl gap-10 sm:mt-14 sm:grid-cols-2 sm:gap-8"
+            className="mx-auto mt-12 grid max-w-5xl gap-10 sm:mt-14 sm:grid-cols-2 sm:gap-8 lg:gap-12"
             staggerDelay={0.12}
           >
-            {content.lineup.flyers.map((flyer, index) => (
+            {content.lineup.flyers.map((flyer) => (
               <StaggerItem key={flyer.title}>
                 <article>
-                  <span
-                    className={cn(
-                      "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.16em]",
-                      index === 0 ? "bg-gold-cream text-[#a16207]" : "bg-secondary/10 text-secondary"
-                    )}
-                  >
-                    <Sparkles className="h-3 w-3" aria-hidden />
-                    {flyer.badge}
-                  </span>
-                  <ZoomableImage
+                  <Image
                     src={flyer.src}
                     alt={flyer.alt}
                     width={flyer.width}
                     height={flyer.height}
-                    sizes="(max-width: 640px) 90vw, 432px"
-                    className="mt-4 rounded-3xl shadow-xl ring-1 ring-primary/10"
+                    sizes="(max-width: 640px) 90vw, 488px"
+                    className="h-auto w-full rounded-3xl shadow-xl ring-1 ring-primary/10"
                   />
                   <h3 className="mt-6 font-display text-xl font-bold text-foreground sm:text-2xl">
                     {flyer.title}
@@ -237,7 +209,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
       </Section>
 
       <Section id="programme" tone="green" backdrop="none">
-        <PageContainer detail>
+        <PageContainer>
           <FadeUp className="text-center">
             <p className={eyebrowClass}>Three Days of Excellence</p>
             <h2 className={cn("mt-4", sectionTitleClass)}>Festival Programming</h2>
@@ -247,10 +219,10 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
             </p>
           </FadeUp>
 
-          <StaggerContainer className="mt-12 space-y-6 sm:mt-14" staggerDelay={0.12}>
+          <StaggerContainer className="mt-12 space-y-6 sm:mt-14 lg:space-y-8" staggerDelay={0.12}>
             {content.programming.map((day, index) => (
               <StaggerItem key={day.day}>
-                <article className="grid overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-border/60 transition-shadow duration-300 hover:shadow-xl md:grid-cols-[17rem_1fr]">
+                <article className="grid overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-border/60 transition-shadow duration-300 hover:shadow-xl md:grid-cols-[17rem_1fr] lg:grid-cols-[20rem_1fr]">
                   <div
                     className={cn(
                       "relative flex flex-col justify-between gap-6 overflow-hidden p-6 text-white sm:p-8",
@@ -273,7 +245,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                       {day.title}
                     </h3>
                   </div>
-                  <div className="p-6 sm:p-8">
+                  <div className="p-6 sm:p-8 lg:p-10">
                     <p className={bodyClass}>{day.description}</p>
                     <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${day.day} highlights`}>
                       {day.highlights.map((highlight) => (
@@ -294,12 +266,12 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
       </Section>
 
       <Section tone="white" backdrop="none">
-        <PageContainer detail>
+        <PageContainer>
           <FadeUp className="max-w-3xl">
             <p className={eyebrowClass}>About the Festival</p>
             <h2 className={cn("mt-4", sectionTitleClass)}>Event Overview</h2>
           </FadeUp>
-          <StaggerContainer className="mt-8 space-y-5" staggerDelay={0.08}>
+          <StaggerContainer className="mt-8 grid gap-5 lg:grid-cols-2 lg:gap-12" staggerDelay={0.08}>
             {content.overview.map((paragraph) => (
               <StaggerItem key={paragraph.slice(0, 48)}>
                 <p className={bodyClass}>{paragraph}</p>
@@ -307,11 +279,11 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
             ))}
           </StaggerContainer>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
             <MotionReveal direction="left" className="h-full">
               <div className="h-full rounded-3xl bg-primary p-7 text-white shadow-lg sm:p-9">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15">
-                  <Target className="h-5 w-5" aria-hidden />
+                  <Eye className="h-5 w-5" aria-hidden />
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-bold">Vision</h3>
                 <p className="mt-3 text-base leading-relaxed text-white/90">{content.vision}</p>
@@ -320,7 +292,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
             <MotionReveal direction="right" className="h-full">
               <div className="h-full rounded-3xl border border-accent/30 bg-gold-cream p-7 shadow-sm sm:p-9">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/20 text-[#a16207]">
-                  <Globe2 className="h-5 w-5" aria-hidden />
+                  <Target className="h-5 w-5" aria-hidden />
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-bold text-foreground">Mission</h3>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -329,13 +301,17 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
               </div>
             </MotionReveal>
           </div>
+        </PageContainer>
+      </Section>
 
-          <FadeUp className="mt-20 max-w-3xl">
+      <Section tone="green" backdrop="none">
+        <PageContainer>
+          <FadeUp className="max-w-3xl">
             <p className={eyebrowClass}>Beyond the Stage</p>
             <h2 className={cn("mt-4", sectionTitleClass)}>Community Impact</h2>
             <p className={cn("mt-5", bodyClass)}>{content.communityImpactIntro}</p>
           </FadeUp>
-          <StaggerContainer className="mt-10 grid gap-5 sm:grid-cols-2" staggerDelay={0.08}>
+          <StaggerContainer className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6" staggerDelay={0.08}>
             {content.communityImpact.map((item, index) => {
               const { icon: Icon, className } = impactStyles[index % impactStyles.length];
               return (
@@ -361,13 +337,13 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
         </PageContainer>
       </Section>
 
-      <Section tone="green" backdrop="none">
-        <PageContainer detail>
-          <div className="grid gap-6 md:grid-cols-2">
+      <Section tone="white" backdrop="none">
+        <PageContainer>
+          <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
             <MotionReveal direction="left" className="h-full">
               <div className="h-full rounded-3xl bg-white p-7 shadow-sm ring-1 ring-border/60 sm:p-9">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Users className="h-5 w-5" aria-hidden />
+                  <Map className="h-5 w-5" aria-hidden />
                 </div>
                 <h2 className="mt-5 font-display text-2xl font-bold text-foreground">
                   {content.nationalReach.title}
@@ -410,22 +386,28 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
             </MotionReveal>
           </div>
 
-          <FadeUp className="mx-auto mt-20 max-w-3xl text-center">
-            <Quote className="mx-auto h-10 w-10 text-accent" aria-hidden />
-            <h2 className={cn("mt-4", sectionTitleClass)}>{content.longTermVision.title}</h2>
-            <div className="mt-6 space-y-5">
-              {content.longTermVision.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 48)} className={bodyClass}>
-                  {paragraph}
-                </p>
-              ))}
+          <FadeUp className="mt-6 lg:mt-8">
+            <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-border/60 sm:p-9">
+              <h2 className="font-display text-2xl font-bold text-foreground">
+                {content.longTermVision.title}
+              </h2>
+              <div className="mt-3 grid gap-4 lg:grid-cols-2 lg:gap-12">
+                {content.longTermVision.paragraphs.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="text-base leading-relaxed text-muted-foreground"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           </FadeUp>
         </PageContainer>
       </Section>
 
-      <Section tone="white" backdrop="dots">
-        <PageContainer detail>
+      <Section tone="green" backdrop="none">
+        <PageContainer>
           <FadeUp>
             <EventRegistration event={event} />
           </FadeUp>

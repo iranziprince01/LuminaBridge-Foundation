@@ -61,7 +61,7 @@ export function GetInTouchCta({ tone = "green" }: GetInTouchCtaProps) {
     <section
       aria-labelledby="get-in-touch-heading"
       className={cn(
-        "relative overflow-hidden py-14 sm:py-16 md:py-20 lg:py-24",
+        "relative overflow-hidden py-10 sm:py-12 md:py-14 lg:py-16",
         tone === "white"
           ? "section-bg-white border-t border-border/60"
           : "section-bg-green border-t border-secondary/10"

@@ -45,7 +45,7 @@ export function LegalPage({ document, relatedHref, relatedLabel }: LegalPageProp
         </PageContainer>
       </section>
 
-      <section className="section-bg-white py-12 sm:py-16 md:py-20">
+      <section className="section-bg-white py-10 sm:py-14 md:py-16">
         <PageContainer>
           <div className="grid gap-12 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-16 xl:gap-20">
             <aside className="lg:sticky lg:top-28 lg:self-start">
