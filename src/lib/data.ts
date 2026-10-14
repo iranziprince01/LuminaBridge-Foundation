@@ -691,7 +691,6 @@ export const partners: Partner[] = [
 ];
 
 export const newrootsFlyerImage = img("/newroots-summit.png");
-export const newrootsSummitPhoto = img("/newroots-summit-2026.jpg");
 
 export const eventBannerImage = eventPageBannerImage;
 

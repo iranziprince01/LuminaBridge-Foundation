@@ -4,18 +4,25 @@ import { useCallback, useState } from "react";
 import { ImageLightbox } from "@/components/events/image-lightbox";
 import { PhotoSlot } from "@/components/events/photo-slot";
 import type { ProgramPhoto } from "@/lib/lead-where-you-land-content";
+import { cn } from "@/lib/utils";
 
 interface PhotoGalleryProps {
   photos: readonly ProgramPhoto[];
+  columns?: 2 | 3;
 }
 
-export function PhotoGallery({ photos }: PhotoGalleryProps) {
+export function PhotoGallery({ photos, columns = 2 }: PhotoGalleryProps) {
   const [active, setActive] = useState<ProgramPhoto | null>(null);
   const close = useCallback(() => setActive(null), []);
 
   return (
     <>
-      <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+      <div
+        className={cn(
+          "grid gap-4 md:grid-cols-2 md:gap-5",
+          columns === 3 && "lg:grid-cols-3 lg:gap-6"
+        )}
+      >
         {photos.map((photo) =>
           photo.src ? (
             <button

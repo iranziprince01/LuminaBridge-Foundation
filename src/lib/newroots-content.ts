@@ -1,3 +1,55 @@
+import { img } from "@/lib/image-urls";
+
+export const newrootsPhotos = {
+  banner: {
+    label: "Banner",
+    description: "A facilitator leading a session at NewRoots Canada Summit 2026",
+    src: img("/newroots-banner.jpeg"),
+  },
+  group: {
+    label: "Group photo",
+    description: "Participants, facilitators and guests together at NewRoots Canada Summit 2026",
+    src: img("/NR06.jpeg"),
+  },
+  facilitator: {
+    label: "Facilitator",
+    description: "A facilitator speaking with participants at NewRoots Canada Summit 2026",
+    src: img("/NR08.jpeg"),
+  },
+  highlights: [
+    {
+      label: "Highlight 1",
+      description: "Participants smiling together at the front of the room",
+      src: img("/NR03.jpeg"),
+    },
+    {
+      label: "Highlight 2",
+      description: "Two participants with a facilitator beside the quiz leaderboard",
+      src: img("/NR04.jpeg"),
+    },
+    {
+      label: "Highlight 3",
+      description: "Participants engaged in a group discussion at the table",
+      src: img("/NR02.jpeg"),
+    },
+    {
+      label: "Highlight 4",
+      description: "Participants taking part in an interactive quiz on their phones",
+      src: img("/NR05.jpeg"),
+    },
+    {
+      label: "Highlight 5",
+      description: "Guests listening during a summit session",
+      src: img("/NR01.jpeg"),
+    },
+    {
+      label: "Highlight 6",
+      description: "A facilitator addressing the room",
+      src: img("/NR07.jpeg"),
+    },
+  ],
+};
+
 export const newrootsContent = {
   title: "NewRoots Canada Summit",
   subtitle: "Language, Culture & Belonging Festival",
@@ -22,7 +74,6 @@ export const newrootsContent = {
         "Community cultural exhibitions",
         "Spoken word presentations",
       ],
-      accent: "from-primary/90 to-primary",
     },
     {
       number: "02",
@@ -35,7 +86,6 @@ export const newrootsContent = {
         "Public speaking challenges",
         "Everyday communication workshops",
       ],
-      accent: "from-secondary to-[#c9a000]",
     },
     {
       number: "03",
@@ -48,7 +98,6 @@ export const newrootsContent = {
         "Community services navigation",
         "Volunteer and leadership opportunities",
       ],
-      accent: "from-[#0d9488] to-primary",
     },
     {
       number: "04",
@@ -61,7 +110,6 @@ export const newrootsContent = {
         "Cross-cultural networking sessions",
         "Community leadership discussions",
       ],
-      accent: "from-primary to-[#0d9488]",
     },
     {
       number: "05",
@@ -74,7 +122,6 @@ export const newrootsContent = {
         "Theatre communication exercises",
         "Storytelling through arts",
       ],
-      accent: "from-[#7c3aed] to-primary",
     },
     {
       number: "06",
@@ -87,7 +134,6 @@ export const newrootsContent = {
         "Leadership mentorship sessions",
         "Youth innovation showcase",
       ],
-      accent: "from-secondary/90 to-primary",
     },
   ],
   expectedImpact: [
