@@ -91,6 +91,9 @@ const IMAGES = [
   "E8.jpg",
   "E9.jpg",
   "E10.jpg",
+  // Blogs
+  "Blog01.jpeg",
+  "Blog02.jpeg",
 ];
 
 const mimeMap = {

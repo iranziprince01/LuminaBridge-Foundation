@@ -76,6 +76,8 @@ export const imageUrls: Record<string, string> = {
   "/E8.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/E8.jpg",
   "/E9.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/E9.jpg",
   "/E10.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/E10.jpg",
+  "/Blog01.jpeg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Blog01.jpeg",
+  "/Blog02.jpeg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Blog02.jpeg",
 };
 
 /** Returns the Blob CDN URL for a public path, or the original path as fallback. */

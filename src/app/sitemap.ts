@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog-posts";
 import { events } from "@/lib/data";
 import { programs } from "@/lib/programs-content";
 import { absoluteUrl, staticSitemapPaths } from "@/lib/seo";
@@ -27,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...eventEntries, ...programEntries];
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: absoluteUrl(`/blog/${post.slug}`),
+    lastModified: new Date(post.publishedISO),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...eventEntries, ...programEntries, ...blogEntries];
 }
