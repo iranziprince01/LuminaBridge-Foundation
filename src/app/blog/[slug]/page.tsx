@@ -11,6 +11,7 @@ import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { blogPosts, getBlogPost } from "@/lib/blog-posts";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { cn } from "@/lib/utils";
 
 interface BlogPageProps {
   params: Promise<{ slug: string }>;
@@ -34,9 +35,8 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   }
 
   return createPageMetadata({
-    title: "Gentil Misigaro at BridgeFest Canada 2026",
-    description:
-      "Gentil Misigaro sings at BridgeFest Canada 2026 on Saturday, November 7 in Edmonton. Free entry with Lumina Bridge Foundation.",
+    title: post.title,
+    description: post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.cover.src,
     imageAlt: post.cover.alt,
@@ -117,20 +117,77 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
       <Section tone="green">
         <PageContainer>
-          <div className="grid items-start gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-12">
-            {post.images.map((image) => (
-              <FadeUp key={image.src}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width}
-                  height={image.height}
-                  sizes="(max-width: 640px) 90vw, 45vw"
-                  className="h-auto w-full rounded-3xl shadow-2xl ring-1 ring-primary/10"
-                />
+          {post.artists?.length ? (
+            <>
+              <FadeUp className="max-w-2xl">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
+                  The voices on stage
+                </p>
+                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                  Who you will hear
+                </h2>
               </FadeUp>
-            ))}
-          </div>
+              <div className="mt-12 space-y-16 sm:mt-16 lg:space-y-24">
+                {post.artists.map((artist, index) => {
+                  const flyerFirst = index % 2 === 1;
+
+                  return (
+                    <FadeUp key={artist.name}>
+                      <article className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+                        <div className={cn("max-w-xl", flyerFirst && "order-2")}>
+                          <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
+                            {String(index + 1).padStart(2, "0")} · {artist.role}
+                          </p>
+                          <h3 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                            {artist.name}
+                          </h3>
+                          <p className="mt-3 text-sm font-semibold text-foreground sm:text-base">
+                            {artist.when}
+                          </p>
+                          <div className="mt-6 space-y-4">
+                            {artist.paragraphs.map((paragraph) => (
+                              <p
+                                key={paragraph}
+                                className="text-base leading-relaxed text-muted-foreground md:text-lg"
+                              >
+                                {paragraph}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                        <div className={cn("flex justify-center", flyerFirst && "order-1")}>
+                          <Image
+                            src={artist.image.src}
+                            alt={artist.image.alt}
+                            width={artist.image.width}
+                            height={artist.image.height}
+                            {...(index === 0 ? { priority: true } : { loading: "eager" as const })}
+                            sizes="(max-width: 1024px) 90vw, 420px"
+                            className="h-auto w-full max-w-sm rounded-3xl shadow-2xl ring-1 ring-primary/10"
+                          />
+                        </div>
+                      </article>
+                    </FadeUp>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <div className="grid items-start gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-12">
+              {post.images.map((image) => (
+                <FadeUp key={image.src}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    sizes="(max-width: 640px) 90vw, 45vw"
+                    className="h-auto w-full rounded-3xl shadow-2xl ring-1 ring-primary/10"
+                  />
+                </FadeUp>
+              ))}
+            </div>
+          )}
         </PageContainer>
       </Section>
 
@@ -143,9 +200,11 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   {paragraph}
                 </p>
               ))}
-              <p className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                Come for the voice. Stay for the weekend.
-              </p>
+              {post.closing ? (
+                <p className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                  {post.closing}
+                </p>
+              ) : null}
             </div>
 
             <aside className="rounded-3xl bg-primary p-6 text-white sm:p-8 lg:sticky lg:top-28">

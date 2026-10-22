@@ -39,15 +39,32 @@ export function NewsBlogsList() {
         <article className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-border/60">
           <div className="grid items-center lg:grid-cols-[minmax(16rem,22rem)_1fr]">
             <Link href={getBlogHref(featured.slug)} className="block bg-primary p-5 sm:p-6 lg:p-8">
-              <Image
-                src={featured.cover.src}
-                alt={featured.cover.alt}
-                width={featured.cover.width}
-                height={featured.cover.height}
-                sizes="(max-width: 1024px) 90vw, 352px"
-                priority
-                className="mx-auto h-auto w-full max-w-sm rounded-2xl shadow-2xl ring-1 ring-white/15"
-              />
+              {featured.images.length > 1 ? (
+                <div className="mx-auto grid max-w-lg grid-cols-3 items-start gap-2 lg:max-w-none">
+                  {featured.images.slice(0, 3).map((image, index) => (
+                    <Image
+                      key={image.src}
+                      src={image.src}
+                      alt={image.alt}
+                      width={image.width}
+                      height={image.height}
+                      sizes="(max-width: 1024px) 30vw, 180px"
+                      priority={index === 0}
+                      className="h-auto w-full rounded-xl shadow-xl ring-1 ring-white/15"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <Image
+                  src={featured.cover.src}
+                  alt={featured.cover.alt}
+                  width={featured.cover.width}
+                  height={featured.cover.height}
+                  sizes="(max-width: 1024px) 90vw, 352px"
+                  priority
+                  className="mx-auto h-auto w-full max-w-sm rounded-2xl shadow-2xl ring-1 ring-white/15"
+                />
+              )}
             </Link>
 
             <div className="flex flex-col p-6 sm:p-8 lg:p-10 lg:pr-12">

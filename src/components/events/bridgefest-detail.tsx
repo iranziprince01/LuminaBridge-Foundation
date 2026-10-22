@@ -178,21 +178,29 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
           <FadeUp className="mx-auto max-w-2xl text-center">
             <p className={eyebrowClass}>{content.lineup.eyebrow}</p>
             <h2 className={cn("mt-4", sectionTitleClass)}>{content.lineup.title}</h2>
+            <p className={cn("mt-5", bodyClass)}>{content.lineup.intro}</p>
           </FadeUp>
 
           <StaggerContainer
-            className="mx-auto mt-12 grid max-w-5xl gap-10 sm:mt-14 sm:grid-cols-2 sm:gap-8 lg:gap-12"
+            className="mt-12 grid gap-10 sm:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-8"
             staggerDelay={0.12}
           >
-            {content.lineup.flyers.map((flyer) => (
-              <StaggerItem key={flyer.title}>
+            {content.lineup.flyers.map((flyer, index) => (
+              <StaggerItem
+                key={flyer.title}
+                className={cn(
+                  index === content.lineup.flyers.length - 1 &&
+                    content.lineup.flyers.length % 2 === 1 &&
+                    "md:col-span-2 md:mx-auto md:w-full md:max-w-md lg:col-span-1 lg:mx-0 lg:max-w-none"
+                )}
+              >
                 <article>
                   <Image
                     src={flyer.src}
                     alt={flyer.alt}
                     width={flyer.width}
                     height={flyer.height}
-                    sizes="(max-width: 640px) 90vw, 488px"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 42vw, 30vw"
                     className="h-auto w-full rounded-3xl shadow-xl ring-1 ring-primary/10"
                   />
                   <h3 className="mt-6 font-display text-xl font-bold text-foreground sm:text-2xl">

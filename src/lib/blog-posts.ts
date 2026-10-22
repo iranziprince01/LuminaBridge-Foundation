@@ -12,6 +12,14 @@ export interface BlogFact {
   value: string;
 }
 
+export interface BlogArtist {
+  name: string;
+  role: string;
+  when: string;
+  image: BlogImage;
+  paragraphs: string[];
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -21,51 +29,101 @@ export interface BlogPost {
   publishedISO: string;
   cover: BlogImage;
   images: BlogImage[];
+  artists?: BlogArtist[];
   paragraphs: string[];
+  closing?: string;
   facts: BlogFact[];
 }
 
-const flyerSize = { width: 2160, height: 2880 };
+const portraitFlyer = { width: 2160, height: 2700 };
+const stageFlyer = { width: 2160, height: 2880 };
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "gentil-misigaro-bridgefest-canada-2026",
-    title: "Gentil Misigaro Takes the Stage at BridgeFest Canada 2026",
+    title: "Three Singers Take the Stage at BridgeFest Canada 2026",
     excerpt:
-      "A professional singer joins BridgeFest as special guest, with a live set on Saturday, November 7 at the Old Strathcona Performing Arts Centre.",
+      "Amani Kayumba sings all three nights. Gentil Misigaro and Alpha Rwirangira take Saturday. Free entry in Edmonton, November 6 to 8.",
     category: "Artist announcement",
     published: "October 20, 2026",
     publishedISO: "2026-10-20",
     cover: {
-      src: img("/Blog01.jpeg"),
-      alt: "BridgeFest Canada 2026 flyer of singer Gentil Misigaro performing in a white jacket and red shirt, announced as special guest for November 6 to 8, 2026 in Edmonton.",
-      ...flyerSize,
+      src: img("/BF02.jpeg"),
+      alt: "BridgeFest Canada 2026 flyer announcing special guest singer Gentil Misigaro, performing Saturday, November 7, 2026, at the Old Strathcona Performing Arts Centre in Edmonton.",
+      ...stageFlyer,
     },
     images: [
       {
-        src: img("/Blog01.jpeg"),
-        alt: "Colour BridgeFest Canada 2026 flyer featuring Gentil Misigaro with one arm raised, microphone in hand, under the Lumina Bridge Foundation name.",
-        ...flyerSize,
+        src: img("/BF01.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer Amani Kayumba, live all three nights, November 6, 7 and 8, 2026, in Edmonton. Free entrance.",
+        ...portraitFlyer,
       },
       {
-        src: img("/Blog02.jpeg"),
-        alt: "Black and white BridgeFest Canada 2026 portrait flyer of Gentil Misigaro singing into a microphone.",
-        ...flyerSize,
+        src: img("/BF02.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of special guest singer Gentil Misigaro performing Saturday, November 7, 2026, in Edmonton. Free entrance.",
+        ...stageFlyer,
+      },
+      {
+        src: img("/BF03.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira live in Edmonton on Saturday, November 7, 2026, a night of worship and inspiration. Free entrance.",
+        ...portraitFlyer,
+      },
+    ],
+    artists: [
+      {
+        name: "Amani Kayumba",
+        role: "Live, all three nights",
+        when: "November 6, 7 and 8 · Doors 5 PM · Show 6 PM",
+        image: {
+          src: img("/BF01.jpeg"),
+          alt: "BridgeFest Canada 2026 flyer of singer Amani Kayumba in a white t-shirt, announced live at BridgeFest for all three nights, November 6, 7 and 8, 2026, at the Old Strathcona Performing Arts Centre.",
+          ...portraitFlyer,
+        },
+        paragraphs: [
+          "Amani Kayumba sings live all three nights, from Friday through Sunday. Doors open at 5 PM and the show starts at 6. He is the voice that stays while comedy, dance and the rest of the weekend change around him. Walk in any evening and he is on stage.",
+          "Come on Friday and the songs are still new. Come back Saturday or Sunday and they belong to the room. A three-night set gives Edmonton time to learn a voice, and a clear reason to return before the festival ends. Bring someone with you.",
+        ],
+      },
+      {
+        name: "Gentil Misigaro",
+        role: "Special guest",
+        when: "Saturday, November 7 · Doors 5 PM · Show 6 PM",
+        image: {
+          src: img("/BF02.jpeg"),
+          alt: "BridgeFest Canada 2026 flyer of singer Gentil Misigaro, microphone in hand and one arm raised, announced as special guest for Saturday, November 7, 2026.",
+          ...stageFlyer,
+        },
+        paragraphs: [
+          "Gentil Misigaro joins as special guest on Saturday, November 7. Born in Congo, he started guitar at six and singing at twelve. Songs carried him through Rwanda and Uganda, and later to Winnipeg, where he introduced himself as a musician.",
+          "Listeners know Buri Munsi, Biratungana and Hano ku Isi. He has taken that music through Canada, the United States, Europe and East Africa. The invitation is unchanged. Come closer, sing along, and leave with more hope than you arrived with.",
+        ],
+      },
+      {
+        name: "Alpha Rwirangira",
+        role: "Saturday headline",
+        when: "Saturday, November 7 · Doors 5 PM · Show 6 PM",
+        image: {
+          src: img("/BF03.jpeg"),
+          alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira at a microphone, arm extended, billed for a Saturday night of worship and inspiration in Edmonton.",
+          ...portraitFlyer,
+        },
+        paragraphs: [
+          "Alpha Rwirangira headlines Saturday for a night of worship and inspiration. The Rwandan singer won Tusker Project Fame, then its All Stars edition. He sings in English, Swahili and Kinyarwanda, in songs written to be sung back by the room.",
+          "Church singing in Kigali led to stages across East Africa, including Songa Mbele with A.Y. and the album One Africa. Gospel songs such as Yamungu, Merci and Wow lead to November 7, when Edmonton gets the chance to sing them back.",
+        ],
       },
     ],
     paragraphs: [
-      "Lumina Bridge Foundation is bringing a voice audiences already know by heart to BridgeFest Canada 2026. Gentil Misigaro, a professional singer, joins the festival as special guest. He performs live on Saturday, November 7, from 5 to 9 PM, at the Old Strathcona Performing Arts Centre in Edmonton.",
-      "BridgeFest runs from Friday, November 6 to Sunday, November 8. Music, comedy, and dance share the weekend, and entry is free. Saturday evening is built around a full live set from an artist who has spent years turning a stage into a gathering place.",
-      "His path to that stage started far from Gateway Boulevard. Born in the Democratic Republic of Congo, Gentil began playing guitar at six and singing at twelve, in a family where music was already the language of the house. Conflict moved that family from Congo to Rwanda and then to Uganda. Through those years, songs were how he found work, how he kept courage, and how he stayed close to the people around him.",
-      "In February 2010 he arrived in Winnipeg with his family and introduced himself the way he still does: as a musician. That introduction opened doors. He taught music to young people, produced his own recordings, and built a catalogue that travels easily between languages and rooms. Listeners know him for songs such as Buri Munsi, Biratungana, and Hano ku Isi, and for albums including Buri Munsi and Amashimwe. He has carried that music through Canada, the United States, Europe, and East Africa.",
-      "What stays consistent is the invitation inside the songs. Come closer. Sing along. Leave with more hope than you arrived with. Canadian Immigrant told that Winnipeg story for the same reason audiences keep showing up: the music is meant to be useful, not only admired.",
-      "That invitation is also the point of BridgeFest. Lumina Bridge Foundation built the festival so professional artists and the communities around them can meet in one room. A Saturday night with Gentil Misigaro belongs there. Expect a chorus the house can join, and a crowd that will not stay seated for long.",
-      "The details are simple. The festival is at the Old Strathcona Performing Arts Centre, 8426 Gateway Blvd NW, Edmonton. Gentil performs Saturday, November 7, from 5 to 9 PM. Entrance is free, and registering helps the team prepare the house for you.",
+      "BridgeFest Canada 2026 was built for more than one voice in a dark room. Lumina Bridge Foundation made it a weekend where professional artists and the communities around them share a stage. This November, three singers carry that idea into the Old Strathcona Performing Arts Centre: Amani Kayumba, Gentil Misigaro and Alpha Rwirangira.",
+      "The festival runs Friday, November 6 through Sunday, November 8, at 8426 Gateway Blvd NW, Edmonton. Music, comedy and dance share the programme. Entrance is free. Doors open at 5 PM and the show starts at 6. Registering helps the team prepare the house for you.",
+      "You do not have to pick a favourite before you arrive. Amani Kayumba is there every night. Saturday holds both Gentil Misigaro and Alpha Rwirangira. Come for the voice you already know, or for the one you are about to learn.",
     ],
+    closing: "Three singers. One weekend. The door is open.",
     facts: [
-      { label: "Artist", value: "Gentil Misigaro, professional singer" },
-      { label: "Performs", value: "Saturday, November 7, 2026, 5 to 9 PM" },
-      { label: "Festival dates", value: "November 6, 7 and 8, 2026" },
+      { label: "Singers", value: "Amani Kayumba, Gentil Misigaro and Alpha Rwirangira" },
+      { label: "Amani Kayumba", value: "All three nights, November 6, 7 and 8. Doors 5 PM, show 6 PM" },
+      { label: "Gentil Misigaro", value: "Saturday, November 7. Doors 5 PM, show 6 PM" },
+      { label: "Alpha Rwirangira", value: "Saturday, November 7 headline. Doors 5 PM, show 6 PM" },
       { label: "Venue", value: "Old Strathcona Performing Arts Centre, Edmonton" },
       { label: "Presented by", value: "Lumina Bridge Foundation" },
       { label: "Admission", value: "Free entrance" },

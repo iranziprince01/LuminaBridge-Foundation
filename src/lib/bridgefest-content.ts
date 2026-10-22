@@ -119,24 +119,35 @@ export const bridgefestContent = {
   lineup: {
     eyebrow: "The Lineup",
     title: "Who's Taking the Stage",
+    intro:
+      "Amani Kayumba sings all three nights. Gentil Misigaro and Alpha Rwirangira take Saturday. Doors at 5 PM, show at 6 PM, and entry is free.",
     flyers: [
       {
-        title: "Amani, Live on Stage",
+        title: "Amani Kayumba, Live",
         caption:
-          "A soulful, high-energy set to sing along, dance and celebrate to. You will be talking about it long after the lights go down.",
-        src: img("/BR2-v2.jpeg"),
-        alt: "BridgeFest Canada 2026 artist announcement: singer Amani will be performing live, November 6 to 8, 2026 in Edmonton.",
-        width: 2040,
-        height: 2640,
+          "On stage Friday, Saturday and Sunday. Come the first night, and you will want the next two.",
+        src: img("/BF01.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer Amani Kayumba, live all three nights, November 6, 7 and 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
+        width: 2160,
+        height: 2700,
       },
       {
-        title: "More Artists, Comedians and Bands",
+        title: "Gentil Misigaro, Special Guest",
         caption:
-          "The lineup is growing. New artists, comedians and bands will be revealed here as they are confirmed.",
-        src: img("/BR3.jpeg"),
-        alt: "BridgeFest Canada 2026 lineup teaser: more artists, comedians and bands are coming soon, November 6 to 8, 2026 in Edmonton.",
-        width: 1236,
-        height: 1600,
+          "A Saturday night with a voice that turns a hall into a gathering. He performs November 7.",
+        src: img("/BF02.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer announcing special guest singer Gentil Misigaro, performing Saturday, November 7, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
+        width: 2160,
+        height: 2880,
+      },
+      {
+        title: "Alpha Rwirangira, Live",
+        caption:
+          "Saturday's headline: a night of worship and inspiration, with a chorus the room can join.",
+        src: img("/BF03.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira live in Edmonton on Saturday, November 7, 2026, a night of worship and inspiration at the Old Strathcona Performing Arts Centre. Doors 5 PM, show 6 PM, free entrance.",
+        width: 2160,
+        height: 2700,
       },
     ],
   },
