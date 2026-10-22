@@ -6,7 +6,7 @@ import { GetInTouchCta } from "@/components/layout/get-in-touch-cta";
 const HIDDEN_ON = ["/get-involved"];
 
 /** Pages whose final section is green, so the CTA must be white to keep backgrounds alternating. */
-const WHITE_ON = ["/events", "/events/youth-unlocking-potential-2026", "/events/bridgefest"];
+const WHITE_ON = ["/events/youth-unlocking-potential-2026", "/events/bridgefest"];
 
 export function GetInTouchCtaShell() {
   const pathname = usePathname();

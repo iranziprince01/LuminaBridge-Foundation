@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { eventPageBannerImage } from "@/lib/data";
+import { img } from "@/lib/image-urls";
 import { metaDescription } from "@/lib/seo-keywords";
 import { pageTitles, siteConfig } from "@/lib/site-config";
 
@@ -14,6 +15,9 @@ export const pageDescriptions = {
   ),
   events: metaDescription(
     "Explore Lumina Bridge Foundation events in Alberta, including NewRoots Summit, BridgeFest, and youth programs in Edmonton and across Canada."
+  ),
+  news: metaDescription(
+    "Stories and updates from Lumina Bridge Foundation in Edmonton, Alberta, including BridgeFest news and community reflections."
   ),
   programs: metaDescription(
     "Explore Lumina Bridge Foundation programs in Edmonton and Alberta: arts, culture, youth leadership, mental wellness, and newcomer support."
@@ -195,6 +199,7 @@ export const staticSitemapPaths = [
   "",
   "/about",
   "/events",
+  "/blog",
   "/programs",
   "/impact",
   "/donate",
@@ -265,6 +270,13 @@ export const eventsMetadata = createPageMetadata({
   description: pageDescriptions.events,
   path: "/events",
   image: eventPageBannerImage,
+});
+
+export const newsMetadata = createPageMetadata({
+  title: pageTitles.news,
+  description: pageDescriptions.news,
+  path: "/blog",
+  image: img("/story.jpg"),
 });
 
 export const programsMetadata = createPageMetadata({

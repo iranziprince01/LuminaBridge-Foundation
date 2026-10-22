@@ -76,8 +76,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
       <BreadcrumbSchema
         items={[
           { name: "Home", path: "/" },
-          { name: "Events", path: "/events" },
-          { name: "Blogs & News", path: "/events#blogs-news" },
+          { name: "News & Blogs", path: "/blog" },
           { name: post.title, path: `/blog/${post.slug}` },
         ]}
       />
@@ -90,11 +89,11 @@ export default async function BlogPage({ params }: BlogPageProps) {
         <PageContainer>
           <FadeUp>
             <Link
-              href="/events#blogs-news"
+              href="/blog"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden />
-              Blogs & News
+              News & Blogs
             </Link>
             <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {post.category}

@@ -21,6 +21,7 @@ Arts and culture, youth leadership, community development, mental wellness, newc
 - About: https://www.luminabridgefoundation.org/about
 - Programs: https://www.luminabridgefoundation.org/programs
 - Events: https://www.luminabridgefoundation.org/events
+- News & Blogs: https://www.luminabridgefoundation.org/blog
 - Team: https://www.luminabridgefoundation.org/about
 - Impact: https://www.luminabridgefoundation.org/impact
 - Donate: https://www.luminabridgefoundation.org/donate

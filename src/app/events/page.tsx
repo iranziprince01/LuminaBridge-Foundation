@@ -4,7 +4,6 @@ import { Section } from "@/components/shared/section";
 import { PageContainer } from "@/components/shared/page-container";
 import { SectionHeader } from "@/components/shared/section-header";
 import { EventCard } from "@/components/cards/event-card";
-import { BlogsNewsSection } from "@/components/events/blogs-news-section";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ItemListSchema } from "@/components/seo/item-list-schema";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
@@ -68,7 +67,6 @@ export default function EventsPage() {
           )}
         </PageContainer>
       </Section>
-      <BlogsNewsSection />
     </>
   );
 }

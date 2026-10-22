@@ -98,6 +98,7 @@ export const navigation = [
   { name: "Programs", href: "/programs" },
   { name: "Impact", href: "/impact" },
   { name: "Events", href: "/events" },
+  { name: "News & Blogs", href: "/blog" },
   { name: "Get Involved", href: "/get-involved" },
 ];
 

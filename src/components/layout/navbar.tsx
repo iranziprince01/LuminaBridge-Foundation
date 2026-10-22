@@ -163,7 +163,7 @@ export function Navbar() {
               href={item.href}
               onClick={(event) => handleNavItemClick(event, item.href)}
               className={cn(
-                "rounded-full px-2.5 py-2 text-sm transition-colors xl:px-3.5 xl:py-2.5 xl:text-base",
+                "whitespace-nowrap rounded-full px-2 py-2 text-sm transition-colors xl:px-3 xl:py-2.5 xl:text-base",
                 showWhiteNav
                   ? cn(
                       "font-bold",

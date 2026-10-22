@@ -3,6 +3,7 @@ export const pageTitles = {
   about: "About Our Mission & Story in Alberta",
   team: "Meet Our Team in Edmonton Alberta",
   events: "Signature Events & Summits Alberta",
+  news: "News & Blogs Alberta",
   programs: "Youth & Community Programs Edmonton",
   impact: "Community Impact Across Alberta",
   donate: "Support Our Mission in Alberta",
