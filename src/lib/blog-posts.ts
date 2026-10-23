@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     },
     images: [
       {
-        src: bridgefestFlyer("/BF01.jpeg"),
+        src: bridgefestFlyer("/BF06.jpeg"),
         alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira live in Edmonton on Saturday, November 7, a night of worship and inspiration.",
         ...portraitFlyer,
       },
@@ -133,7 +133,7 @@ export const blogPosts: BlogPost[] = [
         role: "Saturday headline",
         when: `Saturday, November 7 · ${doors}`,
         image: {
-          src: bridgefestFlyer("/BF01.jpeg"),
+          src: bridgefestFlyer("/BF06.jpeg"),
           alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira live in Edmonton on Saturday, November 7, 2026, a night of worship and inspiration at the Old Strathcona Performing Arts Centre. Doors 5 PM, show 6 PM, free entrance.",
           ...portraitFlyer,
         },
