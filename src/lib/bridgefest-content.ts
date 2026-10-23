@@ -1,5 +1,16 @@
 import { img } from "@/lib/image-urls";
 
+/** Bump when BridgeFest lineup flyers in /public are replaced. */
+const LINEUP_FLYER_VERSION = "20261023";
+
+export function bridgefestFlyer(path: string) {
+  return `${img(path)}?v=${LINEUP_FLYER_VERSION}`;
+}
+
+function lineupFlyer(path: string) {
+  return bridgefestFlyer(path);
+}
+
 export const bridgefestContent = {
   title: "BridgeFest Canada 2026",
   tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
@@ -12,6 +23,12 @@ export const bridgefestContent = {
     "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival that celebrates artistic excellence and strengthens community connection through professional creative expression. Organized by Lumina Bridge Foundation, the festival will take place from Friday, November 6 to Sunday, November 8, 2026. It brings together professional artists, performers, cultural leaders, and diverse communities from across Canada for a three-day experience centred on music, theatre, dance, film, fashion, and creative industry development.",
     "The festival serves as a national platform where arts and culture become tools for inclusion, innovation, healing, and economic empowerment. By creating spaces where artists and communities engage directly, BridgeFest contributes to the growth of Canada's professional creative sector. It also ensures equitable access for underserved communities, newcomers, youth, seniors, and culturally diverse populations.",
   ],
+  overviewFlyer: {
+    src: img("/BF04.jpeg"),
+    alt: "BridgeFest Canada 2026 flyer of singer Amani Kayumba, live all three nights, November 6, 7 and 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
+    width: 2160,
+    height: 2700,
+  },
   vision:
     "To establish BridgeFest as one of Canada's leading multicultural professional arts festivals, one that promotes artistic excellence, cultural exchange, and long-term creative sector development while uniting communities through the power of arts and culture.",
   mission:
@@ -119,35 +136,36 @@ export const bridgefestContent = {
   lineup: {
     eyebrow: "The Lineup",
     title: "Who's Taking the Stage",
-    intro:
-      "Amani Kayumba sings all three nights. Gentil Misigaro and Alpha Rwirangira take Saturday. Doors at 5 PM, show at 6 PM, and entry is free.",
     flyers: [
       {
-        title: "Amani Kayumba, Live",
-        caption:
-          "On stage Friday, Saturday and Sunday. Come the first night, and you will want the next two.",
-        src: img("/BF01.jpeg"),
+        src: lineupFlyer("/BF01.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira live in Edmonton on Saturday, November 7, 2026, a night of worship and inspiration at the Old Strathcona Performing Arts Centre. Doors 5 PM, show 6 PM, free entrance.",
+        width: 2160,
+        height: 2700,
+      },
+      {
+        src: lineupFlyer("/BF02.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of special guest singer Gentil Misigaro, performing Saturday, November 7, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
+        width: 2160,
+        height: 2880,
+      },
+      {
+        src: lineupFlyer("/BF03.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer Bobo Muyoboke, live in Edmonton November 6, 7 and 8, 2026, at the Old Strathcona Performing Arts Centre. Doors 5 PM, show 6 PM, free entrance.",
+        width: 3600,
+        height: 4500,
+      },
+      {
+        src: lineupFlyer("/BF04.jpeg"),
         alt: "BridgeFest Canada 2026 flyer of singer Amani Kayumba, live all three nights, November 6, 7 and 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
         width: 2160,
         height: 2700,
       },
       {
-        title: "Gentil Misigaro, Special Guest",
-        caption:
-          "A Saturday night with a voice that turns a hall into a gathering. He performs November 7.",
-        src: img("/BF02.jpeg"),
-        alt: "BridgeFest Canada 2026 flyer announcing special guest singer Gentil Misigaro, performing Saturday, November 7, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
+        src: lineupFlyer("/BF05.jpeg"),
+        alt: "BridgeFest Canada 2026 flyer of singer and vocalist Someje, live on Friday, November 6, 2026, opening night at the Old Strathcona Performing Arts Centre in Edmonton. Doors 5 PM, show 6 PM, free entrance.",
         width: 2160,
-        height: 2880,
-      },
-      {
-        title: "Alpha Rwirangira, Live",
-        caption:
-          "Saturday's headline: a night of worship and inspiration, with a chorus the room can join.",
-        src: img("/BF03.jpeg"),
-        alt: "BridgeFest Canada 2026 flyer of singer Alpha Rwirangira live in Edmonton on Saturday, November 7, 2026, a night of worship and inspiration at the Old Strathcona Performing Arts Centre. Doors 5 PM, show 6 PM, free entrance.",
-        width: 2160,
-        height: 2700,
+        height: 3240,
       },
     ],
   },

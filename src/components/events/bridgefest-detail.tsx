@@ -178,38 +178,30 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
           <FadeUp className="mx-auto max-w-2xl text-center">
             <p className={eyebrowClass}>{content.lineup.eyebrow}</p>
             <h2 className={cn("mt-4", sectionTitleClass)}>{content.lineup.title}</h2>
-            <p className={cn("mt-5", bodyClass)}>{content.lineup.intro}</p>
           </FadeUp>
 
           <StaggerContainer
-            className="mt-12 grid gap-10 sm:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-8"
+            className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:grid-cols-6 lg:gap-8"
             staggerDelay={0.12}
           >
             {content.lineup.flyers.map((flyer, index) => (
               <StaggerItem
-                key={flyer.title}
+                key={flyer.src}
                 className={cn(
+                  "lg:col-span-2",
+                  index === 3 && "lg:col-start-2",
                   index === content.lineup.flyers.length - 1 &&
-                    content.lineup.flyers.length % 2 === 1 &&
-                    "md:col-span-2 md:mx-auto md:w-full md:max-w-md lg:col-span-1 lg:mx-0 lg:max-w-none"
+                    "sm:col-span-2 sm:mx-auto sm:w-full sm:max-w-md lg:col-span-2 lg:mx-0 lg:max-w-none"
                 )}
               >
-                <article>
-                  <Image
-                    src={flyer.src}
-                    alt={flyer.alt}
-                    width={flyer.width}
-                    height={flyer.height}
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 42vw, 30vw"
-                    className="h-auto w-full rounded-3xl shadow-xl ring-1 ring-primary/10"
-                  />
-                  <h3 className="mt-6 font-display text-xl font-bold text-foreground sm:text-2xl">
-                    {flyer.title}
-                  </h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-                    {flyer.caption}
-                  </p>
-                </article>
+                <Image
+                  src={flyer.src}
+                  alt={flyer.alt}
+                  width={flyer.width}
+                  height={flyer.height}
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                  className="h-auto w-full rounded-3xl shadow-xl ring-1 ring-primary/10"
+                />
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -275,17 +267,30 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
 
       <Section tone="white" backdrop="none">
         <PageContainer>
-          <FadeUp className="max-w-3xl">
-            <p className={eyebrowClass}>About the Festival</p>
-            <h2 className={cn("mt-4", sectionTitleClass)}>Event Overview</h2>
-          </FadeUp>
-          <StaggerContainer className="mt-8 grid gap-5 lg:grid-cols-2 lg:gap-12" staggerDelay={0.08}>
-            {content.overview.map((paragraph) => (
-              <StaggerItem key={paragraph.slice(0, 48)}>
-                <p className={bodyClass}>{paragraph}</p>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <FadeUp>
+              <p className={eyebrowClass}>About the Festival</p>
+              <h2 className={cn("mt-4", sectionTitleClass)}>Event Overview</h2>
+              <StaggerContainer className="mt-6 space-y-5" staggerDelay={0.08}>
+                {content.overview.map((paragraph) => (
+                  <StaggerItem key={paragraph.slice(0, 48)}>
+                    <p className={bodyClass}>{paragraph}</p>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </FadeUp>
+
+            <MotionReveal direction="right" className="mx-auto w-full max-w-lg">
+              <Image
+                src={content.overviewFlyer.src}
+                alt={content.overviewFlyer.alt}
+                width={content.overviewFlyer.width}
+                height={content.overviewFlyer.height}
+                sizes="(max-width: 1024px) 90vw, 512px"
+                className="h-auto w-full rounded-3xl shadow-2xl ring-1 ring-primary/10"
+              />
+            </MotionReveal>
+          </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
             <MotionReveal direction="left" className="h-full">
