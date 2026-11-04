@@ -128,10 +128,10 @@ export const bridgefestContent = {
     ],
   },
   mainFlyer: {
-    src: img("/BR1-v2.jpeg"),
-    alt: "BridgeFest Canada 2026 flyer: live music, comedy and dance, Friday to Sunday, November 6 to 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Free entry, with support tickets that fund arts development.",
-    width: 2040,
-    height: 2640,
+    src: `${img("/BR1-v2.jpeg")}?v=20261104`,
+    alt: "BridgeFest Canada 2026 flyer: three nights of live music, talent showcases and dance, Friday to Sunday, November 6 to 8, 2026, at the Old Strathcona Performing Arts Centre in Edmonton. Free admission; donations support arts development at Lumina Bridge Foundation.",
+    width: 2160,
+    height: 2800,
   },
   lineup: {
     eyebrow: "The Lineup",
