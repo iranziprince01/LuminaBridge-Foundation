@@ -166,7 +166,7 @@ export const blogPosts: BlogPost[] = [
           ...soloGreen,
         },
         paragraphs: [
-          "Bob Muyoboke sings all three nights. His flyer puts him live in Edmonton from November 6 through November 8, in the same room and on the same clock as the rest of the weekend: doors at 5 PM, show at 6.",
+          "Bob Muyoboke sings all three nights. His flyer puts him live in Edmonton from November 6 through November 8, in the same room and on the same clock as the rest of the weekend: doors open at 5 PM, show at 6.",
           "He is one of the voices that holds the festival together. Come Friday and he is there. Come back Saturday or Sunday and he is still there, beside Gentil Misigaro and Amani Kayumba.",
         ],
       },
@@ -205,7 +205,7 @@ export const blogPosts: BlogPost[] = [
         title: "The complete BridgeFest lineup",
         paragraphs: [
           "Someje, Amani Kayumba, Alpha Rwirangira, Gentil Misigaro and Bob Muyoboke share the line. Aristote Bikino hosts. Fred Shikiro and Bienvenue Ntaganzwa co-host. Quinloho is MC.",
-          "Music, comedy and dance. November 6 to 8 at the Old Strathcona Performing Arts Centre, 8426 Gateway Blvd NW. Doors at 5 PM, show at 6. Free entrance.",
+          "Music, comedy and dance. November 6 to 8 at the Old Strathcona Performing Arts Centre, 8426 Gateway Blvd NW. Doors open at 5 PM, show at 6. Free entrance.",
         ],
         image: {
           src: bridgefestFlyer("/BF07.jpeg"),
@@ -217,8 +217,8 @@ export const blogPosts: BlogPost[] = [
         kicker: "Founders",
         title: "Thank you, Canada",
         paragraphs: [
-          "Aristote Bikino hosts the weekend. Fred Shikiro and Bienvenue Ntaganzwa co-host. They founded Lumina Bridge Foundation, and this flyer is their appreciation for the partnership that brought three nights to Edmonton.",
-          "BridgeFest Canada 2026 is funded by the Government of Canada, with the support of Canadian Heritage. The thank-you is written in English and French, the same two languages the room will hear.",
+          "Aristote Bikino hosts the weekend. Fred Shikiro and Bienvenue Ntaganzwa co-host. They founded Lumina Bridge Foundation, and this is their appreciation for the partnership that brought three nights to Edmonton.",
+          "BridgeFest Canada 2026 is funded by the Government of Canada, with the support of Canadian Heritage. The message is written in English and French, the same two languages the room will hear.",
         ],
         image: {
           src: bridgefestFlyer("/BF08.jpeg"),
@@ -236,7 +236,7 @@ export const blogPosts: BlogPost[] = [
     facts: [
       { label: "Host", value: "Aristote Bikino" },
       { label: "Co-Hosts", value: "Fred Shikiro and Bienvenue Ntaganzwa" },
-      { label: "Dates and Time", value: "November 6–8, 2026. Doors 5 PM, show 6 PM" },
+      { label: "Dates and Time", value: "Nov 6–8, 2026. Doors open at 5 PM, show at 6 PM" },
       { label: "Venue", value: "Old Strathcona Performing Arts Centre, Edmonton" },
       { label: "Singers", value: "Alpha Rwirangira, Gentil Misigaro, Bob Muyoboke, Amani Kayumba, and Someje" },
     ],

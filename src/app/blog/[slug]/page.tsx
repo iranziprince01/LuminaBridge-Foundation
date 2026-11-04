@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Calendar, ExternalLink } from "lucide-react";
+import { ArrowRight, Calendar, ExternalLink } from "lucide-react";
 import { PageContainer } from "@/components/shared/page-container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/motion/fade-up";
@@ -88,14 +88,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
       <Section tone="white">
         <PageContainer>
           <FadeUp>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary"
-            >
-              <ArrowLeft className="h-4 w-4" aria-hidden />
-              News & Blogs
-            </Link>
-            <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-secondary">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">
               {post.category}
             </p>
             <h1 className="mt-4 max-w-4xl font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
