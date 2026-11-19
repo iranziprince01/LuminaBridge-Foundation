@@ -1,6 +1,6 @@
 import { img } from "@/lib/image-urls";
 
-const BF26_VERSION = "20261119";
+const BF26_VERSION = "20261119b";
 
 export function bf26Photo(path: string) {
   return `${img(path)}?v=${BF26_VERSION}`;
