@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { GetInTouchCtaShell } from "@/components/layout/get-in-touch-cta-shell";
@@ -8,22 +6,9 @@ import { MotionProvider } from "@/components/motion/motion-provider";
 import { SkipLink } from "@/components/layout/skip-link";
 import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import { OrganizationSchema } from "@/components/seo/organization-schema";
+import { sourceSans, sourceSerif } from "@/lib/fonts";
 import { getRootMetadata } from "@/lib/seo";
 import "./globals.css";
-
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
-
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
 
 export const metadata = getRootMetadata();
 
