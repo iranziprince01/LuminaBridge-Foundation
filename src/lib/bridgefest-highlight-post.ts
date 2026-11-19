@@ -1,6 +1,6 @@
 import { img } from "@/lib/image-urls";
 
-const BF26_VERSION = "20261119b";
+const BF26_VERSION = "20261119c";
 
 export function bf26Photo(path: string) {
   return `${img(path)}?v=${BF26_VERSION}`;
@@ -13,15 +13,16 @@ export interface BlogImageRef {
   height: number;
 }
 
+/** Web-optimized sizes (max 2000px edge) — matches public/BF26 after compress. */
 const dims = {
-  portrait: { width: 4479, height: 6719 },
-  landscape: { width: 6719, height: 4479 },
-  tall: { width: 4479, height: 5840 },
-  portraitAlt: { width: 3982, height: 5115 },
-  landscapeWide: { width: 6720, height: 4480 },
-  landscapeAlt: { width: 6105, height: 4479 },
-  bob: { width: 4223, height: 5566 },
-  hosts: { width: 4002, height: 5600 },
+  portrait: { width: 1333, height: 2000 },
+  landscape: { width: 2000, height: 1333 },
+  tall: { width: 1534, height: 2000 },
+  portraitAlt: { width: 1557, height: 2000 },
+  landscapeWide: { width: 2000, height: 1333 },
+  landscapeAlt: { width: 2000, height: 1467 },
+  bob: { width: 1517, height: 2000 },
+  hosts: { width: 1429, height: 2000 },
 } as const;
 
 function photo(
@@ -349,7 +350,11 @@ export const bridgefestHighlight: BlogHighlight = {
     {
       name: "MC Midey",
       role: "MC",
-      note: "Portrait coming soon",
+      image: photo(
+        "BFD108.jpg",
+        "MC Midey hosting BridgeFest Canada 2026.",
+        "tall"
+      ),
     },
     {
       name: "Valerie",

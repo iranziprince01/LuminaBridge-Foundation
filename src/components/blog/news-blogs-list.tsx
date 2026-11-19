@@ -17,7 +17,13 @@ function PostMeta({ post }: { post: BlogPost }) {
   );
 }
 
-function BlogCard({ post, priority = false }: { post: BlogPost; priority?: boolean }) {
+function BlogCard({
+  post,
+  priority = false,
+}: {
+  post: BlogPost;
+  priority?: boolean;
+}) {
   const isPhoto = post.coverLayout === "photo";
 
   return (
@@ -32,6 +38,7 @@ function BlogCard({ post, priority = false }: { post: BlogPost; priority?: boole
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           priority={priority}
+          unoptimized={post.cover.src.includes("blob.vercel-storage.com")}
           className={
             isPhoto
               ? "object-cover transition-transform duration-700 hover:scale-[1.03]"
@@ -42,7 +49,10 @@ function BlogCard({ post, priority = false }: { post: BlogPost; priority?: boole
       <div className="flex min-h-0 flex-1 flex-col p-6">
         <PostMeta post={post} />
         <h3 className="mt-4 line-clamp-3 min-h-[4.5rem] font-display text-xl font-bold tracking-tight text-foreground sm:min-h-[5.25rem] sm:text-2xl">
-          <Link href={getBlogHref(post.slug)} className="transition-colors hover:text-primary">
+          <Link
+            href={getBlogHref(post.slug)}
+            className="transition-colors hover:text-primary"
+          >
             {post.title}
           </Link>
         </h3>

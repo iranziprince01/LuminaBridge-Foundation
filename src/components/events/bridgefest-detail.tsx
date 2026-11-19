@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Building2,
   Calendar,
+  Camera,
   ExternalLink,
   MapPin,
   Quote,
@@ -12,7 +13,10 @@ import { PageContainer } from "@/components/shared/page-container";
 import { PageBanner } from "@/components/shared/page-banner";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/motion/fade-up";
-import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
+import {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion/stagger-container";
 import { BridgeFestWatchSection } from "@/components/events/bridgefest-watch-section";
 import { Button } from "@/components/ui/button";
 import type { Event } from "@/lib/data";
@@ -28,7 +32,8 @@ interface BridgeFestDetailProps {
   event: Event;
 }
 
-const eyebrowClass = "text-sm font-bold uppercase tracking-[0.2em] text-secondary";
+const eyebrowClass =
+  "text-sm font-bold uppercase tracking-[0.2em] text-secondary";
 const sectionTitleClass =
   "font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl";
 const bodyClass = "text-base leading-relaxed text-muted-foreground md:text-lg";
@@ -42,7 +47,11 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
   const content = bridgefestContent;
   const blogHref = getBlogHref(bridgefestHighlightPost.slug);
 
-  const artistsWithPhotos = highlight.placeholders.filter((person) => person.image);
+  const guestNames = new Set(["Valerie", "John"]);
+  const onStageFaces = [
+    ...highlight.placeholders.filter((person) => person.image),
+    ...highlight.placeholders.filter((person) => guestNames.has(person.name)),
+  ];
   const featuredQuote = highlight.quotes[0];
   const supportingQuotes = highlight.quotes.slice(1);
 
@@ -106,7 +115,10 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.08} className="relative min-h-[24rem] overflow-hidden rounded-[1.75rem] shadow-xl ring-1 ring-border/50 lg:min-h-full">
+            <FadeUp
+              delay={0.08}
+              className="relative min-h-[24rem] overflow-hidden rounded-[1.75rem] shadow-xl ring-1 ring-border/50 lg:min-h-full"
+            >
               <Image
                 src={highlight.introImage.src}
                 alt={highlight.introImage.alt}
@@ -114,51 +126,65 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                 priority
                 sizes="(max-width: 1024px) 90vw, 30vw"
                 className="object-cover"
+                unoptimized
               />
             </FadeUp>
           </div>
 
-          <StaggerContainer className="mt-14 grid gap-5 md:grid-cols-3 lg:gap-8" staggerDelay={0.08}>
-            {quickFacts.map(({ icon: Icon, label, value, href, accent, iconClass }) => (
-              <StaggerItem key={label}>
-                <div
-                  className={cn(
-                    "flex h-full items-center gap-4 rounded-2xl border border-t-4 border-border/60 bg-white p-5 shadow-sm",
-                    accent
-                  )}
-                >
-                  <div className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl", iconClass)}>
-                    <Icon className="h-5 w-5" aria-hidden />
+          <StaggerContainer
+            className="mt-14 grid gap-5 md:grid-cols-3 lg:gap-8"
+            staggerDelay={0.08}
+          >
+            {quickFacts.map(
+              ({ icon: Icon, label, value, href, accent, iconClass }) => (
+                <StaggerItem key={label}>
+                  <div
+                    className={cn(
+                      "flex h-full items-center gap-4 rounded-2xl border border-t-4 border-border/60 bg-white p-5 shadow-sm",
+                      accent,
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl",
+                        iconClass,
+                      )}
+                    >
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                        {label}
+                      </p>
+                      <p className="mt-0.5 text-sm font-semibold leading-snug text-foreground sm:text-base">
+                        {value}
+                      </p>
+                      {href ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
+                        >
+                          Get directions
+                          <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                      {label}
-                    </p>
-                    <p className="mt-0.5 text-sm font-semibold leading-snug text-foreground sm:text-base">
-                      {value}
-                    </p>
-                    {href ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
-                      >
-                        Get directions
-                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
+                </StaggerItem>
+              ),
+            )}
           </StaggerContainer>
         </PageContainer>
       </Section>
 
       <section className="bg-primary py-12 sm:py-14 md:py-16">
         <PageContainer>
-          <StaggerContainer className="grid grid-cols-2 gap-y-10 md:grid-cols-4" staggerDelay={0.1}>
+          <StaggerContainer
+            className="grid grid-cols-2 gap-y-10 md:grid-cols-4"
+            staggerDelay={0.1}
+          >
             {content.stats.map((stat) => (
               <StaggerItem key={stat.label} className="text-center">
                 <p className="font-display text-4xl font-bold text-gold-bright sm:text-5xl md:text-6xl">
@@ -177,7 +203,9 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
         <PageContainer>
           <FadeUp className="mx-auto max-w-3xl text-center">
             <p className={eyebrowClass}>Cultures shared</p>
-            <h2 className={cn("mt-4", sectionTitleClass)}>{highlight.culturesTitle}</h2>
+            <h2 className={cn("mt-4", sectionTitleClass)}>
+              {highlight.culturesTitle}
+            </h2>
             <div className="mt-6 space-y-4">
               {highlight.culturesBody.map((paragraph) => (
                 <p key={paragraph} className={bodyClass}>
@@ -196,10 +224,13 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
         <PageContainer>
           <FadeUp className="max-w-3xl">
             <p className={eyebrowClass}>Three unforgettable nights</p>
-            <h2 className={cn("mt-4", sectionTitleClass)}>How the weekend unfolded</h2>
+            <h2 className={cn("mt-4", sectionTitleClass)}>
+              How the weekend unfolded
+            </h2>
             <p className={cn("mt-5", bodyClass)}>
-              Each evening had its own rhythm — from opening night energy to the main-event
-              full house and a closing night that belonged to the whole community.
+              Each evening had its own rhythm — from opening night energy to the
+              main-event full house and a closing night that belonged to the
+              whole community.
             </p>
           </FadeUp>
         </PageContainer>
@@ -207,10 +238,18 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
 
       {highlight.days.map((day, index) => {
         const tone = index % 2 === 0 ? "green" : "white";
-        const galleryPreview = day.gallery.slice(0, day.galleryLayout === "uniform" ? 4 : 4);
+        const galleryPreview = day.gallery.slice(
+          0,
+          day.galleryLayout === "uniform" ? 4 : 4,
+        );
 
         return (
-          <Section key={day.id} id={day.id} tone={tone} backdrop={tone === "green" ? "orbs" : "none"}>
+          <Section
+            key={day.id}
+            id={day.id}
+            tone={tone}
+            backdrop={tone === "green" ? "orbs" : "none"}
+          >
             <PageContainer>
               <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:gap-12">
                 <FadeUp>
@@ -226,7 +265,9 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                     {day.title}
                   </h3>
                   <p className={cn("mt-4", bodyClass)}>{day.summary}</p>
-                  <p className="mt-5 text-sm font-semibold text-foreground">{day.performers}</p>
+                  <p className="mt-5 text-sm font-semibold text-foreground">
+                    {day.performers}
+                  </p>
                 </FadeUp>
 
                 <FadeUp delay={0.06}>
@@ -238,6 +279,7 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                       height={day.featured.height}
                       sizes="(max-width: 1024px) 100vw, 55vw"
                       className="h-auto w-full object-cover"
+                      unoptimized
                     />
                   </div>
                 </FadeUp>
@@ -260,8 +302,9 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                       sizes="(max-width: 640px) 50vw, 25vw"
                       className={cn(
                         "h-full w-full object-cover",
-                        isPortrait(image) ? "aspect-[3/4]" : "aspect-[3/2]"
+                        isPortrait(image) ? "aspect-[3/4]" : "aspect-[3/2]",
                       )}
+                      unoptimized
                     />
                   </StaggerItem>
                 ))}
@@ -277,7 +320,9 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
         <PageContainer>
           <FadeUp className="mx-auto max-w-3xl text-center">
             <p className={eyebrowClass}>What people said</p>
-            <h2 className={cn("mt-4", sectionTitleClass)}>Voices from the room</h2>
+            <h2 className={cn("mt-4", sectionTitleClass)}>
+              Voices from the room
+            </h2>
             <p className={cn("mt-5", bodyClass)}>{highlight.quotesIntro}</p>
           </FadeUp>
 
@@ -291,15 +336,22 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                   </p>
                 </blockquote>
                 <figcaption className="mt-8 border-t border-white/15 pt-5">
-                  <p className="font-display text-lg font-bold">{featuredQuote.name}</p>
-                  <p className="mt-1 text-sm text-white/65">{featuredQuote.role}</p>
+                  <p className="font-display text-lg font-bold">
+                    {featuredQuote.name}
+                  </p>
+                  <p className="mt-1 text-sm text-white/65">
+                    {featuredQuote.role}
+                  </p>
                 </figcaption>
               </figure>
             </FadeUp>
           ) : null}
 
           {supportingQuotes.length > 0 ? (
-            <StaggerContainer className="mt-6 grid gap-6 md:grid-cols-2 lg:gap-8" staggerDelay={0.1}>
+            <StaggerContainer
+              className="mt-6 grid gap-6 md:grid-cols-2 lg:gap-8"
+              staggerDelay={0.1}
+            >
               {supportingQuotes.map((item) => (
                 <StaggerItem key={item.name}>
                   <figure className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm ring-1 ring-border/60 sm:p-8">
@@ -310,8 +362,12 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                       </p>
                     </blockquote>
                     <figcaption className="mt-6 border-t border-border/60 pt-4">
-                      <p className="font-display text-lg font-bold text-foreground">{item.name}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{item.role}</p>
+                      <p className="font-display text-lg font-bold text-foreground">
+                        {item.name}
+                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {item.role}
+                      </p>
                     </figcaption>
                   </figure>
                 </StaggerItem>
@@ -321,31 +377,57 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
         </PageContainer>
       </Section>
 
-      {artistsWithPhotos.length > 0 ? (
+      {onStageFaces.length > 0 ? (
         <Section tone="white" backdrop="none" id="artists">
           <PageContainer>
             <FadeUp className="max-w-3xl">
               <p className={eyebrowClass}>On stage</p>
-              <h2 className={cn("mt-4", sectionTitleClass)}>Faces of the weekend</h2>
-              <p className={cn("mt-5", bodyClass)}>{highlight.placeholdersBody}</p>
+              <h2 className={cn("mt-4", sectionTitleClass)}>
+                Faces of the weekend
+              </h2>
+              <p className={cn("mt-5", bodyClass)}>
+                {highlight.placeholdersBody}
+              </p>
             </FadeUp>
 
             <StaggerContainer
-              className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5"
+              className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4"
               staggerDelay={0.06}
             >
-              {artistsWithPhotos.map((person) => (
+              {onStageFaces.map((person) => (
                 <StaggerItem key={person.name}>
-                  <article className="overflow-hidden rounded-[1.5rem] bg-white p-4 shadow-sm ring-1 ring-border/60">
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
-                      <Image
-                        src={person.image!.src}
-                        alt={person.image!.alt}
-                        fill
-                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 18vw"
-                        className="object-cover"
-                      />
-                    </div>
+                  <article
+                    className={cn(
+                      "overflow-hidden rounded-[1.5rem] p-4",
+                      person.image
+                        ? "bg-white shadow-sm ring-1 ring-border/60"
+                        : "border border-dashed border-secondary/35 bg-[linear-gradient(160deg,rgba(15,118,110,0.06),rgba(12,74,110,0.04)_45%,transparent)]",
+                    )}
+                  >
+                    {person.image ? (
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
+                        <Image
+                          src={person.image.src}
+                          alt={person.image.alt}
+                          fill
+                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
+                          className="object-cover"
+                          unoptimized
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex aspect-[4/5] items-center justify-center rounded-2xl bg-white/70 ring-1 ring-border/50">
+                        <div className="text-center">
+                          <Camera
+                            className="mx-auto h-8 w-8 text-secondary/45"
+                            aria-hidden
+                          />
+                          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-secondary/70">
+                            {person.note ?? "Portrait coming soon"}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                     <p className="mt-3 font-display text-base font-bold tracking-tight text-foreground">
                       {person.name}
                       <span className="text-sm font-normal text-muted-foreground">
@@ -404,13 +486,17 @@ export function BridgeFestDetail({ event }: BridgeFestDetailProps) {
                 </div>
               </FadeUp>
 
-              <FadeUp delay={0.08} className="relative min-h-[22rem] lg:min-h-full">
+              <FadeUp
+                delay={0.08}
+                className="relative min-h-[22rem] lg:min-h-full"
+              >
                 <Image
                   src={highlight.thanksImage.src}
                   alt={highlight.thanksImage.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 30vw"
                   className="object-cover object-center"
+                  unoptimized
                 />
               </FadeUp>
             </div>

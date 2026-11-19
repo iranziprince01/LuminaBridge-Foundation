@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Camera, MapPin, Quote } from "lucide-react";
 import { FadeUp } from "@/components/motion/fade-up";
-import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import {
-  BridgeFestDayVideos,
-  BridgeFestWatchSection,
-} from "@/components/events/bridgefest-watch-section";
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion/stagger-container";
+import { BridgeFestWatchSection } from "@/components/events/bridgefest-watch-section";
 import { PageContainer } from "@/components/shared/page-container";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,9 @@ function isPortrait(image: { width: number; height: number }) {
   return image.height > image.width;
 }
 
-export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleProps) {
+export function BridgeFestHighlightArticle({
+  post,
+}: BridgeFestHighlightArticleProps) {
   const highlight = post.highlight;
 
   if (!highlight) {
@@ -38,6 +40,7 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
           priority
           sizes="100vw"
           className="object-cover"
+          unoptimized
         />
         <div
           aria-hidden
@@ -60,12 +63,22 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
               {post.title}
             </h1>
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-white/85 sm:text-base">
-              <time dateTime={post.publishedISO} className="inline-flex items-center gap-2">
-                <Calendar className="h-4 w-4 shrink-0 text-gold-bright" aria-hidden />
-                {post.facts.find((fact) => fact.label === "Dates")?.value ?? post.published}
+              <time
+                dateTime={post.publishedISO}
+                className="inline-flex items-center gap-2"
+              >
+                <Calendar
+                  className="h-4 w-4 shrink-0 text-gold-bright"
+                  aria-hidden
+                />
+                {post.facts.find((fact) => fact.label === "Dates")?.value ??
+                  post.published}
               </time>
               <span className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-gold-bright" aria-hidden />
+                <MapPin
+                  className="h-4 w-4 shrink-0 text-gold-bright"
+                  aria-hidden
+                />
                 {post.facts.find((fact) => fact.label === "Venue")?.value ??
                   "Old Strathcona Performing Arts Centre, Edmonton"}
               </span>
@@ -95,8 +108,10 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                     src={highlight.introImage.src}
                     alt={highlight.introImage.alt}
                     fill
+                    priority
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 28vw"
                     className="object-cover"
+                    unoptimized
                   />
                 </div>
 
@@ -110,7 +125,9 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                         <dt className="text-xs font-semibold uppercase tracking-wider text-white/55">
                           {fact.label}
                         </dt>
-                        <dd className="mt-1 text-sm leading-relaxed text-white">{fact.value}</dd>
+                        <dd className="mt-1 text-sm leading-relaxed text-white">
+                          {fact.value}
+                        </dd>
                       </div>
                     ))}
                   </dl>
@@ -160,8 +177,9 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
               Friday, Saturday, and Sunday in photos
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Each evening had its own rhythm. Scroll through the rooms, the stages, and the people
-              who made BridgeFest Canada 2026 feel like home.
+              Each evening had its own rhythm. Scroll through the rooms, the
+              stages, and the people who made BridgeFest Canada 2026 feel like
+              home.
             </p>
           </FadeUp>
         </PageContainer>
@@ -196,7 +214,9 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                     <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
                       {day.summary}
                     </p>
-                    <p className="mt-5 text-sm font-semibold text-foreground">{day.performers}</p>
+                    <p className="mt-5 text-sm font-semibold text-foreground">
+                      {day.performers}
+                    </p>
                   </FadeUp>
 
                   <FadeUp delay={0.06}>
@@ -209,6 +229,7 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                         sizes="(max-width: 1024px) 100vw, 55vw"
                         className="h-auto w-full object-cover"
                         {...(index === 0 ? { priority: true } : {})}
+                        unoptimized
                       />
                     </div>
                   </FadeUp>
@@ -219,7 +240,7 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                     "grid gap-3 sm:gap-4",
                     uniform
                       ? "grid-cols-2 lg:grid-cols-4"
-                      : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                      : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
                   )}
                   staggerDelay={0.05}
                 >
@@ -231,7 +252,7 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                         key={image.src}
                         className={cn(
                           "overflow-hidden rounded-2xl bg-muted shadow-sm ring-1 ring-border/50",
-                          !uniform && portrait && "row-span-2"
+                          !uniform && portrait && "row-span-2",
                         )}
                       >
                         <Image
@@ -246,20 +267,19 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                               ? "aspect-[3/2] h-auto"
                               : portrait
                                 ? "min-h-[18rem] sm:min-h-[22rem]"
-                                : "aspect-[3/2]"
+                                : "aspect-[3/2]",
                           )}
+                          unoptimized
                         />
                       </StaggerItem>
                     );
-                    })}
-                  </StaggerContainer>
-
-                  <BridgeFestDayVideos dayId={day.id} />
-                </article>
-              </PageContainer>
-            </Section>
-          );
-        })}
+                  })}
+                </StaggerContainer>
+              </article>
+            </PageContainer>
+          </Section>
+        );
+      })}
 
       <BridgeFestWatchSection tone="white" mode="all" />
 
@@ -277,7 +297,10 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
             </p>
           </FadeUp>
 
-          <StaggerContainer className="mt-12 grid gap-6 lg:grid-cols-3 lg:gap-8" staggerDelay={0.1}>
+          <StaggerContainer
+            className="mt-12 grid gap-6 lg:grid-cols-3 lg:gap-8"
+            staggerDelay={0.1}
+          >
             {highlight.quotes.map((item, index) => (
               <StaggerItem key={item.name}>
                 <figure
@@ -285,13 +308,13 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                     "relative flex h-full flex-col overflow-hidden rounded-[1.75rem] p-6 sm:p-8",
                     index === 0
                       ? "bg-primary text-white lg:col-span-1"
-                      : "bg-white text-foreground ring-1 ring-border/60"
+                      : "bg-white text-foreground ring-1 ring-border/60",
                   )}
                 >
                   <Quote
                     className={cn(
                       "h-8 w-8",
-                      index === 0 ? "text-gold-bright" : "text-secondary"
+                      index === 0 ? "text-gold-bright" : "text-secondary",
                     )}
                     aria-hidden
                   />
@@ -299,18 +322,20 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                     <p
                       className={cn(
                         "text-base leading-relaxed md:text-[1.05rem]",
-                        index === 0 ? "text-white/90" : "text-muted-foreground"
+                        index === 0 ? "text-white/90" : "text-muted-foreground",
                       )}
                     >
                       &ldquo;{item.quote}&rdquo;
                     </p>
                   </blockquote>
                   <figcaption className="mt-8 border-t border-current/10 pt-5">
-                    <p className="font-display text-lg font-bold tracking-tight">{item.name}</p>
+                    <p className="font-display text-lg font-bold tracking-tight">
+                      {item.name}
+                    </p>
                     <p
                       className={cn(
                         "mt-1 text-sm",
-                        index === 0 ? "text-white/65" : "text-muted-foreground"
+                        index === 0 ? "text-white/65" : "text-muted-foreground",
                       )}
                     >
                       {item.role}
@@ -345,7 +370,7 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                     "group flex h-full flex-col overflow-hidden rounded-[1.5rem] p-5",
                     person.image
                       ? "bg-white shadow-sm ring-1 ring-border/60"
-                      : "border border-dashed border-secondary/35 bg-[linear-gradient(160deg,rgba(15,118,110,0.06),rgba(12,74,110,0.04)_45%,transparent)] transition-colors hover:border-secondary/55"
+                      : "border border-dashed border-secondary/35 bg-[linear-gradient(160deg,rgba(15,118,110,0.06),rgba(12,74,110,0.04)_45%,transparent)] transition-colors hover:border-secondary/55",
                   )}
                 >
                   {person.image ? (
@@ -356,12 +381,16 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                         fill
                         sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        unoptimized
                       />
                     </div>
                   ) : (
                     <div className="flex aspect-[4/5] items-center justify-center rounded-2xl bg-white/70 ring-1 ring-border/50">
                       <div className="text-center">
-                        <Camera className="mx-auto h-8 w-8 text-secondary/45" aria-hidden />
+                        <Camera
+                          className="mx-auto h-8 w-8 text-secondary/45"
+                          aria-hidden
+                        />
                         <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-secondary/70">
                           {person.note ?? "Portrait coming soon"}
                         </p>
@@ -422,13 +451,17 @@ export function BridgeFestHighlightArticle({ post }: BridgeFestHighlightArticleP
                 </div>
               </FadeUp>
 
-              <FadeUp delay={0.08} className="relative min-h-[22rem] lg:min-h-full">
+              <FadeUp
+                delay={0.08}
+                className="relative min-h-[22rem] lg:min-h-full"
+              >
                 <Image
                   src={highlight.thanksImage.src}
                   alt={highlight.thanksImage.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 30vw"
                   className="object-cover object-center"
+                  unoptimized
                 />
               </FadeUp>
             </div>

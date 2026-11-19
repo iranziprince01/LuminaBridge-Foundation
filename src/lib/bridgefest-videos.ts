@@ -15,29 +15,29 @@ export interface BridgeFestVideo {
 export const bridgefestVideos: BridgeFestVideo[] = [
   {
     id: "Y1VbjLPIpKs",
-    title: "Day 1 highlight",
-    description: "Opening Night at BridgeFest Canada 2026 — energy, music, and community from the first song.",
+    title: "Day 1",
+    description: "",
     dayId: "friday",
     kind: "night",
   },
   {
     id: "e7EjJS5X6AU",
-    title: "Day 2 highlight",
-    description: "The Main Event — a full house of worship, music, and celebration on Saturday night.",
+    title: "Day 2",
+    description: "",
     dayId: "saturday",
     kind: "night",
   },
   {
     id: "1RpAcpasdXE",
-    title: "Someje live",
-    description: "Someje on stage at BridgeFest Canada 2026.",
+    title: "Someje Live",
+    description: "",
     artist: "Someje",
     kind: "artist",
   },
   {
     id: "NZzprkh80kc",
-    title: "Alpha Rwirangira live",
-    description: "Alpha Rwirangira headlines Saturday with a night of worship and inspiration.",
+    title: "Alpha Live",
+    description: "",
     artist: "Alpha Rwirangira",
     dayId: "saturday",
     kind: "artist",
@@ -49,11 +49,12 @@ export function youtubeWatchUrl(videoId: string) {
 }
 
 export function youtubeEmbedUrl(videoId: string) {
-  // rel=0 reduces off-channel suggestions; modest branding keeps focus on our content.
-  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+  // HD-friendly embed: full controls, fewer off-channel suggestions.
+  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3`;
 }
 
-export function youtubeThumbnailUrl(videoId: string, quality: "hq" | "max" = "hq") {
+/** Prefer maxres (1280×720); hq is the letterboxed 480p fallback. */
+export function youtubeThumbnailUrl(videoId: string, quality: "hq" | "max" = "max") {
   return quality === "max"
     ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
     : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;

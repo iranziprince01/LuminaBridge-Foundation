@@ -13,7 +13,6 @@ import {
 } from "@/lib/bridgefest-videos";
 import { cn } from "@/lib/utils";
 
-const eyebrowClass = "text-sm font-bold uppercase tracking-[0.2em] text-secondary";
 const titleClass =
   "font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl";
 
@@ -76,14 +75,7 @@ export function BridgeFestWatchSection({
     <Section tone={tone} backdrop={tone === "white" ? "orbs" : "none"} id="watch">
       <PageContainer>
         <FadeUp className="mx-auto max-w-3xl text-center">
-          <p className={eyebrowClass}>On YouTube</p>
-          <h2 className={cn("mt-4", titleClass)}>
-            {mode === "artists" ? "Artist performances" : "Watch BridgeFest Canada 2026"}
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Relive the nights and stage moments on Lumina Bridge Foundation TV — then explore more
-            stories from our community on our channel.
-          </p>
+          <h2 className={titleClass}>Watch Highlights</h2>
         </FadeUp>
 
         <FadeUp delay={0.08} className="mt-10 sm:mt-12">
