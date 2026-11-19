@@ -1,4 +1,10 @@
 import { bridgefestFlyer } from "@/lib/bridgefest-content";
+import {
+  bridgefestHighlightPost,
+  type BlogHighlight,
+} from "@/lib/bridgefest-highlight-post";
+
+export type { BlogHighlight } from "@/lib/bridgefest-highlight-post";
 
 export interface BlogImage {
   src: string;
@@ -41,10 +47,12 @@ export interface BlogPost {
   published: string;
   publishedISO: string;
   cover: BlogImage;
+  coverLayout?: "flyer" | "photo";
   images: BlogImage[];
   nights?: BlogNight[];
   artists?: BlogArtist[];
   features?: BlogFeature[];
+  highlight?: BlogHighlight;
   paragraphs: string[];
   closing?: string;
   facts: BlogFact[];
@@ -60,6 +68,7 @@ const soloGreen = { width: 3600, height: 4500 };
 const doors = "Doors 5 PM · Show 6 PM";
 
 export const blogPosts: BlogPost[] = [
+  bridgefestHighlightPost,
   {
     slug: "gentil-misigaro-bridgefest-canada-2026",
     title: "Five Singers Take the Stage at BridgeFest Canada 2026",

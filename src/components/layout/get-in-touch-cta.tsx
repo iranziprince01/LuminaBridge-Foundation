@@ -8,7 +8,7 @@ import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-conta
 import { springGentle } from "@/components/motion/motion-presets";
 import { PageContainer } from "@/components/shared/page-container";
 import { SectionBackdrop } from "@/components/shared/section-backdrop";
-import { FacebookIcon, InstagramIcon } from "@/components/shared/social-icons";
+import { FacebookIcon, InstagramIcon, YouTubeIcon } from "@/components/shared/social-icons";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 import { ICON_STROKE } from "@/lib/icons";
@@ -19,6 +19,7 @@ type GetInTouchCtaTone = "white" | "green";
 const socialLinks = [
   { icon: FacebookIcon, href: siteConfig.social.facebook, label: "Facebook" },
   { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
+  { icon: YouTubeIcon, href: siteConfig.social.youtube, label: "YouTube" },
 ] as const;
 
 const contactItems = [

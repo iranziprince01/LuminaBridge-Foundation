@@ -170,9 +170,9 @@ export const bridgefestContent = {
     ],
   },
   stats: [
-    { label: "Festival Days", value: "3" },
-    { label: "Professional Artists", value: "14+" },
-    { label: "Provinces Represented", value: "5" },
-    { label: "Expected Attendees", value: "800+" },
+    { label: "Unforgettable Nights", value: "3" },
+    { label: "Cultures Shared", value: "10+" },
+    { label: "Artists On Stage", value: "5+" },
+    { label: "Community Gathered", value: "Hundreds" },
   ],
 } as const;

@@ -3,6 +3,7 @@ import { FadeUp } from "@/components/motion/fade-up";
 import {
   FacebookIcon,
   InstagramIcon,
+  YouTubeIcon,
 } from "@/components/shared/social-icons";
 import { contactContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
@@ -96,6 +97,7 @@ export function GetInvolvedContent() {
               {[
                 { icon: FacebookIcon, href: siteConfig.social.facebook, label: "Facebook" },
                 { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
+                { icon: YouTubeIcon, href: siteConfig.social.youtube, label: "YouTube" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}

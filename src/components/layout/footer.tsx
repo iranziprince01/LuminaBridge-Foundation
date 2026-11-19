@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/shared/logo";
-import { FacebookIcon, InstagramIcon } from "@/components/shared/social-icons";
+import { FacebookIcon, InstagramIcon, YouTubeIcon } from "@/components/shared/social-icons";
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container";
 import { FadeUp } from "@/components/motion/fade-up";
 import { navigation } from "@/lib/data";
@@ -112,6 +112,7 @@ export function Footer() {
               {[
                 { icon: FacebookIcon, href: siteConfig.social.facebook, label: "Facebook" },
                 { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
+                { icon: YouTubeIcon, href: siteConfig.social.youtube, label: "YouTube" },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Calendar, ExternalLink } from "lucide-react";
+import { BridgeFestHighlightArticle } from "@/components/blog/bridgefest-highlight-article";
 import { PageContainer } from "@/components/shared/page-container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/motion/fade-up";
@@ -70,6 +71,25 @@ export default async function BlogPage({ params }: BlogPageProps) {
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
     description: post.excerpt,
   };
+
+  if (post.highlight) {
+    return (
+      <>
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "News & Blogs", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+        <BridgeFestHighlightArticle post={post} />
+      </>
+    );
+  }
 
   return (
     <>

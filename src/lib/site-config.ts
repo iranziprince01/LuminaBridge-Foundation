@@ -85,6 +85,7 @@ export const siteConfig = {
   social: {
     facebook: "https://web.facebook.com/profile.php?id=61590717957417",
     instagram: "https://instagram.com/luminabridgefoundation",
+    youtube: "https://www.youtube.com/@luminabridgefoundationtv",
   },
   landAcknowledgement: {
     title: "Land Acknowledgement",

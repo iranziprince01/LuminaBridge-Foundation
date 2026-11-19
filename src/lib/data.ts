@@ -701,6 +701,41 @@ export function getEventBannerImage(eventId: string): string {
 
 export const events: Event[] = [
   {
+    id: "bridgefest",
+    title: "BridgeFest Canada 2026",
+    status: "past",
+    year: 2026,
+    date: "November 6–8, 2026",
+    location: "Old Strathcona Performing Arts Centre, Edmonton",
+    venue: {
+      name: "Old Strathcona Performing Arts Centre",
+      streetAddress: "8426 Gateway Blvd NW",
+      postalCode: "T6E 4B4",
+    },
+    tagline: "A journey around the world, right here in Edmonton",
+    description:
+      "Three nights of multicultural music, dance and joy. Hundreds gathered, more than ten countries were heard, and Edmonton travelled the world without leaving home.",
+    expectedImpact:
+      "Families, newcomers, students and long-time Edmontonians sat side by side and left as one community — with artists, cultures and stories shared on one stage.",
+    stats: [
+      { label: "Unforgettable Nights", value: "3" },
+      { label: "Cultures Shared", value: "10+" },
+      { label: "Community Gathered", value: "Hundreds" },
+    ],
+    image: eventBanners.bridgefest,
+    paragraphs: [
+      "This November, we made Edmontonians travel around the world without ever leaving Edmonton. From November 6 to 8, 2026, the Old Strathcona Performing Arts Centre became a meeting place for cultures from across the globe.",
+      "BridgeFest Canada 2026 was three nights of multicultural music, dance and joy. Professional artists performed, community talent took the stage, and people met, connected and shared their stories.",
+    ],
+    impactItems: [
+      "More than 10 countries represented on one stage",
+      "Opening Night, Main Event and Closing Night filled with music and dance",
+      "Hundreds of guests across three evenings",
+      "Community open stage and youth encouragement on Closing Night",
+      "Supported by the Government of Canada through Canadian Heritage",
+    ],
+  },
+  {
     id: "youth-unlocking-potential-2026",
     title: "Youth Unlocking Potential 2026",
     status: "past",
@@ -756,41 +791,6 @@ export const events: Event[] = [
       "Stronger social belonging and reduced isolation",
       "Greater cross-cultural understanding",
       "Access to employment, mentorship, and leadership opportunities",
-    ],
-  },
-  {
-    id: "bridgefest",
-    title: "BridgeFest Canada 2026",
-    status: "upcoming",
-    year: 2026,
-    date: "November 6–8, 2026",
-    location: "Old Strathcona Performing Arts Centre, Edmonton",
-    venue: {
-      name: "Old Strathcona Performing Arts Centre",
-      streetAddress: "8426 Gateway Blvd NW",
-      postalCode: "T6E 4B4",
-    },
-    tagline: "Connecting Communities Through Professional Arts, Culture, and Creative Expression",
-    description:
-      "Three electrifying days of music, dance, theatre, film, and fashion. Canada's vibrant multicultural arts festival, where world-class artists, bold creativity, and diverse communities come alive together.",
-    expectedImpact:
-      "Generating artistic excellence, social inclusion, and sustainable economic development within Canada's creative sector.",
-    stats: [
-      { label: "Festival Days", value: "3" },
-      { label: "Professional Artists", value: "14+" },
-      { label: "Expected Attendees", value: "800+" },
-    ],
-    image: eventBanners.bridgefest,
-    paragraphs: [
-      "BridgeFest Canada 2026 is a premier multidisciplinary arts and cultural festival that celebrates artistic excellence and strengthens community connection through professional creative expression.",
-      "From Friday, November 6 to Sunday, November 8, 2026, the festival brings together professional artists, performers, cultural leaders, and diverse communities from across Canada for a three-day experience centred on music, theatre, dance, film, fashion, and creative industry development.",
-    ],
-    impactItems: [
-      "Youth Creative Labs and Senior Art Healing sessions",
-      "Newcomer integration through creative expression",
-      "14+ professional artists from five provinces",
-      "Industry-standard artist contracts and fair remuneration",
-      "Long-term platform for Western Canada's multicultural arts",
     ],
   },
   {
