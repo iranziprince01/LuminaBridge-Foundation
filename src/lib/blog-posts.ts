@@ -83,29 +83,36 @@ const lwylPitchingCover: BlogImage = {
   height: 2048,
 };
 
+const lwylPitch2Photo: BlogImage = {
+  src: img("/Pitch2.jpeg"),
+  alt: "Lead Where You Land fellows preparing for project presentations and the pitch competition.",
+  width: 2400,
+  height: 3106,
+};
+
 const leadWhereYouLandPitchPost: BlogPost = {
   slug: "lead-where-you-land-pitch-competition-2026",
   title: "Lead Where You Land Fellowship: Project Presentations and Pitch Competition",
   excerpt:
-    "More than 15 young fellows aged 14 to 24 are preparing to present their community projects. The Pitch Competition takes place on Friday, November 27, 2026.",
+    "More than 15 young fellows aged 14 to 24 are preparing to present their community projects. The Pitch Competition takes place on Friday, 20 November 2026.",
   category: "Program update",
-  published: "November 20, 2026",
+  published: "20 November 2026",
   publishedISO: "2026-11-20",
   coverLayout: "flyer",
   articleLayout: "fellowship-pitch",
   cover: lwylPitchingCover,
-  images: [lwylPitchingCover],
+  images: [lwylPitchingCover, lwylPitch2Photo],
   paragraphs: [
     "The Lead Where You Land Fellowship is nearing the completion of its current program sessions, bringing together more than 15 young fellows aged 14 to 24.",
     "Throughout the program, participants have engaged in leadership development, coaching, and learning opportunities while developing their own community-focused projects. As we approach the final stage, our fellows are preparing to present their projects and showcase the knowledge, creativity, and leadership skills they have gained throughout the fellowship.",
-    "We are pleased to announce our upcoming Pitch Competition on Friday, November 27, 2026, where fellows will present their projects and compete for an opportunity to bring their ideas to life.",
+    "We are pleased to announce our upcoming Pitch Competition on Friday, 20 November 2026, where fellows will present their projects and compete for an opportunity to bring their ideas to life.",
     "This milestone recognizes the dedication, innovation, and potential of young leaders as they take meaningful steps toward creating positive change in their communities.",
   ],
   closing: "Together, we are helping young people to lead where they land!",
   facts: [
     { label: "Program", value: "Lead Where You Land Fellowship" },
     { label: "Fellows", value: "More than 15 young leaders, ages 14 to 24" },
-    { label: "Pitch Competition", value: "Friday, November 27, 2026" },
+    { label: "Pitch Competition", value: "Friday, 20 November 2026" },
     { label: "Partner", value: "SOARING, sponsor and program partner" },
     { label: "Phase", value: "Youth Unlocking Potential 2026, Phase I" },
   ],

@@ -13,6 +13,7 @@ interface FellowshipPitchArticleProps {
 
 export function FellowshipPitchArticle({ post }: FellowshipPitchArticleProps) {
   const eventCta = post.cta;
+  const sidePhoto = post.images.find((image) => image.src !== post.cover.src);
 
   return (
     <>
@@ -68,7 +69,7 @@ export function FellowshipPitchArticle({ post }: FellowshipPitchArticleProps) {
       <Section tone="white">
         <PageContainer>
           <FadeUp>
-            <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(17rem,0.75fr)] lg:gap-8">
+            <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(17rem,0.75fr)] lg:gap-8">
               <div className="flex flex-col gap-6 rounded-[1.75rem] bg-white p-6 ring-1 ring-border/60 sm:gap-7 sm:p-8 lg:p-9">
                 <div className="space-y-5 sm:space-y-6">
                   {post.paragraphs.map((paragraph) => (
@@ -91,7 +92,7 @@ export function FellowshipPitchArticle({ post }: FellowshipPitchArticleProps) {
                         Pitch Competition
                       </p>
                       <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground sm:text-[1.75rem]">
-                        Friday, November 27, 2026
+                        Friday, 20 November 2026
                       </h2>
                       <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
                         Fellows present their community-focused projects and compete for a chance
@@ -130,6 +131,19 @@ export function FellowshipPitchArticle({ post }: FellowshipPitchArticleProps) {
               </div>
 
               <div className="flex flex-col gap-6">
+                {sidePhoto ? (
+                  <div className="overflow-hidden rounded-[1.75rem] ring-1 ring-border/60">
+                    <Image
+                      src={sidePhoto.src}
+                      alt={sidePhoto.alt}
+                      width={sidePhoto.width}
+                      height={sidePhoto.height}
+                      sizes="(max-width: 1024px) 90vw, 320px"
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                ) : null}
+
                 <aside className="rounded-[1.75rem] bg-primary p-6 text-white shadow-sm sm:p-7 lg:p-8">
                   <div className="flex items-center gap-2 text-sm text-white/75">
                     <Users className="h-4 w-4 text-secondary-foreground" aria-hidden />
