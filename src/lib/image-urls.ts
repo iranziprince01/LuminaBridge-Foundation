@@ -102,6 +102,8 @@ export const imageUrls: Record<string, string> = {
   "/partners/soaring.png": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/partners/soaring.png",
   "/partners/sprout-ideas.png": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/partners/sprout-ideas.png",
   "/Patrone.jpeg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Patrone.jpeg",
+  "/Pitch2.jpeg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/Pitch2.jpeg",
+  "/lwyl-pitching.jpeg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/lwyl-pitching.jpeg",
   "/soccer01.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer01.jpg",
   "/soccer02.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/soccer02.jpg",
   "/story.jpg": "https://58qjghd7zgq9l2mb.public.blob.vercel-storage.com/site/story.jpg",

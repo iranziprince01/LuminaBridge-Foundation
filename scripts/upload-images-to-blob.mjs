@@ -94,6 +94,8 @@ const IMAGES = [
   // Blogs
   "Blog01.jpeg",
   "Blog02.jpeg",
+  "lwyl-pitching.jpeg",
+  "Pitch2.jpeg",
   // BridgeFest Canada 2026 highlight photos
   "BF26/BFD101.jpg",
   "BF26/BFD102.jpg",
